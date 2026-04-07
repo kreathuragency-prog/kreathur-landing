@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreathur Agency | Agencia Digital, IA, SEO & Drones — Pichilemu, Chile</title>
+  <meta name="description" content="Kreathur Agency — Agencia digital desde Chile. SEO, desarrollo web, IA generativa (Claude, ChatGPT, Manus), drones certificados DGAC y automatizaciones. Fundada por Matias Aguilera.">
+  <meta name="keywords" content="agencia digital chile, seo chile, ia generativa, drones chile, desarrollo web, kreathur agency, matias aguilera, chatgpt, claude ai, automatizaciones">
+  <meta property="og:title" content="Kreathur Agency | Agencia Digital, IA & Drones">
+  <meta property="og:description" content="Desde Pichilemu para el mundo. SEO, IA Generativa, Desarrollo Web, Drones DGAC y mas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kreathur.agency/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>/* ========== KREATHUR AGENCY — STYLES ========== */
+:root {
+  --accent: #00e5ff;
+  --accent2: #a855f7;
+  --white: #f5f5f0;
+  --black: #0a0a0a;
+  --gray: #888;
+  --gray-dark: #1a1a1a;
+  --gray-card: #111;
+  --accent-glow: rgba(0,229,255,.15);
+  --accent2-glow: rgba(168,85,247,.15);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --ease-out: cubic-bezier(.4,0,.2,1);
+  --ease-spring: cubic-bezier(.175,.885,.32,1.275);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--black); }
+body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; opacity:0; transition: opacity .6s; }
+body.loaded { opacity:1; }
+::selection { background: var(--accent); color: var(--black); }
+a { color: inherit; text-decoration: none; }
+.accent { color: var(--accent); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+img { max-width:100%; display:block; }
+
+/* LOADER */
+#loader { position:fixed; inset:0; z-index:9999; background:var(--black); display:flex; flex-direction:column; align-items:center; justify-content:center; transition: opacity .5s, visibility .5s; }
+#loader.hidden { opacity:0; visibility:hidden; }
+.loader-brand { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); font-weight:800; letter-spacing:.08em; color:var(--white); }
+.loader-bar { width:120px; height:2px; background:var(--gray-dark); margin-top:20px; border-radius:2px; overflow:hidden; }
+.loader-fill { width:0; height:100%; background:var(--accent); transition: width 1.5s var(--ease-out); }
+#loader.active .loader-fill { width:100%; }
+
+/* NOISE */
+.noise-overlay { position:fixed; inset:0; z-index:9000; pointer-events:none; opacity:.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* CURSOR */
+.cursor-dot { width:6px; height:6px; background:var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transition: transform .1s; }
+.cursor-ring { width:36px; height:36px; border:1.5px solid rgba(0,229,255,.4); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9997; transition: width .3s, height .3s, border-color .3s; }
+@media(pointer:coarse){ .cursor-dot,.cursor-ring{display:none;} }
+
+/* NAV */
+#nav { position:fixed; top:0; left:0; right:0; z-index:8000; display:flex; align-items:center; justify-content:space-between; padding:18px 32px; transition: background .3s, padding .3s, backdrop-filter .3s; }
+#nav.scrolled { background:rgba(10,10,10,.85); backdrop-filter:blur(12px); padding:12px 32px; }
+.nav-brand { font-family:var(--font-display); font-size:1.2rem; font-weight:800; letter-spacing:.06em; }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); transition:color .3s; }
+.nav-links a:hover { color:var(--accent); }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.nav-mw { font-family:var(--font-display); font-weight:800; font-size:1rem; padding:6px 14px; border:1px solid var(--accent); border-radius:6px; transition: background .3s, color .3s; }
+.nav-mw:hover { background:var(--accent); color:var(--black); }
+.burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.burger span { width:24px; height:2px; background:var(--white); transition: transform .3s, opacity .3s; }
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* HERO */
+.hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; }
+.hero-gradient { position:absolute; inset:0; background:radial-gradient(ellipse at 30% 20%, rgba(0,229,255,.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(168,85,247,.06) 0%, transparent 60%); }
+.hero-grid { position:absolute; inset:0; background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:60px 60px; }
+.hero-content { position:relative; text-align:center; padding:0 24px; max-width:900px; }
+.hero-badge { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; color:var(--accent); margin-bottom:24px; border:1px solid rgba(0,229,255,.3); display:inline-block; padding:8px 20px; border-radius:40px; }
+.hero-title { font-family:var(--font-display); line-height:.92; margin-bottom:28px; }
+.title-line { display:block; font-size:clamp(3rem,10vw,8rem); font-weight:800; letter-spacing:-.02em; }
+.title-line.outline { -webkit-text-stroke:2px var(--white); color:transparent; }
+.hero-desc { font-size:1.05rem; color:var(--gray); max-width:560px; margin:0 auto 36px; line-height:1.7; }
+.hero-ctas { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+.btn-primary { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:14px 32px; background:var(--accent); color:var(--black); border:none; border-radius:6px; cursor:pointer; transition:transform .3s var(--ease-spring), box-shadow .3s; font-weight:700; display:inline-block; }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px var(--accent-glow); }
+.btn-outline { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:14px 32px; border:1px solid var(--gray); color:var(--white); border-radius:6px; cursor:pointer; transition:border-color .3s, color .3s; display:inline-block; }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+.hero-stats { display:flex; justify-content:center; gap:48px; flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-num { display:block; font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--accent); }
+.stat-label { font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); }
+.hero-scroll { position:absolute; left:32px; bottom:40px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.hero-scroll span { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.2em; writing-mode:vertical-rl; color:var(--gray); }
+.scroll-line { width:1px; height:50px; background:linear-gradient(to bottom, var(--accent), transparent); animation:scrollPulse 2s infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(.6)} 50%{opacity:1;transform:scaleY(1)} }
+
+/* MARQUEE */
+.marquee { padding:20px 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); overflow:hidden; }
+.marquee-track { display:flex; width:max-content; animation:marqueeScroll 30s linear infinite; }
+.marquee-track span { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.15em; color:var(--gray); white-space:nowrap; padding:0 8px; }
+@keyframes marqueeScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* SECTIONS */
+.section { padding:100px 0; }
+.section-dark { background:var(--gray-dark); }
+.section-tag { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+.section-title { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.2rem); font-weight:800; margin-bottom:16px; line-height:1.1; }
+.section-sub { color:var(--gray); font-size:1rem; max-width:600px; margin-bottom:48px; line-height:1.6; }
+
+/* SERVICES GRID (legacy) */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; }
+.service-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:36px; transition:border-color .3s, transform .3s; }
+.service-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+.sc-icon { font-size:2rem; margin-bottom:16px; }
+.service-card h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; margin-bottom:12px; }
+.service-card p { color:var(--gray); font-size:.9rem; line-height:1.6; margin-bottom:16px; }
+.sc-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.sc-tags span { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.08em; padding:4px 12px; border:1px solid rgba(255,255,255,.1); border-radius:20px; color:var(--gray); }
+
+/* ===== RUBROS / INDUSTRY SECTION ===== */
+.rubros-intro { text-align:center; max-width:680px; margin:0 auto 56px; }
+.rubros-intro p { color:var(--gray); font-size:1rem; line-height:1.7; }
+
+/* Tab Navigation */
+.rubros-tabs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:48px; }
+.rubro-tab { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding:10px 22px; border:1px solid rgba(255,255,255,.1); border-radius:40px; background:transparent; color:var(--gray); cursor:pointer; transition:all .35s var(--ease-out); white-space:nowrap; }
+.rubro-tab:hover { border-color:rgba(0,229,255,.4); color:var(--white); background:rgba(0,229,255,.06); }
+.rubro-tab.active { border-color:var(--accent); color:var(--black); background:var(--accent); box-shadow:0 4px 24px var(--accent-glow); }
+
+/* Rubro Panel */
+.rubros-panels { position:relative; }
+.rubro-panel { display:none; animation:rubroFadeIn .5s var(--ease-out); }
+.rubro-panel.active { display:block; }
+@keyframes rubroFadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* Panel Header */
+.rubro-header { display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; margin-bottom:40px; padding:32px 36px; background:linear-gradient(135deg, rgba(0,229,255,.04), rgba(168,85,247,.03)); border:1px solid rgba(0,229,255,.12); border-radius:20px; }
+.rubro-icon-large { font-size:3.5rem; width:80px; height:80px; display:flex; align-items:center; justify-content:center; background:rgba(0,229,255,.08); border-radius:16px; border:1px solid rgba(0,229,255,.15); }
+.rubro-header-text h3 { font-family:var(--font-display); font-size:clamp(1.4rem,3vw,1.8rem); font-weight:800; margin-bottom:6px; }
+.rubro-header-text .rubro-tagline { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; color:var(--accent); margin-bottom:10px; }
+.rubro-header-text p { color:var(--gray); font-size:.92rem; line-height:1.65; max-width:560px; }
+
+/* Solutions Grid */
+.solutions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:32px; }
+.solution-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:28px; transition:all .35s var(--ease-out); position:relative; overflow:hidden; }
+.solution-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--accent), var(--accent2)); opacity:0; transition:opacity .35s; }
+.solution-card:hover { border-color:rgba(0,229,255,.25); transform:translateY(-3px); }
+.solution-card:hover::before { opacity:1; }
+.solution-card .sol-icon { font-size:1.5rem; margin-bottom:12px; display:block; }
+.solution-card h4 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:8px; }
+.solution-card p { color:var(--gray); font-size:.83rem; line-height:1.6; margin-bottom:14px; }
+.sol-tools { display:flex; flex-wrap:wrap; gap:6px; }
+.sol-tools span { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.06em; padding:3px 10px; border:1px solid rgba(0,229,255,.15); border-radius:16px; color:var(--accent); background:rgba(0,229,255,.04); }
+
+/* Rubro CTA */
+.rubro-cta { display:flex; align-items:center; justify-content:space-between; padding:24px 32px; background:rgba(0,229,255,.04); border:1px dashed rgba(0,229,255,.2); border-radius:14px; flex-wrap:wrap; gap:16px; }
+.rubro-cta p { font-size:.9rem; color:var(--gray); }
+.rubro-cta p strong { color:var(--white); }
+
+/* All Services Quick Grid */
+.all-services-label { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gray); margin-bottom:20px; margin-top:64px; text-align:center; }
+.all-services-quick { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; max-width:900px; margin:0 auto; }
+.asq-item { display:flex; align-items:center; gap:10px; padding:14px 18px; background:var(--gray-card); border:1px solid rgba(255,255,255,.05); border-radius:12px; transition:border-color .3s; }
+.asq-item:hover { border-color:rgba(0,229,255,.3); }
+.asq-item .asq-icon { font-size:1.2rem; flex-shrink:0; }
+.asq-item span { font-family:var(--font-display); font-size:.82rem; font-weight:600; }
+
+@media(max-width:768px){
+  .rubro-header { grid-template-columns:1fr; text-align:center; }
+  .rubro-icon-large { margin:0 auto; }
+  .rubros-tabs { gap:6px; }
+  .rubro-tab { font-size:.65rem; padding:8px 16px; }
+  .rubro-cta { flex-direction:column; text-align:center; }
+}
+
+/* IA GRID */
+.ia-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+.ia-card { background:rgba(10,10,10,.6); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:32px; transition:border-color .3s, transform .3s; }
+.ia-card:hover { border-color:var(--accent2); transform:translateY(-4px); }
+.ia-logo { font-family:var(--font-display); font-size:1.5rem; font-weight:800; color:var(--accent); }
+.ia-by { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.1em; color:var(--gray); margin-bottom:16px; }
+.ia-card h4 { font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:12px; }
+.ia-card ul { list-style:none; margin-bottom:16px; }
+.ia-card li { font-size:.85rem; color:var(--gray); padding:4px 0; padding-left:16px; position:relative; }
+.ia-card li::before { content:''; position:absolute; left:0; top:50%; width:6px; height:6px; border-radius:50%; background:var(--accent); transform:translateY(-50%); }
+.ia-use { font-family:var(--font-mono); font-size:.65rem; color:var(--accent2); letter-spacing:.05em; padding-top:12px; border-top:1px solid rgba(255,255,255,.06); }
+
+/* PROJECTS */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:24px; }
+.project-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; overflow:hidden; transition:border-color .3s, transform .3s; display:block; }
+.project-card:hover { border-color:var(--accent); transform:translateY(-6px); }
+.pc-image { height:200px; background-size:cover; background-position:center; position:relative; }
+.pc-overlay { position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(0,0,0,.8)); display:flex; align-items:flex-end; padding:16px; }
+.pc-tag { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.1em; background:var(--accent); color:var(--black); padding:4px 12px; border-radius:20px; font-weight:700; }
+.pc-info { padding:24px; }
+.pc-info h3 { font-family:var(--font-display); font-size:1.2rem; font-weight:700; margin-bottom:8px; }
+.pc-info p { color:var(--gray); font-size:.85rem; line-height:1.6; margin-bottom:12px; }
+.pc-metrics { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+.pc-metrics span { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.08em; padding:4px 10px; border:1px solid rgba(0,229,255,.3); border-radius:20px; color:var(--accent); }
+.pc-link { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.1em; color:var(--accent); }
+.project-card-cta { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(0,229,255,.06), rgba(168,85,247,.06)); border:2px dashed rgba(0,229,255,.3); }
+.pc-cta-inner { text-align:center; padding:48px 24px; }
+.pc-cta-icon { font-size:3rem; color:var(--accent); margin-bottom:16px; }
+.pc-cta-inner h3 { font-family:var(--font-display); font-size:1.3rem; margin-bottom:8px; }
+.pc-cta-inner p { color:var(--gray); font-size:.85rem; margin-bottom:16px; }
+
+/* DRONE */
+.drone-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:24px; margin-bottom:48px; }
+.drone-video { border-radius:16px; overflow:hidden; background:var(--black); border:1px solid rgba(255,255,255,.08); }
+.drone-video iframe { width:100%; aspect-ratio:16/9; display:block; }
+.dv-label { display:block; font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; color:var(--gray); padding:12px 16px; }
+.drone-services { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
+.ds-item { background:rgba(10,10,10,.6); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:24px; text-align:center; transition:border-color .3s; }
+.ds-item:hover { border-color:var(--accent); }
+.ds-icon { font-size:2rem; margin-bottom:8px; display:block; }
+.ds-item h4 { font-family:var(--font-display); font-size:.95rem; margin-bottom:6px; }
+.ds-item p { font-size:.78rem; color:var(--gray); line-height:1.5; }
+
+/* OFFER BANNER */
+.offer-banner { background:linear-gradient(135deg, rgba(0,229,255,.1), rgba(168,85,247,.1)); border:2px solid var(--accent); border-radius:20px; padding:40px; text-align:center; margin-bottom:48px; position:relative; overflow:hidden; }
+.ob-badge { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; background:var(--accent); color:var(--black); padding:6px 18px; border-radius:20px; display:inline-block; margin-bottom:16px; font-weight:700; }
+.offer-banner h3 { font-family:var(--font-display); font-size:clamp(1.4rem,3vw,2rem); font-weight:800; margin-bottom:12px; }
+.offer-banner p { color:var(--gray); font-size:.95rem; }
+.offer-banner p span { color:var(--accent); font-weight:700; font-size:1.2rem; }
+.ob-timer { display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-family:var(--font-mono); font-size:.75rem; color:var(--accent); }
+.ob-dot { width:8px; height:8px; border-radius:50%; background:#00ff88; }
+.ob-dot.pulse { animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+/* COMPARE TABLE */
+.compare-table { overflow-x:auto; margin-bottom:48px; }
+.compare-table table { width:100%; border-collapse:collapse; font-size:.85rem; }
+.compare-table th, .compare-table td { padding:14px 18px; text-align:left; border-bottom:1px solid rgba(255,255,255,.06); }
+.compare-table th { font-family:var(--font-display); font-size:.85rem; font-weight:700; color:var(--white); background:var(--gray-card); }
+.compare-table th small { font-weight:400; color:var(--gray); font-size:.7rem; }
+.compare-table td { color:var(--gray); font-family:var(--font-mono); font-size:.78rem; }
+.compare-table .highlight { color:var(--accent); background:rgba(0,229,255,.04); }
+.compare-table th.highlight { color:var(--accent); }
+.compare-table td.highlight strong { font-size:1rem; }
+
+/* PRICING */
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:48px; }
+.price-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:36px; text-align:center; transition:border-color .3s, transform .3s; position:relative; }
+.price-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+.price-card.featured { border-color:var(--accent); background:linear-gradient(180deg, rgba(0,229,255,.06) 0%, var(--gray-card) 100%); }
+.prc-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; background:var(--accent); color:var(--black); padding:4px 16px; border-radius:20px; font-weight:700; }
+.prc-name { font-family:var(--font-display); font-size:1.3rem; font-weight:700; margin-bottom:16px; }
+.prc-price { margin-bottom:24px; }
+.prc-old { text-decoration:line-through; color:var(--gray); font-size:.9rem; display:block; margin-bottom:4px; }
+.prc-new { font-family:var(--font-display); font-size:2.5rem; font-weight:800; color:var(--accent); }
+.prc-period { font-size:.85rem; color:var(--gray); }
+.prc-features { list-style:none; text-align:left; margin-bottom:28px; }
+.prc-features li { font-size:.85rem; color:var(--gray); padding:8px 0; border-bottom:1px solid rgba(255,255,255,.04); padding-left:20px; position:relative; }
+.prc-features li::before { content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+.pricing-note { font-family:var(--font-mono); font-size:.7rem; color:var(--gray); text-align:center; margin-top:24px; letter-spacing:.05em; }
+
+/* FOUNDER */
+.founder-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:center; }
+.founder-img img { border-radius:20px; border:3px solid var(--accent); aspect-ratio:1; object-fit:cover; }
+.founder-info .section-tag { margin-bottom:8px; }
+.founder-info .section-title { margin-bottom:8px; }
+.founder-role { font-family:var(--font-mono); font-size:.8rem; letter-spacing:.1em; color:var(--accent); margin-bottom:20px; }
+.founder-info p { color:var(--gray); font-size:.95rem; line-height:1.7; margin-bottom:16px; }
+.founder-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+
+/* CONTACT */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+.contact-item { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:28px; text-align:center; transition:border-color .3s, transform .3s; display:block; }
+.contact-item:hover { border-color:var(--accent); transform:translateY(-4px); }
+.ci-icon { font-size:1.8rem; display:block; margin-bottom:8px; }
+.ci-label { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gray); display:block; margin-bottom:4px; }
+.ci-value { font-family:var(--font-display); font-size:.9rem; font-weight:600; color:var(--accent); }
+
+/* FOOTER */
+footer { padding:48px 0 24px; border-top:1px solid rgba(255,255,255,.06); }
+.footer-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+.footer-brand { font-family:var(--font-display); font-size:1.3rem; font-weight:800; }
+.footer-top p { color:var(--gray); font-size:.85rem; }
+.footer-links { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:24px; }
+.footer-links a { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); transition:color .3s; }
+.footer-links a:hover { color:var(--accent); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.04); padding-top:16px; }
+.footer-bottom span { font-size:.75rem; color:var(--gray); }
+
+/* WHATSAPP FLOAT */
+.wa-float { position:fixed; bottom:28px; right:28px; z-index:7000; width:56px; height:56px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.4); transition:transform .3s; }
+.wa-float:hover { transform:scale(1.1); }
+
+/* REVEAL ANIMATION */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(10,10,10,.97); flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+  .nav-links.open { display:flex; }
+  .burger { display:flex; }
+  .hero-stats { gap:24px; }
+  .stat-num { font-size:1.6rem; }
+  .founder-grid { grid-template-columns:1fr; text-align:center; }
+  .founder-img img { max-width:250px; margin:0 auto; }
+  .founder-links { justify-content:center; }
+  .services-grid, .ia-grid, .projects-grid, .drone-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; }
+  .compare-table { font-size:.75rem; }
+  .drone-services { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-brand">KREATHUR<span class="accent">.</span></div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- NOISE -->
+  <div class="noise-overlay"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#inicio" class="nav-brand">KREATHUR<span class="accent">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Rubros</a>
+      <a href="#ia">IA Generativa</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#drone">Drones</a>
+      <a href="#precios">Precios</a>
+      <a href="#fundador">Fundador</a>
+      <a href="#contacto">Conectar</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://www.kreathur.agency/matiwlog/" class="nav-mw" target="_blank">MW<span class="accent">.</span></a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">AGENCIA DIGITAL &bull; IA &bull; SEO &bull; DRONES</div>
+      <h1 class="hero-title" data-scramble>
+        <span class="title-line">KREATHUR</span>
+        <span class="title-line outline">AGENCY</span>
+      </h1>
+      <p class="hero-desc">Transformamos negocios con tecnologia, inteligencia artificial y creatividad. Desde Pichilemu, Chile — para el mundo.</p>
+      <div class="hero-ctas">
+        <a href="#precios" class="btn-primary magnetic">Ver Planes &amp; Precios</a>
+        <a href="#servicios" class="btn-outline magnetic">Explorar Servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="50">0</span><span class="stat-label">Proyectos</span></div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Anos Exp.</span></div>
+        <div class="stat"><span class="stat-num" data-target="8">0</span><span class="stat-label">Herramientas IA</span></div>
+        <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-label">% Satisfaccion</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SEO &bull; DESARROLLO WEB &bull; CLAUDE AI &bull; CHATGPT &bull; MANUS AI &bull; FREEPIK AI &bull; DRONES DGAC &bull; AUTOMATIZACIONES &bull; E-COMMERCE &bull; GOOGLE ADS &bull; WHATSAPP BOTS &bull; BRANDING &bull; </span>
+      <span>SEO &bull; DESARROLLO WEB &bull; CLAUDE AI &bull; CHATGPT &bull; MANUS AI &bull; FREEPIK AI &bull; DRONES DGAC &bull; AUTOMATIZACIONES &bull; E-COMMERCE &bull; GOOGLE ADS &bull; WHATSAPP BOTS &bull; BRANDING &bull; </span>
+    </div>
+  </div>
+
+  <!-- SERVICIOS POR RUBRO -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Soluciones por Industria</div>
+      <h2 class="section-title reveal">Encuentra tu rubro, encuentra tu solucion.</h2>
+      <div class="rubros-intro reveal">
+        <p>Cada industria tiene desafios unicos. Selecciona tu rubro y descubre exactamente como podemos ayudarte a crecer con tecnologia, IA y estrategia digital.</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="rubros-tabs reveal">
+        <button class="rubro-tab active" data-rubro="inmobiliarias">Inmobiliarias</button>
+        <button class="rubro-tab" data-rubro="turismo">Turismo &amp; Hoteleria</button>
+        <button class="rubro-tab" data-rubro="ecommerce">E-Commerce &amp; Retail</button>
+        <button class="rubro-tab" data-rubro="gastronomia">Gastronomia</button>
+        <button class="rubro-tab" data-rubro="profesionales">Profesionales &amp; Pymes</button>
+        <button class="rubro-tab" data-rubro="agro">Agricultura &amp; Campo</button>
+        <button class="rubro-tab" data-rubro="eventos">Eventos &amp; Produccion</button>
+      </div>
+
+      <!-- PANELS -->
+      <div class="rubros-panels">
+
+        <!-- INMOBILIARIAS -->
+        <div class="rubro-panel active" id="rubro-inmobiliarias">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#127960;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Inmobiliarias &amp; Corredores de Propiedades</div>
+              <h3>Vende mas propiedades con tecnologia</h3>
+              <p>Tomas aereas 4K, tours virtuales, sitios web con busqueda avanzada y bots que atienden consultas 24/7. Todo lo que necesitas para destacar en el mercado inmobiliario.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128249;</span>
+              <h4>Video Aereo &amp; Tour 4K</h4>
+              <p>Tomas drone certificado DGAC de propiedades, terrenos y desarrollos. Video editado listo para portales y redes.</p>
+              <div class="sol-tools"><span>DJI 4K</span><span>DGAC</span><span>Edicion Pro</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127760;</span>
+              <h4>Sitio Web Inmobiliario</h4>
+              <p>Plataforma con filtros de busqueda, fichas de propiedad, galeria, mapa y formulario de contacto integrado.</p>
+              <div class="sol-tools"><span>Next.js</span><span>React</span><span>SEO</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#129302;</span>
+              <h4>Bot IA de Consultas</h4>
+              <p>Chatbot WhatsApp que responde sobre propiedades disponibles, agenda visitas y filtra leads automaticamente.</p>
+              <div class="sol-tools"><span>Claude AI</span><span>WhatsApp</span><span>n8n</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128200;</span>
+              <h4>SEO &amp; Google Ads</h4>
+              <p>Posicionamiento local para "casas en venta en [ciudad]" y campanas de Google Ads con landing pages de conversion.</p>
+              <div class="sol-tools"><span>SEO Local</span><span>Google Ads</span><span>Analytics</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Eres corredor o inmobiliaria?</strong> Conversemos sobre como digitalizar tu operacion.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Inmobiliarias</a>
+          </div>
+        </div>
+
+        <!-- TURISMO & HOTELERIA -->
+        <div class="rubro-panel" id="rubro-turismo">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#127796;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Turismo, Hoteles &amp; Apart Hotels</div>
+              <h3>Mas reservas, menos intermediarios</h3>
+              <p>Motor de reservas propio, channel manager para OTAs, videos drone de tu destino y bots que atienden huespedes en cualquier idioma, a cualquier hora.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128197;</span>
+              <h4>Channel Manager Custom</h4>
+              <p>Sincronizacion con Booking, Airbnb y otras OTAs via iCal. Control total de tarifas, disponibilidad y reservas desde un panel propio.</p>
+              <div class="sol-tools"><span>iCal Sync</span><span>Multi-OTA</span><span>Node.js</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127909;</span>
+              <h4>Video Drone del Destino</h4>
+              <p>Tours aereos 4K de tu hotel, cabanas o destino turistico. Contenido que enamora antes de reservar.</p>
+              <div class="sol-tools"><span>DJI 4K</span><span>DGAC</span><span>YouTube</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#129302;</span>
+              <h4>Bot Concierge 24/7</h4>
+              <p>Asistente IA en WhatsApp que responde sobre disponibilidad, check-in, recomendaciones locales y reservas directas.</p>
+              <div class="sol-tools"><span>Claude AI</span><span>WhatsApp</span><span>Multi-idioma</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127760;</span>
+              <h4>Web de Reservas + SEO</h4>
+              <p>Sitio con motor de reservas directo, galeria, calendario de disponibilidad y SEO para captar trafico organico.</p>
+              <div class="sol-tools"><span>Next.js</span><span>SEO</span><span>Google Hotel</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Tienes un hotel, cabanas o apart?</strong> Te ayudamos a llenar tus temporadas.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Turismo</a>
+          </div>
+        </div>
+
+        <!-- E-COMMERCE & RETAIL -->
+        <div class="rubro-panel" id="rubro-ecommerce">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#128722;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">E-Commerce, Tiendas Online &amp; Retail</div>
+              <h3>Tu tienda online que realmente vende</h3>
+              <p>Desde la creacion de tu e-commerce hasta la automatizacion del marketing. Catalogo, carrito, pagos, SEO y bots de venta todo integrado.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128187;</span>
+              <h4>E-Commerce Completo</h4>
+              <p>Tienda online con catalogo, carrito, checkout, MercadoPago/Webpay y panel admin. Rapido, SEO-friendly y mobile-first.</p>
+              <div class="sol-tools"><span>Next.js</span><span>MercadoPago</span><span>React</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128269;</span>
+              <h4>SEO para Productos</h4>
+              <p>Optimizacion de fichas de producto, categorias y contenido para aparecer en Google Shopping y busquedas organicas.</p>
+              <div class="sol-tools"><span>SEO On-Page</span><span>Schema</span><span>Keywords</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128241;</span>
+              <h4>Bot de Ventas WhatsApp</h4>
+              <p>Bot que muestra productos, toma pedidos, envia links de pago y notifica al vendedor. Ventas en piloto automatico.</p>
+              <div class="sol-tools"><span>WhatsApp</span><span>Claude AI</span><span>Pagos</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128200;</span>
+              <h4>Ads &amp; Email Marketing</h4>
+              <p>Campanas Google Ads y Meta Ads con retargeting. Email automatizado para carritos abandonados y promos.</p>
+              <div class="sol-tools"><span>Google Ads</span><span>Meta Ads</span><span>Email</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Quieres vender online?</strong> Creamos tu tienda desde cero o mejoramos la que ya tienes.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar E-Commerce</a>
+          </div>
+        </div>
+
+        <!-- GASTRONOMIA -->
+        <div class="rubro-panel" id="rubro-gastronomia">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#127860;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Restaurantes, Cafes &amp; Delivery</div>
+              <h3>Llena tus mesas y tus pedidos</h3>
+              <p>Menu digital, pedidos por WhatsApp, presencia en Google Maps optimizada y contenido visual que abre el apetito.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128196;</span>
+              <h4>Menu Digital &amp; QR</h4>
+              <p>Menu web responsive con fotos, descripciones, precios y boton de pedido. Actualizable en tiempo real, sin apps.</p>
+              <div class="sol-tools"><span>Web App</span><span>QR Code</span><span>Responsive</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128241;</span>
+              <h4>Bot Pedidos WhatsApp</h4>
+              <p>Los clientes piden por WhatsApp, el bot toma el pedido, confirma y notifica a la cocina. Sin comisiones de delivery apps.</p>
+              <div class="sol-tools"><span>WhatsApp</span><span>Claude AI</span><span>n8n</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128205;</span>
+              <h4>Google Maps &amp; SEO Local</h4>
+              <p>Perfil de Google Business optimizado, resenas gestionadas, SEO local para "restaurante cerca de mi".</p>
+              <div class="sol-tools"><span>Google Business</span><span>SEO Local</span><span>Resenas</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127912;</span>
+              <h4>Contenido Visual &amp; RRSS</h4>
+              <p>Fotografia de platos, diseno de feed Instagram, reels y stories. Branding que abre el apetito.</p>
+              <div class="sol-tools"><span>Freepik AI</span><span>Instagram</span><span>Branding</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Tienes un restaurant o cafe?</strong> Digitalizamos tu negocio gastronomico.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Gastronomia</a>
+          </div>
+        </div>
+
+        <!-- PROFESIONALES & PYMES -->
+        <div class="rubro-panel" id="rubro-profesionales">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#128188;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Profesionales Independientes, Pymes &amp; Startups</div>
+              <h3>Tu negocio necesita presencia digital</h3>
+              <p>Abogados, contadores, dentistas, coaches, consultores &mdash; cualquier profesional que necesite captar clientes online y automatizar su atencion.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127760;</span>
+              <h4>Landing Page Profesional</h4>
+              <p>Pagina de aterrizaje optimizada para conversion: servicios, testimonios, formulario y WhatsApp directo.</p>
+              <div class="sol-tools"><span>Next.js</span><span>SEO</span><span>Conversion</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#129302;</span>
+              <h4>Asistente Virtual IA</h4>
+              <p>Bot WhatsApp que agenda citas, responde preguntas frecuentes y filtra clientes potenciales automaticamente.</p>
+              <div class="sol-tools"><span>Claude AI</span><span>WhatsApp</span><span>Agenda</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128269;</span>
+              <h4>SEO &amp; Google Business</h4>
+              <p>Aparecer en Google cuando alguien busca tu servicio en tu ciudad. Perfil optimizado y posicionamiento organico.</p>
+              <div class="sol-tools"><span>SEO Local</span><span>Google Business</span><span>Keywords</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127912;</span>
+              <h4>Branding &amp; Identidad</h4>
+              <p>Logo, tarjetas, plantillas de redes sociales y toda tu identidad visual profesional con IA generativa.</p>
+              <div class="sol-tools"><span>Freepik AI</span><span>Branding</span><span>RRSS</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Eres profesional independiente o pyme?</strong> Empecemos con lo esencial.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Profesionales</a>
+          </div>
+        </div>
+
+        <!-- AGRICULTURA -->
+        <div class="rubro-panel" id="rubro-agro">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#127806;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Agricultura, Vinedos &amp; Agroindustria</div>
+              <h3>Tecnologia para el campo chileno</h3>
+              <p>Monitoreo aereo de cultivos, mapeo topografico con drones y herramientas digitales para modernizar la gestion agricola.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128507;</span>
+              <h4>Mapeo Aereo &amp; NDVI</h4>
+              <p>Vuelos drone para analisis de salud de cultivos, deteccion de estres hidrico y mapeo de parcelas con precision.</p>
+              <div class="sol-tools"><span>DJI 4K</span><span>NDVI</span><span>Mapeo 3D</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128202;</span>
+              <h4>Topografia &amp; Levantamientos</h4>
+              <p>Levantamientos topograficos aereos, ortomosaicos y modelos 3D de terrenos para planificacion y obras.</p>
+              <div class="sol-tools"><span>DGAC</span><span>Ortomosaico</span><span>3D</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127760;</span>
+              <h4>Web &amp; Catalogo B2B</h4>
+              <p>Sitio web con catalogo de productos agricolas, sistema de cotizaciones y contacto directo con compradores.</p>
+              <div class="sol-tools"><span>Next.js</span><span>B2B</span><span>Catalogo</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#129302;</span>
+              <h4>Automatizacion de Reportes</h4>
+              <p>Generacion automatica de informes de campo, alertas de riego y dashboards de produccion con IA.</p>
+              <div class="sol-tools"><span>IA</span><span>n8n</span><span>Dashboards</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Trabajas en el campo?</strong> Llevemos la tecnologia a tu terreno.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Agro</a>
+          </div>
+        </div>
+
+        <!-- EVENTOS -->
+        <div class="rubro-panel" id="rubro-eventos">
+          <div class="rubro-header reveal">
+            <div class="rubro-icon-large">&#127916;</div>
+            <div class="rubro-header-text">
+              <div class="rubro-tagline">Eventos, Matrimonios &amp; Produccion Audiovisual</div>
+              <h3>Cada momento merece ser epico</h3>
+              <p>Cobertura aerea de eventos, streaming, paginas de evento, registro online y contenido post-evento que dura para siempre.</p>
+            </div>
+          </div>
+          <div class="solutions-grid">
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128249;</span>
+              <h4>Cobertura Drone 4K</h4>
+              <p>Tomas aereas cinematograficas de matrimonios, festivales, corporativos y activaciones de marca.</p>
+              <div class="sol-tools"><span>DJI 4K</span><span>DGAC</span><span>Cine</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#127760;</span>
+              <h4>Web de Evento &amp; Registro</h4>
+              <p>Pagina del evento con programa, speakers, formulario de inscripcion, countdown y mapa.</p>
+              <div class="sol-tools"><span>Landing</span><span>Formularios</span><span>Countdown</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128241;</span>
+              <h4>Bot de Informacion</h4>
+              <p>WhatsApp bot que responde preguntas sobre el evento: horarios, ubicacion, parking, entradas.</p>
+              <div class="sol-tools"><span>WhatsApp</span><span>Claude AI</span><span>FAQ</span></div>
+            </div>
+            <div class="solution-card reveal">
+              <span class="sol-icon">&#128200;</span>
+              <h4>Marketing &amp; Difusion</h4>
+              <p>Campanas de difusion en Google y Meta, email marketing para invitados y contenido visual para redes.</p>
+              <div class="sol-tools"><span>Meta Ads</span><span>Email</span><span>RRSS</span></div>
+            </div>
+          </div>
+          <div class="rubro-cta reveal">
+            <p><strong>Organizas eventos?</strong> Hagamos que cada detalle se vea increible.</p>
+            <a href="#contacto" class="btn-primary magnetic">Cotizar para Eventos</a>
+          </div>
+        </div>
+
+      </div><!-- /rubros-panels -->
+
+      <!-- ALL SERVICES QUICK REFERENCE -->
+      <div class="all-services-label reveal">Todos nuestros servicios</div>
+      <div class="all-services-quick reveal">
+        <div class="asq-item"><span class="asq-icon">&#128269;</span><span>SEO</span></div>
+        <div class="asq-item"><span class="asq-icon">&#128187;</span><span>Desarrollo Web</span></div>
+        <div class="asq-item"><span class="asq-icon">&#129302;</span><span>IA &amp; Chatbots</span></div>
+        <div class="asq-item"><span class="asq-icon">&#127909;</span><span>Drones 4K</span></div>
+        <div class="asq-item"><span class="asq-icon">&#128200;</span><span>Google Ads</span></div>
+        <div class="asq-item"><span class="asq-icon">&#127912;</span><span>Branding</span></div>
+        <div class="asq-item"><span class="asq-icon">&#128241;</span><span>WhatsApp Bots</span></div>
+        <div class="asq-item"><span class="asq-icon">&#9889;</span><span>Automatizaciones</span></div>
+        <div class="asq-item"><span class="asq-icon">&#128202;</span><span>Meta Ads</span></div>
+        <div class="asq-item"><span class="asq-icon">&#128196;</span><span>Email Marketing</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IA GENERATIVA -->
+  <section id="ia" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Inteligencia Artificial</div>
+      <h2 class="section-title reveal">IA Generativa para tu Negocio</h2>
+      <p class="section-sub reveal">Usamos las herramientas de IA mas avanzadas del mundo para automatizar, crear y escalar.</p>
+
+      <div class="ia-grid">
+        <div class="ia-card reveal">
+          <div class="ia-logo">Claude AI</div>
+          <div class="ia-by">by Anthropic</div>
+          <h4>Agentes IA &amp; Chatbots Premium</h4>
+          <ul>
+            <li>Chatbots conversacionales avanzados</li>
+            <li>Analisis de documentos y datos</li>
+            <li>Asistentes virtuales 24/7</li>
+            <li>Generacion de contenido SEO</li>
+            <li>Automatizacion de atencion al cliente</li>
+            <li>Bot WhatsApp inteligente (Bot Lemu)</li>
+          </ul>
+          <div class="ia-use">Usado en: Bot Lemu, Camperizate, atencion al cliente automatizada</div>
+        </div>
+
+        <div class="ia-card reveal">
+          <div class="ia-logo">ChatGPT</div>
+          <div class="ia-by">by OpenAI</div>
+          <h4>Contenido &amp; Estrategia</h4>
+          <ul>
+            <li>Generacion de contenido marketing</li>
+            <li>Redaccion SEO automatizada</li>
+            <li>Analisis de competencia</li>
+            <li>Planificacion de campanas</li>
+            <li>Respuestas automaticas personalizadas</li>
+            <li>Traduccion y localizacion</li>
+          </ul>
+          <div class="ia-use">Usado en: Content marketing, estrategia de campanas, copywriting</div>
+        </div>
+
+        <div class="ia-card reveal">
+          <div class="ia-logo">Manus AI</div>
+          <div class="ia-by">Agente Autonomo</div>
+          <h4>Investigacion &amp; Automatizacion</h4>
+          <ul>
+            <li>Research de mercado automatizado</li>
+            <li>Scraping inteligente de datos</li>
+            <li>Generacion de reportes</li>
+            <li>Automatizacion de tareas complejas</li>
+            <li>Analisis competitivo profundo</li>
+            <li>Workflows multi-paso</li>
+          </ul>
+          <div class="ia-use">Usado en: Analisis de mercado, reportes automaticos, investigacion</div>
+        </div>
+
+        <div class="ia-card reveal">
+          <div class="ia-logo">Freepik AI</div>
+          <div class="ia-by">IA Generativa Visual</div>
+          <h4>Diseno &amp; Contenido Visual</h4>
+          <ul>
+            <li>Generacion de imagenes para campanas</li>
+            <li>Mockups automaticos de productos</li>
+            <li>Contenido visual para redes sociales</li>
+            <li>Banners y graficas publicitarias</li>
+            <li>Edicion de fotos con IA</li>
+            <li>Ilustraciones personalizadas</li>
+          </ul>
+          <div class="ia-use">Usado en: Branding, redes sociales, e-commerce, publicidad digital</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Portfolio</div>
+      <h2 class="section-title reveal">Proyectos Destacados</h2>
+      <p class="section-sub reveal">Cada proyecto cuenta una historia. Haz clic para explorar.</p>
+
+      <div class="projects-grid">
+
+        <a href="https://www.camperizate.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/484seZN8MyI/maxresdefault.jpg')">
+            <div class="pc-overlay">
+              <span class="pc-tag">E-Commerce</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Camperizate</h3>
+            <p>E-commerce con 150+ productos outdoor/camping. AI chatbot integrado, SEO optimizado. Next.js 15, React 19, TypeScript.</p>
+            <div class="pc-metrics">
+              <span>150+ Productos</span><span>AI Chatbot</span><span>SEO #1</span>
+            </div>
+            <div class="pc-link">Visitar proyecto &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.lilafken.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/h9pRSErvdNg/maxresdefault.jpg')">
+            <div class="pc-overlay">
+              <span class="pc-tag">Real Estate + Turismo</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Lilafken Apart &amp; Real Estate</h3>
+            <p>Plataforma completa de arriendo, venta de propiedades y tour operator. Drone 4K, channel manager custom, panel admin.</p>
+            <div class="pc-metrics">
+              <span>14 Unidades</span><span>4K Drone</span><span>Channel Mgr</span>
+            </div>
+            <div class="pc-link">Visitar proyecto &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.pichilemuonline.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/Ziqrnw0S41Q/maxresdefault.jpg')">
+            <div class="pc-overlay">
+              <span class="pc-tag">IA + WhatsApp Bot</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Pichilemu Online + Bot Lemu</h3>
+            <p>Revista digital de turismo + Bot IA "Lemu" en WhatsApp. Guia virtual 24/7 potenciado por Claude AI y n8n.</p>
+            <div class="pc-metrics">
+              <span>24/7 IA</span><span>Claude AI</span><span>WA Bot</span>
+            </div>
+            <div class="pc-link">Visitar proyecto &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.importadoramaully.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/M-5UqQkv4xk/maxresdefault.jpg')">
+            <div class="pc-overlay">
+              <span class="pc-tag">B2B Catalogo</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Importadora Maully</h3>
+            <p>Catalogo B2B con precios mayoristas, academia de capacitacion (LMS), sistema de agentes y panel administrativo.</p>
+            <div class="pc-metrics">
+              <span>B2B Catalogo</span><span>LMS Academia</span><span>Admin Panel</span>
+            </div>
+            <div class="pc-link">Visitar proyecto &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/b5g7jlP_PsA/maxresdefault.jpg')">
+            <div class="pc-overlay">
+              <span class="pc-tag">Blog Personal + YouTube</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>MatiWlog</h3>
+            <p>Blog personal y canal YouTube de Matias Aguilera. +1.99K subs, 57 videos. Tutoriales, viajes, drones y tech.</p>
+            <div class="pc-metrics">
+              <span>1.99K Subs</span><span>57 Videos</span><span>Blog + YT</span>
+            </div>
+            <div class="pc-link">Visitar MatiWlog &rarr;</div>
+          </div>
+        </a>
+
+        <a href="#contacto" class="project-card project-card-cta reveal">
+          <div class="pc-cta-inner">
+            <div class="pc-cta-icon">+</div>
+            <h3>Tu Proyecto Aqui</h3>
+            <p>Conversemos sobre tu proxima idea. Somos tu aliado digital.</p>
+            <div class="pc-link">Contactanos &rarr;</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DRONE -->
+  <section id="drone" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Servicios Aereos</div>
+      <h2 class="section-title reveal">Drones Certificados DGAC</h2>
+      <p class="section-sub reveal">Piloto certificado. Tomas aereas 4K para inmobiliarias, turismo, eventos y mas.</p>
+
+      <div class="drone-grid">
+        <div class="drone-video reveal">
+          <iframe src="https://www.youtube.com/embed/Ziqrnw0S41Q?rel=0" title="Rio de Janeiro Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <span class="dv-label">Rio de Janeiro — Drone Aereo</span>
+        </div>
+        <div class="drone-video reveal">
+          <iframe src="https://www.youtube.com/embed/b5g7jlP_PsA?rel=0" title="Hamburgo Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <span class="dv-label">Hamburgo — Canales desde el Aire</span>
+        </div>
+        <div class="drone-video reveal">
+          <iframe src="https://www.youtube.com/embed/484seZN8MyI?rel=0" title="Camper Van Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <span class="dv-label">Fiat Ducato Camper — Lifestyle Aereo</span>
+        </div>
+      </div>
+
+      <div class="drone-services reveal">
+        <div class="ds-item"><span class="ds-icon">&#127960;</span><h4>Inmobiliarias</h4><p>Tours aereos 4K de propiedades, terrenos y desarrollos inmobiliarios.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127796;</span><h4>Turismo</h4><p>Videos promocionales aereos de destinos, hoteles y experiencias.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127916;</span><h4>Eventos</h4><p>Cobertura aerea de matrimonios, festivales, eventos corporativos.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#128507;</span><h4>Topografia</h4><p>Levantamientos topograficos, mapeo 3D, inspeccion de infraestructura.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127806;</span><h4>Agricultura</h4><p>Monitoreo de cultivos, analisis NDVI, fumigacion con drones.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#128247;</span><h4>Fotografia</h4><p>Sesiones fotograficas aereas para publicidad, redes sociales y catalogo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVA + PRECIOS -->
+  <section id="precios" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Precios</div>
+      <h2 class="section-title reveal">Planes &amp; Precios</h2>
+      <p class="section-sub reveal">Comparados con las principales agencias de Chile. Mismos servicios, mejores resultados, precio justo.</p>
+
+      <!-- OFERTA BANNER -->
+      <div class="offer-banner reveal">
+        <div class="ob-badge">OFERTA LIMITADA</div>
+        <h3>50% de descuento para los primeros 50 clientes</h3>
+        <p>Accede a precios exclusivos de lanzamiento. Solo quedan <span id="clientCount">47</span> cupos disponibles.</p>
+        <div class="ob-timer">
+          <div class="ob-dot pulse"></div> Oferta activa
+        </div>
+      </div>
+
+      <!-- COMPARATIVA -->
+      <div class="compare-table reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Mercado Chile<br><small>(TusClicks, Muller, 9MM, etc.)</small></th>
+              <th>Kreathur Agency<br><small>Precio Normal</small></th>
+              <th class="highlight">Kreathur Agency<br><small>CON 50% OFF</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SEO Mensual</td>
+              <td>$150.000 - $500.000</td>
+              <td>$149.990</td>
+              <td class="highlight"><strong>$74.995</strong>/mes</td>
+            </tr>
+            <tr>
+              <td>Landing Page</td>
+              <td>$250.000 - $550.000</td>
+              <td>$249.990</td>
+              <td class="highlight"><strong>$124.995</strong></td>
+            </tr>
+            <tr>
+              <td>E-Commerce</td>
+              <td>$650.000 - $1.200.000</td>
+              <td>$599.990</td>
+              <td class="highlight"><strong>$299.995</strong></td>
+            </tr>
+            <tr>
+              <td>Bot IA WhatsApp</td>
+              <td>$400.000 - $1.000.000</td>
+              <td>$349.990</td>
+              <td class="highlight"><strong>$174.995</strong></td>
+            </tr>
+            <tr>
+              <td>Drone Session 4K</td>
+              <td>$100.000 - $500.000</td>
+              <td>$99.990</td>
+              <td class="highlight"><strong>$49.995</strong></td>
+            </tr>
+            <tr>
+              <td>Marketing Digital / mes</td>
+              <td>$300.000 - $800.000</td>
+              <td>$249.990</td>
+              <td class="highlight"><strong>$124.995</strong>/mes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PRICING CARDS -->
+      <div class="pricing-grid">
+
+        <div class="price-card reveal">
+          <div class="prc-name">Starter</div>
+          <div class="prc-price"><span class="prc-old">$249.990</span><span class="prc-new">$124.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO basico (5 keywords)</li>
+            <li>1 Landing page</li>
+            <li>Google My Business</li>
+            <li>Reporte mensual</li>
+            <li>Soporte por WhatsApp</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Empezar Ahora</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="prc-badge">MAS POPULAR</div>
+          <div class="prc-name">Growth</div>
+          <div class="prc-price"><span class="prc-old">$499.990</span><span class="prc-new">$249.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO avanzado (15 keywords)</li>
+            <li>Sitio web completo</li>
+            <li>Bot IA WhatsApp</li>
+            <li>Google Ads management</li>
+            <li>Social media (2 redes)</li>
+            <li>1 session drone / trimestre</li>
+            <li>Dashboard de resultados</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Elegir Growth</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="prc-name">Enterprise</div>
+          <div class="prc-price"><span class="prc-old">$999.990</span><span class="prc-new">$499.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO full (30+ keywords)</li>
+            <li>Plataforma web custom</li>
+            <li>IA multi-canal (WA, Web, Email)</li>
+            <li>Google + Meta Ads</li>
+            <li>Social media (4 redes)</li>
+            <li>Drone mensual ilimitado</li>
+            <li>Branding completo</li>
+            <li>Account manager dedicado</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Contactar Ventas</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-note reveal">Todos los precios en CLP. IVA no incluido. Precios con descuento validos para los primeros 50 clientes.</p>
+    </div>
+  </section>
+
+  <!-- FUNDADOR -->
+  <section id="fundador" class="section section-dark">
+    <div class="container">
+      <div class="founder-grid reveal">
+        <div class="founder-img">
+          <img src="https://yt3.googleusercontent.com/8JvseZdoNwVb1BWYfgibU-698zzldd3YDHsK7xE7jFCL62eSWYCcLG6zgJ9o7TsfhsrmPCnoZA=s800-c-k-c0x00ffffff-no-rj" alt="Matias Aguilera — Fundador de Kreathur Agency" loading="lazy">
+        </div>
+        <div class="founder-info">
+          <div class="section-tag">Fundador</div>
+          <h2 class="section-title">Matias Aguilera</h2>
+          <p class="founder-role">CEO &amp; SEO Strategist — Kreathur Agency</p>
+          <p>Desde Pichilemu, Chile. Creador digital, piloto de drones certificado DGAC, SEO strategist y desarrollador web. Con experiencia en Alemania y presencia en mas de 50 proyectos digitales.</p>
+          <p>Kreathur Agency nacio de la conviccion de que no necesitas una gran oficina para hacer grandes cosas. Solo necesitas hambre, herramientas y conexion.</p>
+          <div class="founder-links">
+            <a href="https://www.kreathur.agency/matiwlog/" class="btn-outline magnetic" target="_blank">Visitar MatiWlog</a>
+            <a href="https://www.youtube.com/@MatiWlog" class="btn-outline magnetic" target="_blank">YouTube @MatiWlog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Contacto</div>
+      <h2 class="section-title reveal">Hagamos algo grande juntos.</h2>
+      <p class="section-sub reveal">No importa donde estes. Creamos desde cualquier rincon.</p>
+
+      <div class="contact-grid reveal">
+        <a href="mailto:hola@kreathur.agency" class="contact-item">
+          <span class="ci-icon">&#9993;</span>
+          <span class="ci-label">Email</span>
+          <span class="ci-value">hola@kreathur.agency</span>
+        </a>
+        <a href="https://wa.me/56977877602" target="_blank" class="contact-item">
+          <span class="ci-icon">&#128241;</span>
+          <span class="ci-label">WhatsApp</span>
+          <span class="ci-value">+56 9 7787 7602</span>
+        </a>
+        <a href="https://www.youtube.com/@MatiWlog" target="_blank" class="contact-item">
+          <span class="ci-icon">&#9654;</span>
+          <span class="ci-label">YouTube</span>
+          <span class="ci-value">@MatiWlog</span>
+        </a>
+        <a href="https://www.instagram.com/matiwlog" target="_blank" class="contact-item">
+          <span class="ci-icon">&#128247;</span>
+          <span class="ci-label">Instagram</span>
+          <span class="ci-value">@matiwlog</span>
+        </a>
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank" class="contact-item">
+          <span class="ci-icon">&#127760;</span>
+          <span class="ci-label">MatiWlog</span>
+          <span class="ci-value">kreathur.agency/matiwlog</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">KREATHUR<span class="accent">.</span></div>
+        <p>Agencia digital desde Pichilemu, Chile. SEO, IA, Web, Drones.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#ia">IA Generativa</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#drone">Drones</a>
+        <a href="#precios">Precios</a>
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank">MatiWlog</a>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kreathur Agency &mdash; Matias Aguilera. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/56977877602" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.746 3.054 9.378L1.054 31.29l6.156-1.97A15.925 15.925 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.31 22.602c-.39 1.1-2.282 2.04-3.15 2.1-.794.054-1.528.376-5.15-1.073-4.348-1.742-7.1-6.188-7.314-6.476-.214-.288-1.752-2.33-1.752-4.446 0-2.116 1.108-3.158 1.502-3.59.394-.432.86-.54 1.146-.54.286 0 .572.004.822.016.264.012.618-.1.966.738.358.86 1.218 2.97 1.326 3.184.108.214.18.466.036.752-.144.288-.216.466-.43.716-.214.25-.45.558-.644.75-.214.214-.436.446-.188.876.25.43 1.108 1.828 2.378 2.962 1.634 1.458 3.012 1.91 3.44 2.124.43.214.68.18.93-.108.25-.288 1.072-1.252 1.358-1.684.286-.43.572-.358.966-.214.394.144 2.502 1.18 2.93 1.394.43.214.716.322.822.502.108.18.108 1.04-.282 2.14z"/></svg>
+  </a>
+
+  <script>/* ========== KREATHUR AGENCY — SCRIPT ========== */
+
+// LOADER
+window.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader');
+  loader.classList.add('active');
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    document.body.classList.add('loaded');
+  }, 1800);
+});
+
+// CUSTOM CURSOR
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+if (window.matchMedia('(pointer:fine)').matches && dot && ring) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function moveCursor() {
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
+    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+    requestAnimationFrame(moveCursor);
+  })();
+  document.querySelectorAll('a, button, .magnetic, .btn-primary, .btn-outline').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(0,229,255,.7)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(0,229,255,.4)';
+    });
+  });
+}
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// BURGER
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    burger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+    }
+  });
+});
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ANIMATED COUNTERS
+const counters = document.querySelectorAll('.stat-num[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = target / 60;
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target + '+';
+          clearInterval(interval);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 30);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// MAGNETIC BUTTONS
+document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// TEXT SCRAMBLE
+const scrambleEl = document.querySelector('[data-scramble] .title-line');
+if (scrambleEl) {
+  const original = scrambleEl.textContent;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+  let frame = 0;
+  const maxFrames = 20;
+  function scramble() {
+    scrambleEl.textContent = original.split('').map((ch, i) => {
+      if (ch === ' ') return ' ';
+      if (frame / maxFrames > i / original.length) return ch;
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+    frame++;
+    if (frame <= maxFrames) requestAnimationFrame(scramble);
+  }
+  setTimeout(scramble, 2000);
+}
+
+// PROJECT CARD TILT
+document.querySelectorAll('.project-card:not(.project-card-cta)').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// CLIENT COUNT ANIMATION (simulated scarcity)
+const countEl = document.getElementById('clientCount');
+if (countEl) {
+  const stored = sessionStorage.getItem('kreathurClients');
+  if (stored) {
+    countEl.textContent = stored;
+  }
+}
+
+// RUBROS TABS
+const rubroTabs = document.querySelectorAll('.rubro-tab');
+const rubroPanels = document.querySelectorAll('.rubro-panel');
+rubroTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.rubro;
+    rubroTabs.forEach(t => t.classList.remove('active'));
+    rubroPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById('rubro-' + target);
+    if (panel) {
+      panel.classList.add('active');
+      // Re-observe reveals inside newly shown panel
+      panel.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+    }
+  });
+});
+</script>
+</body>
+</html>

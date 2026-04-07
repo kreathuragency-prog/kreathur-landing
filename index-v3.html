@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreathur Agency | Agencia Digital, IA, SEO & Drones — Pichilemu, Chile</title>
+  <meta name="description" content="Kreathur Agency — Agencia digital desde Chile. SEO, desarrollo web, IA generativa (Claude, ChatGPT, Manus), drones certificados DGAC y automatizaciones. Fundada por Matias Aguilera.">
+  <meta name="keywords" content="agencia digital chile, seo chile, ia generativa, drones chile, desarrollo web, kreathur agency, matias aguilera, chatgpt, claude ai, automatizaciones">
+  <meta property="og:title" content="Kreathur Agency | Agencia Digital, IA & Drones">
+  <meta property="og:description" content="Desde Pichilemu para el mundo. SEO, IA Generativa, Desarrollo Web, Drones DGAC y mas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kreathur.agency/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+/* ========== KREATHUR AGENCY V3 — STYLES ========== */
+:root {
+  --accent: #00e5ff;
+  --accent2: #a855f7;
+  --white: #f5f5f0;
+  --black: #0a0a0a;
+  --gray: #888;
+  --gray-dark: #1a1a1a;
+  --gray-card: #111;
+  --accent-glow: rgba(0,229,255,.15);
+  --accent2-glow: rgba(168,85,247,.15);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --ease-out: cubic-bezier(.4,0,.2,1);
+  --ease-spring: cubic-bezier(.175,.885,.32,1.275);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--black); }
+body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; opacity:0; transition: opacity .6s; }
+body.loaded { opacity:1; }
+::selection { background: var(--accent); color: var(--black); }
+a { color: inherit; text-decoration: none; }
+.accent { color: var(--accent); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+img { max-width:100%; display:block; }
+
+/* LOADER */
+#loader { position:fixed; inset:0; z-index:9999; background:var(--black); display:flex; flex-direction:column; align-items:center; justify-content:center; transition: opacity .5s, visibility .5s; }
+#loader.hidden { opacity:0; visibility:hidden; }
+.loader-brand { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); font-weight:800; letter-spacing:.08em; color:var(--white); }
+.loader-bar { width:120px; height:2px; background:var(--gray-dark); margin-top:20px; border-radius:2px; overflow:hidden; }
+.loader-fill { width:0; height:100%; background:var(--accent); transition: width 1.5s var(--ease-out); }
+#loader.active .loader-fill { width:100%; }
+
+/* NOISE */
+.noise-overlay { position:fixed; inset:0; z-index:9000; pointer-events:none; opacity:.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* CURSOR */
+.cursor-dot { width:6px; height:6px; background:var(--accent); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transition: transform .1s; }
+.cursor-ring { width:36px; height:36px; border:1.5px solid rgba(0,229,255,.4); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9997; transition: width .3s, height .3s, border-color .3s; }
+@media(pointer:coarse){ .cursor-dot,.cursor-ring{display:none;} }
+
+/* NAV */
+#nav { position:fixed; top:0; left:0; right:0; z-index:8000; display:flex; align-items:center; justify-content:space-between; padding:18px 32px; transition: background .3s, padding .3s, backdrop-filter .3s; }
+#nav.scrolled { background:rgba(10,10,10,.85); backdrop-filter:blur(12px); padding:12px 32px; }
+.nav-brand { font-family:var(--font-display); font-size:1.2rem; font-weight:800; letter-spacing:.06em; }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); transition:color .3s; }
+.nav-links a:hover { color:var(--accent); }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.nav-mw { font-family:var(--font-display); font-weight:800; font-size:1rem; padding:6px 14px; border:1px solid var(--accent); border-radius:6px; transition: background .3s, color .3s; }
+.nav-mw:hover { background:var(--accent); color:var(--black); }
+.burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.burger span { width:24px; height:2px; background:var(--white); transition: transform .3s, opacity .3s; }
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* HERO */
+.hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; }
+#heroCanvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+.hero-content { position:relative; text-align:center; padding:0 24px; max-width:900px; z-index:2; }
+.hero-badge { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; color:var(--accent); margin-bottom:24px; border:1px solid rgba(0,229,255,.3); display:inline-block; padding:8px 20px; border-radius:40px; }
+.hero-title { font-family:var(--font-display); line-height:.92; margin-bottom:28px; }
+.title-line { display:block; font-size:clamp(3rem,10vw,8rem); font-weight:800; letter-spacing:-.02em; }
+.title-line.outline { -webkit-text-stroke:2px var(--white); color:transparent; }
+.hero-desc { font-size:1.05rem; color:var(--gray); max-width:560px; margin:0 auto 36px; line-height:1.7; }
+.hero-ctas { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+.btn-primary { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:14px 32px; background:var(--accent); color:var(--black); border:none; border-radius:6px; cursor:pointer; transition:transform .3s var(--ease-spring), box-shadow .3s; font-weight:700; display:inline-block; }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px var(--accent-glow); }
+.btn-outline { font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:14px 32px; border:1px solid var(--gray); color:var(--white); border-radius:6px; cursor:pointer; transition:border-color .3s, color .3s; display:inline-block; }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+.hero-stats { display:flex; justify-content:center; gap:48px; flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-num { display:block; font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--accent); }
+.stat-label { font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); }
+.hero-scroll { position:absolute; left:32px; bottom:40px; display:flex; flex-direction:column; align-items:center; gap:8px; z-index:2; }
+.hero-scroll span { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.2em; writing-mode:vertical-rl; color:var(--gray); }
+.scroll-line { width:1px; height:50px; background:linear-gradient(to bottom, var(--accent), transparent); animation:scrollPulse 2s infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(.6)} 50%{opacity:1;transform:scaleY(1)} }
+
+/* HERO PLAY/PAUSE BTN */
+.hero-playpause { position:absolute; bottom:40px; right:32px; z-index:3; width:40px; height:40px; background:rgba(0,0,0,.5); border:1px solid rgba(0,229,255,.4); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .3s, border-color .3s; color:var(--accent); font-size:1rem; }
+.hero-playpause:hover { background:rgba(0,229,255,.15); border-color:var(--accent); }
+
+/* MARQUEE */
+.marquee { padding:20px 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); overflow:hidden; }
+.marquee-track { display:flex; width:max-content; animation:marqueeScroll 30s linear infinite; }
+.marquee-track span { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.15em; color:var(--gray); white-space:nowrap; padding:0 8px; }
+@keyframes marqueeScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* SECTIONS */
+.section { padding:100px 0; }
+.section-dark { background:var(--gray-dark); }
+.section-tag { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+.section-title { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.2rem); font-weight:800; margin-bottom:16px; line-height:1.1; }
+.section-sub { color:var(--gray); font-size:1rem; max-width:600px; margin-bottom:48px; line-height:1.6; }
+
+/* SERVICES GRID */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; }
+.service-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:36px; transition:border-color .3s, transform .3s; }
+.service-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+.sc-icon { font-size:2rem; margin-bottom:16px; }
+.service-card h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; margin-bottom:12px; }
+.service-card p { color:var(--gray); font-size:.9rem; line-height:1.6; margin-bottom:16px; }
+.sc-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.sc-tags span { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.08em; padding:4px 12px; border:1px solid rgba(255,255,255,.1); border-radius:20px; color:var(--gray); }
+
+/* IA GRID */
+.ia-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+.ia-card { background:rgba(10,10,10,.6); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:32px; transition:border-color .3s, transform .3s; }
+.ia-card:hover { border-color:var(--accent2); transform:translateY(-4px); }
+.ia-logo { font-family:var(--font-display); font-size:1.5rem; font-weight:800; color:var(--accent); }
+.ia-by { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.1em; color:var(--gray); margin-bottom:16px; }
+.ia-card h4 { font-family:var(--font-display); font-size:1rem; font-weight:700; margin-bottom:12px; }
+.ia-card ul { list-style:none; margin-bottom:16px; }
+.ia-card li { font-size:.85rem; color:var(--gray); padding:4px 0; padding-left:16px; position:relative; }
+.ia-card li::before { content:''; position:absolute; left:0; top:50%; width:6px; height:6px; border-radius:50%; background:var(--accent); transform:translateY(-50%); }
+.ia-use { font-family:var(--font-mono); font-size:.65rem; color:var(--accent2); letter-spacing:.05em; padding-top:12px; border-top:1px solid rgba(255,255,255,.06); }
+
+/* PROJECTS */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:24px; }
+.project-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; overflow:hidden; transition:border-color .3s, transform .3s; display:block; }
+.project-card:hover { border-color:var(--accent); transform:translateY(-6px); }
+.pc-image { height:200px; position:relative; overflow:hidden; }
+.pc-image img.pc-thumb { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1; }
+.pc-image .pc-favicon { position:absolute; top:12px; right:12px; z-index:3; width:32px; height:32px; border-radius:6px; background:rgba(0,0,0,.5); padding:2px; }
+.pc-overlay { position:absolute; inset:0; background:linear-gradient(transparent 40%, rgba(0,0,0,.8)); display:flex; align-items:flex-end; padding:16px; z-index:2; }
+.pc-tag { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.1em; background:var(--accent); color:var(--black); padding:4px 12px; border-radius:20px; font-weight:700; }
+.pc-info { padding:24px; }
+.pc-info h3 { font-family:var(--font-display); font-size:1.2rem; font-weight:700; margin-bottom:8px; }
+.pc-info p { color:var(--gray); font-size:.85rem; line-height:1.6; margin-bottom:12px; }
+.pc-metrics { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+.pc-metrics span { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.08em; padding:4px 10px; border:1px solid rgba(0,229,255,.3); border-radius:20px; color:var(--accent); }
+.pc-link { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.1em; color:var(--accent); }
+.project-card-cta { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(0,229,255,.06), rgba(168,85,247,.06)); border:2px dashed rgba(0,229,255,.3); }
+.pc-cta-inner { text-align:center; padding:48px 24px; }
+.pc-cta-icon { font-size:3rem; color:var(--accent); margin-bottom:16px; }
+.pc-cta-inner h3 { font-family:var(--font-display); font-size:1.3rem; margin-bottom:8px; }
+.pc-cta-inner p { color:var(--gray); font-size:.85rem; margin-bottom:16px; }
+
+/* PORTFOLIO FICTICIO */
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+.pf-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:32px; transition:border-color .3s, transform .3s; position:relative; overflow:hidden; }
+.pf-card:hover { border-color:var(--accent2); transform:translateY(-4px); }
+.pf-icon { font-size:2.2rem; margin-bottom:14px; display:block; }
+.pf-card h3 { font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:10px; }
+.pf-card p { color:var(--gray); font-size:.85rem; line-height:1.6; margin-bottom:14px; }
+.pf-badge { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.1em; padding:4px 12px; border:1px solid rgba(168,85,247,.4); border-radius:20px; color:var(--accent2); display:inline-block; }
+
+/* DRONE UPDATED */
+.drone-hero { background:linear-gradient(135deg, rgba(0,229,255,.08), rgba(168,85,247,.05)); border:1px solid rgba(0,229,255,.15); border-radius:20px; padding:48px; margin-bottom:40px; text-align:center; }
+.drone-hero h3 { font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.2rem); font-weight:800; margin-bottom:16px; }
+.drone-badges { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:20px; }
+.drone-badge { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; padding:8px 20px; border:1px solid rgba(0,229,255,.4); border-radius:30px; color:var(--accent); background:rgba(0,229,255,.06); display:inline-flex; align-items:center; gap:8px; }
+.drone-badge .db-icon { font-size:1.1rem; }
+.drone-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:24px; margin-bottom:48px; }
+.drone-services { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
+.ds-item { background:rgba(10,10,10,.6); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:24px; text-align:center; transition:border-color .3s; }
+.ds-item:hover { border-color:var(--accent); }
+.ds-icon { font-size:2rem; margin-bottom:8px; display:block; }
+.ds-item h4 { font-family:var(--font-display); font-size:.95rem; margin-bottom:6px; }
+.ds-item p { font-size:.78rem; color:var(--gray); line-height:1.5; }
+
+/* INSTAGRAM FEED */
+.ig-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+.ig-card { border-radius:16px; overflow:hidden; position:relative; aspect-ratio:1; cursor:pointer; transition:transform .3s; }
+.ig-card:hover { transform:scale(1.03); }
+.ig-card-bg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:20px; text-align:center; }
+.ig-card-text { font-family:var(--font-display); font-size:.9rem; font-weight:700; color:var(--white); line-height:1.3; text-shadow:0 2px 8px rgba(0,0,0,.5); }
+.ig-card-footer { position:absolute; bottom:0; left:0; right:0; padding:10px 14px; background:rgba(0,0,0,.6); display:flex; align-items:center; gap:12px; font-size:.7rem; color:var(--gray); }
+.ig-card-footer span { display:flex; align-items:center; gap:4px; }
+.ig-link { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:.8rem; letter-spacing:.1em; color:var(--accent); margin-top:24px; transition:color .3s; }
+.ig-link:hover { color:var(--white); }
+
+/* NOTICIAS/TRENDING */
+.news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+.news-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:28px; transition:border-color .3s, transform .3s; }
+.news-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+.news-date { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.1em; color:var(--accent); margin-bottom:10px; display:block; }
+.news-card h3 { font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:10px; line-height:1.3; }
+.news-card p { color:var(--gray); font-size:.85rem; line-height:1.6; margin-bottom:14px; }
+.news-cta { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; color:var(--accent); transition:color .3s; }
+.news-cta:hover { color:var(--white); }
+
+/* OFFER BANNER */
+.offer-banner { background:linear-gradient(135deg, rgba(0,229,255,.1), rgba(168,85,247,.1)); border:2px solid var(--accent); border-radius:20px; padding:40px; text-align:center; margin-bottom:48px; position:relative; overflow:hidden; }
+.ob-badge { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; background:var(--accent); color:var(--black); padding:6px 18px; border-radius:20px; display:inline-block; margin-bottom:16px; font-weight:700; }
+.offer-banner h3 { font-family:var(--font-display); font-size:clamp(1.4rem,3vw,2rem); font-weight:800; margin-bottom:12px; }
+.offer-banner p { color:var(--gray); font-size:.95rem; }
+.offer-banner p span { color:var(--accent); font-weight:700; font-size:1.2rem; }
+.ob-timer { display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-family:var(--font-mono); font-size:.75rem; color:var(--accent); }
+.ob-dot { width:8px; height:8px; border-radius:50%; background:#00ff88; }
+.ob-dot.pulse { animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+/* COMPARE TABLE */
+.compare-table { overflow-x:auto; margin-bottom:48px; }
+.compare-table table { width:100%; border-collapse:collapse; font-size:.85rem; }
+.compare-table th, .compare-table td { padding:14px 18px; text-align:left; border-bottom:1px solid rgba(255,255,255,.06); }
+.compare-table th { font-family:var(--font-display); font-size:.85rem; font-weight:700; color:var(--white); background:var(--gray-card); }
+.compare-table th small { font-weight:400; color:var(--gray); font-size:.7rem; }
+.compare-table td { color:var(--gray); font-family:var(--font-mono); font-size:.78rem; }
+.compare-table .highlight { color:var(--accent); background:rgba(0,229,255,.04); }
+.compare-table th.highlight { color:var(--accent); }
+.compare-table td.highlight strong { font-size:1rem; }
+
+/* PRICING */
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:48px; }
+.price-card { background:var(--gray-card); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:36px; text-align:center; transition:border-color .3s, transform .3s; position:relative; }
+.price-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+.price-card.featured { border-color:var(--accent); background:linear-gradient(180deg, rgba(0,229,255,.06) 0%, var(--gray-card) 100%); }
+.prc-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; background:var(--accent); color:var(--black); padding:4px 16px; border-radius:20px; font-weight:700; }
+.prc-name { font-family:var(--font-display); font-size:1.3rem; font-weight:700; margin-bottom:16px; }
+.prc-price { margin-bottom:24px; }
+.prc-old { text-decoration:line-through; color:var(--gray); font-size:.9rem; display:block; margin-bottom:4px; }
+.prc-new { font-family:var(--font-display); font-size:2.5rem; font-weight:800; color:var(--accent); }
+.prc-period { font-size:.85rem; color:var(--gray); }
+.prc-features { list-style:none; text-align:left; margin-bottom:28px; }
+.prc-features li { font-size:.85rem; color:var(--gray); padding:8px 0; border-bottom:1px solid rgba(255,255,255,.04); padding-left:20px; position:relative; }
+.prc-features li::before { content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+.pricing-note { font-family:var(--font-mono); font-size:.7rem; color:var(--gray); text-align:center; margin-top:24px; letter-spacing:.05em; }
+
+/* FOUNDER */
+.founder-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:center; }
+.founder-img img { border-radius:20px; border:3px solid var(--accent); aspect-ratio:1; object-fit:cover; }
+.founder-info .section-tag { margin-bottom:8px; }
+.founder-info .section-title { margin-bottom:8px; }
+.founder-role { font-family:var(--font-mono); font-size:.8rem; letter-spacing:.1em; color:var(--accent); margin-bottom:20px; }
+.founder-info p { color:var(--gray); font-size:.95rem; line-height:1.7; margin-bottom:16px; }
+.founder-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+
+/* CONTACT */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+.contact-item { background:var(--gray-card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:28px; text-align:center; transition:border-color .3s, transform .3s; display:block; }
+.contact-item:hover { border-color:var(--accent); transform:translateY(-4px); }
+.ci-icon { font-size:1.8rem; display:block; margin-bottom:8px; }
+.ci-label { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gray); display:block; margin-bottom:4px; }
+.ci-value { font-family:var(--font-display); font-size:.9rem; font-weight:600; color:var(--accent); }
+
+/* FOOTER */
+footer { padding:48px 0 24px; border-top:1px solid rgba(255,255,255,.06); }
+.footer-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+.footer-brand { font-family:var(--font-display); font-size:1.3rem; font-weight:800; }
+.footer-top p { color:var(--gray); font-size:.85rem; }
+.footer-links { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:24px; }
+.footer-links a { font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); transition:color .3s; }
+.footer-links a:hover { color:var(--accent); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.04); padding-top:16px; }
+.footer-bottom span { font-size:.75rem; color:var(--gray); }
+
+/* WHATSAPP FLOAT */
+.wa-float { position:fixed; bottom:28px; right:28px; z-index:7000; width:56px; height:56px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.4); transition:transform .3s; }
+.wa-float:hover { transform:scale(1.1); }
+
+/* BOT MATI FLOAT */
+.mati-float { position:fixed; bottom:28px; left:28px; z-index:7000; display:flex; align-items:center; gap:10px; cursor:pointer; transition:transform .3s; }
+.mati-float:hover { transform:scale(1.05); }
+.mati-bubble { width:56px; height:56px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px var(--accent-glow); font-size:1.4rem; }
+.mati-label { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; color:var(--accent); background:rgba(0,229,255,.1); padding:6px 14px; border-radius:20px; border:1px solid rgba(0,229,255,.3); }
+
+/* MATI CHAT POPUP */
+.mati-chat { position:fixed; bottom:96px; left:28px; z-index:7001; width:360px; max-height:500px; background:var(--gray-card); border:1px solid rgba(0,229,255,.3); border-radius:20px; overflow:hidden; display:none; flex-direction:column; box-shadow:0 8px 40px rgba(0,0,0,.6); }
+.mati-chat.open { display:flex; }
+.mati-chat-header { background:linear-gradient(135deg, rgba(0,229,255,.15), rgba(168,85,247,.1)); padding:16px 20px; display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,.06); }
+.mati-avatar { width:40px; height:40px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.mati-header-info { flex:1; }
+.mati-header-info h4 { font-family:var(--font-display); font-size:.95rem; font-weight:700; margin-bottom:2px; }
+.mati-header-info span { font-size:.7rem; color:#00ff88; display:flex; align-items:center; gap:4px; }
+.mati-header-info span::before { content:''; width:6px; height:6px; background:#00ff88; border-radius:50%; display:inline-block; }
+.mati-chat-close { background:none; border:none; color:var(--gray); font-size:1.2rem; cursor:pointer; padding:4px; transition:color .3s; }
+.mati-chat-close:hover { color:var(--white); }
+.mati-chat-messages { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; max-height:320px; }
+.mati-msg { max-width:85%; padding:12px 16px; border-radius:16px; font-size:.85rem; line-height:1.5; word-wrap:break-word; }
+.mati-msg.bot { background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.2); border-bottom-left-radius:4px; align-self:flex-start; color:var(--white); }
+.mati-msg.user { background:rgba(168,85,247,.15); border:1px solid rgba(168,85,247,.2); border-bottom-right-radius:4px; align-self:flex-end; color:var(--white); }
+.mati-chat-input { display:flex; gap:8px; padding:12px 16px; border-top:1px solid rgba(255,255,255,.06); background:rgba(10,10,10,.5); }
+.mati-chat-input input { flex:1; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:24px; padding:10px 16px; color:var(--white); font-family:var(--font-body); font-size:.85rem; outline:none; transition:border-color .3s; }
+.mati-chat-input input:focus { border-color:var(--accent); }
+.mati-chat-input button { background:var(--accent); color:var(--black); border:none; border-radius:50%; width:38px; height:38px; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:transform .2s; flex-shrink:0; }
+.mati-chat-input button:hover { transform:scale(1.1); }
+
+/* REVEAL ANIMATION */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(10,10,10,.97); flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+  .nav-links.open { display:flex; }
+  .burger { display:flex; }
+  .hero-stats { gap:24px; }
+  .stat-num { font-size:1.6rem; }
+  .founder-grid { grid-template-columns:1fr; text-align:center; }
+  .founder-img img { max-width:250px; margin:0 auto; }
+  .founder-links { justify-content:center; }
+  .services-grid, .ia-grid, .projects-grid, .drone-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; }
+  .compare-table { font-size:.75rem; }
+  .drone-services { grid-template-columns:repeat(2,1fr); }
+  .portfolio-grid { grid-template-columns:1fr; }
+  .ig-grid { grid-template-columns:repeat(2,1fr); }
+  .news-grid { grid-template-columns:1fr; }
+  .mati-chat { width:calc(100vw - 56px); left:14px; bottom:88px; }
+  .mati-float { bottom:20px; left:14px; }
+  .wa-float { bottom:20px; right:14px; }
+  .hero-playpause { bottom:20px; right:14px; }
+}
+</style>
+</head>
+<body>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-brand">KREATHUR<span class="accent">.</span></div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- NOISE -->
+  <div class="noise-overlay"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#inicio" class="nav-brand">KREATHUR<span class="accent">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#ia">IA Generativa</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#drone">Drones</a>
+      <a href="#precios">Precios</a>
+      <a href="#fundador">Fundador</a>
+      <a href="#contacto">Conectar</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://www.kreathur.agency/matiwlog/" class="nav-mw" target="_blank">MW<span class="accent">.</span></a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- HERO with Canvas Animation -->
+  <section id="inicio" class="hero">
+    <div class="hero-bg">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">AGENCIA DIGITAL &bull; IA &bull; SEO &bull; DRONES</div>
+      <h1 class="hero-title" data-scramble>
+        <span class="title-line">KREATHUR</span>
+        <span class="title-line outline">AGENCY</span>
+      </h1>
+      <p class="hero-desc">Transformamos negocios con tecnologia, inteligencia artificial y creatividad. Desde Pichilemu, Chile — para el mundo. Liderados por Mati, SEO strategist y fundador.</p>
+      <div class="hero-ctas">
+        <a href="#precios" class="btn-primary magnetic">Ver Planes &amp; Precios</a>
+        <a href="#servicios" class="btn-outline magnetic">Explorar Servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="50">0</span><span class="stat-label">Proyectos</span></div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Anos Exp.</span></div>
+        <div class="stat"><span class="stat-num" data-target="8">0</span><span class="stat-label">Herramientas IA</span></div>
+        <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-label">% Satisfaccion</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+    <button class="hero-playpause" id="heroPlayPause" aria-label="Pausar animacion">&#9208;</button>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SEO &bull; DESARROLLO WEB &bull; CLAUDE AI &bull; CHATGPT &bull; MANUS AI &bull; FREEPIK AI &bull; DRONES DGAC &bull; AUTOMATIZACIONES &bull; E-COMMERCE &bull; GOOGLE ADS &bull; WHATSAPP BOTS &bull; BRANDING &bull; </span>
+      <span>SEO &bull; DESARROLLO WEB &bull; CLAUDE AI &bull; CHATGPT &bull; MANUS AI &bull; FREEPIK AI &bull; DRONES DGAC &bull; AUTOMATIZACIONES &bull; E-COMMERCE &bull; GOOGLE ADS &bull; WHATSAPP BOTS &bull; BRANDING &bull; </span>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Lo que hacemos</div>
+      <h2 class="section-title reveal">Servicios &amp; Soluciones</h2>
+      <p class="section-sub reveal">Todo lo que tu negocio necesita para dominar el mundo digital. Estrategia liderada por Mati, SEO strategist y fundador de Kreathur.</p>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="sc-icon">&#128269;</div>
+          <h3>SEO &amp; Posicionamiento</h3>
+          <p>Te ponemos en el #1 de Google. Auditorias tecnicas, keyword research, link building y optimizacion on-page/off-page.</p>
+          <div class="sc-tags"><span>Google</span><span>Auditorias</span><span>Keywords</span><span>Link Building</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="sc-icon">&#128187;</div>
+          <h3>Desarrollo Web</h3>
+          <p>Sitios con React, Next.js, WordPress, Shopify. Landing pages, e-commerce, plataformas SaaS. Rapidos, bonitos, que venden.</p>
+          <div class="sc-tags"><span>React</span><span>Next.js</span><span>WordPress</span><span>Shopify</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="sc-icon">&#129302;</div>
+          <h3>IA &amp; Automatizaciones</h3>
+          <p>Chatbots con Claude AI y ChatGPT, bots WhatsApp, flujos n8n, agentes IA. Tu negocio en piloto automatico 24/7.</p>
+          <div class="sc-tags"><span>Claude</span><span>ChatGPT</span><span>n8n</span><span>WhatsApp</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="sc-icon">&#127909;</div>
+          <h3>Drones &amp; Video Aereo</h3>
+          <p>Piloto certificado DGAC. Tomas aereas 4K para inmobiliarias, turismo, eventos, topografia y mas. Drone DJI Spark.</p>
+          <div class="sc-tags"><span>DGAC</span><span>4K</span><span>DJI Spark</span><span>Inmobiliarias</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="sc-icon">&#128200;</div>
+          <h3>Marketing Digital</h3>
+          <p>Google Ads, Meta Ads, email marketing, social media management. Resultados medibles, ROI garantizado.</p>
+          <div class="sc-tags"><span>Google Ads</span><span>Meta Ads</span><span>Email</span><span>RRSS</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="sc-icon">&#127912;</div>
+          <h3>Branding &amp; Diseno</h3>
+          <p>Logos, identidad visual, contenido para redes, presentaciones. Diseno con IA generativa (Freepik, DALL-E).</p>
+          <div class="sc-tags"><span>Logos</span><span>Freepik AI</span><span>Identidad</span><span>RRSS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA GENERATIVA -->
+  <section id="ia" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Inteligencia Artificial</div>
+      <h2 class="section-title reveal">IA Generativa para tu Negocio</h2>
+      <p class="section-sub reveal">Usamos las herramientas de IA mas avanzadas del mundo para automatizar, crear y escalar.</p>
+      <div class="ia-grid">
+        <div class="ia-card reveal">
+          <div class="ia-logo">Claude AI</div>
+          <div class="ia-by">by Anthropic</div>
+          <h4>Agentes IA &amp; Chatbots Premium</h4>
+          <ul>
+            <li>Chatbots conversacionales avanzados</li>
+            <li>Analisis de documentos y datos</li>
+            <li>Asistentes virtuales 24/7</li>
+            <li>Generacion de contenido SEO</li>
+            <li>Automatizacion de atencion al cliente</li>
+            <li>Bot WhatsApp inteligente (Bot Lemu)</li>
+          </ul>
+          <div class="ia-use">Usado en: Bot Lemu, Camperizate, atencion al cliente automatizada</div>
+        </div>
+        <div class="ia-card reveal">
+          <div class="ia-logo">ChatGPT</div>
+          <div class="ia-by">by OpenAI</div>
+          <h4>Contenido &amp; Estrategia</h4>
+          <ul>
+            <li>Generacion de contenido marketing</li>
+            <li>Redaccion SEO automatizada</li>
+            <li>Analisis de competencia</li>
+            <li>Planificacion de campanas</li>
+            <li>Respuestas automaticas personalizadas</li>
+            <li>Traduccion y localizacion</li>
+          </ul>
+          <div class="ia-use">Usado en: Content marketing, estrategia de campanas, copywriting</div>
+        </div>
+        <div class="ia-card reveal">
+          <div class="ia-logo">Manus AI</div>
+          <div class="ia-by">Agente Autonomo</div>
+          <h4>Investigacion &amp; Automatizacion</h4>
+          <ul>
+            <li>Research de mercado automatizado</li>
+            <li>Scraping inteligente de datos</li>
+            <li>Generacion de reportes</li>
+            <li>Automatizacion de tareas complejas</li>
+            <li>Analisis competitivo profundo</li>
+            <li>Workflows multi-paso</li>
+          </ul>
+          <div class="ia-use">Usado en: Analisis de mercado, reportes automaticos, investigacion</div>
+        </div>
+        <div class="ia-card reveal">
+          <div class="ia-logo">Freepik AI</div>
+          <div class="ia-by">IA Generativa Visual</div>
+          <h4>Diseno &amp; Contenido Visual</h4>
+          <ul>
+            <li>Generacion de imagenes para campanas</li>
+            <li>Mockups automaticos de productos</li>
+            <li>Contenido visual para redes sociales</li>
+            <li>Banners y graficas publicitarias</li>
+            <li>Edicion de fotos con IA</li>
+            <li>Ilustraciones personalizadas</li>
+          </ul>
+          <div class="ia-use">Usado en: Branding, redes sociales, e-commerce, publicidad digital</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS DESTACADOS with Real Thumbnails -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Portfolio Real</div>
+      <h2 class="section-title reveal">Proyectos Destacados</h2>
+      <p class="section-sub reveal">Proyectos reales creados por Mati y el equipo Kreathur. Haz clic para explorar.</p>
+      <div class="projects-grid">
+
+        <a href="https://www.puntoski.com" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #0061ff 0%, #60efff 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.puntoski.com" alt="PuntoSki screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=puntoski.com&sz=128" alt="PuntoSki logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">E-Commerce</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>PuntoSki</h3>
+            <p>E-commerce de equipamiento ski y snowboard. SEO optimizado, catalogo completo, experiencia de compra premium.</p>
+            <div class="pc-metrics">
+              <span>E-Commerce</span><span>SEO #1</span><span>Ski/Snow</span>
+            </div>
+            <div class="pc-link">www.puntoski.com &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.importadoramaully.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #ff6b35 0%, #f7c948 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.importadoramaully.cl" alt="Importadora Maully screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=importadoramaully.cl&sz=128" alt="Importadora Maully logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">B2B Catalogo</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Importadora Maully</h3>
+            <p>Catalogo B2B mayorista con precios especiales, LMS academia de capacitacion y panel administrativo completo.</p>
+            <div class="pc-metrics">
+              <span>B2B Catalogo</span><span>LMS Academia</span><span>Admin Panel</span>
+            </div>
+            <div class="pc-link">www.importadoramaully.cl &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.pichilemuwear.com" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #11998e 0%, #38ef7d 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.pichilemuwear.com" alt="Pichilemu Wear screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=pichilemuwear.com&sz=128" alt="Pichilemu Wear logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">E-Commerce + Branding</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Pichilemu Wear</h3>
+            <p>Tienda de ropa surf y outdoor con branding completo. Identidad visual, catalogo, y experiencia de marca.</p>
+            <div class="pc-metrics">
+              <span>Surf/Outdoor</span><span>Branding</span><span>E-Commerce</span>
+            </div>
+            <div class="pc-link">www.pichilemuwear.com &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.lilafken.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.lilafken.cl" alt="Lilafken Apart screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=lilafken.cl&sz=128" alt="Lilafken logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">Real Estate + Turismo</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Lilafken Apart</h3>
+            <p>Plataforma de real estate y turismo. Video drone 4K, channel manager integrado, panel administrativo.</p>
+            <div class="pc-metrics">
+              <span>14 Unidades</span><span>Drone 4K</span><span>Channel Mgr</span>
+            </div>
+            <div class="pc-link">www.lilafken.cl &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.camperizate.cl" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.camperizate.cl" alt="Camperizate screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=camperizate.cl&sz=128" alt="Camperizate logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">E-Commerce + AI</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>Camperizate</h3>
+            <p>E-commerce camping y outdoor con 150+ productos. AI chatbot integrado, SEO optimizado, experiencia completa.</p>
+            <div class="pc-metrics">
+              <span>150+ Productos</span><span>AI Chatbot</span><span>SEO #1</span>
+            </div>
+            <div class="pc-link">www.camperizate.cl &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank" class="project-card reveal">
+          <div class="pc-image" style="background:linear-gradient(135deg, #00e5ff 0%, #a855f7 100%)">
+            <img class="pc-thumb" src="https://image.thum.io/get/width/600/https://www.kreathur.agency/matiwlog/" alt="MatiWlog screenshot" loading="lazy" onerror="this.style.display='none'">
+            <img class="pc-favicon" src="https://www.google.com/s2/favicons?domain=kreathur.agency&sz=128" alt="MatiWlog logo" loading="lazy" onerror="this.style.display='none'">
+            <div class="pc-overlay">
+              <span class="pc-tag">Blog + YouTube</span>
+            </div>
+          </div>
+          <div class="pc-info">
+            <h3>MatiWlog</h3>
+            <p>Blog personal del fundador Matias Aguilera (Mati). Canal YouTube con 1.99K subs, tutoriales, viajes, drones y tech.</p>
+            <div class="pc-metrics">
+              <span>1.99K Subs</span><span>57 Videos</span><span>Blog + YT</span>
+            </div>
+            <div class="pc-link">Visitar MatiWlog &rarr;</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO FICTICIO - LO QUE PODEMOS HACER -->
+  <section id="portfolio" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Lo que podemos hacer por ti</div>
+      <h2 class="section-title reveal">Servicios que Transforman Negocios</h2>
+      <p class="section-sub reveal">Soluciones digitales completas. Cada servicio disenado por Mati y el equipo para maximizar tus resultados.</p>
+      <div class="portfolio-grid">
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#129302;</div>
+          <h3>Automatizacion de Ventas</h3>
+          <p>Bots WhatsApp + CRM + IA para cerrar ventas 24/7. Tu equipo de ventas que nunca duerme.</p>
+          <div class="pf-badge">WHATSAPP + CRM + IA</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#128270;</div>
+          <h3>Presencia Google Total</h3>
+          <p>SEO + Google Ads + Google My Business pack completo. Domina las busquedas en tu ciudad.</p>
+          <div class="pf-badge">SEO + ADS + GMB</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#128722;</div>
+          <h3>Tienda Online Completa</h3>
+          <p>E-commerce Shopify o WooCommerce + pasarela de pago + integracion de envios. Lista para vender.</p>
+          <div class="pf-badge">SHOPIFY / WOOCOMMERCE</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#128187;</div>
+          <h3>App Web a Medida</h3>
+          <p>Plataforma custom React/Next.js para tu negocio. Dashboards, portales, sistemas internos.</p>
+          <div class="pf-badge">REACT / NEXT.JS</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#128242;</div>
+          <h3>Contenido IA para RRSS</h3>
+          <p>Posts, reels, stories generados con IA + calendario editorial. Contenido profesional sin esfuerzo.</p>
+          <div class="pf-badge">IA + CALENDARIO</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#127909;</div>
+          <h3>Video Aereo Profesional</h3>
+          <p>Drone DJI Spark 4K + edicion cinematica + entrega en 48hrs. Piloto certificado DGAC con seguro.</p>
+          <div class="pf-badge">DRONE 4K / 48HRS</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#128172;</div>
+          <h3>Chatbot IA Inteligente</h3>
+          <p>Asistente virtual Claude/GPT en tu web y WhatsApp. Atiende clientes, agenda citas, cierra ventas.</p>
+          <div class="pf-badge">CLAUDE / GPT / WA</div>
+        </div>
+        <div class="pf-card reveal">
+          <div class="pf-icon">&#127912;</div>
+          <h3>Branding 360</h3>
+          <p>Logo + paleta + tipografia + manual de marca + tarjetas. Tu identidad visual completa y profesional.</p>
+          <div class="pf-badge">IDENTIDAD COMPLETA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRONE -->
+  <section id="drone" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Servicios Aereos</div>
+      <h2 class="section-title reveal">Drones Certificados DGAC</h2>
+      <p class="section-sub reveal">Tomas aereas profesionales 4K. Seguridad, legalidad y calidad cinematica garantizada.</p>
+      <div class="drone-hero reveal">
+        <h3>&#128640; Piloto Certificado DGAC</h3>
+        <div class="drone-badges">
+          <div class="drone-badge"><span class="db-icon">&#9989;</span> Certificacion DGAC Chile</div>
+          <div class="drone-badge"><span class="db-icon">&#128225;</span> Drone DJI Spark</div>
+          <div class="drone-badge"><span class="db-icon">&#128737;</span> Seguro de drone al dia</div>
+          <div class="drone-badge"><span class="db-icon">&#128196;</span> Permisos al dia</div>
+        </div>
+        <p style="color:var(--gray);font-size:.9rem;max-width:600px;margin:0 auto;line-height:1.6;">Si no tenemos los permisos para tu zona o evento, los gestionamos nosotros. Operamos con total legalidad y cobertura de seguro.</p>
+      </div>
+      <div class="drone-services reveal">
+        <div class="ds-item"><span class="ds-icon">&#127960;</span><h4>Inmobiliarias</h4><p>Tours aereos 4K de propiedades, terrenos y desarrollos inmobiliarios.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127796;</span><h4>Turismo</h4><p>Videos promocionales aereos de destinos, hoteles y experiencias.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127916;</span><h4>Eventos</h4><p>Cobertura aerea de matrimonios, festivales, eventos corporativos.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#128507;</span><h4>Topografia</h4><p>Levantamientos topograficos, mapeo 3D, inspeccion de infraestructura.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#127806;</span><h4>Agricultura</h4><p>Monitoreo de cultivos, analisis NDVI, fumigacion con drones.</p></div>
+        <div class="ds-item"><span class="ds-icon">&#128247;</span><h4>Fotografia</h4><p>Sesiones fotograficas aereas para publicidad, redes sociales y catalogo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM FEED with embed attempt -->
+  <section id="instagram" class="section">
+    <div class="container">
+      <div class="section-tag reveal">@kreathur.agency</div>
+      <h2 class="section-title reveal">Siguenos en Instagram</h2>
+      <p class="section-sub reveal">Contenido diario sobre IA, SEO, drones y marketing digital. Por Mati y el equipo Kreathur.</p>
+      <div class="ig-grid">
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+            <div class="ig-card-text">5 formas de usar IA en tu negocio</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 247</span><span>&#128172; 38</span></div>
+        </a>
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#11998e,#38ef7d)">
+            <div class="ig-card-text">Caso de exito: +300% trafico organico</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 412</span><span>&#128172; 67</span></div>
+        </a>
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#00e5ff,#0061ff)">
+            <div class="ig-card-text">Drone 4K para tu propiedad</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 389</span><span>&#128172; 52</span></div>
+        </a>
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#f093fb,#f5576c)">
+            <div class="ig-card-text">Automatiza tu WhatsApp con IA</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 531</span><span>&#128172; 89</span></div>
+        </a>
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#ff6b35,#f7c948)">
+            <div class="ig-card-text">Antes vs Despues: Rediseno web</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 298</span><span>&#128172; 44</span></div>
+        </a>
+
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-card reveal" data-instgrm-permalink="https://www.instagram.com/kreathur.agency/">
+          <div class="ig-card-bg" style="background:linear-gradient(135deg,#a855f7,#ec4899)">
+            <div class="ig-card-text">SEO Tips: Lo que nadie te cuenta</div>
+          </div>
+          <div class="ig-card-footer"><span>&#10084; 476</span><span>&#128172; 73</span></div>
+        </a>
+
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="ig-link">&#128247; Seguir @kreathur.agency &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICIAS / TRENDING -->
+  <section id="tendencias" class="section section-dark">
+    <div class="container">
+      <div class="section-tag reveal">Tendencias</div>
+      <h2 class="section-title reveal">Tendencias Digitales 2026</h2>
+      <p class="section-sub reveal">Lo que esta pasando en el mundo digital y como lo aplicamos en tu negocio.</p>
+      <div class="news-grid">
+        <div class="news-card reveal">
+          <span class="news-date">MARZO 2026</span>
+          <h3>IA Generativa revoluciona el marketing digital en Chile</h3>
+          <p>Las empresas chilenas que adoptan IA generativa reportan hasta 5x mas eficiencia en creacion de contenido y atencion al cliente.</p>
+          <a href="#contacto" class="news-cta">Necesitas esto? Hablemos &rarr;</a>
+        </div>
+        <div class="news-card reveal">
+          <span class="news-date">MARZO 2026</span>
+          <h3>Google actualiza algoritmo: SEO local mas importante que nunca</h3>
+          <p>El nuevo update de Google prioriza resultados locales. Tu Google My Business y SEO local son clave para aparecer primero.</p>
+          <a href="#contacto" class="news-cta">Necesitas esto? Hablemos &rarr;</a>
+        </div>
+        <div class="news-card reveal">
+          <span class="news-date">FEBRERO 2026</span>
+          <h3>Drones comerciales crecen 40% en Latinoamerica</h3>
+          <p>El mercado de drones para inmobiliarias, turismo y agricultura explota en la region. Chile lidera la adopcion.</p>
+          <a href="#contacto" class="news-cta">Necesitas esto? Hablemos &rarr;</a>
+        </div>
+        <div class="news-card reveal">
+          <span class="news-date">ENERO 2026</span>
+          <h3>WhatsApp Business API: El canal #1 de ventas en Chile</h3>
+          <p>Mas del 80% de los consumidores chilenos prefieren comprar por WhatsApp. Los bots IA multiplican las conversiones.</p>
+          <a href="#contacto" class="news-cta">Necesitas esto? Hablemos &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVA + PRECIOS -->
+  <section id="precios" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Precios</div>
+      <h2 class="section-title reveal">Planes &amp; Precios</h2>
+      <p class="section-sub reveal">Comparados con las principales agencias de Chile. Mismos servicios, mejores resultados, precio justo.</p>
+
+      <!-- OFERTA BANNER -->
+      <div class="offer-banner reveal">
+        <div class="ob-badge">OFERTA LIMITADA</div>
+        <h3>50% de descuento para los primeros 50 clientes</h3>
+        <p>Accede a precios exclusivos de lanzamiento. Solo quedan <span id="clientCount">47</span> cupos disponibles.</p>
+        <div class="ob-timer">
+          <div class="ob-dot pulse"></div> Oferta activa
+        </div>
+      </div>
+
+      <!-- COMPARATIVA -->
+      <div class="compare-table reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Mercado Chile<br><small>(TusClicks, Muller, 9MM, etc.)</small></th>
+              <th>Kreathur Agency<br><small>Precio Normal</small></th>
+              <th class="highlight">Kreathur Agency<br><small>CON 50% OFF</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SEO Mensual</td>
+              <td>$150.000 - $500.000</td>
+              <td>$149.990</td>
+              <td class="highlight"><strong>$74.995</strong>/mes</td>
+            </tr>
+            <tr>
+              <td>Landing Page</td>
+              <td>$250.000 - $550.000</td>
+              <td>$249.990</td>
+              <td class="highlight"><strong>$124.995</strong></td>
+            </tr>
+            <tr>
+              <td>E-Commerce</td>
+              <td>$650.000 - $1.200.000</td>
+              <td>$599.990</td>
+              <td class="highlight"><strong>$299.995</strong></td>
+            </tr>
+            <tr>
+              <td>Bot IA WhatsApp</td>
+              <td>$400.000 - $1.000.000</td>
+              <td>$349.990</td>
+              <td class="highlight"><strong>$174.995</strong></td>
+            </tr>
+            <tr>
+              <td>Drone Session 4K</td>
+              <td>$100.000 - $500.000</td>
+              <td>$99.990</td>
+              <td class="highlight"><strong>$49.995</strong></td>
+            </tr>
+            <tr>
+              <td>Marketing Digital / mes</td>
+              <td>$300.000 - $800.000</td>
+              <td>$249.990</td>
+              <td class="highlight"><strong>$124.995</strong>/mes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PRICING CARDS -->
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="prc-name">Starter</div>
+          <div class="prc-price"><span class="prc-old">$249.990</span><span class="prc-new">$124.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO basico (5 keywords)</li>
+            <li>1 Landing page</li>
+            <li>Google My Business</li>
+            <li>Reporte mensual</li>
+            <li>Soporte por WhatsApp</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Empezar Ahora</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="prc-badge">MAS POPULAR</div>
+          <div class="prc-name">Growth</div>
+          <div class="prc-price"><span class="prc-old">$499.990</span><span class="prc-new">$249.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO avanzado (15 keywords)</li>
+            <li>Sitio web completo</li>
+            <li>Bot IA WhatsApp</li>
+            <li>Google Ads management</li>
+            <li>Social media (2 redes)</li>
+            <li>1 session drone / trimestre</li>
+            <li>Dashboard de resultados</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Elegir Growth</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="prc-name">Enterprise</div>
+          <div class="prc-price"><span class="prc-old">$999.990</span><span class="prc-new">$499.995</span><span class="prc-period">/mes</span></div>
+          <ul class="prc-features">
+            <li>SEO full (30+ keywords)</li>
+            <li>Plataforma web custom</li>
+            <li>IA multi-canal (WA, Web, Email)</li>
+            <li>Google + Meta Ads</li>
+            <li>Social media (4 redes)</li>
+            <li>Drone mensual ilimitado</li>
+            <li>Branding completo</li>
+            <li>Account manager dedicado</li>
+          </ul>
+          <a href="#contacto" class="btn-primary magnetic">Contactar Ventas</a>
+        </div>
+      </div>
+
+      <p class="pricing-note reveal">Todos los precios en CLP. IVA no incluido. Precios con descuento validos para los primeros 50 clientes.</p>
+    </div>
+  </section>
+
+  <!-- FUNDADOR -->
+  <section id="fundador" class="section section-dark">
+    <div class="container">
+      <div class="founder-grid reveal">
+        <div class="founder-img">
+          <img src="https://yt3.googleusercontent.com/8JvseZdoNwVb1BWYfgibU-698zzldd3YDHsK7xE7jFCL62eSWYCcLG6zgJ9o7TsfhsrmPCnoZA=s800-c-k-c0x00ffffff-no-rj" alt="Matias Aguilera — Fundador de Kreathur Agency" loading="lazy">
+        </div>
+        <div class="founder-info">
+          <div class="section-tag">Fundador &amp; SEO Strategist</div>
+          <h2 class="section-title">Matias Aguilera (Mati)</h2>
+          <p class="founder-role">CEO &amp; SEO Strategist — Kreathur Agency | MatiWlog</p>
+          <p>Desde Pichilemu, Chile. Creador digital, piloto de drones certificado DGAC, SEO strategist y desarrollador web. Con experiencia en Alemania y presencia en mas de 50 proyectos digitales. MatiWlog es su marca personal con 1.99K subs en YouTube.</p>
+          <p>Kreathur Agency nacio de la conviccion de que no necesitas una gran oficina para hacer grandes cosas. Solo necesitas hambre, herramientas y conexion. Mati lidera cada proyecto como SEO strategist y director creativo.</p>
+          <div class="founder-links">
+            <a href="https://www.kreathur.agency/matiwlog/" class="btn-outline magnetic" target="_blank">Visitar MatiWlog</a>
+            <a href="https://www.youtube.com/@MatiWlog" class="btn-outline magnetic" target="_blank">YouTube @MatiWlog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Contacto</div>
+      <h2 class="section-title reveal">Hagamos algo grande juntos.</h2>
+      <p class="section-sub reveal">No importa donde estes. Creamos desde cualquier rincon. Habla con Mati directamente.</p>
+      <div class="contact-grid reveal">
+        <a href="mailto:hola@kreathur.agency" class="contact-item">
+          <span class="ci-icon">&#9993;</span>
+          <span class="ci-label">Email</span>
+          <span class="ci-value">hola@kreathur.agency</span>
+        </a>
+        <a href="https://wa.me/56968442594" target="_blank" class="contact-item">
+          <span class="ci-icon">&#128241;</span>
+          <span class="ci-label">WhatsApp</span>
+          <span class="ci-value">+56 9 6844 2594</span>
+        </a>
+        <a href="https://www.youtube.com/@MatiWlog" target="_blank" class="contact-item">
+          <span class="ci-icon">&#9654;</span>
+          <span class="ci-label">YouTube</span>
+          <span class="ci-value">@MatiWlog</span>
+        </a>
+        <a href="https://www.instagram.com/kreathur.agency" target="_blank" class="contact-item">
+          <span class="ci-icon">&#128247;</span>
+          <span class="ci-label">Instagram</span>
+          <span class="ci-value">@kreathur.agency</span>
+        </a>
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank" class="contact-item">
+          <span class="ci-icon">&#127760;</span>
+          <span class="ci-label">MatiWlog</span>
+          <span class="ci-value">kreathur.agency/matiwlog</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">KREATHUR<span class="accent">.</span></div>
+        <p>Agencia digital desde Pichilemu, Chile. SEO, IA, Web, Drones. Fundada por Mati.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#ia">IA Generativa</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#drone">Drones</a>
+        <a href="#precios">Precios</a>
+        <a href="#instagram">Instagram</a>
+        <a href="https://www.kreathur.agency/matiwlog/" target="_blank">MatiWlog</a>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kreathur Agency &mdash; Matias Aguilera (Mati). SEO Strategist &amp; Fundador. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/56968442594" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.746 3.054 9.378L1.054 31.29l6.156-1.97A15.925 15.925 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.31 22.602c-.39 1.1-2.282 2.04-3.15 2.1-.794.054-1.528.376-5.15-1.073-4.348-1.742-7.1-6.188-7.314-6.476-.214-.288-1.752-2.33-1.752-4.446 0-2.116 1.108-3.158 1.502-3.59.394-.432.86-.54 1.146-.54.286 0 .572.004.822.016.264.012.618-.1.966.738.358.86 1.218 2.97 1.326 3.184.108.214.18.466.036.752-.144.288-.216.466-.43.716-.214.25-.45.558-.644.75-.214.214-.436.446-.188.876.25.43 1.108 1.828 2.378 2.962 1.634 1.458 3.012 1.91 3.44 2.124.43.214.68.18.93-.108.25-.288 1.072-1.252 1.358-1.684.286-.43.572-.358.966-.214.394.144 2.502 1.18 2.93 1.394.43.214.716.322.822.502.108.18.108 1.04-.282 2.14z"/></svg>
+  </a>
+
+  <!-- BOT MATI FLOAT -->
+  <div class="mati-float" id="matiFloat" aria-label="Chat con Mati">
+    <div class="mati-bubble">&#129302;</div>
+    <div class="mati-label">Mati</div>
+  </div>
+
+  <!-- MATI CHAT POPUP -->
+  <div class="mati-chat" id="matiChat">
+    <div class="mati-chat-header">
+      <div class="mati-avatar">&#129302;</div>
+      <div class="mati-header-info">
+        <h4>Mati - Tu Asesor Digital</h4>
+        <span>En linea</span>
+      </div>
+      <button class="mati-chat-close" id="matiClose">&times;</button>
+    </div>
+    <div class="mati-chat-messages" id="matiMessages">
+      <div class="mati-msg bot">Hola! Soy Mati, el cerebro detras de Kreathur Agency. Preguntame lo que quieras sobre nuestros servicios, ya sea SEO, drones, IA, web o lo que necesites. Estoy pa' ayudarte! &#128640;</div>
+    </div>
+    <div class="mati-chat-input">
+      <input type="text" id="matiInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button id="matiSend">&#10148;</button>
+    </div>
+  </div>
+
+  <!-- Instagram embed script (fallback to gradient cards if fails) -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+
+  <script>
+/* ========== KREATHUR AGENCY V3 — SCRIPT ========== */
+
+// LOADER
+window.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader');
+  loader.classList.add('active');
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    document.body.classList.add('loaded');
+  }, 1800);
+});
+
+// ========== HERO CANVAS ANIMATION ==========
+(function() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, animId;
+  let playing = true;
+  const particles = [];
+  const PARTICLE_COUNT = 60;
+  const words = ['SEO', 'IA', 'WEB', 'DRONES'];
+  let wordIndex = 0;
+  let wordAlpha = 0;
+  let wordFading = false;
+  let wordTimer = 0;
+  const WORD_DURATION = 120; // frames per word
+  const FADE_SPEED = 0.03;
+
+  function resize() {
+    const hero = canvas.parentElement.parentElement;
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+
+  function initParticles() {
+    particles.length = 0;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        r: Math.random() * 2.5 + 0.5,
+        color: Math.random() > 0.5 ? 'rgba(0,229,255,' : 'rgba(168,85,247,'
+      });
+    }
+  }
+
+  function drawGrid(time) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+    ctx.lineWidth = 1;
+    const spacing = 60;
+    const offset = (time * 0.02) % spacing;
+    for (let x = -spacing + offset; x < W + spacing; x += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    for (let y = -spacing + offset; y < H + spacing; y += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+  }
+
+  function drawGradients() {
+    const g1 = ctx.createRadialGradient(W * 0.3, H * 0.2, 0, W * 0.3, H * 0.2, W * 0.5);
+    g1.addColorStop(0, 'rgba(0,229,255,0.08)');
+    g1.addColorStop(1, 'transparent');
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, W, H);
+    const g2 = ctx.createRadialGradient(W * 0.7, H * 0.8, 0, W * 0.7, H * 0.8, W * 0.5);
+    g2.addColorStop(0, 'rgba(168,85,247,0.06)');
+    g2.addColorStop(1, 'transparent');
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawParticles() {
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (0.3 + Math.random() * 0.4) + ')';
+      ctx.fill();
+    }
+    // Draw connections
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.strokeStyle = 'rgba(0,229,255,' + (0.08 * (1 - dist / 120)) + ')';
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function drawWord(time) {
+    wordTimer++;
+    if (!wordFading) {
+      wordAlpha = Math.min(wordAlpha + FADE_SPEED, 0.12);
+      if (wordTimer > WORD_DURATION) {
+        wordFading = true;
+      }
+    } else {
+      wordAlpha -= FADE_SPEED;
+      if (wordAlpha <= 0) {
+        wordAlpha = 0;
+        wordFading = false;
+        wordTimer = 0;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+    }
+    if (wordAlpha > 0) {
+      ctx.save();
+      ctx.globalAlpha = wordAlpha;
+      ctx.font = '800 ' + Math.min(W * 0.25, 300) + 'px Syne, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = wordIndex % 2 === 0 ? '#00e5ff' : '#a855f7';
+      ctx.fillText(words[wordIndex], W / 2, H / 2);
+      ctx.restore();
+    }
+  }
+
+  let frameCount = 0;
+  function animate() {
+    if (!playing) { animId = requestAnimationFrame(animate); return; }
+    frameCount++;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, W, H);
+    drawGradients();
+    drawGrid(frameCount);
+    drawParticles();
+    drawWord(frameCount);
+    animId = requestAnimationFrame(animate);
+  }
+
+  resize();
+  initParticles();
+  animate();
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+
+  // Play/Pause
+  const ppBtn = document.getElementById('heroPlayPause');
+  if (ppBtn) {
+    ppBtn.addEventListener('click', () => {
+      playing = !playing;
+      ppBtn.innerHTML = playing ? '&#9208;' : '&#9654;';
+      ppBtn.setAttribute('aria-label', playing ? 'Pausar animacion' : 'Reproducir animacion');
+    });
+  }
+})();
+
+// CUSTOM CURSOR
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+if (window.matchMedia('(pointer:fine)').matches && dot && ring) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function moveCursor() {
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
+    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+    requestAnimationFrame(moveCursor);
+  })();
+  document.querySelectorAll('a, button, .magnetic, .btn-primary, .btn-outline').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(0,229,255,.7)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(0,229,255,.4)';
+    });
+  });
+}
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// BURGER
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    burger.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+    }
+  });
+});
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ANIMATED COUNTERS
+const counters = document.querySelectorAll('.stat-num[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = target / 60;
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target + '+';
+          clearInterval(interval);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 30);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// MAGNETIC BUTTONS
+document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// TEXT SCRAMBLE
+const scrambleEl = document.querySelector('[data-scramble] .title-line');
+if (scrambleEl) {
+  const original = scrambleEl.textContent;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+  let frame = 0;
+  const maxFrames = 20;
+  function scramble() {
+    scrambleEl.textContent = original.split('').map((ch, i) => {
+      if (ch === ' ') return ' ';
+      if (frame / maxFrames > i / original.length) return ch;
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+    frame++;
+    if (frame <= maxFrames) requestAnimationFrame(scramble);
+  }
+  setTimeout(scramble, 2000);
+}
+
+// PROJECT CARD TILT
+document.querySelectorAll('.project-card:not(.project-card-cta)').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// CLIENT COUNT (simulated scarcity)
+const countEl = document.getElementById('clientCount');
+if (countEl) {
+  const stored = sessionStorage.getItem('kreathurClients');
+  if (stored) {
+    countEl.textContent = stored;
+  }
+}
+
+// BOT MATI
+const matiFloat = document.getElementById('matiFloat');
+const matiChat = document.getElementById('matiChat');
+const matiClose = document.getElementById('matiClose');
+const matiInput = document.getElementById('matiInput');
+const matiSend = document.getElementById('matiSend');
+const matiMessages = document.getElementById('matiMessages');
+
+matiFloat.addEventListener('click', () => {
+  matiChat.classList.toggle('open');
+  if (matiChat.classList.contains('open')) {
+    matiInput.focus();
+  }
+});
+
+matiClose.addEventListener('click', () => {
+  matiChat.classList.remove('open');
+});
+
+function addMatiMsg(text, isBot) {
+  const div = document.createElement('div');
+  div.className = 'mati-msg ' + (isBot ? 'bot' : 'user');
+  div.innerHTML = text;
+  matiMessages.appendChild(div);
+  matiMessages.scrollTop = matiMessages.scrollHeight;
+}
+
+function getMatiResponse(msg) {
+  const m = msg.toLowerCase().trim();
+
+  if (m.includes('seo') || m.includes('posicionamiento') || m.includes('google ranking')) {
+    return 'Wena! El SEO es mi especialidad principal, soy Mati, SEO strategist y fundador de Kreathur. Hacemos auditorias tecnicas, keyword research, link building, optimizacion on-page y off-page. Hemos llevado proyectos como PuntoSki y Camperizate al top de Google. Dale, hablemos de tu proyecto! &#128640;';
+  }
+
+  if (m.includes('drone') || m.includes('dron') || m.includes('aereo') || m.includes('vuelo')) {
+    return 'Cachai que volamos con DJI Spark, tenemos certificacion DGAC, seguro de drone al dia y todos los permisos. Si no los tenemos pa tu zona, los gestionamos nosotros. Hacemos tomas 4K pa inmobiliarias, turismo, eventos, topografia y mas. Entregamos en 48hrs! &#127909;';
+  }
+
+  if (m.includes('precio') || m.includes('plan') || m.includes('costo') || m.includes('cuanto') || m.includes('valor') || m.includes('tarifa')) {
+    return 'Dale! Tenemos 3 planes:<br><br>&#128312; <strong>Starter</strong> - $124.995/mes (SEO basico + landing + GMB)<br>&#128312; <strong>Growth</strong> - $249.995/mes (SEO avanzado + web + bot IA + ads)<br>&#128312; <strong>Enterprise</strong> - $499.995/mes (todo incluido + drone + branding)<br><br>Esos precios ya tienen el 50% de descuento de lanzamiento, quedan pocos cupos! &#128293;';
+  }
+
+  if (m.includes('web') || m.includes('pagina') || m.includes('sitio') || m.includes('landing') || m.includes('ecommerce') || m.includes('tienda')) {
+    return 'Creamos sitios web con React, Next.js, WordPress, Shopify... lo que necesites! Desde landing pages hasta plataformas completas tipo Importadora Maully (con LMS y todo). Rapidos, bonitos y que venden. Cachai que todos nuestros proyectos son SEO-friendly de fabrica &#128187;';
+  }
+
+  if (m.includes('ia') || m.includes('inteligencia') || m.includes('bot') || m.includes('chatbot') || m.includes('automatiz') || m.includes('claude') || m.includes('gpt') || m.includes('whatsapp')) {
+    return 'La IA es nuestro fuerte! Trabajamos con Claude AI, ChatGPT, Manus AI y mas. Hacemos chatbots pa web y WhatsApp, automatizaciones con n8n, generacion de contenido con IA, y hasta bots de ventas que cierran solos 24/7. Pregunta lo que quieras! &#129302;';
+  }
+
+  if (m.includes('mati') || m.includes('fundador') || m.includes('quien') || m.includes('equipo')) {
+    return 'Buena pregunta! Soy Mati (Matias Aguilera), fundador y SEO strategist de Kreathur Agency. Opero desde Pichilemu, Chile, pero trabajo con clientes de todo el mundo. Tambien tengo MatiWlog, mi canal de YouTube con casi 2K subs donde comparto tutoriales, viajes y tech. &#128075;';
+  }
+
+  if (m.includes('hola') || m.includes('buenas') || m.includes('hey') || m.includes('wena')) {
+    return 'Wena! Que onda, en que te puedo ayudar? Preguntame sobre SEO, desarrollo web, drones, IA, precios o lo que necesites. Estoy aca pa ti! &#128640;';
+  }
+
+  return 'Buena pregunta! Pa eso mejor hablemos por WhatsApp asi te puedo dar una respuesta mas personalizada. Pincha aca: <a href="https://wa.me/56968442594" target="_blank" style="color:var(--accent);text-decoration:underline;">Hablar por WhatsApp</a> &#128172;';
+}
+
+function handleMatiSend() {
+  const val = matiInput.value.trim();
+  if (!val) return;
+  addMatiMsg(val, false);
+  matiInput.value = '';
+  // Simulate typing delay
+  setTimeout(() => {
+    addMatiMsg(getMatiResponse(val), true);
+  }, 600 + Math.random() * 400);
+}
+
+matiSend.addEventListener('click', handleMatiSend);
+matiInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleMatiSend();
+});
+
+  </script>
+</body>
+</html>

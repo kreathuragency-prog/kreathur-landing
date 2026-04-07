@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kreathur Agency - Transformamos negocios con tecnología, IA y creatividad. SEO, desarrollo web, drones y automatizaciones desde Pichilemu, Chile.">
+  <meta name="keywords" content="SEO, desarrollo web, IA, drones, automatizaciones, marketing digital, agencia digital, Chile">
+  <meta name="author" content="Matias Aguilera - Kreathur Agency">
+  <meta property="og:title" content="Kreathur Agency - Agencia Digital • IA • SEO • DRONES">
+  <meta property="og:description" content="Transformamos negocios con tecnología, inteligencia artificial y creatividad. Desde Pichilemu, Chile — para el mundo.">
+  <meta property="og:image" content="https://kreathur.agency/og-image.jpg">
+  <meta property="og:url" content="https://kreathur.agency">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <title>Kreathur Agency - Agencia Digital • IA • SEO • DRONES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --accent: #00e5ff; --accent2: #a855f7; --black: #0a0a0a; --gray-dark: #111111; --white: #ffffff; --gray-light: #e0e0e0; --bg: #0a0a0a; --text: #e0e0e0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.8s ease; cursor: none; }
+    body.loaded { opacity: 1; }
+    body.mobile-device { cursor: auto; }
+
+    .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--black); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; opacity: 1; transition: opacity 0.8s ease; }
+    .loader.hidden { pointer-events: none; opacity: 0; }
+    .loader-content { text-align: center; }
+    .loader-text { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; }
+    .loader-bar-container { width: 200px; height: 3px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; }
+    .loader-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0; animation: loaderFill 1.8s ease-in-out forwards; }
+    @keyframes loaderFill { 0% { width: 0; } 100% { width: 100%; } }
+
+    .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-4px, -4px); }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 2px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-15px, -15px); transition: width 0.1s ease, height 0.1s ease, border-color 0.2s ease; }
+    .cursor-ring.hover { width: 50px; height: 50px; border-color: var(--accent2); box-shadow: 0 0 20px var(--accent2); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; background: transparent; transition: background 0.3s ease, backdrop-filter 0.3s ease; }
+    nav.scrolled { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); }
+    .logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; transition: transform 0.3s ease; cursor: pointer; }
+    .logo:hover { transform: scale(1.05); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
+    .hamburger span { width: 25px; height: 2px; background: var(--accent); transition: all 0.3s ease; }
+
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; padding: 4rem 2rem; margin-top: 5rem; }
+    .hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: 1; }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
+    .hero-badge { display: inline-block; padding: 0.5rem 1.2rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent); border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.2s backwards; }
+    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.3s backwards; }
+    .hero-title .solid { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; }
+    .hero-title .outline { -webkit-text-fill-color: transparent; -webkit-text-stroke: 2px var(--accent); display: block; }
+    .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.3rem); line-height: 1.6; color: var(--text); margin: 2rem 0 3rem; opacity: 0.9; animation: fadeInUp 0.8s ease 0.4s backwards; }
+    .hero-ctas { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; animation: fadeInUp 0.8s ease 0.5s backwards; }
+    .btn { padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border: 2px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s ease; position: relative; overflow: hidden; font-family: 'Inter', sans-serif; }
+    .btn-solid { background: var(--accent); color: var(--black); border-color: var(--accent); }
+    .btn-solid:hover { background: var(--accent2); border-color: var(--accent2); box-shadow: 0 0 20px var(--accent2); }
+    .btn-outline { background: transparent; color: var(--accent); border-color: var(--accent); }
+    .btn-outline:hover { background: rgba(0, 229, 255, 0.1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.5); }
+    .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(0, 229, 255, 0.2); animation: fadeInUp 0.8s ease 0.6s backwards; }
+    .stat { text-align: center; }
+    .stat-number { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.85rem; color: rgba(224, 224, 224, 0.7); margin-top: 0.5rem; }
+    .scroll-indicator { position: absolute; left: 2rem; bottom: 2rem; z-index: 2; writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.75rem; letter-spacing: 0.2em; color: rgba(0, 229, 255, 0.6); display: flex; align-items: center; gap: 1rem; animation: fadeInLeft 0.8s ease 0.7s backwards; }
+    .scroll-line { width: 2px; height: 40px; background: linear-gradient(180deg, var(--accent), transparent); animation: slideDown 2s ease-in-out infinite; }
+    @keyframes slideDown { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+
+    .marquee-section { overflow: hidden; background: rgba(0, 229, 255, 0.05); border-top: 1px solid rgba(0, 229, 255, 0.2); border-bottom: 1px solid rgba(0, 229, 255, 0.2); padding: 2rem 0; }
+    .marquee { display: flex; gap: 3rem; animation: marquee 25s linear infinite; white-space: nowrap; width: max-content; }
+    .marquee-item { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); flex-shrink: 0; }
+    .marquee-item .dot { color: var(--accent2); margin: 0 0.5rem; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .marquee:hover { animation-play-state: paused; }
+
+    /* MATIWLOG BANNER */
+    .mw-banner { background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(168,85,247,0.08)); border-top: 1px solid rgba(0,229,255,0.15); border-bottom: 1px solid rgba(168,85,247,0.15); padding: 2rem; text-align: center; }
+    .mw-banner a { display: inline-flex; align-items: center; gap: 1rem; font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; transition: all 0.3s ease; }
+    .mw-banner a:hover { color: var(--accent); transform: translateY(-2px); }
+    .mw-banner .mw-tag { background: var(--accent); color: var(--black); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; }
+    .mw-banner .mw-arrow { transition: transform 0.3s; }
+    .mw-banner a:hover .mw-arrow { transform: translateX(5px); }
+
+    section { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; width: 100%; }
+    .section-tag { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; text-align: center; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; text-align: center; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-sub { text-align: center; color: rgba(224,224,224,0.7); font-size: 1.05rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.7; }
+
+    #servicios { background: var(--black); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .service-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(600px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 229, 255, 0.1), transparent); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover { border-color: var(--accent); box-shadow: 0 0 30px rgba(0, 229, 255, 0.3); transform: translateY(-5px); }
+    .service-icon { font-size: 2.5rem; margin-bottom: 1rem; display: inline-block; }
+    .service-name { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--white); }
+    .service-desc { font-size: 0.95rem; line-height: 1.6; color: rgba(224, 224, 224, 0.8); margin-bottom: 1.5rem; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { background: rgba(0, 229, 255, 0.15); color: var(--accent); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+
+    #ia-generativa { background: var(--gray-dark); padding: 6rem 0; max-width: 100%; }
+    #ia-generativa > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .ia-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; }
+    .ia-card:hover { border-color: var(--accent2); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+    .ia-provider { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--accent2); }
+    .ia-title { font-size: 0.9rem; color: rgba(224, 224, 224, 0.7); margin-bottom: 1.5rem; }
+    .ia-features { list-style: none; margin-bottom: 1.5rem; }
+    .ia-features li { font-size: 0.9rem; padding: 0.5rem 0; color: rgba(224, 224, 224, 0.8); border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
+    .ia-features li:last-child { border-bottom: none; }
+    .ia-features li::before { content: '✓ '; color: var(--accent); font-weight: 700; margin-right: 0.5rem; }
+    .ia-footer { font-size: 0.8rem; color: var(--accent2); padding-top: 1rem; border-top: 1px solid rgba(168, 85, 247, 0.2); }
+
+    #proyectos { background: var(--black); }
+    .proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .project-card { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; aspect-ratio: 16 / 10; background: var(--gray-dark); }
+    .project-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+    .project-card:hover .project-image { transform: scale(1.05); }
+    .project-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(0deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; transition: background 0.3s ease; }
+    .project-card:hover .project-overlay { background: linear-gradient(0deg, rgba(10,10,10,0.98) 0%, rgba(0,229,255,0.1) 50%, rgba(168,85,247,0.05) 100%); }
+    .project-tags { display: flex; gap: 0.4rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .project-tags span { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; padding: 3px 10px; border: 1px solid rgba(0,229,255,0.3); border-radius: 20px; color: var(--accent); background: rgba(0,229,255,0.08); }
+    .project-name { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .project-desc { font-size: 0.9rem; color: rgba(224, 224, 224, 0.9); }
+    .project-cta { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--accent); color: var(--black); padding: 1.5rem 2.5rem; border-radius: 8px; font-weight: 700; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: none; }
+    .project-card:hover .project-cta { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+    #drones { background: var(--gray-dark); padding: 6rem 0; max-width: 100%; }
+    #drones > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+    .drones-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+    .video-embed { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 229, 255, 0.2); }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .drones-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .drone-service { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
+    .drone-service:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+    .drone-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .drone-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+
+    #precios { background: var(--black); }
+    .offer-banner { text-align: center; margin-bottom: 3rem; padding: 2rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent); border-radius: 12px; }
+    .offer-dot { display: inline-block; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; margin-right: 0.5rem; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .offer-text { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+    .comparison-table { width: 100%; margin-bottom: 4rem; overflow-x: auto; border-radius: 12px; border: 1px solid rgba(0, 229, 255, 0.2); }
+    .comparison-table table { width: 100%; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td { padding: 1.5rem; text-align: left; border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
+    .comparison-table th { background: rgba(0, 229, 255, 0.05); font-weight: 600; color: var(--accent); }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .price-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; position: relative; transition: all 0.3s ease; }
+    .price-card.featured { border-color: var(--accent2); background: rgba(168, 85, 247, 0.1); transform: scale(1.05); }
+    .price-badge { display: inline-block; background: var(--accent2); color: var(--white); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+    .price-plan { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--white); }
+    .price-amount { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+    .price-original { font-size: 0.9rem; color: rgba(224, 224, 224, 0.6); text-decoration: line-through; margin-bottom: 1.5rem; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0, 229, 255, 0.2); }
+    .price-features li { font-size: 0.9rem; padding: 0.7rem 0; color: rgba(224, 224, 224, 0.8); }
+    .price-features li::before { content: '✓ '; color: var(--accent); font-weight: 700; margin-right: 0.5rem; }
+    .price-cta { width: 100%; }
+
+    #fundador { background: var(--gray-dark); padding: 6rem 0; max-width: 100%; }
+    #fundador > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+    .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 0 auto; }
+    .founder-avatar { width: 100%; max-width: 400px; aspect-ratio: 1; border-radius: 16px; overflow: hidden; border: 2px solid rgba(0, 229, 255, 0.3); box-shadow: 0 0 40px rgba(0, 229, 255, 0.2); }
+    .founder-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .founder-content h3 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .founder-title { color: var(--accent); font-weight: 600; margin-bottom: 1.5rem; }
+    .founder-bio { font-size: 1rem; line-height: 1.8; color: rgba(224, 224, 224, 0.9); margin-bottom: 2rem; }
+    .founder-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .founder-links a { color: var(--accent); text-decoration: none; font-weight: 600; transition: all 0.3s ease; position: relative; }
+    .founder-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+    .founder-links a:hover::after { width: 100%; }
+
+    #contacto { background: var(--black); }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .contact-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s ease; text-decoration: none; }
+    .contact-card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+    .contact-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .contact-label { font-family: 'Syne', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem; font-weight: 700; }
+    .contact-info { font-size: 1.1rem; color: var(--white); text-decoration: none; transition: all 0.3s ease; }
+    .contact-card:hover .contact-info { color: var(--accent); }
+
+    footer { background: var(--gray-dark); border-top: 1px solid rgba(0, 229, 255, 0.2); padding: 3rem 2rem; text-align: center; }
+    .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; text-align: left; }
+    .footer-section h4 { font-family: 'Syne', sans-serif; margin-bottom: 1rem; color: var(--accent); }
+    .footer-section ul { list-style: none; }
+    .footer-section li { margin-bottom: 0.5rem; }
+    .footer-section a { color: rgba(224, 224, 224, 0.7); text-decoration: none; transition: color 0.3s ease; }
+    .footer-section a:hover { color: var(--accent); }
+    .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(0, 229, 255, 0.1); text-align: center; color: rgba(224, 224, 224, 0.6); font-size: 0.9rem; }
+
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; text-decoration: none; z-index: 99; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+      .hamburger.active span:nth-child(2) { opacity: 0; }
+      .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+      .mobile-nav { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.95); z-index: 99; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+      .mobile-nav.active { opacity: 1; pointer-events: all; }
+      .mobile-nav a { font-size: 1.5rem; color: var(--text); text-decoration: none; }
+      #hero { margin-top: 4rem; }
+      .scroll-indicator { display: none; }
+      .hero-ctas { flex-direction: column; gap: 1rem; }
+      .btn { width: 100%; }
+      .servicios-grid, .ia-grid, .proyectos-grid, .drones-services, .price-cards, .contact-grid { grid-template-columns: 1fr; }
+      .price-card.featured { transform: scale(1); }
+      .founder-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .founder-avatar { max-width: 100%; }
+      .drones-videos { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 3rem 1rem; }
+      .section-title { font-size: 2rem; }
+      .servicios-grid, .ia-grid, .proyectos-grid { gap: 1rem; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .stat-number { font-size: 1.5rem; }
+      .comparison-table { font-size: 0.85rem; }
+      .comparison-table th, .comparison-table td { padding: 1rem 0.5rem; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(30px); }
+    .reveal.active { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease; }
+
+    @keyframes hueShift { 0% { color: var(--accent); } 50% { color: var(--accent2); } 100% { color: var(--accent); } }
+
+    /* SCROLL PROGRESS BAR */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); z-index: 10001; width: 0%; transition: width 0.05s; box-shadow: 0 0 10px var(--accent); }
+
+    .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.02; z-index: 9998; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise' /%3E%3C/filter%3E%3Crect width='400' height='400' fill='white' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="loader-content">
+      <div class="loader-text">KREATHUR.</div>
+      <div class="loader-bar-container"><div class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <div class="noise-overlay"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="#" class="logo">KREATHUR</a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#ia-generativa">IA</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#drones">Drones</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="https://www.matiwlog.com" target="_blank" style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;padding:6px 14px;border:1px solid var(--accent);border-radius:6px;transition:all 0.3s;color:var(--accent);" onmouseover="this.style.background='var(--accent)';this.style.color='var(--black)'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">MW.</a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#ia-generativa">IA Generativa</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#drones">Drones</a>
+    <a href="#precios">Precios</a>
+    <a href="#fundador">Fundador</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://www.matiwlog.com" target="_blank" style="color:var(--accent);border:1px solid var(--accent);padding:0.5rem 1.5rem;border-radius:8px;">MatiWlog</a>
+  </div>
+
+  <section id="hero">
+    <canvas class="hero-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">AGENCIA DIGITAL • IA • SEO • DRONES</div>
+      <h1 class="hero-title">
+        <span class="solid">KREATHUR</span>
+        <span class="outline">AGENCY</span>
+      </h1>
+      <p class="hero-subtitle">Transformamos negocios con tecnología, inteligencia artificial y creatividad. Desde Pichilemu, Chile — para el mundo.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-solid" onclick="document.getElementById('precios').scrollIntoView({behavior: 'smooth'})">Ver Planes & Precios</button>
+        <button class="btn btn-outline" onclick="document.getElementById('servicios').scrollIntoView({behavior: 'smooth'})">Explorar Servicios</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat reveal"><div class="stat-number counter" data-target="50" data-suffix="+">0</div><div class="stat-label">Proyectos</div></div>
+        <div class="stat reveal"><div class="stat-number counter" data-target="5" data-suffix="+">0</div><div class="stat-label">Años Exp.</div></div>
+        <div class="stat reveal"><div class="stat-number counter" data-target="8" data-suffix="+">0</div><div class="stat-label">Herramientas IA</div></div>
+        <div class="stat reveal"><div class="stat-number counter" data-target="100" data-suffix="%">0</div><div class="stat-label">Satisfacción</div></div>
+      </div>
+    </div>
+    <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-line"></div></div>
+  </section>
+
+  <section class="marquee-section">
+    <div class="marquee">
+      <span class="marquee-item">SEO<span class="dot">•</span></span><span class="marquee-item">DESARROLLO WEB<span class="dot">•</span></span><span class="marquee-item">CLAUDE AI<span class="dot">•</span></span><span class="marquee-item">CHATGPT<span class="dot">•</span></span><span class="marquee-item">MANUS AI<span class="dot">•</span></span><span class="marquee-item">FREEPIK AI<span class="dot">•</span></span><span class="marquee-item">DRONES DGAC<span class="dot">•</span></span><span class="marquee-item">AUTOMATIZACIONES<span class="dot">•</span></span><span class="marquee-item">E-COMMERCE<span class="dot">•</span></span><span class="marquee-item">GOOGLE ADS<span class="dot">•</span></span><span class="marquee-item">WHATSAPP BOTS<span class="dot">•</span></span><span class="marquee-item">BRANDING<span class="dot">•</span></span>
+      <span class="marquee-item">SEO<span class="dot">•</span></span><span class="marquee-item">DESARROLLO WEB<span class="dot">•</span></span><span class="marquee-item">CLAUDE AI<span class="dot">•</span></span><span class="marquee-item">CHATGPT<span class="dot">•</span></span><span class="marquee-item">MANUS AI<span class="dot">•</span></span><span class="marquee-item">FREEPIK AI<span class="dot">•</span></span><span class="marquee-item">DRONES DGAC<span class="dot">•</span></span><span class="marquee-item">AUTOMATIZACIONES<span class="dot">•</span></span><span class="marquee-item">E-COMMERCE<span class="dot">•</span></span><span class="marquee-item">GOOGLE ADS<span class="dot">•</span></span><span class="marquee-item">WHATSAPP BOTS<span class="dot">•</span></span><span class="marquee-item">BRANDING<span class="dot">•</span></span>
+    </div>
+  </section>
+
+  <!-- MATIWLOG BANNER -->
+  <div class="mw-banner">
+    <a href="https://www.matiwlog.com" target="_blank">
+      <span class="mw-tag">NUEVO</span>
+      Visita MatiWlog — Blog personal, YouTube y aventuras de Matias Aguilera
+      <span class="mw-arrow">→</span>
+    </a>
+  </div>
+
+  <section id="servicios">
+    <div class="section-tag reveal">// Lo que hacemos</div>
+    <h2 class="section-title reveal">Servicios & Soluciones</h2>
+    <p class="section-sub reveal">Todo lo que tu negocio necesita para dominar el mundo digital.</p>
+    <div class="servicios-grid">
+      <div class="service-card reveal"><div class="service-icon">🔍</div><div class="service-name">SEO & Posicionamiento</div><div class="service-desc">Posicionamos tu negocio en Google para atraer clientes calificados.</div><div class="service-tags"><span class="tag">Google</span><span class="tag">Auditorías</span><span class="tag">Keywords</span><span class="tag">Link Building</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">💻</div><div class="service-name">Desarrollo Web</div><div class="service-desc">Sitios modernos, rápidos y responsivos que convierten visitantes en clientes.</div><div class="service-tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">WordPress</span><span class="tag">Shopify</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🤖</div><div class="service-name">IA & Automatizaciones</div><div class="service-desc">Integra inteligencia artificial para automatizar procesos y aumentar productividad.</div><div class="service-tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">n8n</span><span class="tag">WhatsApp</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🎬</div><div class="service-name">Drones & Video Aéreo</div><div class="service-desc">Contenido aéreo profesional certificado DGAC con drones 4K.</div><div class="service-tags"><span class="tag">DGAC</span><span class="tag">4K</span><span class="tag">DJI</span><span class="tag">Inmobiliarias</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">📈</div><div class="service-name">Marketing Digital</div><div class="service-desc">Estrategias completas de publicidad digital para maximizar ROI y crecimiento.</div><div class="service-tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Email</span><span class="tag">RRSS</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🎨</div><div class="service-name">Branding & Diseño</div><div class="service-desc">Identidad visual completa que diferencia tu marca y genera conexión.</div><div class="service-tags"><span class="tag">Logos</span><span class="tag">Freepik AI</span><span class="tag">Identidad</span><span class="tag">RRSS</span></div></div>
+    </div>
+  </section>
+
+  <section id="ia-generativa">
+    <div class="section-tag reveal">// Inteligencia Artificial</div>
+    <h2 class="section-title reveal">IA Generativa para tu Negocio</h2>
+    <p class="section-sub reveal">Usamos las herramientas de IA más avanzadas del mundo para automatizar, crear y escalar.</p>
+    <div class="ia-grid">
+      <div class="ia-card reveal"><div class="ia-provider">Claude AI</div><div class="ia-title">by Anthropic</div><ul class="ia-features"><li>Agentes IA autónomos</li><li>Chatbots inteligentes</li><li>Análisis de documentos</li><li>Procesamiento de datos</li></ul><div class="ia-footer">Usado en: Bots WhatsApp, Automatizaciones, Análisis</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">ChatGPT</div><div class="ia-title">by OpenAI</div><ul class="ia-features"><li>Generación de contenido</li><li>Estrategia de marketing</li><li>Copywriting</li><li>Investigación y análisis</li></ul><div class="ia-footer">Usado en: Contenido, Estrategia, RRSS</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">Manus AI</div><div class="ia-title">Agente Autónomo</div><ul class="ia-features"><li>Automatización web</li><li>Investigación autónoma</li><li>Procesamiento complejo</li><li>RPA (Automatización)</li></ul><div class="ia-footer">Usado en: Investigación, Automatización, Scraping</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">Freepik AI</div><div class="ia-title">IA Generativa Visual</div><ul class="ia-features"><li>Generación de imágenes</li><li>Diseño automático</li><li>Contenido visual</li><li>Edición con IA</li></ul><div class="ia-footer">Usado en: Diseño, Contenido Visual, RRSS</div></div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="section-tag reveal">// Portfolio</div>
+    <h2 class="section-title reveal">Proyectos Destacados</h2>
+    <p class="section-sub reveal">Cada proyecto cuenta una historia. Explora nuestro trabajo.</p>
+    <div class="proyectos-grid">
+      <div class="project-card reveal"><img src="https://img.youtube.com/vi/484seZN8MyI/maxresdefault.jpg" alt="Camperizate" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>E-Commerce</span><span>Next.js</span><span>AI Chatbot</span></div><div class="project-name">Camperizate</div><div class="project-desc">E-commerce con 150+ productos outdoor. AI chatbot integrado, SEO #1 en Google.</div></div><a href="https://www.camperizate.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
+      <div class="project-card reveal"><img src="https://img.youtube.com/vi/h9pRSErvdNg/maxresdefault.jpg" alt="Lilafken" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>Real Estate</span><span>Turismo</span><span>4K Drone</span></div><div class="project-name">Lilafken Apart & Real Estate</div><div class="project-desc">Plataforma completa de arriendo, venta de propiedades y tour operator. 14 unidades.</div></div><a href="https://www.lilafken.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
+      <div class="project-card reveal"><img src="https://img.youtube.com/vi/Ziqrnw0S41Q/maxresdefault.jpg" alt="Pichilemu Online" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>IA</span><span>WhatsApp Bot</span><span>Claude AI</span></div><div class="project-name">Pichilemu Online + Bot Lemu</div><div class="project-desc">Revista digital de turismo + Bot IA "Lemu" en WhatsApp. Guía virtual 24/7.</div></div><a href="https://www.pichilemuonline.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
+      <div class="project-card reveal"><img src="https://img.youtube.com/vi/M-5UqQkv4xk/maxresdefault.jpg" alt="Importadora Maully" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>B2B</span><span>Catálogo</span><span>LMS</span></div><div class="project-name">Importadora Maully</div><div class="project-desc">Catálogo B2B con precios mayoristas, academia de capacitación y panel admin.</div></div><a href="https://www.importadoramaully.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
+      <div class="project-card reveal"><img src="https://img.youtube.com/vi/b5g7jlP_PsA/maxresdefault.jpg" alt="MatiWlog" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>Blog</span><span>YouTube</span><span>1.99K Subs</span></div><div class="project-name">MatiWlog</div><div class="project-desc">Blog personal y canal YouTube. +57 videos. Tutoriales, viajes, drones y tech.</div></div><a href="https://www.matiwlog.com" target="_blank" class="project-cta">Visitar MatiWlog →</a></div>
+      <div class="project-card reveal" style="background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(168,85,247,0.06)); border: 2px dashed rgba(0,229,255,0.3);"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:2rem;"><div style="font-size:3rem;margin-bottom:1rem;filter:hue-rotate(0deg);animation:hueShift 3s linear infinite;">+</div><div style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Tu Proyecto Aquí</div><div style="font-size:0.9rem;color:rgba(224,224,224,0.8);margin-bottom:1rem;">Conversemos sobre tu próxima idea.</div></div><a href="https://wa.me/56932998833?text=Hola%20Kreathur!%20Quiero%20cotizar%20un%20proyecto" target="_blank" class="project-cta">Contáctanos →</a></div>
+    </div>
+  </section>
+
+  <section id="drones">
+    <div class="section-tag reveal">// Servicios Aéreos</div>
+    <h2 class="section-title reveal">Drones Certificados DGAC</h2>
+    <p class="section-sub reveal">Piloto certificado. Tomas aéreas 4K para inmobiliarias, turismo, eventos y más.</p>
+    <div class="drones-videos">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/Ziqrnw0S41Q" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/b5g7jlP_PsA" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/484seZN8MyI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+    <h3 style="text-align: center; font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 3rem 0 2rem; color: var(--white);">Servicios de Drones</h3>
+    <div class="drones-services">
+      <div class="drone-service reveal"><div class="drone-icon">🏠</div><div class="drone-name">Inmobiliarias</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Tours aéreos 4K de propiedades, terrenos y desarrollos.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">✈️</div><div class="drone-name">Turismo</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Videos promocionales aéreos de destinos y hoteles.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🎉</div><div class="drone-name">Eventos</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Cobertura aérea de matrimonios, festivales y corporativos.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🗺️</div><div class="drone-name">Topografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Levantamientos topográficos, mapeo 3D e inspección.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🌾</div><div class="drone-name">Agricultura</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Monitoreo de cultivos, análisis NDVI y fumigación.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">📸</div><div class="drone-name">Fotografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Sesiones fotográficas aéreas para publicidad y catálogo.</p></div>
+    </div>
+  </section>
+
+  <section id="precios">
+    <div class="section-tag reveal">// Precios</div>
+    <h2 class="section-title reveal">Planes & Precios</h2>
+    <p class="section-sub reveal">Comparados con las principales agencias de Chile. Mismos servicios, mejores resultados, precio justo.</p>
+    <div class="offer-banner"><span class="offer-dot"></span><span class="offer-text">50% de descuento para los primeros 50 clientes</span></div>
+    <div class="comparison-table">
+      <table>
+        <thead><tr><th>Servicio</th><th>Mercado Chile</th><th>Precio Normal</th><th>50% OFF</th></tr></thead>
+        <tbody>
+          <tr><td><strong>SEO Mensual</strong></td><td>$150K - $500K</td><td>$149.990</td><td style="color: var(--accent); font-weight: 700;">$74.995/mes</td></tr>
+          <tr><td><strong>Landing Page</strong></td><td>$250K - $550K</td><td>$249.990</td><td style="color: var(--accent); font-weight: 700;">$124.995</td></tr>
+          <tr><td><strong>E-Commerce</strong></td><td>$650K - $1.2M</td><td>$599.990</td><td style="color: var(--accent); font-weight: 700;">$299.995</td></tr>
+          <tr><td><strong>Bot IA WhatsApp</strong></td><td>$400K - $1M</td><td>$349.990</td><td style="color: var(--accent); font-weight: 700;">$174.995</td></tr>
+          <tr><td><strong>Drone Session 4K</strong></td><td>$100K - $500K</td><td>$99.990</td><td style="color: var(--accent); font-weight: 700;">$49.995</td></tr>
+          <tr><td><strong>Marketing Digital/mes</strong></td><td>$300K - $800K</td><td>$249.990</td><td style="color: var(--accent); font-weight: 700;">$124.995/mes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="price-cards">
+      <div class="price-card reveal"><div class="price-plan">Starter</div><div class="price-amount">$124.995</div><div class="price-original">Antes $249.990</div><div style="font-size: 0.9rem; color: rgba(224, 224, 224, 0.7); margin-bottom: 1.5rem;">/mes</div><ul class="price-features"><li>SEO básico (5 keywords)</li><li>1 Landing Page</li><li>Google My Business</li><li>Reporte mensual</li><li>Soporte WhatsApp</li></ul><button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56932998833?text=Quiero%20el%20plan%20Starter', '_blank')">Comenzar Ahora</button></div>
+      <div class="price-card featured reveal"><div class="price-badge">MAS POPULAR</div><div class="price-plan">Growth</div><div class="price-amount">$249.995</div><div class="price-original">Antes $499.990</div><div style="font-size: 0.9rem; color: rgba(224, 224, 224, 0.7); margin-bottom: 1.5rem;">/mes</div><ul class="price-features"><li>SEO avanzado (15 keywords)</li><li>Sitio web completo</li><li>Bot IA WhatsApp</li><li>Google Ads management</li><li>Social media (2 redes)</li><li>Drone/trimestre</li><li>Dashboard analytics</li></ul><button class="btn btn-solid price-cta" onclick="window.open('https://wa.me/56932998833?text=Quiero%20el%20plan%20Growth', '_blank')">Comenzar Ahora</button></div>
+      <div class="price-card reveal"><div class="price-plan">Enterprise</div><div class="price-amount">$499.995</div><div class="price-original">Antes $999.990</div><div style="font-size: 0.9rem; color: rgba(224, 224, 224, 0.7); margin-bottom: 1.5rem;">/mes</div><ul class="price-features"><li>SEO full (30+ keywords)</li><li>Plataforma custom</li><li>IA multicanal</li><li>Google + Meta Ads</li><li>Social media (4 redes)</li><li>Drone mensual</li><li>Branding completo</li><li>Account manager</li></ul><button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56932998833?text=Quiero%20el%20plan%20Enterprise', '_blank')">Consultar</button></div>
+    </div>
+    <p class="reveal" style="font-family:'Space Mono',monospace;font-size:0.75rem;color:rgba(224,224,224,0.5);text-align:center;margin-top:2rem;letter-spacing:0.05em;">Todos los precios en CLP. IVA no incluido. Precios con descuento válidos para los primeros 50 clientes.</p>
+  </section>
+
+  <section id="fundador">
+    <div class="section-tag reveal">// Fundador</div>
+    <h2 class="section-title reveal">Quién Está Detrás</h2>
+    <div class="founder-grid">
+      <div class="founder-avatar reveal"><img src="https://yt3.googleusercontent.com/8JvseZdoNwVb1BWYfgibU-698zzldd3YDHsK7xE7jFCL62eSWYCcLG6zgJ9o7TsfhsrmPCnoZA=s800-c-k-c0x00ffffff-no-rj" alt="Matias Aguilera" loading="lazy" referrerpolicy="no-referrer"></div>
+      <div class="founder-content reveal"><h3>Matias Aguilera</h3><div class="founder-title">CEO & SEO Strategist</div><div class="founder-bio">Soy piloto de drones certificado DGAC, especialista en SEO y estrategia digital. Desde Pichilemu, he transformado mas de 50 negocios usando tecnologia, inteligencia artificial y creatividad. Mi pasion es conectar marcas con su audiencia ideal a traves de soluciones digitales innovadoras.</div><div class="founder-links"><a href="https://kreathur.agency/matiwlog/" target="_blank">MatiWlog Blog</a><a href="https://youtube.com/@MatiWlog" target="_blank">YouTube @MatiWlog</a></div></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-tag reveal">// Conectar</div>
+    <h2 class="section-title reveal">Hagamos algo grande juntos</h2>
+    <p class="section-sub reveal">No importa dónde estés. Creamos desde cualquier rincón.</p>
+    <div class="contact-grid">
+      <a href="mailto:hola@kreathur.agency" class="contact-card reveal"><div class="contact-icon">📧</div><div class="contact-label">Email</div><div class="contact-info">hola@kreathur.agency</div></a>
+      <a href="https://wa.me/56932998833" target="_blank" class="contact-card reveal"><div class="contact-icon">💬</div><div class="contact-label">WhatsApp</div><div class="contact-info">+56 9 3299 8833</div></a>
+      <a href="https://youtube.com/@MatiWlog" target="_blank" class="contact-card reveal"><div class="contact-icon">▶️</div><div class="contact-label">YouTube</div><div class="contact-info">@MatiWlog</div></a>
+      <a href="https://instagram.com/matiwlog" target="_blank" class="contact-card reveal"><div class="contact-icon">📸</div><div class="contact-label">Instagram</div><div class="contact-info">@matiwlog</div></a>
+      <a href="https://kreathur.agency/matiwlog/" class="contact-card reveal"><div class="contact-icon">📝</div><div class="contact-label">Blog</div><div class="contact-info">MatiWlog</div></a>
+      <a href="https://kreathur.agency" class="contact-card reveal"><div class="contact-icon">🌐</div><div class="contact-label">Website</div><div class="contact-info">kreathur.agency</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section"><h4>Kreathur</h4><ul><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#precios">Precios</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+      <div class="footer-section"><h4>Soluciones</h4><ul><li><a href="#servicios">SEO & Marketing</a></li><li><a href="#servicios">Desarrollo Web</a></li><li><a href="#servicios">IA & Automatizaciones</a></li><li><a href="#drones">Drones DGAC</a></li></ul></div>
+      <div class="footer-section"><h4>Empresa</h4><ul><li><a href="#fundador">Sobre Nosotros</a></li><li><a href="https://kreathur.agency/matiwlog/" target="_blank">Blog</a></li><li><a href="https://youtube.com/@MatiWlog" target="_blank">YouTube</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Kreathur Agency — Matias Aguilera. Todos los derechos reservados. Hecho con pasion desde Pichilemu, Chile.</p></div>
+  </footer>
+
+  <a href="https://wa.me/56932998833" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.746 3.054 9.378L1.054 31.29l6.156-1.97A15.925 15.925 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.31 22.602c-.39 1.1-2.282 2.04-3.15 2.1-.794.054-1.528.376-5.15-1.073-4.348-1.742-7.1-6.188-7.314-6.476-.214-.288-1.752-2.33-1.752-4.446 0-2.116 1.108-3.158 1.502-3.59.394-.432.86-.54 1.146-.54.286 0 .572.004.822.016.264.012.618-.1.966.738.358.86 1.218 2.97 1.326 3.184.108.214.18.466.036.752-.144.288-.216.466-.43.716-.214.25-.45.558-.644.75-.214.214-.436.446-.188.876.25.43 1.108 1.828 2.378 2.962 1.634 1.458 3.012 1.91 3.44 2.124.43.214.68.18.93-.108.25-.288 1.072-1.252 1.358-1.684.286-.43.572-.358.966-.214.394.144 2.502 1.18 2.93 1.394.43.214.716.322.822.502.108.18.108 1.04-.282 2.14z"/></svg>
+  </a>
+
+  <script>
+    window.addEventListener('load', () => { setTimeout(() => { document.querySelector('.loader').classList.add('hidden'); document.body.classList.add('loaded'); }, 2000); });
+    const isMobileDevice = () => { return (typeof window !== "undefined" && window.matchMedia("(pointer:coarse)").matches) || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); };
+    if (isMobileDevice()) { document.body.classList.add('mobile-device'); }
+    if (!isMobileDevice()) {
+      const cursorDot = document.querySelector('.cursor-dot'); const cursorRing = document.querySelector('.cursor-ring');
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px'; });
+      function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px'; requestAnimationFrame(animateRing); } animateRing();
+      document.addEventListener('mouseover', (e) => { if (e.target.closest('a, button, .project-card, .service-card, .contact-card')) { cursorRing.classList.add('hover'); } });
+      document.addEventListener('mouseout', (e) => { if (e.target.closest('a, button, .project-card, .service-card, .contact-card')) { cursorRing.classList.remove('hover'); } });
+    }
+    const canvas = document.querySelector('.hero-canvas'); const ctx = canvas.getContext('2d'); let particles = []; const particleCount = 200; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    class Particle { constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.5; this.speedY = (Math.random() - 0.5) * 0.5; this.color = Math.random() > 0.5 ? '#00e5ff' : '#a855f7'; this.opacity = Math.random() * 0.5 + 0.2; }
+      update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0) this.x = canvas.width; if (this.x > canvas.width) this.x = 0; if (this.y < 0) this.y = canvas.height; if (this.y > canvas.height) this.y = 0; }
+      draw() { ctx.fillStyle = this.color; ctx.globalAlpha = this.opacity; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+    }
+    function initParticles() { particles = []; for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); } }
+    function drawConnections() { ctx.globalAlpha = 0.1; ctx.strokeStyle = '#00e5ff'; for (let i = 0; i < particles.length; i++) { for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x; const dy = particles[i].y - particles[j].y; const distance = Math.sqrt(dx * dx + dy * dy); if (distance < 150) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); } } } }
+    function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.globalAlpha = 1; for (let particle of particles) { particle.update(); particle.draw(); } drawConnections(); requestAnimationFrame(animateParticles); }
+    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    document.addEventListener('mousemove', (e) => { const mouseX = e.clientX; const mouseY = e.clientY; for (let particle of particles) { const dx = particle.x - mouseX; const dy = particle.y - mouseY; const distance = Math.sqrt(dx * dx + dy * dy); if (distance < 200) { const force = 0.5 / distance; particle.speedX += (dx / distance) * force; particle.speedY += (dy / distance) * force; } } });
+    initParticles(); animateParticles();
+    class TextScramble { constructor(el) { this.el = el; this.chars = '!<>-_\\/[]{}—=+*^?#________'; this.update = this.update.bind(this); }
+      setText(newText) { const oldText = this.el.innerText; const length = Math.max(oldText.length, newText.length); const promise = new Promise((resolve) => (this.resolve = resolve)); this.queue = []; for (let i = 0; i < length; i++) { const from = oldText[i] || ''; const to = newText[i] || ''; const start = Math.floor(Math.random() * 40); const end = start + Math.floor(Math.random() * 40); this.queue.push({ from, to, start, end, char: '' }); } cancelAnimationFrame(this.frameRequest); this.frame = 0; this.update(); return promise; }
+      update() { let output = '', complete = 0; for (let i = 0, n = this.queue.length; i < n; i++) { let { from, to, start, end, char } = this.queue[i]; if (this.frame >= end) { complete++; output += to; } else if (this.frame >= start) { if (!char || Math.random() < 0.28) { char = this.chars[Math.floor(Math.random() * this.chars.length)]; this.queue[i].char = char; } output += char; } else { output += from; } } this.el.innerText = output; if (complete === this.queue.length) { this.resolve(); } else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; } }
+    }
+    const titleElements = document.querySelectorAll('.hero-title span'); titleElements.forEach(el => { const fx = new TextScramble(el); setTimeout(() => { fx.setText(el.innerText); }, 500); });
+    const revealElements = document.querySelectorAll('.reveal'); const revealObserver = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('active'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.1 }); revealElements.forEach((el) => { revealObserver.observe(el); });
+    const counters = document.querySelectorAll('.counter'); let hasStarted = false; const counterObserver = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting && !hasStarted) { hasStarted = true; counters.forEach((counter) => { const target = parseInt(counter.dataset.target); const suffix = counter.dataset.suffix || '+'; let current = 0; const duration = 2000; const start = performance.now(); function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); } function tick(now) { const elapsed = now - start; const progress = Math.min(elapsed / duration, 1); current = Math.floor(target * easeOutCubic(progress)); counter.innerText = current + (progress >= 1 ? suffix : ''); if (progress < 1) requestAnimationFrame(tick); } requestAnimationFrame(tick); }); counterObserver.unobserve(entry.target); } }); }, { threshold: 0.3 }); const statsSection = document.querySelector('.hero-stats'); if (statsSection) { counterObserver.observe(statsSection); }
+    window.addEventListener('scroll', () => { const nav = document.querySelector('nav'); if (window.scrollY > 100) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); } const sp = document.getElementById('scrollProgress'); if (sp) { const h = document.documentElement.scrollHeight - innerHeight; sp.style.width = (scrollY / h * 100) + '%'; } }, { passive: true });
+    const hamburger = document.querySelector('.hamburger'); const mobileNav = document.querySelector('.mobile-nav'); const mobileNavLinks = mobileNav.querySelectorAll('a'); hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileNav.classList.toggle('active'); }); mobileNavLinks.forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); mobileNav.classList.remove('active'); }); });
+    const serviceCards = document.querySelectorAll('.service-card'); serviceCards.forEach(card => { card.addEventListener('mousemove', (e) => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; card.style.setProperty('--mouse-x', x + 'px'); card.style.setProperty('--mouse-y', y + 'px'); }); });
+    function setupTilt(elements) { elements.forEach(element => { element.addEventListener('mousemove', function(e) { const rect = this.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top; const centerX = rect.width / 2; const centerY = rect.height / 2; const rotateX = (y - centerY) / 10; const rotateY = (centerX - x) / 10; this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`; }); element.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'; }); }); }
+    setupTilt(document.querySelectorAll('.project-card'));
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth' }); } }); });
+  </script>
+</body>
+</html>
