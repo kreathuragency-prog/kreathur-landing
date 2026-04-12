@@ -1,0 +1,38 @@
+# Kreathur Agency — robots.txt
+# https://kreathur.agency/
+
+User-agent: *
+Allow: /
+Disallow: /.claude/
+Disallow: /server.js
+Disallow: /server-v4.js
+Disallow: /og-card.html
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI crawlers — allowed (we want citations)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://kreathur.agency/sitemap.xml

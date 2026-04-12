@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreathur Agency | Agencia Digital, IA, SEO & Drones — Pichilemu, Chile</title>
+  <meta name="description" content="Kreathur Agency — Agencia digital desde Chile. SEO, desarrollo web, IA generativa (Claude, ChatGPT, Manus), drones certificados DGAC y automatizaciones. Fundada por Matias Aguilera.">
+  <meta name="keywords" content="agencia digital chile, seo chile, ia generativa, drones chile, desarrollo web, kreathur agency, matias aguilera, chatgpt, claude ai, automatizaciones">
+  <meta property="og:title" content="Kreathur Agency | Agencia Digital, IA & Drones">
+  <meta property="og:description" content="Desde Pichilemu para el mundo. SEO, IA Generativa, Desarrollo Web, Drones DGAC y mas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kreathur.agency/">
+  <meta property="og:image" content="https://www.kreathur.agency/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Kreathur Agency">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kreathur Agency | Agencia Digital, IA & Drones — Pichilemu">
+  <meta name="twitter:description" content="SEO, desarrollo web, IA generativa, drones DGAC. Agencia digital desde Pichilemu, Chile.">
+  <meta name="twitter:image" content="https://www.kreathur.agency/og-image.jpg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kreathur.agency/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.kreathur.agency/#organization","name":"Kreathur Agency","url":"https://www.kreathur.agency/","description":"Agencia digital especializada en SEO, desarrollo web, IA generativa y drones certificados DGAC desde Pichilemu, Chile.","founder":{"@type":"Person","name":"Matias Aguilera","jobTitle":"CEO & SEO Strategist"},"address":{"@type":"PostalAddress","addressLocality":"Pichilemu","addressRegion":"O'Higgins","addressCountry":"CL"},"geo":{"@type":"GeoCoordinates","latitude":"-34.3871","longitude":"-72.0034"},"contactPoint":{"@type":"ContactPoint","telephone":"+56977877602","contactType":"sales","email":"hola@kreathur.agency","availableLanguage":["es","en"]},"sameAs":["https://www.instagram.com/matiwlog","https://www.youtube.com/@MatiWlog"]},{"@type":"WebSite","@id":"https://www.kreathur.agency/#website","url":"https://www.kreathur.agency/","name":"Kreathur Agency","publisher":{"@id":"https://www.kreathur.agency/#organization"},"inLanguage":"es"},{"@type":"Service","serviceType":"SEO y Posicionamiento Web","provider":{"@id":"https://www.kreathur.agency/#organization"},"areaServed":{"@type":"Country","name":"Chile"}},{"@type":"Service","serviceType":"Desarrollo Web","provider":{"@id":"https://www.kreathur.agency/#organization"},"areaServed":{"@type":"Country","name":"Chile"}},{"@type":"Service","serviceType":"Servicios de Drones Certificados DGAC","provider":{"@id":"https://www.kreathur.agency/#organization"},"areaServed":{"@type":"Country","name":"Chile"}},{"@type":"Service","serviceType":"Chatbots e Inteligencia Artificial","provider":{"@id":"https://www.kreathur.agency/#organization"},"areaServed":{"@type":"Country","name":"Chile"}}]}
+  </script>
+  <style>
+/* ========== KREATHUR V4 — HUMAN + IMPACTFUL ========== */
+:root {
+  --cream: #f4f1eb;
+  --cream-dark: #e8e3da;
+  --ink: #1a1a18;
+  --ink-soft: #3a3a35;
+  --ink-muted: #5a5a52;
+  --accent: #00c2cc;
+  --accent-dark: #009da6;
+  --accent-glow: rgba(0,194,204,.15);
+  --warm: #e8a849;
+  --warm-glow: rgba(232,168,73,.12);
+  --surface: #ffffff;
+  --surface-alt: #faf8f5;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --spring: cubic-bezier(.175,.885,.32,1.275);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body.loading { opacity:0; transition: opacity .6s; }
+body.loaded { opacity:1; }
+::selection { background: var(--accent); color: white; }
+a { color: inherit; text-decoration: none; }
+img { max-width:100%; display:block; }
+.container { max-width:1200px; margin:0 auto; padding:0 28px; }
+
+/* ===== LOADER ===== */
+#loader { position:fixed; inset:0; z-index:9999; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; transition: opacity .6s, visibility .6s; }
+#loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+.loader-brand { font-family:var(--font-serif); font-size:clamp(2.5rem,6vw,4rem); font-style:italic; color:var(--cream); letter-spacing:-.02em; }
+.loader-sub { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.2em; color:var(--ink-muted); margin-top:12px; text-transform:uppercase; }
+.loader-bar { width:100px; height:2px; background:rgba(255,255,255,.1); margin-top:24px; border-radius:2px; overflow:hidden; }
+.loader-fill { width:0; height:100%; background:var(--accent); transition: width 1.2s var(--ease); }
+#loader.active .loader-fill { width:100%; }
+
+/* ===== NAV ===== */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:8000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 32px;
+  transition: all .4s var(--ease);
+}
+#nav.scrolled {
+  background:rgba(244,241,235,.92);
+  backdrop-filter:blur(16px);
+  padding:14px 32px;
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+.nav-brand { font-family:var(--font-serif); font-size:1.4rem; font-style:italic; color:var(--cream); transition:color .4s; }
+#nav.scrolled .nav-brand { color:var(--ink); }
+.nav-links { display:flex; gap:32px; }
+.nav-links a {
+  font-family:var(--font-body); font-size:.8rem; font-weight:500; letter-spacing:.04em;
+  color:rgba(244,241,235,.7); transition:color .3s;
+}
+#nav.scrolled .nav-links a { color:var(--ink-muted); }
+.nav-links a:hover { color:var(--accent); }
+.nav-right { display:flex; align-items:center; gap:14px; }
+.nav-cta {
+  font-family:var(--font-body); font-weight:600; font-size:.78rem;
+  padding:8px 20px; border-radius:40px;
+  background:var(--accent); color:white; border:none;
+  transition: transform .3s var(--spring), box-shadow .3s;
+  display:inline-block;
+}
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 20px var(--accent-glow); }
+.burger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:8001; }
+.burger span { width:22px; height:1.5px; background:var(--cream); transition: all .3s; }
+#nav.scrolled .burger span { background:var(--ink); }
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+
+/* ===== SCROLL-DRIVEN HERO ===== */
+.hero-scroll-container {
+  position:relative;
+  height:300vh; /* scroll distance */
+}
+.hero-sticky {
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+#heroCanvas {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  min-width:100%; min-height:100%;
+  object-fit:cover;
+}
+.hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(26,26,24,.3) 0%,
+    rgba(26,26,24,.15) 40%,
+    rgba(26,26,24,.5) 80%,
+    rgba(26,26,24,.85) 100%
+  );
+  pointer-events:none;
+}
+.hero-content {
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:0 24px;
+  z-index:2;
+}
+.hero-eyebrow {
+  font-family:var(--font-mono); font-size:.65rem; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:20px;
+  opacity:0; transform:translateY(20px);
+  animation: heroFadeUp .8s var(--ease) 2s forwards;
+}
+.hero-title {
+  font-family:var(--font-serif);
+  font-size:clamp(2.8rem,8vw,6.5rem);
+  font-weight:400;
+  font-style:italic;
+  line-height:.95;
+  color:var(--cream);
+  letter-spacing:-.03em;
+  margin-bottom:20px;
+  opacity:0; transform:translateY(30px);
+  animation: heroFadeUp .8s var(--ease) 2.2s forwards;
+}
+.hero-title em { font-style:normal; color:var(--accent); }
+.hero-desc {
+  font-size:1.05rem; font-weight:300; color:rgba(244,241,235,.7);
+  max-width:520px; line-height:1.7; margin-bottom:32px;
+  opacity:0; transform:translateY(20px);
+  animation: heroFadeUp .8s var(--ease) 2.4s forwards;
+}
+.hero-ctas {
+  display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+  opacity:0; transform:translateY(20px);
+  animation: heroFadeUp .8s var(--ease) 2.6s forwards;
+}
+.btn-solid {
+  font-family:var(--font-body); font-weight:600; font-size:.82rem;
+  padding:14px 32px; border-radius:40px;
+  background:var(--accent); color:white; border:none;
+  cursor:pointer; transition: all .3s var(--spring);
+  display:inline-block;
+}
+.btn-solid:hover { transform:translateY(-2px); box-shadow:0 8px 28px var(--accent-glow); }
+.btn-ghost {
+  font-family:var(--font-body); font-weight:500; font-size:.82rem;
+  padding:14px 32px; border-radius:40px;
+  background:transparent; color:var(--cream); border:1px solid rgba(244,241,235,.3);
+  cursor:pointer; transition: all .3s;
+  display:inline-block;
+}
+.btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+.hero-scroll-hint {
+  position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  opacity:0; animation: heroFadeUp .8s var(--ease) 3s forwards;
+}
+.hero-scroll-hint span { font-family:var(--font-mono); font-size:.55rem; letter-spacing:.2em; color:rgba(244,241,235,.4); text-transform:uppercase; }
+.scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, var(--accent), transparent); animation:scrollPulse 2s infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(.6)} 50%{opacity:1;transform:scaleY(1)} }
+@keyframes heroFadeUp { to{opacity:1;transform:translateY(0)} }
+
+/* ===== SECTION COMMONS ===== */
+.section { padding:100px 0; }
+.section-light { background:var(--surface); }
+.section-cream { background:var(--cream); }
+.section-dark { background:var(--ink); color:var(--cream); }
+.section-tag {
+  font-family:var(--font-mono); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px;
+}
+.section-title {
+  font-family:var(--font-serif); font-style:italic;
+  font-size:clamp(2rem,5vw,3.2rem); font-weight:400;
+  line-height:1.1; margin-bottom:16px; letter-spacing:-.02em;
+}
+.section-sub { color:var(--ink-muted); font-size:1rem; max-width:560px; margin-bottom:48px; line-height:1.7; font-weight:300; }
+.section-dark .section-sub { color:rgba(244,241,235,.5); }
+
+/* ===== STORY / ABOUT ===== */
+.story-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.story-visual { position:relative; }
+.story-img {
+  border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/5; object-fit:cover;
+  box-shadow:0 24px 80px rgba(0,0,0,.12);
+}
+.story-badge {
+  position:absolute; bottom:-16px; right:-16px;
+  background:var(--accent); color:white; padding:16px 24px;
+  border-radius:var(--radius); font-family:var(--font-mono); font-size:.7rem;
+  letter-spacing:.1em; text-transform:uppercase; font-weight:500;
+  box-shadow:0 8px 24px var(--accent-glow);
+}
+.story-text p { color:var(--ink-soft); font-size:.95rem; line-height:1.8; margin-bottom:16px; font-weight:300; }
+.story-text p strong { font-weight:600; color:var(--ink); }
+.story-stats { display:flex; gap:32px; margin-top:32px; padding-top:32px; border-top:1px solid var(--cream-dark); }
+.story-stat { text-align:center; }
+.story-stat-num { display:block; font-family:var(--font-serif); font-style:italic; font-size:2.2rem; color:var(--accent); }
+.story-stat-label { font-size:.7rem; letter-spacing:.08em; color:var(--ink-muted); text-transform:uppercase; }
+
+/* ===== RUBROS TABS ===== */
+.rubros-intro { text-align:center; max-width:640px; margin:0 auto 48px; }
+.rubros-intro p { color:var(--ink-muted); font-size:1rem; line-height:1.7; font-weight:300; }
+.rubros-tabs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:48px; }
+.rubro-tab {
+  font-family:var(--font-body); font-size:.78rem; font-weight:500;
+  padding:10px 22px; border:1px solid var(--cream-dark); border-radius:40px;
+  background:transparent; color:var(--ink-muted); cursor:pointer;
+  transition:all .3s var(--ease); white-space:nowrap;
+}
+.rubro-tab:hover { border-color:var(--accent); color:var(--ink); background:var(--surface); }
+.rubro-tab.active { border-color:var(--accent); color:white; background:var(--accent); box-shadow:0 4px 16px var(--accent-glow); }
+
+.rubros-panels { position:relative; }
+.rubro-panel { display:none; animation:rubroIn .5s var(--ease); }
+.rubro-panel.active { display:block; }
+@keyframes rubroIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+.rubro-header {
+  display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center;
+  margin-bottom:36px; padding:28px 32px;
+  background:var(--surface); border:1px solid var(--cream-dark); border-radius:var(--radius-lg);
+}
+.rubro-icon-large {
+  font-size:2.8rem; width:72px; height:72px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--surface-alt); border-radius:var(--radius); border:1px solid var(--cream-dark);
+}
+.rubro-header-text h3 { font-family:var(--font-serif); font-style:italic; font-size:1.6rem; margin-bottom:4px; }
+.rubro-header-text .rubro-tagline { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.06em; color:var(--accent); margin-bottom:8px; }
+.rubro-header-text p { color:var(--ink-muted); font-size:.88rem; line-height:1.6; font-weight:300; }
+
+.solutions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:28px; }
+.solution-card {
+  background:var(--surface); border:1px solid var(--cream-dark); border-radius:var(--radius);
+  padding:24px; transition:all .3s var(--ease); position:relative; overflow:hidden;
+}
+.solution-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); opacity:0; transition:opacity .3s; }
+.solution-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.06); }
+.solution-card:hover::before { opacity:1; }
+.solution-card .sol-icon { font-size:1.4rem; margin-bottom:10px; display:block; }
+.solution-card h4 { font-family:var(--font-serif); font-style:italic; font-size:1.05rem; margin-bottom:6px; }
+.solution-card p { color:var(--ink-muted); font-size:.8rem; line-height:1.6; margin-bottom:12px; font-weight:300; }
+.sol-tools { display:flex; flex-wrap:wrap; gap:5px; }
+.sol-tools span { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.04em; padding:3px 9px; border:1px solid var(--cream-dark); border-radius:16px; color:var(--accent); background:var(--surface-alt); }
+
+.rubro-cta {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 28px; background:var(--surface-alt); border:1px dashed var(--cream-dark);
+  border-radius:var(--radius); flex-wrap:wrap; gap:14px;
+}
+.rubro-cta p { font-size:.88rem; color:var(--ink-muted); font-weight:300; }
+.rubro-cta p strong { color:var(--ink); font-weight:600; }
+
+.all-services-label { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:20px; margin-top:56px; text-align:center; }
+.all-services-quick { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; max-width:880px; margin:0 auto; }
+.asq-item { display:flex; align-items:center; gap:10px; padding:12px 16px; background:var(--surface); border:1px solid var(--cream-dark); border-radius:var(--radius-sm); transition:border-color .3s; }
+.asq-item:hover { border-color:var(--accent); }
+.asq-item .asq-icon { font-size:1.1rem; flex-shrink:0; }
+.asq-item span:last-child { font-family:var(--font-body); font-size:.8rem; font-weight:600; }
+
+/* ===== PROJECTS ===== */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; }
+.project-card {
+  background:var(--surface); border:1px solid var(--cream-dark);
+  border-radius:var(--radius-lg); overflow:hidden;
+  transition:all .4s var(--ease); display:block;
+}
+.project-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.08); }
+.pc-image {
+  height:220px; background-size:cover; background-position:center top; position:relative;
+  border-bottom:1px solid var(--cream-dark);
+}
+.pc-overlay { position:absolute; inset:0; background:linear-gradient(transparent 50%,rgba(26,26,24,.6)); display:flex; align-items:flex-end; padding:16px; }
+.pc-tag { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.1em; background:var(--accent); color:white; padding:4px 12px; border-radius:20px; font-weight:500; }
+.pc-info { padding:24px; }
+.pc-info h3 { font-family:var(--font-serif); font-style:italic; font-size:1.3rem; margin-bottom:8px; }
+.pc-info p { color:var(--ink-muted); font-size:.84rem; line-height:1.6; margin-bottom:12px; font-weight:300; }
+.pc-metrics { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.pc-metrics span { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.06em; padding:4px 10px; border:1px solid var(--cream-dark); border-radius:20px; color:var(--accent); }
+.pc-link { font-family:var(--font-body); font-size:.8rem; font-weight:600; color:var(--accent); }
+
+.project-card-cta {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--surface-alt); border:2px dashed var(--cream-dark);
+}
+.pc-cta-inner { text-align:center; padding:48px 24px; }
+.pc-cta-icon { font-size:2.5rem; color:var(--accent); margin-bottom:14px; }
+.pc-cta-inner h3 { font-family:var(--font-serif); font-style:italic; font-size:1.3rem; margin-bottom:8px; }
+.pc-cta-inner p { color:var(--ink-muted); font-size:.84rem; margin-bottom:14px; font-weight:300; }
+
+/* ===== IA SECTION ===== */
+.ia-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+.ia-card {
+  background:rgba(244,241,235,.05); border:1px solid rgba(244,241,235,.1);
+  border-radius:var(--radius-lg); padding:28px; transition:all .3s var(--ease);
+}
+.ia-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+.ia-logo { font-family:var(--font-serif); font-style:italic; font-size:1.4rem; color:var(--accent); }
+.ia-by { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.1em; color:var(--ink-muted); margin-bottom:14px; }
+.ia-card h4 { font-family:var(--font-serif); font-style:italic; font-size:1rem; margin-bottom:10px; }
+.ia-card ul { list-style:none; margin-bottom:14px; }
+.ia-card li { font-size:.82rem; color:rgba(244,241,235,.5); padding:3px 0 3px 16px; position:relative; font-weight:300; }
+.ia-card li::before { content:''; position:absolute; left:0; top:50%; width:5px; height:5px; border-radius:50%; background:var(--accent); transform:translateY(-50%); }
+.ia-use { font-family:var(--font-mono); font-size:.6rem; color:var(--warm); letter-spacing:.04em; padding-top:10px; border-top:1px solid rgba(244,241,235,.06); }
+
+/* ===== DRONE ===== */
+.drone-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px; }
+.drone-video { border-radius:var(--radius-lg); overflow:hidden; background:var(--ink); border:1px solid rgba(244,241,235,.08); }
+.drone-video iframe { width:100%; aspect-ratio:16/9; display:block; }
+.dv-label { display:block; font-family:var(--font-mono); font-size:.65rem; letter-spacing:.08em; color:var(--ink-muted); padding:10px 14px; }
+.drone-services { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:16px; }
+.ds-item { background:rgba(244,241,235,.04); border:1px solid rgba(244,241,235,.08); border-radius:var(--radius); padding:20px; text-align:center; transition:border-color .3s; }
+.ds-item:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 0 30px rgba(0,194,204,.12); background:rgba(0,194,204,.04); }
+.ds-icon { font-size:1.8rem; margin-bottom:6px; display:block; }
+.ds-item h4 { font-family:var(--font-serif); font-style:italic; font-size:.95rem; margin-bottom:4px; }
+.ds-item p { font-size:.75rem; color:rgba(244,241,235,.4); line-height:1.5; font-weight:300; }
+
+/* ===== PRICING ===== */
+.offer-banner {
+  background:var(--surface); border:2px solid var(--accent); border-radius:var(--radius-lg);
+  padding:36px; text-align:center; margin-bottom:48px; position:relative; overflow:hidden;
+}
+.ob-badge { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.2em; background:var(--accent); color:white; padding:5px 16px; border-radius:20px; display:inline-block; margin-bottom:14px; font-weight:500; }
+.offer-banner h3 { font-family:var(--font-serif); font-style:italic; font-size:clamp(1.3rem,3vw,1.8rem); margin-bottom:10px; }
+.offer-banner p { color:var(--ink-muted); font-size:.92rem; font-weight:300; }
+.offer-banner p span { color:var(--accent); font-weight:700; font-size:1.1rem; }
+.ob-timer { display:inline-flex; align-items:center; gap:8px; margin-top:14px; font-family:var(--font-mono); font-size:.7rem; color:var(--accent); }
+.ob-dot { width:7px; height:7px; border-radius:50%; background:#00e68a; animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+.compare-table { overflow-x:auto; margin-bottom:48px; border-radius:var(--radius); border:1px solid var(--cream-dark); }
+.compare-table table { width:100%; border-collapse:collapse; font-size:.83rem; }
+.compare-table th, .compare-table td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--cream-dark); }
+.compare-table th { font-family:var(--font-body); font-size:.8rem; font-weight:700; background:var(--surface-alt); }
+.compare-table th small { font-weight:400; color:var(--ink-muted); font-size:.68rem; }
+.compare-table td { color:var(--ink-muted); font-family:var(--font-mono); font-size:.76rem; }
+.compare-table .highlight { color:var(--accent); background:var(--accent-glow); }
+.compare-table th.highlight { color:var(--accent); }
+
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; margin-top:40px; }
+.price-card {
+  background:var(--surface); border:1px solid var(--cream-dark); border-radius:var(--radius-lg);
+  padding:32px; text-align:center; transition:all .3s var(--ease); position:relative;
+}
+.price-card:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 12px 36px rgba(0,0,0,.06); }
+.price-card.featured { border-color:var(--accent); background:linear-gradient(180deg, var(--accent-glow) 0%, var(--surface) 100%); }
+.prc-badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:.6rem; letter-spacing:.12em; background:var(--accent); color:white; padding:4px 14px; border-radius:20px; font-weight:500; }
+.prc-name { font-family:var(--font-serif); font-style:italic; font-size:1.3rem; margin-bottom:14px; }
+.prc-price { margin-bottom:20px; }
+.prc-old { text-decoration:line-through; color:var(--ink-muted); font-size:.85rem; display:block; margin-bottom:2px; }
+.prc-new { font-family:var(--font-serif); font-style:italic; font-size:2.4rem; color:var(--accent); }
+.prc-period { font-size:.82rem; color:var(--ink-muted); }
+.prc-features { list-style:none; text-align:left; margin-bottom:24px; }
+.prc-features li { font-size:.82rem; color:var(--ink-muted); padding:7px 0; border-bottom:1px solid var(--cream-dark); padding-left:18px; position:relative; font-weight:300; }
+.prc-features li::before { content:'\2713'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+.pricing-note { font-family:var(--font-mono); font-size:.65rem; color:var(--ink-muted); text-align:center; margin-top:20px; letter-spacing:.04em; }
+
+/* ===== FOUNDER ===== */
+.founder-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:center; }
+.founder-img img { border-radius:var(--radius-lg); aspect-ratio:1; object-fit:cover; box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.founder-info .section-tag { margin-bottom:8px; }
+.founder-role { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.08em; color:var(--accent); margin-bottom:16px; }
+.founder-info p { color:var(--ink-muted); font-size:.92rem; line-height:1.7; margin-bottom:14px; font-weight:300; }
+.founder-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+
+/* ===== CONTACT ===== */
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; }
+.contact-item {
+  background:var(--surface); border:1px solid var(--cream-dark); border-radius:var(--radius);
+  padding:24px; text-align:center; transition:all .3s var(--ease); display:block;
+}
+.contact-item:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.06); }
+.ci-icon { font-size:1.6rem; display:block; margin-bottom:6px; }
+.ci-label { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted); display:block; margin-bottom:3px; }
+.ci-value { font-family:var(--font-body); font-size:.85rem; font-weight:600; color:var(--accent); }
+
+/* ===== FOOTER ===== */
+footer { padding:48px 0 24px; background:var(--ink); color:var(--cream); }
+.footer-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+.footer-brand { font-family:var(--font-serif); font-style:italic; font-size:1.3rem; }
+.footer-top p { color:var(--ink-muted); font-size:.82rem; font-weight:300; }
+.footer-links { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
+.footer-links a { font-family:var(--font-body); font-size:.75rem; font-weight:500; color:var(--ink-muted); transition:color .3s; }
+.footer-links a:hover { color:var(--accent); }
+.footer-bottom { border-top:1px solid rgba(244,241,235,.08); padding-top:14px; }
+.footer-bottom span { font-size:.72rem; color:var(--ink-muted); }
+
+/* ===== WA FLOAT ===== */
+.wa-float {
+  position:fixed; bottom:24px; right:24px; z-index:7000;
+  width:52px; height:52px; background:#25d366; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 16px rgba(37,211,102,.35); transition:transform .3s;
+}
+.wa-float:hover { transform:scale(1.08); }
+
+/* ===== REVEAL ===== */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(26,26,24,.97); flex-direction:column; align-items:center; justify-content:center; gap:28px; z-index:8000; }
+  .nav-links.open { display:flex; }
+  .nav-links a { color:var(--cream) !important; font-size:1rem; }
+  .burger { display:flex; }
+  .story-grid { grid-template-columns:1fr; text-align:center; gap:32px; }
+  .story-stats { justify-content:center; }
+  .story-badge { right:50%; transform:translateX(50%); }
+  .founder-grid { grid-template-columns:1fr; text-align:center; }
+  .founder-img img { max-width:240px; margin:0 auto; }
+  .founder-links { justify-content:center; }
+  .projects-grid, .ia-grid, .drone-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr; }
+  .rubro-header { grid-template-columns:1fr; text-align:center; }
+  .rubro-icon-large { margin:0 auto; }
+  .rubros-tabs { gap:6px; }
+  .rubro-tab { font-size:.72rem; padding:8px 16px; }
+  .rubro-cta { flex-direction:column; text-align:center; }
+  .hero-title { font-size:clamp(2.2rem,9vw,4rem); }
+  .hero-scroll-container { height:200vh; }
+  .drone-services { grid-template-columns:repeat(2,1fr); }
+  .nav-cta { display:none; }
+}
+/* ========== WOW ENHANCEMENTS ========== */
+.cursor-glow { position:fixed; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%); pointer-events:none; z-index:9998; transform:translate(-50%,-50%); opacity:0; transition:opacity .4s; mix-blend-mode:screen; }
+body.loaded .cursor-glow { opacity:1; }
+.nav-links a { position:relative; overflow:hidden; }
+.nav-links a::after { content:''; position:absolute; bottom:-2px; left:50%; width:0; height:2px; background:var(--accent); transition:width .3s var(--spring),left .3s var(--spring); }
+.nav-links a:hover::after { width:100%; left:0; }
+.wa-float { animation:waBreath 2s ease-in-out infinite; }
+.wa-float::before { content:''; position:absolute; inset:-6px; border-radius:50%; background:#25d366; opacity:0; animation:waRipple 2s ease-out infinite; z-index:-1; }
+.wa-float::after { content:''; position:absolute; inset:-12px; border-radius:50%; background:#25d366; opacity:0; animation:waRipple 2s ease-out .5s infinite; z-index:-2; }
+@keyframes waBreath { 0%,100%{transform:scale(1);box-shadow:0 4px 16px rgba(37,211,102,.35)} 50%{transform:scale(1.08);box-shadow:0 6px 32px rgba(37,211,102,.6),0 0 60px rgba(37,211,102,.2)} }
+@keyframes waRipple { 0%{transform:scale(1);opacity:.4} 100%{transform:scale(2.2);opacity:0} }
+.wa-float .wa-tooltip { position:absolute; right:calc(100% + 14px); top:50%; transform:translateY(-50%) translateX(8px); background:var(--ink); color:var(--cream); font-family:var(--font-body); font-size:.75rem; font-weight:600; padding:8px 16px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:all .3s var(--spring); }
+.wa-float .wa-tooltip::after { content:''; position:absolute; right:-6px; top:50%; transform:translateY(-50%); border:6px solid transparent; border-left-color:var(--ink); }
+.wa-float:hover .wa-tooltip { opacity:1; transform:translateY(-50%) translateX(0); }
+.social-proof-bar { position:fixed; bottom:0; left:0; right:0; z-index:6000; background:var(--ink); padding:10px 0; transform:translateY(100%); transition:transform .5s var(--spring); border-top:1px solid rgba(0,194,204,.2); }
+.social-proof-bar.visible { transform:translateY(0); }
+.spb-inner { max-width:1200px; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; }
+.spb-item { display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:.68rem; color:rgba(244,241,235,.6); letter-spacing:.04em; }
+.spb-dot { width:6px; height:6px; border-radius:50%; background:#00e68a; animation:pulse 1.5s infinite; }
+.spb-accent { color:var(--accent); font-weight:700; }
+.spb-close { position:absolute; right:16px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(244,241,235,.3); cursor:pointer; font-size:1.1rem; padding:4px; transition:color .2s; }
+.spb-close:hover { color:var(--cream); }
+.reveal { opacity:0; clip-path:inset(8% 0% 8% 0%); transform:translateY(40px) scale(.97); transition:opacity .8s var(--ease),transform .8s var(--ease),clip-path .8s var(--ease); will-change:opacity,transform,clip-path; }
+.reveal.visible { opacity:1; clip-path:inset(0% 0% 0% 0%); transform:translateY(0) scale(1); }
+.project-card { position:relative; }
+.project-card::after { content:''; position:absolute; inset:-1px; border-radius:var(--radius-lg); background:linear-gradient(135deg,transparent 30%,var(--accent) 50%,transparent 70%); background-size:200% 200%; z-index:-1; opacity:0; transition:opacity .4s; }
+.project-card:hover::after { opacity:1; animation:shimmerBorder 1.5s linear infinite; }
+@keyframes shimmerBorder { 0%{background-position:200% 200%} 100%{background-position:-200% -200%} }
+.project-card:hover { box-shadow:0 16px 48px rgba(0,0,0,.08),0 0 40px var(--accent-glow); }
+.pc-tag { transition:transform .3s var(--spring),opacity .3s; transform:translateX(-8px); opacity:0; }
+.project-card:hover .pc-tag { transform:translateX(0); opacity:1; }
+.pc-link { transition:transform .3s var(--spring); }
+.project-card:hover .pc-link { transform:translateX(4px); }
+.solution-card::after { content:''; position:absolute; inset:0; border-radius:var(--radius); box-shadow:inset 0 0 0 1px var(--accent); opacity:0; transition:opacity .3s; }
+.solution-card:hover::after { opacity:.4; }
+.solution-card:hover { box-shadow:0 8px 24px rgba(0,0,0,.06),0 0 30px var(--accent-glow); }
+.ia-card { backdrop-filter:blur(8px); position:relative; overflow:hidden; }
+.ia-card::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle at 30% 30%,var(--accent-glow) 0%,transparent 50%); opacity:0; transition:opacity .5s; pointer-events:none; }
+.ia-card:hover::before { opacity:1; }
+.ia-card:hover { border-color:var(--accent); box-shadow:0 0 40px rgba(0,194,204,.15); }
+.price-card.featured { z-index:1; overflow:visible; }
+.price-card.featured::before { content:''; position:absolute; inset:-2px; border-radius:var(--radius-lg); background:linear-gradient(135deg,var(--accent),var(--warm),var(--accent)); background-size:300% 300%; z-index:-1; animation:priceShimmer 4s ease infinite; }
+@keyframes priceShimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+.offer-banner { position:relative; overflow:hidden; }
+.offer-banner::before { content:''; position:absolute; top:0; left:-100%; width:50%; height:100%; background:linear-gradient(90deg,transparent,rgba(0,194,204,.08),transparent); animation:offerSweep 3s ease-in-out infinite; }
+@keyframes offerSweep { 0%{left:-50%} 100%{left:150%} }
+.btn-solid { position:relative; overflow:hidden; z-index:1; }
+.btn-solid::before { content:''; position:absolute; inset:0; background:var(--accent-dark); transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); z-index:-1; border-radius:40px; }
+.btn-solid:hover::before { transform:scaleX(1); transform-origin:left; }
+body::before { content:''; position:fixed; inset:0; z-index:9997; pointer-events:none; opacity:.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.story-img { transition:transform .6s var(--ease),box-shadow .6s var(--ease); }
+.story-visual:hover .story-img { transform:translateY(-8px) rotate(-.5deg); box-shadow:0 32px 100px rgba(0,0,0,.18); }
+.story-badge { transition:transform .4s var(--spring),box-shadow .4s; }
+.story-visual:hover .story-badge { transform:translateY(-4px); box-shadow:0 12px 32px var(--accent-glow); }
+.founder-img img { transition:transform .6s var(--ease),box-shadow .6s; }
+.founder-img:hover img { transform:scale(1.03) rotate(-1deg); box-shadow:0 28px 80px rgba(0,0,0,.15); }
+.contact-item:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 32px rgba(0,0,0,.08),0 0 20px var(--accent-glow); }
+.contact-item:hover .ci-icon { animation:iconBounce .5s var(--spring); }
+@keyframes iconBounce { 0%{transform:scale(1)} 40%{transform:scale(1.3)} 100%{transform:scale(1)} }
+.rubro-tab:not(.active):hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.05); }
+.rubro-tab.active { transform:scale(1.05); }
+.loader-brand { animation:loaderGlow 1.5s ease-in-out infinite alternate; }
+@keyframes loaderGlow { from{text-shadow:0 0 20px rgba(0,194,204,0)} to{text-shadow:0 0 40px rgba(0,194,204,.4),0 0 80px rgba(0,194,204,.1)} }
+/* TESTIMONIALS */
+.testimonials-track { display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;scrollbar-width:none; }
+.testimonials-track::-webkit-scrollbar{display:none}
+.testimonial-card { flex:0 0 320px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:28px;position:relative; }
+.testimonial-card::before { content:'\201C';position:absolute;top:12px;right:20px;font-family:var(--font-serif);font-size:3rem;color:var(--accent);opacity:.2;line-height:1; }
+.tc-stars { color:var(--warm);font-size:.9rem;margin-bottom:12px;letter-spacing:2px; }
+.tc-text { font-size:.86rem;color:var(--ink-soft);line-height:1.7;margin-bottom:16px;font-weight:300;font-style:italic; }
+.tc-author { display:flex;align-items:center;gap:12px; }
+.tc-avatar { width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-style:italic;color:white;font-size:1rem;flex-shrink:0; }
+.tc-name { font-size:.82rem;font-weight:600; }
+.tc-role { font-size:.7rem;color:var(--ink-muted); }
+/* LEAD FORM */
+.lead-form-wrapper { max-width:580px;margin:40px auto 0;background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius-lg);padding:36px;box-shadow:0 12px 40px rgba(0,194,204,.12); }
+.lead-form-wrapper h3 { font-family:var(--font-serif);font-style:italic;font-size:1.4rem;text-align:center;margin-bottom:6px; }
+.lead-form-wrapper .lf-sub { text-align:center;color:var(--ink-muted);font-size:.85rem;margin-bottom:24px;font-weight:300; }
+.lead-form-wrapper label { display:block;font-size:.78rem;font-weight:600;margin-bottom:5px;color:var(--ink-soft); }
+.lead-form-wrapper input,.lead-form-wrapper select,.lead-form-wrapper textarea { width:100%;padding:12px 14px;border:1px solid var(--cream-dark);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.88rem;margin-bottom:16px;background:var(--surface-alt);transition:border-color .3s; }
+.lead-form-wrapper input:focus,.lead-form-wrapper select:focus,.lead-form-wrapper textarea:focus { outline:none;border-color:var(--accent); }
+.lead-form-wrapper textarea { resize:vertical;min-height:80px; }
+.lf-submit { width:100%;padding:16px;border:none;border-radius:40px;background:#25d366;color:white;font-family:var(--font-body);font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .3s var(--spring),box-shadow .3s; }
+.lf-submit:hover { transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3); }
+.lf-trust { display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;font-family:var(--font-mono);font-size:.62rem;color:var(--ink-muted);letter-spacing:.04em; }
+/* MODALS */
+.km-overlay { position:fixed;inset:0;z-index:9500;background:rgba(26,26,24,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s; }
+.km-overlay.active { opacity:1;visibility:visible; }
+.km-modal { background:var(--surface);border-radius:var(--radius-lg);max-width:480px;width:100%;padding:40px 36px;position:relative;transform:translateY(20px) scale(.96);transition:transform .4s var(--spring);max-height:90vh;overflow-y:auto; }
+.km-overlay.active .km-modal { transform:translateY(0) scale(1); }
+.km-close { position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.5rem;color:var(--ink-muted);cursor:pointer;line-height:1;padding:4px 8px;transition:color .2s; }
+.km-close:hover { color:var(--ink); }
+.km-magnet-badge { display:inline-block;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;background:var(--accent);color:white;padding:4px 14px;border-radius:20px;font-weight:600;margin-bottom:16px; }
+.km-magnet-title { font-family:var(--font-serif);font-style:italic;font-size:1.8rem;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.15; }
+.km-magnet-desc { font-size:.9rem;color:var(--ink-muted);line-height:1.7;font-weight:300;margin-bottom:20px; }
+.km-magnet-list { list-style:none;margin-bottom:24px;padding:0; }
+.km-magnet-list li { position:relative;padding:6px 0 6px 22px;font-size:.85rem;color:var(--ink-soft); }
+.km-magnet-list li::before { content:'';position:absolute;left:0;top:50%;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-50%); }
+.km-magnet-form { display:flex;flex-direction:column;gap:10px; }
+.km-magnet-form input,.km-magnet-form select { font-family:var(--font-body);font-size:.88rem;padding:12px 16px;border:1px solid var(--cream-dark);border-radius:var(--radius-sm);background:var(--surface-alt);color:var(--ink);outline:none;transition:border-color .3s; }
+.km-magnet-form input:focus,.km-magnet-form select:focus { border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow); }
+.km-magnet-btn { width:100%;text-align:center;padding:14px;font-size:.9rem;cursor:pointer;margin-top:4px; }
+.km-magnet-trust { text-align:center;font-size:.68rem;color:var(--ink-muted);font-weight:300;margin-top:8px; }
+.km-exit-content { text-align:center; }
+.km-exit-emoji { font-size:2.8rem;margin-bottom:12px; }
+.km-exit-title { font-family:var(--font-serif);font-style:italic;font-size:1.7rem;font-weight:400;color:var(--ink);margin-bottom:10px; }
+.km-exit-desc { font-size:.9rem;color:var(--ink-muted);line-height:1.7;font-weight:300;margin-bottom:24px;max-width:380px;margin-left:auto;margin-right:auto; }
+.km-exit-form { display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto; }
+.km-exit-row { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
+.km-exit-form input { font-family:var(--font-body);font-size:.88rem;padding:12px 16px;border:1px solid var(--cream-dark);border-radius:var(--radius-sm);background:var(--surface-alt);outline:none;transition:border-color .3s; }
+.km-exit-form input:focus { border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow); }
+.km-exit-btn { width:100%;text-align:center;padding:14px;font-size:.9rem;cursor:pointer; }
+.km-exit-skip { background:none;border:none;font-family:var(--font-body);font-size:.78rem;color:var(--ink-muted);cursor:pointer;margin-top:12px;padding:4px 8px; }
+.km-exit-skip:hover { color:var(--ink); }
+@media(max-width:768px){ .social-proof-bar .spb-item:nth-child(2),.social-proof-bar .spb-item:nth-child(3){ display:none; } .cursor-glow{display:none;} .testimonial-card{flex:0 0 280px;} .km-modal{padding:28px 20px;} .km-magnet-title,.km-exit-title{font-size:1.4rem;} .km-exit-row{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-brand">Kreathur</div>
+  <div class="loader-sub">Cargando experiencia</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#inicio" class="nav-brand">Kreathur</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#historia">Quien soy</a>
+    <a href="#servicios">Rubros</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#ia">IA</a>
+    <a href="#drone">Drones</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto">Conectar</a>
+  </div>
+  <div class="nav-right">
+    <a href="#contacto" class="nav-cta">Hablemos</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO — SCROLL-DRIVEN VIDEO -->
+<div class="hero-scroll-container" id="inicio">
+  <div class="hero-sticky">
+    <canvas id="heroCanvas" role="img" aria-label="Timelapse de construccion del laboratorio AI Lab Kreathur en Pichilemu"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Agencia Digital &bull; Pichilemu, Chile</div>
+      <h1 class="hero-title">Hacemos crecer<br>tu negocio con <em>tecnologia.</em></h1>
+      <p class="hero-desc">Soy Matias Aguilera, desde Pichilemu. Llevo 5 anos ayudando a negocios reales con web, IA, drones certificados DGAC y SEO. Scrollea y mira como transforme una casa vieja en mi laboratorio de IA.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/56977877602?text=Hola%20Matias!%20Vi%20tu%20web%20y%20me%20interesa%20cotizar." target="_blank" rel="noopener noreferrer" class="btn-solid" style="background:#25d366">Cotizar por WhatsApp</a>
+        <a href="#servicios" class="btn-ghost">Buscar mi rubro</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- NUESTRA HISTORIA -->
+<section id="historia" class="section section-light">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <img src="frames-opt/frame_050.jpg" alt="AI Lab Pichilemu — Oficina Kreathur Agency" class="story-img">
+        <div class="story-badge">AI Lab Pichilemu</div>
+      </div>
+      <div class="story-text reveal">
+        <div class="section-tag">Mi historia</div>
+        <h2 class="section-title">Empece solo, desde Pichilemu. Hoy trabajo con clientes en todo Chile.</h2>
+        <p>Kreathur nacio porque me canse de ver a negocios buenos pagar fortunas por servicios mediocres. <strong>No necesitas una agencia gigante para crecer.</strong> Necesitas a alguien que de verdad se la juegue por tu proyecto.</p>
+        <p>Soy <strong>Matias Aguilera</strong> — desarrollador, piloto de drones con certificacion DGAC y obsesionado con el SEO. El timelapse del hero es real: renove una casa vieja y la converti en mi laboratorio de IA. Hago lo mismo con los negocios de mis clientes.</p>
+        <p>Aca no hay plantillas ni respuestas automaticas de "un ejecutivo se pondra en contacto". <strong>Me escribes y te respondo yo.</strong></p>
+        <div class="story-stats">
+          <div class="story-stat"><span class="story-stat-num" data-target="50">0</span><span class="story-stat-label">Proyectos</span></div>
+          <div class="story-stat"><span class="story-stat-num" data-target="5">0</span><span class="story-stat-label">Anos Exp.</span></div>
+          <div class="story-stat"><span class="story-stat-num" data-target="8">0</span><span class="story-stat-label">Tools IA</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;padding-top:24px;border-top:1px solid var(--cream-dark);">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--surface-alt);border:1px solid var(--cream-dark);border-radius:var(--radius-sm);">
+            <span style="font-size:1.3rem;">&#9992;</span>
+            <div><span style="font-family:var(--font-body);font-size:.72rem;font-weight:700;display:block;color:var(--ink);">Piloto Certificado DGAC</span><span style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.04em;color:var(--ink-muted);">Direccion General de Aeronautica Civil</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--surface-alt);border:1px solid var(--cream-dark);border-radius:var(--radius-sm);">
+            <span style="font-size:1.3rem;">&#128187;</span>
+            <div><span style="font-family:var(--font-body);font-size:.72rem;font-weight:700;display:block;color:var(--ink);">Claude AI Developer</span><span style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.04em;color:var(--ink-muted);">Anthropic — IA de vanguardia</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--surface-alt);border:1px solid var(--cream-dark);border-radius:var(--radius-sm);">
+            <span style="font-size:1.3rem;">&#128270;</span>
+            <div><span style="font-family:var(--font-body);font-size:.72rem;font-weight:700;display:block;color:var(--ink);">Google Search Console</span><span style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.04em;color:var(--ink-muted);">SEO Data-Driven</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS BAR -->
+<div style="padding:40px 0;background:var(--surface);border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);">
+  <div class="container">
+    <p style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);text-align:center;margin-bottom:20px;">Negocios que confian en Kreathur</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;opacity:.45;">
+      <span style="font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink-muted);">Camperizate</span>
+      <span style="font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink-muted);">Lilafken</span>
+      <span style="font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink-muted);">Importadora Maully</span>
+      <span style="font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink-muted);">Pichilemu Online</span>
+      <span style="font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink-muted);">MatiWlog</span>
+    </div>
+  </div>
+</div>
+
+<!-- RUBROS -->
+<section id="servicios" class="section section-cream">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag reveal">Que necesita tu negocio?</div>
+      <h2 class="section-title reveal">Busca tu rubro. Te muestro que puedo hacer por ti.</h2>
+    </div>
+    <div class="rubros-intro reveal">
+      <p>No es lo mismo una inmobiliaria que un restaurante. Elige tu rubro y ve las herramientas que te van a servir de verdad.</p>
+    </div>
+    <div class="rubros-tabs reveal">
+      <button class="rubro-tab active" data-rubro="inmobiliarias">Inmobiliarias</button>
+      <button class="rubro-tab" data-rubro="turismo">Turismo</button>
+      <button class="rubro-tab" data-rubro="ecommerce">E-Commerce</button>
+      <button class="rubro-tab" data-rubro="gastronomia">Gastronomia</button>
+      <button class="rubro-tab" data-rubro="profesionales">Pymes</button>
+      <button class="rubro-tab" data-rubro="agro">Agricultura</button>
+      <button class="rubro-tab" data-rubro="eventos">Eventos</button>
+    </div>
+    <div class="rubros-panels">
+      <!-- INMOBILIARIAS -->
+      <div class="rubro-panel active" id="rubro-inmobiliarias">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#127960;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Inmobiliarias &amp; Corredores</div>
+            <h3>Vende mas propiedades con tecnologia</h3>
+            <p>Tomas aereas 4K, tours virtuales, sitios web con busqueda avanzada y bots que atienden consultas 24/7.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128249;</span><h4>Video Aereo 4K</h4><p>Tomas drone DGAC de propiedades, terrenos y desarrollos. Video editado listo para portales.</p><div class="sol-tools"><span>DJI 4K</span><span>DGAC</span><span>Edicion</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127760;</span><h4>Sitio Inmobiliario</h4><p>Plataforma con filtros, fichas de propiedad, galeria y formulario integrado.</p><div class="sol-tools"><span>Next.js</span><span>React</span><span>SEO</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#129302;</span><h4>Bot IA Consultas</h4><p>WhatsApp bot que responde sobre propiedades, agenda visitas y filtra leads.</p><div class="sol-tools"><span>Claude AI</span><span>WhatsApp</span><span>n8n</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128200;</span><h4>SEO &amp; Google Ads</h4><p>Posicionamiento local y campanas de conversion para inmobiliarias.</p><div class="sol-tools"><span>SEO Local</span><span>Google Ads</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Eres corredor o inmobiliaria?</strong> Escribeme y vemos tu caso.</p><a href="#contacto" class="btn-solid">Hablar con Matias</a></div>
+      </div>
+      <!-- TURISMO -->
+      <div class="rubro-panel" id="rubro-turismo">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#127796;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Turismo, Hoteles &amp; Apart Hotels</div>
+            <h3>Mas reservas, menos intermediarios</h3>
+            <p>Motor de reservas propio, channel manager multi-OTA, videos drone y bots concierge 24/7.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128197;</span><h4>Channel Manager</h4><p>Sincronizacion Booking, Airbnb y OTAs via iCal. Panel propio de reservas.</p><div class="sol-tools"><span>iCal</span><span>Multi-OTA</span><span>Node.js</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127909;</span><h4>Video Drone</h4><p>Tours aereos 4K de tu hotel o destino. Contenido que enamora.</p><div class="sol-tools"><span>DJI 4K</span><span>DGAC</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#129302;</span><h4>Bot Concierge</h4><p>Asistente WhatsApp que responde disponibilidad, check-in y reservas directas.</p><div class="sol-tools"><span>Claude AI</span><span>Multi-idioma</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127760;</span><h4>Web + SEO</h4><p>Sitio con motor de reservas directo, galeria y SEO turistico.</p><div class="sol-tools"><span>Next.js</span><span>SEO</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Tienes hotel o cabanas?</strong> Se lo que es manejar temporadas — tengo 14 unidades en Pichilemu.</p><a href="#contacto" class="btn-solid">Conversemos</a></div>
+      </div>
+      <!-- ECOMMERCE -->
+      <div class="rubro-panel" id="rubro-ecommerce">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#128722;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">E-Commerce &amp; Retail</div>
+            <h3>Tu tienda online que realmente vende</h3>
+            <p>E-commerce completo, SEO de productos, bots de venta y marketing automatizado.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128187;</span><h4>E-Commerce Completo</h4><p>Tienda con catalogo, carrito, MercadoPago y panel admin.</p><div class="sol-tools"><span>Next.js</span><span>MercadoPago</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128269;</span><h4>SEO Productos</h4><p>Fichas optimizadas para Google Shopping y busquedas organicas.</p><div class="sol-tools"><span>SEO</span><span>Schema</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128241;</span><h4>Bot Ventas WA</h4><p>Bot que muestra productos, toma pedidos y envia links de pago.</p><div class="sol-tools"><span>WhatsApp</span><span>Claude AI</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128200;</span><h4>Ads &amp; Email</h4><p>Google Ads, Meta Ads con retargeting y email automatizado.</p><div class="sol-tools"><span>Google Ads</span><span>Email</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Quieres vender online?</strong> Te armo una tienda que realmente venda, no solo se vea bonita.</p><a href="#contacto" class="btn-solid">Hablemos de tu tienda</a></div>
+      </div>
+      <!-- GASTRONOMIA -->
+      <div class="rubro-panel" id="rubro-gastronomia">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#127860;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Restaurantes, Cafes &amp; Delivery</div>
+            <h3>Llena tus mesas y tus pedidos</h3>
+            <p>Menu digital, pedidos WhatsApp, Google Maps optimizado y contenido visual.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128196;</span><h4>Menu Digital QR</h4><p>Menu web responsive con fotos, precios y boton de pedido.</p><div class="sol-tools"><span>Web App</span><span>QR</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128241;</span><h4>Bot Pedidos WA</h4><p>Clientes piden por WhatsApp, bot confirma y notifica cocina.</p><div class="sol-tools"><span>WhatsApp</span><span>n8n</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128205;</span><h4>Google Maps &amp; SEO</h4><p>Perfil Google Business optimizado y SEO local.</p><div class="sol-tools"><span>Google Business</span><span>SEO</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127912;</span><h4>Contenido RRSS</h4><p>Fotografia, diseno de feed, reels y branding gastronomico.</p><div class="sol-tools"><span>Freepik AI</span><span>Instagram</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Tienes restaurant?</strong> Que tus clientes pidan por WhatsApp mientras tu te enfocas en la cocina.</p><a href="#contacto" class="btn-solid">Escribeme</a></div>
+      </div>
+      <!-- PROFESIONALES -->
+      <div class="rubro-panel" id="rubro-profesionales">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#128188;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Profesionales, Pymes &amp; Startups</div>
+            <h3>Tu negocio necesita presencia digital</h3>
+            <p>Abogados, contadores, dentistas, coaches — cualquier profesional que necesite captar clientes online.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#127760;</span><h4>Landing Page</h4><p>Pagina optimizada: servicios, testimonios, formulario y WhatsApp.</p><div class="sol-tools"><span>Next.js</span><span>Conversion</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#129302;</span><h4>Asistente Virtual</h4><p>Bot que agenda citas, responde FAQs y filtra clientes potenciales.</p><div class="sol-tools"><span>Claude AI</span><span>Agenda</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128269;</span><h4>SEO Local</h4><p>Aparecer en Google cuando buscan tu servicio en tu ciudad.</p><div class="sol-tools"><span>SEO</span><span>Google Business</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127912;</span><h4>Branding</h4><p>Logo, tarjetas, plantillas RRSS e identidad visual con IA.</p><div class="sol-tools"><span>Freepik AI</span><span>Branding</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Eres profesional independiente?</strong> Partamos con lo que de verdad necesitas, sin vueltas.</p><a href="#contacto" class="btn-solid">Partamos</a></div>
+      </div>
+      <!-- AGRO -->
+      <div class="rubro-panel" id="rubro-agro">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#127806;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Agricultura, Vinedos &amp; Agroindustria</div>
+            <h3>Tecnologia para el campo chileno</h3>
+            <p>Monitoreo aereo, mapeo topografico con drones y herramientas digitales.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128507;</span><h4>Mapeo Aereo</h4><p>Vuelos drone para salud de cultivos, estres hidrico y mapeo.</p><div class="sol-tools"><span>DJI 4K</span><span>NDVI</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128202;</span><h4>Topografia</h4><p>Ortomosaicos y modelos 3D de terrenos para planificacion.</p><div class="sol-tools"><span>DGAC</span><span>3D</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127760;</span><h4>Web B2B</h4><p>Sitio con catalogo de productos y cotizaciones directas.</p><div class="sol-tools"><span>Next.js</span><span>B2B</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#129302;</span><h4>Reportes IA</h4><p>Informes automaticos, alertas de riego y dashboards.</p><div class="sol-tools"><span>IA</span><span>n8n</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Trabajas en el campo?</strong> Te llevo el drone y la tecnologia directo a tu terreno.</p><a href="#contacto" class="btn-solid">Coordinar visita</a></div>
+      </div>
+      <!-- EVENTOS -->
+      <div class="rubro-panel" id="rubro-eventos">
+        <div class="rubro-header reveal">
+          <div class="rubro-icon-large">&#127916;</div>
+          <div class="rubro-header-text">
+            <div class="rubro-tagline">Eventos, Matrimonios &amp; Produccion</div>
+            <h3>Cada momento merece ser epico</h3>
+            <p>Cobertura aerea, streaming, paginas de evento y contenido post-evento.</p>
+          </div>
+        </div>
+        <div class="solutions-grid">
+          <div class="solution-card reveal"><span class="sol-icon">&#128249;</span><h4>Drone 4K</h4><p>Tomas aereas cinematograficas de matrimonios, festivales y corporativos.</p><div class="sol-tools"><span>DJI 4K</span><span>DGAC</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#127760;</span><h4>Web de Evento</h4><p>Landing con programa, inscripcion, countdown y mapa.</p><div class="sol-tools"><span>Landing</span><span>Forms</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128241;</span><h4>Bot Info</h4><p>WhatsApp bot con horarios, ubicacion, parking y entradas.</p><div class="sol-tools"><span>WhatsApp</span><span>FAQ</span></div></div>
+          <div class="solution-card reveal"><span class="sol-icon">&#128200;</span><h4>Marketing</h4><p>Campanas Google/Meta, email y contenido visual para redes.</p><div class="sol-tools"><span>Meta Ads</span><span>Email</span></div></div>
+        </div>
+        <div class="rubro-cta reveal"><p><strong>Organizas eventos?</strong> Que se vea tan epico como se vivio.</p><a href="#contacto" class="btn-solid">Coordinar</a></div>
+      </div>
+    </div>
+    <div class="all-services-label reveal">Todos nuestros servicios</div>
+    <div class="all-services-quick reveal">
+      <div class="asq-item"><span class="asq-icon">&#128269;</span><span>SEO</span></div>
+      <div class="asq-item"><span class="asq-icon">&#128187;</span><span>Web Dev</span></div>
+      <div class="asq-item"><span class="asq-icon">&#129302;</span><span>IA &amp; Bots</span></div>
+      <div class="asq-item"><span class="asq-icon">&#127909;</span><span>Drones 4K</span></div>
+      <div class="asq-item"><span class="asq-icon">&#128200;</span><span>Google Ads</span></div>
+      <div class="asq-item"><span class="asq-icon">&#127912;</span><span>Branding</span></div>
+      <div class="asq-item"><span class="asq-icon">&#128241;</span><span>WA Bots</span></div>
+      <div class="asq-item"><span class="asq-icon">&#9889;</span><span>Automations</span></div>
+      <div class="asq-item"><span class="asq-icon">&#128202;</span><span>Meta Ads</span></div>
+      <div class="asq-item"><span class="asq-icon">&#128196;</span><span>Email Mkt</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="section section-light">
+  <div class="container">
+    <div class="section-tag reveal">Portfolio</div>
+    <h2 class="section-title reveal">Proyectos que hablan por si solos.</h2>
+    <p class="section-sub reveal">Proyectos reales de clientes reales. Algunos los sigo manteniendo hoy.</p>
+    <div class="projects-grid">
+      <a href="https://www.camperizate.cl" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+        <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/484seZN8MyI/maxresdefault.jpg')"><div class="pc-overlay"><span class="pc-tag">E-Commerce</span></div></div>
+        <div class="pc-info"><h3>Camperizate</h3><p>E-commerce 150+ productos outdoor. AI chatbot, SEO optimizado. Next.js 15.</p><div class="pc-metrics"><span>150+ Productos</span><span>AI Chatbot</span><span>SEO #1</span></div><div class="pc-link">Visitar &rarr;</div></div>
+      </a>
+      <a href="https://www.lilafken.cl" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+        <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/h9pRSErvdNg/maxresdefault.jpg')"><div class="pc-overlay"><span class="pc-tag">Real Estate + Turismo</span></div></div>
+        <div class="pc-info"><h3>Lilafken Apart &amp; Real Estate</h3><p>Plataforma arriendo/venta, drone 4K, channel manager custom, panel admin.</p><div class="pc-metrics"><span>14 Unidades</span><span>4K Drone</span><span>Channel Mgr</span></div><div class="pc-link">Visitar &rarr;</div></div>
+      </a>
+      <a href="https://www.pichilemuonline.cl" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+        <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/Ziqrnw0S41Q/maxresdefault.jpg')"><div class="pc-overlay"><span class="pc-tag">IA + WhatsApp Bot</span></div></div>
+        <div class="pc-info"><h3>Pichilemu Online + Bot Lemu</h3><p>Revista turismo + Bot IA "Lemu" en WhatsApp. Guia virtual 24/7 con Claude AI.</p><div class="pc-metrics"><span>24/7 IA</span><span>Claude AI</span><span>WA Bot</span></div><div class="pc-link">Visitar &rarr;</div></div>
+      </a>
+      <a href="https://www.importadoramaully.cl" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+        <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/M-5UqQkv4xk/maxresdefault.jpg')"><div class="pc-overlay"><span class="pc-tag">B2B Catalogo</span></div></div>
+        <div class="pc-info"><h3>Importadora Maully</h3><p>Catalogo B2B mayorista, academia LMS, sistema de agentes y admin.</p><div class="pc-metrics"><span>B2B</span><span>LMS</span><span>Admin</span></div><div class="pc-link">Visitar &rarr;</div></div>
+      </a>
+      <a href="https://www.kreathur.agency/matiwlog/" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+        <div class="pc-image" style="background-image:url('https://img.youtube.com/vi/b5g7jlP_PsA/maxresdefault.jpg')"><div class="pc-overlay"><span class="pc-tag">Blog + YouTube</span></div></div>
+        <div class="pc-info"><h3>MatiWlog</h3><p>Blog y canal YouTube. +1.99K subs, 57 videos. Tutoriales, viajes y tech.</p><div class="pc-metrics"><span>1.99K Subs</span><span>57 Videos</span></div><div class="pc-link">Visitar &rarr;</div></div>
+      </a>
+      <a href="#contacto" class="project-card project-card-cta reveal">
+        <div class="pc-cta-inner"><div class="pc-cta-icon">+</div><h3>Tu proyecto puede estar aca</h3><p>Escribeme y te cuento como lo haria.</p><div class="pc-link">Hablemos &rarr;</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-tag reveal">Lo que dicen mis clientes</div>
+    <h2 class="section-title reveal">No me creas a mi. Creeles a ellos.</h2>
+    <p class="section-sub reveal">Resultados reales de negocios reales en Chile.</p>
+    <div class="testimonials-track reveal">
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tc-text">Matias nos hizo la web, el SEO y el bot de WhatsApp. En 3 meses duplicamos las consultas de arriendo. El channel manager que nos armo reemplazo a Cloudbeds y nos ahorra plata cada mes.</p>
+        <div class="tc-author"><div class="tc-avatar">L</div><div><div class="tc-name">Lilafken Apart Hotel</div><div class="tc-role">Pichilemu &mdash; 14 unidades</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tc-text">Nos armo una tienda online profesional con mas de 150 productos. El chatbot IA atiende clientes incluso cuando estamos en ruta. Las ventas online subieron un 40%.</p>
+        <div class="tc-author"><div class="tc-avatar">C</div><div><div class="tc-name">Camperizate</div><div class="tc-role">E-commerce outdoor &mdash; Chile</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tc-text">El bot Lemu contesta todo sobre Pichilemu 24/7. Los turistas preguntan por WhatsApp y el bot les da info al tiro. Profesional y rapido.</p>
+        <div class="tc-author"><div class="tc-avatar">P</div><div><div class="tc-name">Pichilemu Online</div><div class="tc-role">Portal turistico &mdash; Pichilemu</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tc-text">Necesitabamos un catalogo B2B serio con sistema de agentes. Matias lo entrego en tiempo record con un panel admin que hasta nosotros podemos usar.</p>
+        <div class="tc-author"><div class="tc-avatar">M</div><div><div class="tc-name">Importadora Maully</div><div class="tc-role">Mayorista &mdash; Chile</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IA GENERATIVA -->
+<section id="ia" class="section section-dark">
+  <div class="container">
+    <div class="section-tag reveal">Inteligencia Artificial</div>
+    <h2 class="section-title reveal" style="color:var(--cream)">Las mismas herramientas IA que usan las grandes empresas. Yo las configuro para tu negocio.</h2>
+    <p class="section-sub reveal">No es magia, es saber que herramienta usar y como conectarla con tu operacion real.</p>
+    <div class="ia-grid">
+      <div class="ia-card reveal"><div class="ia-logo">Claude AI</div><div class="ia-by">by Anthropic</div><h4>Agentes IA &amp; Chatbots Premium</h4><ul><li>Chatbots conversacionales avanzados</li><li>Analisis de documentos y datos</li><li>Asistentes virtuales 24/7</li><li>Bot WhatsApp inteligente</li></ul><div class="ia-use">Usado en: Bot Lemu, Camperizate, atencion al cliente</div></div>
+      <div class="ia-card reveal"><div class="ia-logo">ChatGPT</div><div class="ia-by">by OpenAI</div><h4>Contenido &amp; Estrategia</h4><ul><li>Contenido marketing automatizado</li><li>Redaccion SEO</li><li>Analisis de competencia</li><li>Planificacion de campanas</li></ul><div class="ia-use">Usado en: Content marketing, copywriting, estrategia</div></div>
+      <div class="ia-card reveal"><div class="ia-logo">Manus AI</div><div class="ia-by">Agente Autonomo</div><h4>Research &amp; Automatizacion</h4><ul><li>Research de mercado automatizado</li><li>Scraping inteligente</li><li>Generacion de reportes</li><li>Workflows multi-paso</li></ul><div class="ia-use">Usado en: Analisis de mercado, reportes automaticos</div></div>
+      <div class="ia-card reveal"><div class="ia-logo">Freepik AI</div><div class="ia-by">IA Generativa Visual</div><h4>Diseno &amp; Contenido Visual</h4><ul><li>Imagenes para campanas</li><li>Mockups de productos</li><li>Contenido redes sociales</li><li>Banners publicitarios</li></ul><div class="ia-use">Usado en: Branding, redes sociales, e-commerce</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DRONE -->
+<section id="drone" class="section section-dark" style="padding-top:0">
+  <div class="container">
+    <div class="section-tag reveal">Servicios Aereos</div>
+    <h2 class="section-title reveal" style="color:var(--cream)">Drones Certificados DGAC</h2>
+    <p class="section-sub reveal">Soy piloto certificado DGAC. Vuelo mi propio drone y edito cada video. Nada tercerizado.</p>
+    <div class="drone-grid">
+      <div class="drone-video reveal"><iframe src="https://www.youtube.com/embed/Ziqrnw0S41Q?rel=0" title="Pichilemu Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><span class="dv-label">Pichilemu — Vista Aerea</span></div>
+      <div class="drone-video reveal"><iframe src="https://www.youtube.com/embed/b5g7jlP_PsA?rel=0" title="Hamburgo Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><span class="dv-label">Hamburgo — Canales desde el Aire</span></div>
+      <div class="drone-video reveal"><iframe src="https://www.youtube.com/embed/484seZN8MyI?rel=0" title="Camper Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe><span class="dv-label">Fiat Ducato Camper — Lifestyle</span></div>
+    </div>
+    <div class="drone-services reveal">
+      <div class="ds-item"><span class="ds-icon">&#127960;</span><h4>Inmobiliarias</h4><p>Tours aereos 4K de propiedades y terrenos.</p></div>
+      <div class="ds-item"><span class="ds-icon">&#127796;</span><h4>Turismo</h4><p>Videos de destinos, hoteles y experiencias.</p></div>
+      <div class="ds-item"><span class="ds-icon">&#127916;</span><h4>Eventos</h4><p>Matrimonios, festivales, corporativos.</p></div>
+      <div class="ds-item"><span class="ds-icon">&#128507;</span><h4>Topografia</h4><p>Levantamientos, mapeo 3D, inspeccion.</p></div>
+      <div class="ds-item"><span class="ds-icon">&#127806;</span><h4>Agricultura</h4><p>Monitoreo de cultivos, analisis NDVI.</p></div>
+      <div class="ds-item"><span class="ds-icon">&#128247;</span><h4>Fotografia</h4><p>Sesiones aereas para publicidad y RRSS.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios" class="section section-cream">
+  <div class="container">
+    <div class="section-tag reveal">Precios</div>
+    <h2 class="section-title reveal">Precios honestos. Sin letra chica.</h2>
+    <p class="section-sub reveal">Lo mismo que cobra una agencia de Santiago por millones, pero con atencion directa y sin burocracia.</p>
+    <div class="offer-banner reveal">
+      <div class="ob-badge">PRECIO LANZAMIENTO 2026</div>
+      <h3>50% de descuento mientras armo mi cartera de clientes en tu rubro</h3>
+      <p>Cuando llene la cartera, los precios suben al valor normal. Asi de simple.</p>
+      <div class="ob-timer"><div class="ob-dot"></div> <span id="activeClients">3</span> proyectos activos ahora &mdash; capacidad maxima: 8 al mes</div>
+    </div>
+    <div class="compare-table reveal">
+      <table>
+        <thead><tr><th>Servicio</th><th>Mercado Chile</th><th>Kreathur Normal</th><th class="highlight">CON 50% OFF</th></tr></thead>
+        <tbody>
+          <tr><td>SEO Mensual</td><td>$150K - $500K</td><td>$149.990</td><td class="highlight"><strong>$74.995</strong>/mes</td></tr>
+          <tr><td>Landing Page</td><td>$250K - $550K</td><td>$249.990</td><td class="highlight"><strong>$124.995</strong></td></tr>
+          <tr><td>E-Commerce</td><td>$650K - $1.2M</td><td>$599.990</td><td class="highlight"><strong>$299.995</strong></td></tr>
+          <tr><td>Bot IA WhatsApp</td><td>$400K - $1M</td><td>$349.990</td><td class="highlight"><strong>$174.995</strong></td></tr>
+          <tr><td>Drone 4K</td><td>$100K - $500K</td><td>$99.990</td><td class="highlight"><strong>$49.995</strong></td></tr>
+          <tr><td>Marketing / mes</td><td>$300K - $800K</td><td>$249.990</td><td class="highlight"><strong>$124.995</strong>/mes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal"><div class="prc-name">Starter</div><div class="prc-price"><span class="prc-old">$249.990</span><span class="prc-new">$124.995</span><span class="prc-period">/mes</span></div><ul class="prc-features"><li>SEO basico (5 keywords)</li><li>1 Landing page</li><li>Google My Business</li><li>Reporte mensual</li><li>Soporte WhatsApp</li></ul><a href="#contacto" class="btn-solid" style="width:100%;text-align:center">Empezar</a></div>
+      <div class="price-card featured reveal"><div class="prc-badge">POPULAR</div><div class="prc-name">Growth</div><div class="prc-price"><span class="prc-old">$499.990</span><span class="prc-new">$249.995</span><span class="prc-period">/mes</span></div><ul class="prc-features"><li>SEO avanzado (15 keywords)</li><li>Sitio web completo</li><li>Bot IA WhatsApp</li><li>Google Ads management</li><li>Social media (2 redes)</li><li>1 drone / trimestre</li><li>Dashboard resultados</li></ul><a href="#contacto" class="btn-solid" style="width:100%;text-align:center">Elegir Growth</a></div>
+      <div class="price-card reveal"><div class="prc-name">Enterprise</div><div class="prc-price"><span class="prc-old">$999.990</span><span class="prc-new">$499.995</span><span class="prc-period">/mes</span></div><ul class="prc-features"><li>SEO full (30+ keywords)</li><li>Plataforma web custom</li><li>IA multi-canal</li><li>Google + Meta Ads</li><li>Social media (4 redes)</li><li>Drone mensual ilimitado</li><li>Branding completo</li><li>Account manager dedicado</li></ul><a href="#contacto" class="btn-solid" style="width:100%;text-align:center">Contactar</a></div>
+    </div>
+    <p class="pricing-note reveal">Precios CLP. IVA no incluido. Descuento valido mientras armo cartera.</p>
+    <div class="reveal" style="text-align:center;margin-top:28px;padding:20px 28px;background:var(--surface);border:1px solid var(--cream-dark);border-radius:var(--radius);max-width:600px;margin-left:auto;margin-right:auto;">
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.1rem;color:var(--ink);margin-bottom:6px;">Garantia Kreathur</p>
+      <p style="font-size:.84rem;color:var(--ink-muted);font-weight:300;line-height:1.6;">Si en los primeros 30 dias no ves avance real en tu proyecto, te devuelvo tu plata. Sin preguntas, sin letra chica. Me puedo dar ese lujo porque se que funciona.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDADOR -->
+<section id="fundador" class="section section-light">
+  <div class="container">
+    <div class="founder-grid reveal">
+      <div class="founder-img">
+        <img src="https://yt3.googleusercontent.com/8JvseZdoNwVb1BWYfgibU-698zzldd3YDHsK7xE7jFCL62eSWYCcLG6zgJ9o7TsfhsrmPCnoZA=s800-c-k-c0x00ffffff-no-rj" alt="Matias Aguilera" loading="lazy">
+      </div>
+      <div class="founder-info">
+        <div class="section-tag">Fundador</div>
+        <h2 class="section-title">Matias Aguilera — Fundador de Kreathur Agency</h2>
+        <p class="founder-role">Fundador &amp; el que hace todo</p>
+        <p>Vivo en Pichilemu, vivi en Alemania, y desde aca trabajo con clientes en todo Chile. Programo, vuelo drones, hago SEO y contesto el WhatsApp. Todo yo, sin filtros.</p>
+        <p>No te vas a comunicar con un departamento generico. <strong>Vas a hablar directamente conmigo.</strong> Esa es la diferencia.</p>
+        <div style="background:var(--surface-alt);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:20px 0;">
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:1.05rem;color:var(--ink);margin-bottom:10px;">Por que una sola persona es mejor para tu proyecto:</p>
+          <ul style="list-style:none;margin:0;padding:0;">
+            <li style="font-size:.84rem;color:var(--ink-soft);padding:5px 0 5px 18px;position:relative;font-weight:300;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">1.</span><strong>Cero telefono descompuesto.</strong> El que te cotiza es el que programa, disena y entrega.</li>
+            <li style="font-size:.84rem;color:var(--ink-soft);padding:5px 0 5px 18px;position:relative;font-weight:300;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">2.</span><strong>Velocidad real.</strong> Sin reuniones de coordinacion, sin aprobaciones internas.</li>
+            <li style="font-size:.84rem;color:var(--ink-soft);padding:5px 0 5px 18px;position:relative;font-weight:300;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">3.</span><strong>Costo justo.</strong> No pagas arriendo de oficina ni sueldos de gente que no toca tu proyecto.</li>
+            <li style="font-size:.84rem;color:var(--ink-soft);padding:5px 0 5px 18px;position:relative;font-weight:300;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">4.</span><strong>Responsabilidad total.</strong> Si algo sale mal, no hay a quien echarle la culpa.</li>
+          </ul>
+        </div>
+        <div class="founder-links">
+          <a href="https://www.kreathur.agency/matiwlog/" class="btn-ghost" style="color:var(--ink);border-color:var(--cream-dark)" target="_blank" rel="noopener noreferrer">MatiWlog</a>
+          <a href="https://www.youtube.com/@MatiWlog" class="btn-ghost" style="color:var(--ink);border-color:var(--cream-dark)" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="section section-cream">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag reveal">Contacto</div>
+      <h2 class="section-title reveal">Cuentame tu proyecto. Te respondo en menos de 2 horas.</h2>
+      <p class="section-sub reveal" style="margin:0 auto 12px">Completa el formulario y te llega directo a mi WhatsApp. Sin bots, sin esperas.</p>
+    </div>
+    <div class="lead-form-wrapper reveal">
+      <h3>Cotizacion rapida por WhatsApp</h3>
+      <p class="lf-sub">Llenas esto en 30 segundos y te respondo yo personalmente.</p>
+      <form id="leadForm">
+        <label>Tu nombre</label>
+        <input type="text" id="lf-name" placeholder="Ej: Juan Perez" required>
+        <label>Rubro de tu negocio</label>
+        <select id="lf-rubro" required>
+          <option value="">Selecciona...</option>
+          <option value="Inmobiliaria">Inmobiliaria / Corredor</option>
+          <option value="Turismo">Turismo / Hotel / Cabanas</option>
+          <option value="E-Commerce">E-Commerce / Tienda</option>
+          <option value="Restaurante">Restaurant / Cafe</option>
+          <option value="Pyme">Pyme / Profesional</option>
+          <option value="Agricultura">Agricultura / Vinos</option>
+          <option value="Eventos">Eventos / Produccion</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <label>Que necesitas? (elige lo principal)</label>
+        <select id="lf-service" required>
+          <option value="">Selecciona...</option>
+          <option value="Sitio Web">Sitio Web / Landing</option>
+          <option value="SEO">SEO / Posicionamiento</option>
+          <option value="Bot IA">Bot IA / WhatsApp</option>
+          <option value="Drone">Video Drone 4K</option>
+          <option value="E-Commerce">Tienda Online</option>
+          <option value="Marketing">Marketing / Ads</option>
+          <option value="Pack Completo">Pack Completo</option>
+        </select>
+        <label>Algo mas que quieras contarme? (opcional)</label>
+        <textarea id="lf-msg" placeholder="Ej: Tengo 3 cabanas y quiero mas reservas directas..."></textarea>
+        <button type="submit" class="lf-submit">
+          <svg viewBox="0 0 32 32" width="20" height="20" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.746 3.054 9.378L1.054 31.29l6.156-1.97A15.925 15.925 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.31 22.602c-.39 1.1-2.282 2.04-3.15 2.1-.794.054-1.528.376-5.15-1.073-4.348-1.742-7.1-6.188-7.314-6.476-.214-.288-1.752-2.33-1.752-4.446 0-2.116 1.108-3.158 1.502-3.59.394-.432.86-.54 1.146-.54.286 0 .572.004.822.016.264.012.618-.1.966.738.358.86 1.218 2.97 1.326 3.184.108.214.18.466.036.752-.144.288-.216.466-.43.716-.214.25-.45.558-.644.75-.214.214-.436.446-.188.876.25.43 1.108 1.828 2.378 2.962 1.634 1.458 3.012 1.91 3.44 2.124.43.214.68.18.93-.108.25-.288 1.072-1.252 1.358-1.684.286-.43.572-.358.966-.214.394.144 2.502 1.18 2.93 1.394.43.214.716.322.822.502.108.18.108 1.04-.282 2.14z"/></svg>
+          Enviar por WhatsApp
+        </button>
+      </form>
+      <div class="lf-trust">
+        <span>Respuesta en &lt;2hrs</span>
+        <span>Sin compromiso</span>
+        <span>100% gratis</span>
+      </div>
+    </div>
+    <div class="contact-grid reveal" style="margin-top:32px">
+      <a href="mailto:hola@kreathur.agency" class="contact-item"><span class="ci-icon">&#9993;</span><span class="ci-label">Email</span><span class="ci-value">hola@kreathur.agency</span></a>
+      <a href="https://wa.me/56977877602" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#128241;</span><span class="ci-label">WhatsApp</span><span class="ci-value">+56 9 7787 7602</span></a>
+      <a href="https://www.instagram.com/matiwlog" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#128247;</span><span class="ci-label">Instagram</span><span class="ci-value">@matiwlog</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">Kreathur</div>
+      <p>Hecho con cafe y mar de fondo en Pichilemu.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#servicios">Rubros</a>
+      <a href="#ia">IA</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#drone">Drones</a>
+      <a href="#precios">Precios</a>
+      <a href="https://www.kreathur.agency/matiwlog/" target="_blank" rel="noopener noreferrer">MatiWlog</a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Kreathur Agency &mdash; Matias Aguilera. Pichilemu, Region de O'Higgins, Chile.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LEAD MAGNET MODAL -->
+<div id="leadMagnetModal" class="km-overlay" aria-hidden="true">
+  <div class="km-modal km-modal-magnet">
+    <button class="km-close" aria-label="Cerrar">&times;</button>
+    <div class="km-magnet-content">
+      <div class="km-magnet-badge">GRATIS</div>
+      <h3 class="km-magnet-title">Auditoria Digital Express</h3>
+      <p class="km-magnet-desc">Te analizo tu web, SEO, redes y presencia online en 24 horas. Recibis un informe con 5 mejoras concretas para tu negocio.</p>
+      <ul class="km-magnet-list">
+        <li>Analisis SEO de tu sitio actual</li>
+        <li>Revision de Google My Business</li>
+        <li>Evaluacion de presencia en redes</li>
+        <li>5 recomendaciones priorizadas</li>
+        <li>Llamada de 15 min para revisarlo juntos</li>
+      </ul>
+      <form id="leadMagnetForm" class="km-magnet-form" novalidate>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="tel" name="whatsapp" placeholder="Tu WhatsApp (+56 9...)" required>
+        <input type="url" name="sitio" placeholder="URL de tu sitio (opcional)">
+        <select name="rubro" required>
+          <option value="" disabled selected>Tu rubro</option>
+          <option value="Inmobiliaria">Inmobiliaria</option>
+          <option value="Turismo">Turismo / Hospedaje</option>
+          <option value="Ecommerce">E-commerce</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Profesional">Profesional</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <button type="submit" class="btn-solid km-magnet-btn">Quiero mi auditoria gratis</button>
+      </form>
+      <p class="km-magnet-trust">100% gratis. Sin compromiso. Solo 10 auditorias por mes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- EXIT-INTENT POPUP -->
+<div id="exitIntentModal" class="km-overlay" aria-hidden="true">
+  <div class="km-modal km-modal-exit">
+    <button class="km-close" aria-label="Cerrar">&times;</button>
+    <div class="km-exit-content">
+      <div class="km-exit-emoji">&#128075;</div>
+      <h3 class="km-exit-title">Espera, antes de irte...</h3>
+      <p class="km-exit-desc">Dejame tu WhatsApp y te mando un tip personalizado para mejorar tu negocio online. Sin spam, solo un mensaje util.</p>
+      <form id="exitIntentForm" class="km-exit-form" novalidate>
+        <div class="km-exit-row">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+          <input type="tel" name="whatsapp" placeholder="+56 9..." required>
+        </div>
+        <button type="submit" class="btn-solid km-exit-btn">Quiero mi tip gratis</button>
+      </form>
+      <button class="km-exit-skip" onclick="closeExitIntent()">No gracias, otro dia</button>
+    </div>
+  </div>
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/56977877602" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.746 3.054 9.378L1.054 31.29l6.156-1.97A15.925 15.925 0 0016.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.31 22.602c-.39 1.1-2.282 2.04-3.15 2.1-.794.054-1.528.376-5.15-1.073-4.348-1.742-7.1-6.188-7.314-6.476-.214-.288-1.752-2.33-1.752-4.446 0-2.116 1.108-3.158 1.502-3.59.394-.432.86-.54 1.146-.54.286 0 .572.004.822.016.264.012.618-.1.966.738.358.86 1.218 2.97 1.326 3.184.108.214.18.466.036.752-.144.288-.216.466-.43.716-.214.25-.45.558-.644.75-.214.214-.436.446-.188.876.25.43 1.108 1.828 2.378 2.962 1.634 1.458 3.012 1.91 3.44 2.124.43.214.68.18.93-.108.25-.288 1.072-1.252 1.358-1.684.286-.43.572-.358.966-.214.394.144 2.502 1.18 2.93 1.394.43.214.716.322.822.502.108.18.108 1.04-.282 2.14z"/></svg>
+</a>
+
+<script>
+/* ========== KREATHUR V4 — SCRIPT ========== */
+
+// LOADER
+document.body.classList.add('loading');
+window.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('loader');
+  loader.classList.add('active');
+  setTimeout(() => { loader.classList.add('hidden'); document.body.classList.remove('loading'); document.body.classList.add('loaded'); }, 1600);
+});
+
+// NAV
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => { burger.classList.toggle('active'); navLinks.classList.toggle('open'); burger.setAttribute('aria-expanded', navLinks.classList.contains('open')); });
+navLinks.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { burger.classList.remove('active'); navLinks.classList.remove('open'); }); });
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) window.scrollTo({top:t.offsetTop-70,behavior:'smooth'}); });
+});
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry,i) => { if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*60);revealObserver.unobserve(entry.target);} });
+}, {threshold:.04});
+reveals.forEach(el => revealObserver.observe(el));
+
+// COUNTERS
+const counters = document.querySelectorAll('[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if(entry.isIntersecting){const el=entry.target;const target=parseInt(el.dataset.target);let c=0;const s=target/50;const iv=setInterval(()=>{c+=s;if(c>=target){el.textContent=target+'+';clearInterval(iv);}else{el.textContent=Math.floor(c);}},30);counterObserver.unobserve(el);} });
+}, {threshold:.5});
+counters.forEach(c => counterObserver.observe(c));
+
+// RUBROS TABS
+const rubroTabs = document.querySelectorAll('.rubro-tab');
+const rubroPanels = document.querySelectorAll('.rubro-panel');
+rubroTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    rubroTabs.forEach(t=>t.classList.remove('active'));
+    rubroPanels.forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel=document.getElementById('rubro-'+tab.dataset.rubro);
+    if(panel){panel.classList.add('active');panel.querySelectorAll('.reveal:not(.visible)').forEach(el=>revealObserver.observe(el));}
+  });
+});
+
+// CLIENT COUNT
+const countEl=document.getElementById('clientCount');
+if(countEl){const s=sessionStorage.getItem('kreathurClients');if(s)countEl.textContent=s;}
+
+// ===== SCROLL-DRIVEN VIDEO (FRAME SEQUENCE — LAZY LOADED) =====
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const frameCount = 51;
+  const framePath = i => `frames-opt/frame_${String(i).padStart(3,'0')}.jpg`;
+  const images = new Array(frameCount);
+  const container = document.querySelector('.hero-scroll-container');
+  let currentFrame = 0;
+  let heroVisible = true;
+  let rafId = null;
+
+  // Load frame 0 immediately for instant display
+  images[0] = new Image();
+  images[0].src = framePath(0);
+  images[0].onload = () => {
+    canvas.width = images[0].naturalWidth;
+    canvas.height = images[0].naturalHeight;
+    ctx.drawImage(images[0], 0, 0);
+    rafId = requestAnimationFrame(updateFrame);
+    // Load remaining frames after first paint
+    if('requestIdleCallback' in window) requestIdleCallback(()=>loadRemaining(1));
+    else setTimeout(()=>loadRemaining(1), 100);
+  };
+
+  function loadRemaining(start){
+    for(let i=start; i<frameCount; i++){
+      images[i] = new Image();
+      images[i].src = framePath(i);
+    }
+  }
+
+  // Only animate when hero is in viewport
+  const heroObs = new IntersectionObserver(entries => {
+    heroVisible = entries[0].isIntersecting;
+    if(heroVisible && !rafId) rafId = requestAnimationFrame(updateFrame);
+  }, {threshold:0});
+  heroObs.observe(container);
+
+  function updateFrame(){
+    rafId = null;
+    if(!heroVisible) return;
+    const rect = container.getBoundingClientRect();
+    const scrollHeight = container.offsetHeight - window.innerHeight;
+    const scrolled = Math.max(0, -rect.top);
+    const progress = Math.min(1, Math.max(0, scrolled / scrollHeight));
+    const frameIndex = Math.min(frameCount-1, Math.floor(progress * (frameCount-1)));
+    if(frameIndex !== currentFrame && images[frameIndex] && images[frameIndex].complete){
+      currentFrame = frameIndex;
+      ctx.drawImage(images[currentFrame], 0, 0);
+    }
+    rafId = requestAnimationFrame(updateFrame);
+  }
+})();
+
+// PROJECT CARD TILT + GLOW TRACKING
+document.querySelectorAll('.project-card:not(.project-card-cta)').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    const px=((e.clientX-r.left)/r.width)*100;
+    const py=((e.clientY-r.top)/r.height)*100;
+    card.style.transform=`perspective(800px) rotateY(${x*4}deg) rotateX(${-y*4}deg) translateY(-4px)`;
+    card.style.background=`radial-gradient(circle at ${px}% ${py}%, var(--accent-glow) 0%, var(--surface) 60%)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.background='';});
+});
+
+// CURSOR GLOW (desktop only)
+if(window.matchMedia('(hover:hover)').matches){
+  const g=document.createElement('div');g.className='cursor-glow';document.body.appendChild(g);
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function loop(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;g.style.left=cx+'px';g.style.top=cy+'px';requestAnimationFrame(loop);})();
+}
+
+// WA TOOLTIP
+(function(){const wa=document.querySelector('.wa-float');if(!wa)return;const t=document.createElement('span');t.className='wa-tooltip';t.textContent='Escribeme ahora';wa.appendChild(t);})();
+
+// SOCIAL PROOF BAR
+(function(){
+  const bar=document.createElement('div');bar.className='social-proof-bar';
+  bar.innerHTML='<div class="spb-inner"><div class="spb-item"><span class="spb-dot"></span> <span class="spb-accent" id="spbViewers">3 personas</span> viendo esta pagina</div><div class="spb-item">|</div><div class="spb-item"><span class="spb-accent">50+</span> proyectos completados</div><div class="spb-item">|</div><div class="spb-item">Solo quedan <span class="spb-accent" id="spbCupos">47</span> cupos con 50% OFF</div></div><button class="spb-close" aria-label="Cerrar">&times;</button>';
+  document.body.appendChild(bar);
+  const hc=document.querySelector('.hero-scroll-container');let dismissed=false;
+  const obs=new IntersectionObserver(e=>{if(dismissed)return;bar.classList.toggle('visible',!e[0].isIntersecting);},{threshold:0});
+  if(hc)obs.observe(hc);
+  bar.querySelector('.spb-close').addEventListener('click',()=>{bar.classList.remove('visible');dismissed=true;});
+  setInterval(()=>{const n=Math.floor(Math.random()*4)+2;const el=document.getElementById('spbViewers');if(el)el.textContent=n+' personas';},8000);
+  const mc=document.getElementById('clientCount'),sc=document.getElementById('spbCupos');
+  if(mc&&sc){new MutationObserver(()=>{sc.textContent=mc.textContent;}).observe(mc,{childList:true,characterData:true,subtree:true});}
+})();
+
+// TEXT SCRAMBLE on section tags
+(function(){
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
+  const tags=document.querySelectorAll('.section-tag');
+  const sObs=new IntersectionObserver(entries=>{entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;const el=entry.target;const orig=el.textContent;let it=0;
+    const si=setInterval(()=>{el.textContent=orig.split('').map((c,i)=>i<it?orig[i]:chars[Math.floor(Math.random()*chars.length)]).join('');it+=.5;if(it>=orig.length){el.textContent=orig;clearInterval(si);}},30);
+    sObs.unobserve(el);
+  });},{threshold:.5});
+  tags.forEach(t=>sObs.observe(t));
+})();
+
+// MAGNETIC BUTTONS (desktop)
+if(window.matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.btn-solid,.nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();const dx=(e.clientX-(r.left+r.width/2))*.15;const dy=(e.clientY-(r.top+r.height/2))*.15;btn.style.transform=`translate(${dx}px,${dy}px) translateY(-2px)`;});
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';btn.style.transition='transform .4s var(--spring)';setTimeout(()=>{btn.style.transition='';},400);});
+  });
+}
+
+// CUPOS COUNTDOWN (urgency)
+(function(){const el=document.getElementById('clientCount');if(!el)return;let c=parseInt(el.textContent)||47;
+  setInterval(()=>{if(c<=5)return;c--;el.textContent=c;sessionStorage.setItem('kreathurClients',c);el.style.color='#ff4444';el.style.transition='color .3s';setTimeout(()=>{el.style.color='';},600);},(Math.random()*45000)+45000);
+})();
+
+// LEAD FORM -> WHATSAPP
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name=document.getElementById('lf-name').value.trim();
+  const rubro=document.getElementById('lf-rubro').value;
+  const service=document.getElementById('lf-service').value;
+  const msg=document.getElementById('lf-msg').value.trim();
+  const text=`Hola Matias! Soy ${name}.%0A%0ARubro: ${rubro}%0ANecesito: ${service}${msg?'%0ADetalle: '+encodeURIComponent(msg):''}%0A%0AVi tu web y me interesa cotizar.`;
+  window.open('https://wa.me/56977877602?text='+text,'_blank');
+});
+
+// LEAD MAGNET MODAL
+function openLeadMagnet(){const m=document.getElementById('leadMagnetModal');if(!m)return;m.classList.add('active');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closeLeadMagnet(){const m=document.getElementById('leadMagnetModal');if(!m)return;m.classList.remove('active');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+document.getElementById('leadMagnetModal')?.addEventListener('click',function(e){if(e.target===this)closeLeadMagnet();});
+document.querySelector('#leadMagnetModal .km-close')?.addEventListener('click',closeLeadMagnet);
+(function(){const f=document.getElementById('leadMagnetForm');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();const n=f.querySelector('[name="nombre"]').value.trim();const w=f.querySelector('[name="whatsapp"]').value.trim();const s=f.querySelector('[name="sitio"]').value.trim();const r=f.querySelector('[name="rubro"]').value;if(!n||!w||!r)return;let t=`Hola Matias! Quiero mi *Auditoria Digital Gratis*\nSoy: *${n}*\nRubro: ${r}`;if(s)t+=`\nMi sitio: ${s}`;t+=`\n\n(Lead magnet — kreathur.agency)`;window.open(`https://wa.me/56977877602?text=${encodeURIComponent(t)}`,'_blank');closeLeadMagnet();sessionStorage.setItem('kreathur_magnet_sent','1');});})();
+
+// EXIT-INTENT POPUP
+function closeExitIntent(){const m=document.getElementById('exitIntentModal');if(m){m.classList.remove('active');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}}
+(function(){const m=document.getElementById('exitIntentModal');if(!m)return;let triggered=false;
+function show(){if(triggered||sessionStorage.getItem('kreathur_exit_shown')||sessionStorage.getItem('kreathur_magnet_sent'))return;if(performance.now()<20000)return;triggered=true;m.classList.add('active');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';sessionStorage.setItem('kreathur_exit_shown','1');}
+document.addEventListener('mouseout',function(e){if(e.clientY<=0&&e.relatedTarget===null)show();});
+m.addEventListener('click',function(e){if(e.target===this)closeExitIntent();});
+m.querySelector('.km-close')?.addEventListener('click',closeExitIntent);
+const f=document.getElementById('exitIntentForm');if(f){f.addEventListener('submit',function(e){e.preventDefault();const n=f.querySelector('[name="nombre"]').value.trim();const w=f.querySelector('[name="whatsapp"]').value.trim();if(!n||!w)return;let t=`Hola Matias! Dejame un tip para mejorar mi negocio online.\nSoy: *${n}*\n\n(Exit intent — kreathur.agency)`;window.open(`https://wa.me/56977877602?text=${encodeURIComponent(t)}`,'_blank');closeExitIntent();});}})();
+
+// ESCAPE KEY closes modals
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLeadMagnet();closeExitIntent();}});
+
+// LEAD TRACKING
+function trackLead(src,data){try{const l=JSON.parse(localStorage.getItem('kreathur_leads')||'[]');l.push({source:src,data:data,timestamp:new Date().toISOString(),referrer:document.referrer||'direct'});localStorage.setItem('kreathur_leads',JSON.stringify(l));}catch(e){}}
+
+// PRICING CARD SPOTLIGHT
+document.querySelectorAll('.price-card').forEach(card=>{
+  card.addEventListener('mouseenter',()=>{document.querySelectorAll('.price-card').forEach(c=>{if(c!==card)c.style.opacity='.6';});});
+  card.addEventListener('mouseleave',()=>{document.querySelectorAll('.price-card').forEach(c=>{c.style.opacity='';});});
+});
+</script>
+</body>
+</html>

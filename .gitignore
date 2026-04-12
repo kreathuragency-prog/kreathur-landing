@@ -1,4 +1,29 @@
 node_modules/
+package-lock.json
+
+# Temp/build files
 b64_*.txt
-c*.txt
+b64chunks.txt
+c[0-9].txt
+c[0-9][0-9].txt
 chunk*.txt
+
+# Frame assets (too large for git)
+frames/
+frames-opt/
+
+# Dev server files
+server.js
+server-v4.js
+split-chunks.js
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Old versions
+index-inline.html
+index-v2.html
+index-v3.html
+index-live.html

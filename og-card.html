@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>OG Card Preview · Kreathur Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; font-family: 'Inter', sans-serif; color: #fff; }
+  .hint { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); background: #00e5ff; color: #0a0a0a; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; z-index: 10; font-family: 'Inter', sans-serif; }
+  .og-card {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #0d0d18 50%, #0a0a0a 100%);
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 60px rgba(0,229,255,0.15);
+  }
+  .og-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+  .glow-cyan { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.22), transparent 60%); top: -170px; left: -200px; filter: blur(20px); }
+  .glow-purple { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(168,85,247,0.22), transparent 60%); bottom: -170px; right: -200px; filter: blur(20px); }
+  .corner-tl { position: absolute; top: 0; left: 0; width: 0; height: 0; border-top: 120px solid rgba(0,229,255,0.08); border-right: 120px solid transparent; }
+  .corner-br { position: absolute; bottom: 0; right: 0; width: 0; height: 0; border-bottom: 120px solid rgba(168,85,247,0.08); border-left: 120px solid transparent; }
+  .dots { position: absolute; top: 80px; right: 80px; display: flex; gap: 8px; }
+  .dots span { width: 10px; height: 10px; border-radius: 50%; }
+  .dots span:nth-child(1) { background: #00e5ff; }
+  .dots span:nth-child(2) { background: #a855f7; }
+  .dots span:nth-child(3) { background: rgba(255,255,255,0.4); }
+  .content { position: relative; z-index: 2; padding: 80px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+  .badge {
+    display: inline-block;
+    padding: 12px 26px;
+    border: 1.5px solid #00e5ff;
+    background: rgba(0,229,255,0.1);
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2.5px;
+    color: #00e5ff;
+    align-self: flex-start;
+  }
+  .title {
+    font-family: 'Syne', sans-serif;
+    font-size: 148px;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -5px;
+    background: linear-gradient(135deg, #00e5ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+  .subtitle {
+    font-family: 'Syne', sans-serif;
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #a855f7;
+    margin-top: -14px;
+    margin-bottom: 24px;
+  }
+  .tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+  }
+  .guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 26px;
+    background: rgba(0,229,255,0.08);
+    border: 2px solid #00e5ff;
+    border-radius: 16px;
+    align-self: flex-start;
+  }
+  .guarantee-seal {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00e5ff, #a855f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 900;
+    color: #0a0a0a;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .guarantee-text-main {
+    font-family: 'Syne', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #00e5ff;
+    letter-spacing: 0.5px;
+  }
+  .guarantee-text-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 2px;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+  }
+  .locations {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #a0a0a0;
+  }
+  .url {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #00e5ff;
+  }
+</style>
+</head>
+<body>
+  <div class="hint">Exporta esta tarjeta como og-image.jpg · 1200×630</div>
+  <div class="og-card" id="ogCard">
+    <div class="glow-cyan"></div>
+    <div class="glow-purple"></div>
+    <div class="corner-tl"></div>
+    <div class="corner-br"></div>
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="content">
+      <div>
+        <div class="badge">AGENCIA DIGITAL · IA · SEO · DRONES</div>
+        <div class="title">KREATHUR</div>
+        <div class="subtitle">AGENCY</div>
+        <div class="tagline">Bots IA · SEO · Desarrollo Web · Drones DGAC 4K</div>
+        <div class="guarantee">
+          <div class="guarantee-seal">100%</div>
+          <div>
+            <div class="guarantee-text-main">⚡ GARANTÍA 30 DÍAS</div>
+            <div class="guarantee-text-sub">Si no funciona, no pagas · Sin permanencia · Sin letra chica</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="locations">Pichilemu, Chile 🇨🇱 · Kiel, Alemania 🇩🇪</div>
+        <div class="url">kreathur.agency</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

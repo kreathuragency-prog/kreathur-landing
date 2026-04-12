@@ -1,0 +1,887 @@
+<!--
+  ============================================================
+  KREATHUR LEAD CAPTURE SYSTEM
+  ============================================================
+  4 components to add to index-v4.html:
+
+  1. INLINE CONTACT FORM  — replaces/augments #contacto section
+  2. LEAD MAGNET MODAL     — "Auditoria Digital Gratis" popup
+  3. FLOATING CTA BAR      — appears after scroll + timer
+  4. EXIT-INTENT POPUP     — triggers on mouse leaving viewport
+
+  INSTRUCTIONS:
+  - Copy the <style> block into index-v4.html's existing <style>
+  - Replace the #contacto <section> with the one below
+  - Add the 3 modals/overlays before </body>
+  - Add the <script> block before </script> closing
+  ============================================================
+-->
+
+<!-- ========================================================
+     COMPONENT 1: INLINE CONTACT FORM
+     Replace the existing #contacto section with this
+     ======================================================== -->
+
+<section id="contacto" class="section section-cream">
+  <div class="container">
+    <div class="section-tag reveal">Contacto</div>
+    <h2 class="section-title reveal">Hablemos. Sin compromiso, sin cotizacion automatica.</h2>
+    <p class="section-sub reveal">Escribeme por donde mas te acomode. Te respondo yo, no un bot.</p>
+
+    <!-- EXISTING CONTACT LINKS (kept) -->
+    <div class="contact-grid reveal">
+      <a href="mailto:hola@kreathur.agency" class="contact-item"><span class="ci-icon">&#9993;</span><span class="ci-label">Email</span><span class="ci-value">hola@kreathur.agency</span></a>
+      <a href="https://wa.me/56977877602" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#128241;</span><span class="ci-label">WhatsApp</span><span class="ci-value">+56 9 7787 7602</span></a>
+      <a href="https://www.youtube.com/@MatiWlog" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#9654;</span><span class="ci-label">YouTube</span><span class="ci-value">@MatiWlog</span></a>
+      <a href="https://www.instagram.com/matiwlog" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#128247;</span><span class="ci-label">Instagram</span><span class="ci-value">@matiwlog</span></a>
+      <a href="https://www.kreathur.agency/matiwlog/" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="ci-icon">&#127760;</span><span class="ci-label">Blog</span><span class="ci-value">MatiWlog</span></a>
+    </div>
+
+    <!-- NEW: INLINE CONTACT FORM -->
+    <div class="kreathur-form-wrapper reveal">
+      <div class="kf-header">
+        <h3 class="kf-title">O dejame tus datos y te contacto</h3>
+        <p class="kf-subtitle">Se va directo a mi WhatsApp. Respondo en menos de 2 horas.</p>
+      </div>
+      <form id="kreathurContactForm" class="kreathur-form" novalidate>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="kf-name" class="kf-label">Nombre</label>
+            <input type="text" id="kf-name" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+            <span class="kf-error">Ingresa tu nombre</span>
+          </div>
+          <div class="kf-field">
+            <label for="kf-whatsapp" class="kf-label">WhatsApp</label>
+            <input type="tel" id="kf-whatsapp" name="whatsapp" placeholder="+56 9 1234 5678" required autocomplete="tel">
+            <span class="kf-error">Ingresa tu numero</span>
+          </div>
+        </div>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="kf-rubro" class="kf-label">Rubro / Industria</label>
+            <select id="kf-rubro" name="rubro" required>
+              <option value="" disabled selected>Selecciona tu rubro</option>
+              <option value="Inmobiliaria">Inmobiliaria / Corretaje</option>
+              <option value="Turismo">Turismo / Hospedaje</option>
+              <option value="Ecommerce">E-commerce / Tienda online</option>
+              <option value="Restaurant">Restaurant / Gastronomia</option>
+              <option value="Profesional">Profesional independiente</option>
+              <option value="Agricultura">Agricultura / Agroindustria</option>
+              <option value="Eventos">Eventos / Produccion</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <span class="kf-error">Selecciona un rubro</span>
+          </div>
+          <div class="kf-field">
+            <label for="kf-servicio" class="kf-label">Que necesitas?</label>
+            <select id="kf-servicio" name="servicio">
+              <option value="" disabled selected>Selecciona (opcional)</option>
+              <option value="SEO">SEO / Posicionamiento</option>
+              <option value="Web">Sitio Web / Landing</option>
+              <option value="Bot IA">Bot IA / Chatbot WhatsApp</option>
+              <option value="Drone">Drones / Fotografia aerea</option>
+              <option value="Marketing">Marketing Digital / Ads</option>
+              <option value="Automatizacion">Automatizaciones / IA</option>
+              <option value="No se">No estoy seguro</option>
+            </select>
+          </div>
+        </div>
+        <div class="kf-field kf-field-full">
+          <label for="kf-mensaje" class="kf-label">Mensaje (opcional)</label>
+          <textarea id="kf-mensaje" name="mensaje" rows="3" placeholder="Cuentame brevemente que tienes en mente..."></textarea>
+        </div>
+        <button type="submit" class="kf-submit btn-solid">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:middle;margin-right:8px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.486l4.608-1.478A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.17 0-4.182-.588-5.924-1.61l-.424-.252-2.732.878.852-2.657-.276-.44A9.77 9.77 0 012.182 12c0-5.416 4.402-9.818 9.818-9.818 5.416 0 9.818 4.402 9.818 9.818 0 5.416-4.402 9.818-9.818 9.818z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <p class="kf-privacy">Sin spam. Solo yo leo esto. Te respondo personalmente.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================
+     COMPONENT 2: LEAD MAGNET MODAL
+     "Auditoria Digital Gratis" — add before </body>
+     ======================================================== -->
+
+<div id="leadMagnetModal" class="km-overlay" aria-hidden="true">
+  <div class="km-modal km-modal-magnet">
+    <button class="km-close" aria-label="Cerrar">&times;</button>
+    <div class="km-magnet-content">
+      <div class="km-magnet-badge">GRATIS</div>
+      <h3 class="km-magnet-title">Auditoria Digital Express</h3>
+      <p class="km-magnet-desc">Te analizo tu web, SEO, redes y presencia online en 24 horas. Recibis un informe con 5 mejoras concretas para tu negocio.</p>
+      <ul class="km-magnet-list">
+        <li>Analisis SEO de tu sitio actual</li>
+        <li>Revision de Google My Business</li>
+        <li>Evaluacion de presencia en redes</li>
+        <li>5 recomendaciones priorizadas</li>
+        <li>Llamada de 15 min para revisarlo juntos</li>
+      </ul>
+      <form id="leadMagnetForm" class="km-magnet-form" novalidate>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="tel" name="whatsapp" placeholder="Tu WhatsApp (+56 9...)" required>
+        <input type="url" name="sitio" placeholder="URL de tu sitio (opcional)">
+        <select name="rubro" required>
+          <option value="" disabled selected>Tu rubro</option>
+          <option value="Inmobiliaria">Inmobiliaria</option>
+          <option value="Turismo">Turismo / Hospedaje</option>
+          <option value="Ecommerce">E-commerce</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Profesional">Profesional</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <button type="submit" class="btn-solid km-magnet-btn">
+          Quiero mi auditoria gratis
+        </button>
+      </form>
+      <p class="km-magnet-trust">100% gratis. Sin compromiso. Solo 10 auditorias por mes.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================================
+     COMPONENT 3: FLOATING CTA BAR
+     Sticky bottom bar — add before </body>
+     ======================================================== -->
+
+<div id="floatingCTA" class="fcta-bar" aria-hidden="true">
+  <div class="fcta-inner">
+    <div class="fcta-text">
+      <strong>Auditoria digital gratis</strong>
+      <span>Analizo tu web + SEO + redes en 24h</span>
+    </div>
+    <div class="fcta-actions">
+      <button class="fcta-btn btn-solid" onclick="openLeadMagnet()">Pedir auditoria</button>
+      <button class="fcta-dismiss" onclick="dismissFloatingCTA()" aria-label="Cerrar">&times;</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================================
+     COMPONENT 4: EXIT-INTENT POPUP
+     Triggers when mouse leaves viewport — add before </body>
+     ======================================================== -->
+
+<div id="exitIntentModal" class="km-overlay" aria-hidden="true">
+  <div class="km-modal km-modal-exit">
+    <button class="km-close" aria-label="Cerrar">&times;</button>
+    <div class="km-exit-content">
+      <div class="km-exit-emoji">&#128075;</div>
+      <h3 class="km-exit-title">Espera, antes de irte...</h3>
+      <p class="km-exit-desc">Dejame tu WhatsApp y te mando un tip personalizado para mejorar tu negocio online. Sin spam, solo un mensaje util.</p>
+      <form id="exitIntentForm" class="km-exit-form" novalidate>
+        <div class="km-exit-row">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+          <input type="tel" name="whatsapp" placeholder="+56 9..." required>
+        </div>
+        <button type="submit" class="btn-solid km-exit-btn">Quiero mi tip gratis</button>
+      </form>
+      <button class="km-exit-skip" onclick="closeExitIntent()">No gracias, otro dia</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================================
+     STYLES — Add this to the existing <style> in index-v4.html
+     ======================================================== -->
+
+<style>
+/* ===== INLINE CONTACT FORM ===== */
+.kreathur-form-wrapper {
+  margin-top:48px;
+  background:var(--surface);
+  border:1px solid var(--cream-dark);
+  border-radius:var(--radius-lg);
+  padding:40px 36px;
+  max-width:720px;
+}
+.kf-header { margin-bottom:28px; }
+.kf-title {
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:1.6rem;
+  font-weight:400;
+  margin-bottom:6px;
+  color:var(--ink);
+}
+.kf-subtitle {
+  font-size:.88rem;
+  color:var(--ink-muted);
+  font-weight:300;
+}
+.kreathur-form { display:flex; flex-direction:column; gap:18px; }
+.kf-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.kf-field { display:flex; flex-direction:column; position:relative; }
+.kf-field-full { grid-column:1 / -1; }
+.kf-label {
+  font-family:var(--font-mono);
+  font-size:.6rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-muted);
+  margin-bottom:6px;
+  font-weight:500;
+}
+.kreathur-form input,
+.kreathur-form select,
+.kreathur-form textarea {
+  font-family:var(--font-body);
+  font-size:.9rem;
+  font-weight:400;
+  padding:12px 16px;
+  border:1px solid var(--cream-dark);
+  border-radius:var(--radius-sm);
+  background:var(--surface-alt);
+  color:var(--ink);
+  transition:border-color .3s, box-shadow .3s;
+  outline:none;
+  -webkit-appearance:none;
+}
+.kreathur-form input:focus,
+.kreathur-form select:focus,
+.kreathur-form textarea:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-glow);
+}
+.kreathur-form input.kf-invalid,
+.kreathur-form select.kf-invalid {
+  border-color:#e74c3c;
+  box-shadow:0 0 0 3px rgba(231,76,60,.12);
+}
+.kf-error {
+  font-size:.7rem;
+  color:#e74c3c;
+  margin-top:4px;
+  display:none;
+  font-weight:500;
+}
+.kf-invalid + .kf-error { display:block; }
+.kreathur-form textarea {
+  resize:vertical;
+  min-height:72px;
+}
+.kreathur-form select {
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5a52' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:36px;
+}
+.kf-submit {
+  width:100%;
+  text-align:center;
+  font-size:.92rem;
+  padding:16px 32px;
+  margin-top:4px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.kf-submit:disabled {
+  opacity:.6;
+  cursor:not-allowed;
+}
+.kf-privacy {
+  text-align:center;
+  font-size:.72rem;
+  color:var(--ink-muted);
+  font-weight:300;
+  margin-top:4px;
+}
+
+/* ===== MODAL OVERLAY (shared) ===== */
+.km-overlay {
+  position:fixed; inset:0; z-index:9500;
+  background:rgba(26,26,24,.6);
+  backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px;
+  opacity:0; visibility:hidden;
+  transition:opacity .35s var(--ease), visibility .35s;
+}
+.km-overlay.active { opacity:1; visibility:visible; }
+.km-modal {
+  background:var(--surface);
+  border-radius:var(--radius-lg);
+  max-width:480px;
+  width:100%;
+  padding:40px 36px;
+  position:relative;
+  transform:translateY(20px) scale(.96);
+  transition:transform .4s var(--spring);
+  max-height:90vh;
+  overflow-y:auto;
+}
+.km-overlay.active .km-modal { transform:translateY(0) scale(1); }
+.km-close {
+  position:absolute; top:14px; right:16px;
+  background:none; border:none; font-size:1.5rem;
+  color:var(--ink-muted); cursor:pointer;
+  line-height:1; padding:4px 8px;
+  transition:color .2s;
+}
+.km-close:hover { color:var(--ink); }
+
+/* ===== LEAD MAGNET MODAL ===== */
+.km-magnet-badge {
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:.6rem;
+  letter-spacing:.18em;
+  background:var(--accent);
+  color:white;
+  padding:4px 14px;
+  border-radius:20px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.km-magnet-title {
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:1.8rem;
+  font-weight:400;
+  color:var(--ink);
+  margin-bottom:10px;
+  line-height:1.15;
+}
+.km-magnet-desc {
+  font-size:.9rem;
+  color:var(--ink-muted);
+  line-height:1.7;
+  font-weight:300;
+  margin-bottom:20px;
+}
+.km-magnet-list {
+  list-style:none;
+  margin-bottom:24px;
+  padding:0;
+}
+.km-magnet-list li {
+  position:relative;
+  padding:6px 0 6px 22px;
+  font-size:.85rem;
+  color:var(--ink-soft);
+  font-weight:400;
+}
+.km-magnet-list li::before {
+  content:'';
+  position:absolute;
+  left:0; top:50%;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  transform:translateY(-50%);
+}
+.km-magnet-form {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.km-magnet-form input,
+.km-magnet-form select {
+  font-family:var(--font-body);
+  font-size:.88rem;
+  padding:12px 16px;
+  border:1px solid var(--cream-dark);
+  border-radius:var(--radius-sm);
+  background:var(--surface-alt);
+  color:var(--ink);
+  outline:none;
+  transition:border-color .3s, box-shadow .3s;
+}
+.km-magnet-form input:focus,
+.km-magnet-form select:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-glow);
+}
+.km-magnet-form select {
+  -webkit-appearance:none;
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5a52' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:36px;
+}
+.km-magnet-btn {
+  width:100%;
+  text-align:center;
+  padding:14px;
+  font-size:.9rem;
+  cursor:pointer;
+  margin-top:4px;
+}
+.km-magnet-trust {
+  text-align:center;
+  font-size:.68rem;
+  color:var(--ink-muted);
+  font-weight:300;
+  margin-top:8px;
+}
+
+/* ===== FLOATING CTA BAR ===== */
+.fcta-bar {
+  position:fixed;
+  bottom:0; left:0; right:0;
+  z-index:7500;
+  background:var(--ink);
+  border-top:1px solid rgba(244,241,235,.08);
+  transform:translateY(100%);
+  transition:transform .5s var(--ease);
+  padding:0;
+}
+.fcta-bar.active { transform:translateY(0); }
+.fcta-inner {
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.fcta-text strong {
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:1.05rem;
+  color:var(--cream);
+  display:block;
+  line-height:1.2;
+}
+.fcta-text span {
+  font-size:.78rem;
+  color:var(--ink-muted);
+  font-weight:300;
+}
+.fcta-actions {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+.fcta-btn {
+  font-size:.8rem;
+  padding:10px 24px;
+  white-space:nowrap;
+}
+.fcta-dismiss {
+  background:none;
+  border:none;
+  color:var(--ink-muted);
+  font-size:1.3rem;
+  cursor:pointer;
+  padding:4px 8px;
+  line-height:1;
+  transition:color .2s;
+}
+.fcta-dismiss:hover { color:var(--cream); }
+
+/* ===== EXIT-INTENT MODAL ===== */
+.km-exit-content { text-align:center; }
+.km-exit-emoji { font-size:2.8rem; margin-bottom:12px; }
+.km-exit-title {
+  font-family:var(--font-serif);
+  font-style:italic;
+  font-size:1.7rem;
+  font-weight:400;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.km-exit-desc {
+  font-size:.9rem;
+  color:var(--ink-muted);
+  line-height:1.7;
+  font-weight:300;
+  margin-bottom:24px;
+  max-width:380px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.km-exit-form {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width:340px;
+  margin:0 auto;
+}
+.km-exit-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.km-exit-form input {
+  font-family:var(--font-body);
+  font-size:.88rem;
+  padding:12px 16px;
+  border:1px solid var(--cream-dark);
+  border-radius:var(--radius-sm);
+  background:var(--surface-alt);
+  color:var(--ink);
+  outline:none;
+  transition:border-color .3s, box-shadow .3s;
+}
+.km-exit-form input:focus {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-glow);
+}
+.km-exit-btn {
+  width:100%;
+  text-align:center;
+  padding:14px;
+  font-size:.9rem;
+  cursor:pointer;
+}
+.km-exit-skip {
+  background:none; border:none;
+  font-family:var(--font-body);
+  font-size:.78rem;
+  color:var(--ink-muted);
+  cursor:pointer;
+  margin-top:12px;
+  padding:4px 8px;
+  transition:color .2s;
+}
+.km-exit-skip:hover { color:var(--ink); }
+
+/* ===== WA-FLOAT ADJUSTMENT (push up when fcta is visible) ===== */
+.fcta-bar.active ~ .wa-float,
+body.fcta-active .wa-float {
+  bottom:80px;
+  transition:bottom .5s var(--ease);
+}
+
+/* ===== RESPONSIVE — LEAD CAPTURE ===== */
+@media(max-width:768px){
+  .kreathur-form-wrapper { padding:28px 20px; }
+  .kf-row { grid-template-columns:1fr; }
+  .kf-title { font-size:1.3rem; }
+  .fcta-inner { flex-direction:column; text-align:center; gap:10px; padding:12px 20px; }
+  .fcta-text strong { font-size:.92rem; }
+  .fcta-actions { width:100%; justify-content:center; }
+  .km-modal { padding:28px 20px; }
+  .km-magnet-title, .km-exit-title { font-size:1.4rem; }
+  .km-exit-row { grid-template-columns:1fr; }
+}
+
+/* ===== TRIGGER BUTTON for Lead Magnet (optional, place in nav or sections) ===== */
+.audit-trigger {
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:.78rem;
+  padding:8px 18px;
+  border-radius:40px;
+  background:var(--warm);
+  color:white;
+  border:none;
+  cursor:pointer;
+  transition:transform .3s var(--spring), box-shadow .3s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.audit-trigger:hover {
+  transform:translateY(-1px);
+  box-shadow:0 6px 20px var(--warm-glow);
+}
+</style>
+
+
+<!-- ========================================================
+     SCRIPT — Add this to the existing <script> in index-v4.html
+     ======================================================== -->
+
+<script>
+/* ============================================================
+   KREATHUR LEAD CAPTURE — JS
+   ============================================================ */
+
+// ===== 1. INLINE CONTACT FORM — WhatsApp API =====
+(function(){
+  const form = document.getElementById('kreathurContactForm');
+  if(!form) return;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Validate required fields
+    let valid = true;
+    const name = form.querySelector('#kf-name');
+    const wa = form.querySelector('#kf-whatsapp');
+    const rubro = form.querySelector('#kf-rubro');
+
+    [name, wa, rubro].forEach(el => {
+      el.classList.remove('kf-invalid');
+      if(!el.value.trim() || (el.tagName === 'SELECT' && !el.value)){
+        el.classList.add('kf-invalid');
+        valid = false;
+      }
+    });
+
+    // Basic phone validation — at least 8 digits
+    const digits = wa.value.replace(/\D/g,'');
+    if(digits.length < 8){
+      wa.classList.add('kf-invalid');
+      valid = false;
+    }
+
+    if(!valid) return;
+
+    // Build WhatsApp message
+    const servicio = form.querySelector('#kf-servicio').value || 'No especificado';
+    const mensaje = form.querySelector('#kf-mensaje').value.trim();
+
+    let text = `Hola Matias! Soy *${name.value.trim()}*\n`;
+    text += `Rubro: ${rubro.value}\n`;
+    text += `Servicio: ${servicio}\n`;
+    if(mensaje) text += `Mensaje: ${mensaje}\n`;
+    text += `\n(Enviado desde kreathur.agency)`;
+
+    const waURL = `https://wa.me/56977877602?text=${encodeURIComponent(text)}`;
+
+    // Track lead in localStorage for basic analytics
+    trackLead('contact_form', {
+      nombre: name.value.trim(),
+      rubro: rubro.value,
+      servicio: servicio
+    });
+
+    // Open WhatsApp
+    window.open(waURL, '_blank');
+
+    // Also send backup to email via mailto (fallback)
+    // In production, replace with a serverless function endpoint
+    // for now we just track locally
+
+    // Success state
+    const btn = form.querySelector('.kf-submit');
+    btn.textContent = 'Enviado! Revisa tu WhatsApp';
+    btn.disabled = true;
+    btn.style.background = '#25d366';
+    setTimeout(()=>{
+      btn.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:middle;margin-right:8px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.486l4.608-1.478A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.17 0-4.182-.588-5.924-1.61l-.424-.252-2.732.878.852-2.657-.276-.44A9.77 9.77 0 012.182 12c0-5.416 4.402-9.818 9.818-9.818 5.416 0 9.818 4.402 9.818 9.818 0 5.416-4.402 9.818-9.818 9.818z"/></svg> Enviar por WhatsApp`;
+      btn.disabled = false;
+      btn.style.background = '';
+      form.reset();
+    }, 3000);
+  });
+
+  // Clear validation on input
+  form.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => el.classList.remove('kf-invalid'));
+    el.addEventListener('change', () => el.classList.remove('kf-invalid'));
+  });
+})();
+
+
+// ===== 2. LEAD MAGNET MODAL =====
+function openLeadMagnet(){
+  const modal = document.getElementById('leadMagnetModal');
+  if(!modal) return;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeLeadMagnet(){
+  const modal = document.getElementById('leadMagnetModal');
+  if(!modal) return;
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('leadMagnetModal')?.addEventListener('click', function(e){
+  if(e.target === this) closeLeadMagnet();
+});
+document.querySelector('#leadMagnetModal .km-close')?.addEventListener('click', closeLeadMagnet);
+
+// Lead Magnet form submission
+(function(){
+  const form = document.getElementById('leadMagnetForm');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = form.querySelector('[name="nombre"]').value.trim();
+    const wa = form.querySelector('[name="whatsapp"]').value.trim();
+    const sitio = form.querySelector('[name="sitio"]').value.trim();
+    const rubro = form.querySelector('[name="rubro"]').value;
+
+    if(!nombre || !wa || !rubro) return;
+
+    let text = `Hola Matias! Quiero mi *Auditoria Digital Gratis*\n`;
+    text += `Soy: *${nombre}*\n`;
+    text += `Rubro: ${rubro}\n`;
+    if(sitio) text += `Mi sitio: ${sitio}\n`;
+    text += `\n(Lead magnet — kreathur.agency)`;
+
+    trackLead('lead_magnet', { nombre, rubro, sitio });
+
+    window.open(`https://wa.me/56977877602?text=${encodeURIComponent(text)}`, '_blank');
+    closeLeadMagnet();
+    sessionStorage.setItem('kreathur_magnet_sent','1');
+  });
+})();
+
+
+// ===== 3. FLOATING CTA BAR =====
+(function(){
+  const bar = document.getElementById('floatingCTA');
+  if(!bar) return;
+
+  let shown = false;
+  let dismissed = false;
+
+  // Show after: 45 seconds OR 50% scroll — whichever comes first
+  // But NOT if user is already in the contact section
+  function showBar(){
+    if(shown || dismissed) return;
+    if(sessionStorage.getItem('kreathur_magnet_sent')) return;
+    if(sessionStorage.getItem('kreathur_fcta_dismissed')) return;
+
+    // Don't show if contact section is in view
+    const contactSection = document.getElementById('contacto');
+    if(contactSection){
+      const rect = contactSection.getBoundingClientRect();
+      if(rect.top < window.innerHeight && rect.bottom > 0) return;
+    }
+
+    shown = true;
+    bar.classList.add('active');
+    bar.setAttribute('aria-hidden','false');
+    document.body.classList.add('fcta-active');
+  }
+
+  // Timer trigger — 45 seconds
+  setTimeout(showBar, 45000);
+
+  // Scroll trigger — after scrolling past 50% of page
+  window.addEventListener('scroll', function checkScroll(){
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if(scrollPercent > 0.5){
+      showBar();
+      window.removeEventListener('scroll', checkScroll);
+    }
+  });
+})();
+
+function dismissFloatingCTA(){
+  const bar = document.getElementById('floatingCTA');
+  if(bar){
+    bar.classList.remove('active');
+    bar.setAttribute('aria-hidden','true');
+    document.body.classList.remove('fcta-active');
+    sessionStorage.setItem('kreathur_fcta_dismissed','1');
+  }
+}
+
+
+// ===== 4. EXIT-INTENT POPUP =====
+(function(){
+  const modal = document.getElementById('exitIntentModal');
+  if(!modal) return;
+
+  let triggered = false;
+
+  function showExitIntent(){
+    if(triggered) return;
+    if(sessionStorage.getItem('kreathur_exit_shown')) return;
+    if(sessionStorage.getItem('kreathur_magnet_sent')) return;
+    // Only show if user spent at least 20 seconds on page
+    if(performance.now() < 20000) return;
+
+    triggered = true;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    sessionStorage.setItem('kreathur_exit_shown','1');
+  }
+
+  // Desktop: mouse leaves viewport from top
+  document.addEventListener('mouseout', function(e){
+    if(e.clientY <= 0 && e.relatedTarget === null){
+      showExitIntent();
+    }
+  });
+
+  // Mobile fallback: back button / rapid scroll up pattern
+  let lastScrollY = 0;
+  let rapidScrollCount = 0;
+  window.addEventListener('scroll', function(){
+    const currentY = window.scrollY;
+    if(currentY < lastScrollY && lastScrollY - currentY > 200){
+      rapidScrollCount++;
+      if(rapidScrollCount >= 2 && currentY < 300){
+        showExitIntent();
+      }
+    } else {
+      rapidScrollCount = 0;
+    }
+    lastScrollY = currentY;
+  });
+
+  // Close handlers
+  modal.addEventListener('click', function(e){
+    if(e.target === this) closeExitIntent();
+  });
+  modal.querySelector('.km-close')?.addEventListener('click', closeExitIntent);
+
+  // Form submission
+  const form = document.getElementById('exitIntentForm');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const nombre = form.querySelector('[name="nombre"]').value.trim();
+      const wa = form.querySelector('[name="whatsapp"]').value.trim();
+      if(!nombre || !wa) return;
+
+      let text = `Hola Matias! Dejame un tip para mejorar mi negocio online.\n`;
+      text += `Soy: *${nombre}*\n`;
+      text += `\n(Exit intent — kreathur.agency)`;
+
+      trackLead('exit_intent', { nombre });
+
+      window.open(`https://wa.me/56977877602?text=${encodeURIComponent(text)}`, '_blank');
+      closeExitIntent();
+    });
+  }
+})();
+
+function closeExitIntent(){
+  const modal = document.getElementById('exitIntentModal');
+  if(modal){
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = '';
+  }
+}
+
+
+// ===== LEAD TRACKING (localStorage) =====
+function trackLead(source, data){
+  try {
+    const leads = JSON.parse(localStorage.getItem('kreathur_leads') || '[]');
+    leads.push({
+      source: source,
+      data: data,
+      timestamp: new Date().toISOString(),
+      page: window.location.pathname,
+      referrer: document.referrer || 'direct'
+    });
+    localStorage.setItem('kreathur_leads', JSON.stringify(leads));
+  } catch(e){}
+}
+
+// ===== ESCAPE KEY closes all modals =====
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    closeLeadMagnet();
+    closeExitIntent();
+  }
+});
+</script>

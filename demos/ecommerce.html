@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordika Store · Demo Kreathur · Bot WhatsApp para e-commerce</title>
+<meta name="description" content="Demo de solución IA para e-commerce: bot de WhatsApp que recomienda productos, recupera carritos abandonados y cierra ventas 24/7 en 4 idiomas.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}:root{--bg:#0a0a0a;--bg2:#0d0d18;--cyan:#00e5ff;--purple:#a855f7;--green:#25d366;--text:#e5e7eb;--muted:#9ca3af;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08)}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;min-height:100vh}body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.035) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}body::after{content:'';position:fixed;top:-300px;left:-300px;width:800px;height:800px;background:radial-gradient(circle,rgba(0,229,255,0.08),transparent 60%);filter:blur(40px);pointer-events:none;z-index:0}.demo-badge-bar{position:sticky;top:0;background:rgba(10,10,10,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);z-index:100;padding:0.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}.demo-badge-bar .left{display:flex;align-items:center;gap:1rem;font-size:0.85rem}.demo-badge-bar .badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.8rem;background:rgba(168,85,247,0.12);border:1px solid var(--purple);border-radius:50px;color:var(--purple);font-weight:700;font-size:0.72rem;letter-spacing:1.2px;text-transform:uppercase}.demo-badge-bar a.back{color:var(--cyan);text-decoration:none;font-weight:600;font-size:0.85rem;display:inline-flex;align-items:center;gap:0.4rem;transition:0.2s}.demo-badge-bar a.back:hover{transform:translateX(-3px)}.demo-badge-bar .kreathur-mini{font-family:'Syne',sans-serif;font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}.demo-hero{position:relative;padding:6rem 1.5rem 4rem;max-width:1300px;margin:0 auto;z-index:1}.demo-hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:center}@media (max-width:900px){.demo-hero-grid{grid-template-columns:1fr;gap:2.5rem}.demo-hero{padding:3rem 1.25rem 2rem}}.demo-tag{display:inline-block;padding:0.5rem 1rem;background:rgba(0,229,255,0.1);border:1px solid var(--cyan);border-radius:50px;color:var(--cyan);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.25rem}.demo-h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:0.95;letter-spacing:-2px;margin-bottom:1.25rem}.demo-h1 .grad{background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.demo-lead{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--muted);margin-bottom:2rem;max-width:580px}.demo-lead strong{color:#fff}.demo-cta-row{display:flex;gap:0.9rem;flex-wrap:wrap}.demo-cta{display:inline-flex;align-items:center;gap:0.5rem;padding:0.95rem 1.6rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:0.95rem;transition:0.25s;border:2px solid transparent;cursor:pointer;font-family:inherit}.demo-cta.primary{background:var(--green);color:#0a0a0a}.demo-cta.primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,211,102,0.35)}.demo-cta.ghost{background:transparent;color:var(--cyan);border-color:var(--cyan)}.demo-cta.ghost:hover{background:rgba(0,229,255,0.1)}.demo-phone{width:100%;max-width:360px;margin:0 auto;background:#111b21;border-radius:28px;border:10px solid #1a1a1a;box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 2px rgba(0,229,255,0.15);overflow:hidden;position:relative}.demo-phone-header{background:#202c33;padding:0.9rem 1rem;display:flex;align-items:center;gap:0.75rem}.demo-phone-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:900;color:#0a0a0a;flex-shrink:0;font-size:1rem}.demo-phone-contact{flex:1;min-width:0}.demo-phone-name{color:#fff;font-weight:600;font-size:0.95rem;margin-bottom:2px}.demo-phone-status{color:#8696a0;font-size:0.72rem;display:flex;align-items:center;gap:0.3rem}.demo-phone-status .online{width:7px;height:7px;background:#25d366;border-radius:50%;display:inline-block}.demo-phone-chat{background:#0b141a;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><circle cx='30' cy='30' r='1.5' fill='%231f2c34'/></svg>");padding:1rem 0.75rem;min-height:360px;display:flex;flex-direction:column;gap:0.55rem}.chat-bubble{max-width:82%;padding:0.55rem 0.8rem;border-radius:10px;font-size:0.82rem;line-height:1.35;position:relative;word-wrap:break-word}.chat-bubble.user{background:#005c4b;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}.chat-bubble.bot{background:#202c33;color:#e9edef;align-self:flex-start;border-bottom-left-radius:3px}.chat-bubble .time{font-size:0.63rem;color:rgba(255,255,255,0.5);margin-left:0.4rem;display:inline-block;margin-top:2px}.chat-bubble.typing{background:#202c33;align-self:flex-start;border-bottom-left-radius:3px;padding:0.7rem 0.9rem}.chat-bubble.typing .dots{display:flex;gap:4px}.chat-bubble.typing .dots span{width:7px;height:7px;background:#8696a0;border-radius:50%;animation:blink 1.4s infinite}.chat-bubble.typing .dots span:nth-child(2){animation-delay:0.2s}.chat-bubble.typing .dots span:nth-child(3){animation-delay:0.4s}@keyframes blink{0%,60%,100%{opacity:0.3}30%{opacity:1}}.demo-phone-footer{background:#1f2c34;padding:0.6rem 0.9rem;color:#8696a0;font-size:0.72rem;text-align:center;border-top:1px solid rgba(255,255,255,0.05)}.demo-phone-footer strong{color:var(--cyan)}.demo-features-section{padding:4rem 1.5rem;max-width:1300px;margin:0 auto;position:relative;z-index:1}.demo-section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;margin-bottom:1rem;text-align:center;letter-spacing:-1px}.demo-section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 3rem;font-size:1.05rem}.demo-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}.demo-feature{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:0.3s;position:relative;overflow:hidden}.demo-feature:hover{border-color:var(--cyan);transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,229,255,0.12)}.demo-feature .icon{font-size:2rem;margin-bottom:0.8rem;display:inline-block}.demo-feature h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:0.6rem;color:#fff}.demo-feature p{color:var(--muted);font-size:0.92rem;line-height:1.55}.demo-metrics{padding:3rem 1.5rem;max-width:1100px;margin:0 auto;position:relative;z-index:1}.demo-metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;text-align:center}.demo-metric{background:linear-gradient(135deg,rgba(0,229,255,0.06),rgba(168,85,247,0.06));border:1px solid var(--border);border-radius:18px;padding:2rem 1rem}.demo-metric .num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:0.3rem}.demo-metric .lbl{color:var(--muted);font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;font-weight:600}.demo-langs{padding:3rem 1.5rem;max-width:1100px;margin:0 auto;position:relative;z-index:1;text-align:center}.demo-langs-grid{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}.demo-lang-chip{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:50px;font-weight:700;font-size:0.95rem;transition:0.2s}.demo-lang-chip:hover{border-color:var(--cyan);transform:translateY(-2px)}.demo-lang-chip svg{width:22px;height:16px;border-radius:2px}.demo-final-cta{padding:5rem 1.5rem;max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}.demo-final-cta-card{background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(168,85,247,0.08));border:2px solid var(--cyan);border-radius:28px;padding:3rem 2rem;position:relative;overflow:hidden}.demo-final-cta-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(0,229,255,0.1),transparent 60%);animation:pulse-glow 4s ease-in-out infinite}@keyframes pulse-glow{0%,100%{opacity:0.5}50%{opacity:1}}.demo-final-cta-card>*{position:relative;z-index:1}.demo-final-cta h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:1rem;letter-spacing:-1px}.demo-final-cta p{color:var(--muted);font-size:1.1rem;margin-bottom:2rem;max-width:580px;margin-left:auto;margin-right:auto}.demo-guarantee-inline{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:50px;margin-top:1.5rem;font-size:0.88rem;color:var(--muted)}.demo-guarantee-inline strong{color:var(--cyan)}footer.demo-footer{padding:2rem 1.5rem;text-align:center;color:var(--muted);font-size:0.85rem;border-top:1px solid var(--border);position:relative;z-index:1}footer.demo-footer a{color:var(--cyan);text-decoration:none;font-weight:600}footer.demo-footer a:hover{text-decoration:underline}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms !important;transition-duration:0.001ms !important}}</style>
+</head>
+<body>
+
+<div class="demo-badge-bar">
+  <div class="left">
+    <a href="/" class="back">← Volver a Kreathur</a>
+    <span class="badge">Demo · E-commerce</span>
+  </div>
+  <a href="/" class="kreathur-mini">KREATHUR</a>
+</div>
+
+<section class="demo-hero">
+  <div class="demo-hero-grid">
+    <div>
+      <span class="demo-tag">🛍️ Retail · E-commerce</span>
+      <h1 class="demo-h1">Nordika Store<br><span class="grad">recupera el 47%</span><br>de carritos abandonados</h1>
+      <p class="demo-lead">
+        Una tienda online escandinava con 1.200 SKUs. El problema: 7 de cada 10 carritos se abandonaban. El bot IA detecta el abandono, <strong>escribe al cliente por WhatsApp en su idioma, le recuerda qué dejó, ofrece un micro-descuento si es necesario y cierra la venta</strong> — todo sin que el equipo humano mueva un dedo.
+      </p>
+      <div class="demo-cta-row">
+        <a href="https://wa.me/56973669100?text=Hola%20Kreathur,%20quiero%20un%20bot%20como%20el%20de%20Nordika%20Store%20para%20mi%20tienda%20online" class="demo-cta primary" target="_blank" rel="noopener">
+          💬 Quiero esto para mi tienda
+        </a>
+        <a href="/#demos" class="demo-cta ghost">Ver otros demos</a>
+      </div>
+    </div>
+    <div>
+      <div class="demo-phone">
+        <div class="demo-phone-header">
+          <div class="demo-phone-avatar">NS</div>
+          <div class="demo-phone-contact">
+            <div class="demo-phone-name">Nordika Store 🛍️</div>
+            <div class="demo-phone-status"><span class="online"></span> en línea · bot IA</div>
+          </div>
+        </div>
+        <div class="demo-phone-chat">
+          <div class="chat-bubble bot">Hola Laura 👋 Vi que dejaste una chaqueta Bergen en tu carrito hace unas horas. ¿Te ayudo con algo? ¿Hay dudas de talla, color o envío?<span class="time">18:32</span></div>
+          <div class="chat-bubble user">Hola! Sí, no estaba segura de la talla M o L. Mido 1.70 y uso S-M normal<span class="time">18:34 ✓✓</span></div>
+          <div class="chat-bubble bot">Para tu medida te recomiendo la <strong>M</strong> ✅ Es corte regular, no queda ceñida. Si quieres también tenemos la versión ajustada en talla S que te iría perfecta 💫<span class="time">18:34</span></div>
+          <div class="chat-bubble user">Me convence la M. El envío demora?<span class="time">18:35 ✓✓</span></div>
+          <div class="chat-bubble bot">24-48h hábiles 🚚 Y te doy una sorpresa: <strong>-10% por completar hoy</strong>. Total con descuento: $42.900 + envío gratis 🎁 ¿Lo cierro?<span class="time">18:35</span></div>
+          <div class="chat-bubble user">Dale, lo quiero!<span class="time">18:36 ✓✓</span></div>
+          <div class="chat-bubble bot">¡Genial! 🎉 Te mando el link de pago seguro. Cuando pagues, te aviso por aquí cuando el paquete salga del almacén →<span class="time">18:36</span></div>
+        </div>
+        <div class="demo-phone-footer">Powered by <strong>Kreathur AI</strong> · WhatsApp Business API</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="demo-metrics">
+  <div class="demo-metrics-grid">
+    <div class="demo-metric"><span class="num">+47%</span><span class="lbl">Carritos recuperados</span></div>
+    <div class="demo-metric"><span class="num">+29%</span><span class="lbl">Ticket promedio (upsell)</span></div>
+    <div class="demo-metric"><span class="num">3.4x</span><span class="lbl">ROI del bot vs email</span></div>
+    <div class="demo-metric"><span class="num">24/7</span><span class="lbl">Ventas sin pausa</span></div>
+  </div>
+</section>
+
+<section class="demo-features-section">
+  <h2 class="demo-section-title">Convierte WhatsApp en tu mejor canal de ventas</h2>
+  <p class="demo-section-sub">Integrado con Shopify, WooCommerce, Tiendanube o el CMS que uses. Sincronización en tiempo real de stock, pedidos y clientes.</p>
+  <div class="demo-features-grid">
+    <div class="demo-feature">
+      <span class="icon">🛒</span>
+      <h3>Carritos abandonados</h3>
+      <p>Detecta el abandono a los 30, 60 y 120 minutos. Escribe mensajes distintos según el nivel de intención del cliente.</p>
+    </div>
+    <div class="demo-feature">
+      <span class="icon">💡</span>
+      <h3>Recomendaciones inteligentes</h3>
+      <p>"Si compraste X, te puede gustar Y". Upsells y cross-sells personalizados con tu catálogo real, no genéricos.</p>
+    </div>
+    <div class="demo-feature">
+      <span class="icon">📦</span>
+      <h3>Tracking de envíos</h3>
+      <p>El bot envía notificaciones en cada etapa: "tu pedido salió del almacén", "llega hoy entre 15-18h", "entregado ✅".</p>
+    </div>
+    <div class="demo-feature">
+      <span class="icon">↩️</span>
+      <h3>Devoluciones automatizadas</h3>
+      <p>El cliente inicia la devolución por chat, genera la etiqueta de envío y el bot gestiona el reembolso tras recibir el producto.</p>
+    </div>
+    <div class="demo-feature">
+      <span class="icon">🎁</span>
+      <h3>Cupones segmentados</h3>
+      <p>Descuentos distintos para nuevos vs recurrentes, carritos grandes vs pequeños, clientes VIP vs ocasionales. Sin regalarlo todo.</p>
+    </div>
+    <div class="demo-feature">
+      <span class="icon">🌍</span>
+      <h3>Multi-idioma + multi-moneda</h3>
+      <p>Cliente alemán paga en EUR con instrucciones en Deutsch. Cliente brasileño paga en BRL en português. Todo automático.</p>
+    </div>
+  </div>
+</section>
+
+<section class="demo-langs">
+  <h2 class="demo-section-title">Vende en 4 idiomas sin contratar equipo</h2>
+  <p class="demo-section-sub">Cada cliente recibe atención en su idioma. Más conversión, menos fricción, más confianza en tu marca internacional.</p>
+  <div class="demo-langs-grid">
+    <div class="demo-lang-chip">
+      <svg viewBox="0 0 3 2"><rect width="3" height="1" fill="#fff"/><rect y="1" width="3" height="1" fill="#d52b1e"/><rect width="1" height="1" fill="#0039a6"/><polygon points="0.5,0.2 0.57,0.41 0.79,0.41 0.61,0.54 0.68,0.74 0.5,0.61 0.32,0.74 0.39,0.54 0.21,0.41 0.43,0.41" fill="#fff"/></svg>
+      Español
+    </div>
+    <div class="demo-lang-chip">
+      <svg viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      English
+    </div>
+    <div class="demo-lang-chip">
+      <svg viewBox="0 0 5 3"><rect width="5" height="1" y="0" fill="#000"/><rect width="5" height="1" y="1" fill="#dd0000"/><rect width="5" height="1" y="2" fill="#ffce00"/></svg>
+      Deutsch
+    </div>
+    <div class="demo-lang-chip">
+      <svg viewBox="0 0 7 5"><rect width="7" height="5" fill="#009c3b"/><polygon points="3.5,0.4 6.6,2.5 3.5,4.6 0.4,2.5" fill="#ffdf00"/><circle cx="3.5" cy="2.5" r="1.1" fill="#002776"/></svg>
+      Português
+    </div>
+  </div>
+</section>
+
+<section class="demo-final-cta">
+  <div class="demo-final-cta-card">
+    <h2>Cada carrito abandonado, <span style="background:linear-gradient(135deg,#00e5ff,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">una segunda oportunidad</span></h2>
+    <p>En e-commerce cada mensaje no enviado es dinero que se va. Conectamos tu tienda, entrenamos al bot con tu catálogo real, y medimos el retorno semana a semana. Si en 30 días no sube conversión, <strong style="color:#00e5ff">te devolvemos todo</strong>.</p>
+    <a href="https://wa.me/56973669100?text=Hola%20Kreathur,%20vi%20la%20demo%20de%20e-commerce%20y%20quiero%20una%20para%20mi%20tienda" class="demo-cta primary" target="_blank" rel="noopener">
+      💬 Hablemos de tu tienda online
+    </a>
+    <div class="demo-guarantee-inline">
+      ⚡ <strong>Garantía 30 días</strong> · Si no convierte, no pagas
+    </div>
+  </div>
+</section>
+
+<footer class="demo-footer">
+  Esta es una demo ficticia creada por <a href="/">Kreathur Agency</a> · Pichilemu 🇨🇱 · Kiel 🇩🇪 · Soluciones IA personalizadas
+</footer>
+
+</body>
+</html>
