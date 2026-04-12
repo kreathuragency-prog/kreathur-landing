@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kreathur/public_html
+    - /bin/cp kreathur-all-in-one.html $DEPLOYPATH/index.html
+    - /bin/mkdir -p $DEPLOYPATH/demos
+    - /bin/cp demos/restaurant.html $DEPLOYPATH/demos/
+    - /bin/cp demos/hotel.html $DEPLOYPATH/demos/
+    - /bin/cp demos/clinic.html $DEPLOYPATH/demos/
+    - /bin/cp demos/ecommerce.html $DEPLOYPATH/demos/
+    - /bin/cp demos/realestate.html $DEPLOYPATH/demos/
+    - /bin/cp demos/services.html $DEPLOYPATH/demos/
+    - /bin/cp demos/_demo-styles.css $DEPLOYPATH/demos/
+    - /bin/cp robots.txt $DEPLOYPATH/
+    - /bin/cp sitemap.xml $DEPLOYPATH/
+    - /bin/cp og-card.html $DEPLOYPATH/
+    - /bin/cp og-image.svg $DEPLOYPATH/
+    - /bin/cp .htaccess $DEPLOYPATH/.htaccess
