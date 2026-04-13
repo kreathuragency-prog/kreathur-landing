@@ -116,8 +116,9 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, p, li, td, th, span, a, h1, h2, h3, h4 { overflow-wrap: break-word; word-break: break-word; }
     :root { --accent: #00e5ff; --accent2: #a855f7; --black: #0a0a0a; --gray-dark: #111111; --white: #ffffff; --gray-light: #e0e0e0; --bg: #0a0a0a; --text: #e0e0e0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.8s ease; cursor: none; }
     body.loaded { opacity: 1; }
     body.mobile-device { cursor: auto; }
@@ -191,7 +192,7 @@
     .section-sub { text-align: center; color: rgba(224,224,224,0.7); font-size: 1.05rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.7; }
 
     #servicios { background: var(--black); }
-    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 2rem; }
     .service-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 16px; padding: 2rem; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(600px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 229, 255, 0.1), transparent); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
     .service-card:hover::before { opacity: 1; }
@@ -204,7 +205,7 @@
 
     #ia-generativa { background: var(--gray-dark); padding: 6rem 0; max-width: 100%; }
     #ia-generativa > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
-    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 2rem; }
     .ia-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; }
     .ia-card:hover { border-color: var(--accent2); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
     .ia-provider { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--accent2); }
@@ -216,7 +217,7 @@
     .ia-footer { font-size: 0.8rem; color: var(--accent2); padding-top: 1rem; border-top: 1px solid rgba(168, 85, 247, 0.2); }
 
     #proyectos { background: var(--black); }
-    .proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 2rem; }
     .project-card { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; aspect-ratio: 16 / 10; background: var(--gray-dark); }
     .project-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
     .project-card:hover .project-image { transform: scale(1.05); }
@@ -231,10 +232,10 @@
 
     #drones { background: var(--gray-dark); padding: 6rem 0; max-width: 100%; }
     #drones > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
-    .drones-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+    .drones-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 2rem; margin-bottom: 4rem; }
     .video-embed { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 229, 255, 0.2); }
     .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    .drones-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .drones-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 2rem; margin-top: 3rem; }
     .drone-service { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
     .drone-service:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
     .drone-icon { font-size: 2.5rem; margin-bottom: 1rem; }
@@ -276,7 +277,7 @@
     .comparison-table th, .comparison-table td { padding: 1.5rem; text-align: left; border-bottom: 1px solid rgba(0, 229, 255, 0.1); }
     .comparison-table th { background: rgba(0, 229, 255, 0.05); font-weight: 600; color: var(--accent); }
     .comparison-table tr:last-child td { border-bottom: none; }
-    .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 2rem; }
     .price-card { background: rgba(255, 255, 255, 0.04); border: 2px solid rgba(0, 229, 255, 0.22); border-radius: 18px; padding: 2.2rem 1.8rem; text-align: left; position: relative; transition: all 0.35s ease; display: flex; flex-direction: column; }
     .price-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 60px rgba(0,229,255,0.15); }
     .price-card.featured { border-color: var(--accent2); background: rgba(168, 85, 247, 0.08); transform: scale(1.04); box-shadow: 0 20px 60px rgba(168,85,247,0.22); }
@@ -326,7 +327,7 @@
     /* ===== LIFE CHANGE CARDS ===== */
     #transformacion { padding: 6rem 0; max-width: 100%; background: linear-gradient(180deg, var(--black), #0d0d10, var(--black)); }
     #transformacion > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
-    .life-change-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .life-change-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 2rem; margin-top: 3rem; }
     .life-change-card { position: relative; padding: 2.5rem 2rem; background: rgba(255,255,255,0.035); border: 1px solid rgba(0,229,255,0.25); border-radius: 18px; overflow: hidden; transition: all 0.35s ease; }
     .life-change-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,229,255,0.08), transparent 60%); pointer-events: none; opacity: 0; transition: opacity 0.35s ease; }
     .life-change-card:hover { transform: translateY(-6px); border-color: var(--accent); }
@@ -340,7 +341,7 @@
     /* ===== TESTIMONIALS ===== */
     #testimonios { padding: 6rem 0; max-width: 100%; }
     #testimonios > * { max-width: 1400px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; margin-top: 3rem; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 1.8rem; margin-top: 3rem; }
     .testimonial-card { position: relative; padding: 2rem 1.8rem 1.8rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(0,229,255,0.2); border-radius: 18px; transition: all 0.35s ease; overflow: hidden; }
     .testimonial-card::before { content: '"'; position: absolute; top: -40px; right: 10px; font-family: 'Syne', sans-serif; font-size: 14rem; color: rgba(0,229,255,0.06); line-height: 1; font-weight: 800; pointer-events: none; }
     .testimonial-card:hover { transform: translateY(-4px); border-color: var(--accent); }
@@ -375,7 +376,7 @@
     .founder-links a:hover::after { width: 100%; }
 
     #contacto { background: var(--black); }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 2rem; }
     .contact-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s ease; text-decoration: none; }
     .contact-card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
     .contact-icon { font-size: 2rem; margin-bottom: 1rem; }
@@ -442,12 +443,70 @@
 
     @media (max-width: 480px) {
       section { padding: 3rem 1rem; }
-      .section-title { font-size: 2rem; }
-      .servicios-grid, .ia-grid, .proyectos-grid { gap: 1rem; }
+      .section-title { font-size: 1.7rem; }
+      .section-sub { font-size: 0.92rem; margin-bottom: 2rem; }
+      .servicios-grid, .ia-grid, .proyectos-grid, .drones-videos, .drones-services, .life-change-grid, .testimonials-grid, .proceso-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+      .price-cards { grid-template-columns: 1fr !important; gap: 1.2rem; }
+      .price-card.featured { transform: none; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .stat-number { font-size: 1.5rem; }
       .comparison-table { font-size: 0.85rem; }
       .comparison-table th, .comparison-table td { padding: 1rem 0.5rem; }
+      .compare-grid { grid-template-columns: 1.6fr 0.7fr 0.7fr; font-size: 0.72rem; }
+      .compare-cell { padding: 0.7rem 0.5rem; font-size: 0.72rem; gap: 0.3rem; }
+      .compare-cell.head { padding: 1rem 0.5rem; font-size: 0.72rem; }
+      .compare-cell.head.us::before { font-size: 0.55rem; padding: 0.15rem 0.5rem; top: -8px; }
+      .compare-cell.us .check, .compare-cell.them .x { width: 16px; height: 16px; font-size: 0.6rem; margin-right: 0.15rem; }
+      .compare-cell.feat .feat-ico { display: none; }
+      .hero-badge { font-size: 0.7rem; padding: 0.4rem 0.9rem; }
+      #hero { padding: 3rem 1rem; margin-top: 3.5rem; }
+      .hero-subtitle { margin: 1.2rem 0 2rem; }
+      .hero-ctas { gap: 0.8rem; margin-bottom: 2rem; }
+      .btn { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+      .hero-trust { gap: 0.7rem; font-size: 0.75rem; }
+      .wa-hero-highlight { font-size: 0.78rem; padding: 0.5rem 0.9rem; }
+      .guarantee-block { padding: 1.5rem 1rem; gap: 1.2rem; }
+      .guarantee-seal { width: 130px; height: 130px; }
+      .seal-100 { font-size: 2.2rem; }
+      .guarantee-title { font-size: 1.4rem; }
+      .guarantee-desc { font-size: 0.9rem; }
+      .guarantee-steps { grid-template-columns: 1fr; gap: 0.6rem; }
+      .g-step { padding: 0.75rem 0.9rem; font-size: 0.82rem; }
+      .social-promo { padding: 1.5rem 1rem; }
+      .social-promo-title { font-size: 1.3rem; }
+      .social-promo-desc { font-size: 0.88rem; }
+      .social-chip { font-size: 0.82rem; padding: 0.5rem 0.9rem; }
+      .promo-discount { font-size: 3rem; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .trust-item { padding: 0.85rem 0.5rem; }
+      .trust-item .ico { font-size: 1.2rem; }
+      .trust-item .label { font-size: 0.68rem; }
+      .demos-carousel { padding: 1.5rem 1rem; gap: 1.5rem; min-height: auto; }
+      .phone-mockup { max-width: 250px; }
+      .demo-title { font-size: 1.3rem; }
+      .demo-description { font-size: 0.88rem; }
+      .demo-features li { font-size: 0.82rem; }
+      .faq-q { font-size: 0.9rem; padding: 1rem 1.1rem; }
+      .faq-a { padding: 0 1.1rem 1.2rem; font-size: 0.88rem; }
+      .founder-grid { gap: 1.5rem; }
+      .reach-cities { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+      .reach-city { font-size: 0.72rem; padding: 0.5rem 0.6rem; }
+      .how-step { padding: 1.5rem 1rem; }
+      .how-step .num-wrap { width: 75px; height: 75px; }
+      .how-step h3 { font-size: 1.15rem; }
+      .how-step p { font-size: 0.88rem; }
+      .proceso-step { padding: 1.5rem 1.2rem; }
+      .proceso-number { font-size: 2.2rem; }
+      .proceso-title { font-size: 1rem; }
+      .proceso-desc { font-size: 0.82rem; }
+      .price-block { padding: 0.85rem 0.75rem; }
+      .price-plan { font-size: 1.4rem; }
+      .price-impl-amount { font-size: 1.4rem; }
+      .price-monthly-amount { font-size: 1.3rem; }
+      .price-features li { font-size: 0.82rem; padding: 0.45rem 0 0.45rem 1.3rem; }
+      .life-change-card { padding: 2rem 1.5rem; }
+      .life-change-after { font-size: 1.05rem; }
+      .contact-grid { grid-template-columns: 1fr !important; }
     }
 
     .reveal { opacity: 0; transform: translateY(30px); }
@@ -543,7 +602,7 @@
     }
 
     /* ===== INTERNATIONAL BANNER ===== */
-    .intl-banner { position: relative; background: linear-gradient(135deg, #0a0a0a 0%, #0c0c1a 50%, #0a0a0a 100%); border-top: 1px solid rgba(168,85,247,0.3); border-bottom: 1px solid rgba(0,229,255,0.3); padding: 1.6rem 1.5rem; overflow: hidden; z-index: 49; }
+    .intl-banner { display: none; }
     .intl-banner::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; opacity: 0.7; }
     .intl-banner::after { content: ''; position: absolute; top: -50%; left: 20%; width: 60%; height: 200%; background: radial-gradient(ellipse at center, rgba(168,85,247,0.15), transparent 60%); filter: blur(40px); pointer-events: none; animation: intlGlow 12s ease-in-out infinite; }
     @keyframes intlGlow { 0%, 100% { transform: translateX(-15%); } 50% { transform: translateX(15%); } }
@@ -903,7 +962,7 @@
     <div class="try-bot-inner">
       <span class="try-bot-pulse" aria-hidden="true"></span>
       <span class="try-bot-label" data-i18n="trybot.label">⚡ NUEVO · LÍNEA DIRECTA KREATHUR</span>
-      <span class="try-bot-msg" data-i18n-html="trybot.msg">Escríbenos y <strong>prueba nuestra atención inmediata</strong> por WhatsApp</span>
+      <span class="try-bot-msg" data-i18n-html="trybot.msg" style="display:none">Escríbenos y <strong>prueba nuestra atención inmediata</strong> por WhatsApp</span>
       <a href="https://wa.me/56977877602?text=Hola%20Kreathur!%20Quiero%20probar%20la%20L%C3%ADnea%20Directa" target="_blank" rel="noopener" class="try-bot-number" aria-label="Abrir WhatsApp Línea Directa Kreathur +56 9 7787 7602">
         +56 9 7787 7602
         <span aria-hidden="true">→</span>
@@ -1031,28 +1090,28 @@
   </section>
 
   <section id="servicios">
-    <div class="section-tag reveal">// Lo que hacemos</div>
-    <h2 class="section-title reveal">Servicios & Soluciones</h2>
-    <p class="section-sub reveal">Todo lo que tu negocio necesita para dominar el mundo digital.</p>
+    <div class="section-tag reveal" data-i18n="svc.tag">// Lo que hacemos</div>
+    <h2 class="section-title reveal" data-i18n="svc.title">Servicios & Soluciones</h2>
+    <p class="section-sub reveal" data-i18n="svc.sub">Todo lo que tu negocio necesita para dominar el mundo digital.</p>
     <div class="servicios-grid">
-      <div class="service-card reveal"><div class="service-icon">🔍</div><div class="service-name">SEO & Posicionamiento</div><div class="service-desc">Posicionamos tu negocio en Google para atraer clientes calificados.</div><div class="service-tags"><span class="tag">Google</span><span class="tag">Auditorías</span><span class="tag">Keywords</span><span class="tag">Link Building</span></div></div>
-      <div class="service-card reveal"><div class="service-icon">💻</div><div class="service-name">Desarrollo Web</div><div class="service-desc">Sitios modernos, rápidos y responsivos que convierten visitantes en clientes.</div><div class="service-tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">WordPress</span><span class="tag">Shopify</span></div></div>
-      <div class="service-card reveal"><div class="service-icon">🤖</div><div class="service-name">IA & Automatizaciones</div><div class="service-desc">Integra inteligencia artificial para automatizar procesos y aumentar productividad.</div><div class="service-tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">n8n</span><span class="tag">WhatsApp</span></div></div>
-      <div class="service-card reveal"><div class="service-icon">🎬</div><div class="service-name">Drones & Video Aéreo</div><div class="service-desc">Contenido aéreo profesional certificado DGAC con drones 4K.</div><div class="service-tags"><span class="tag">DGAC</span><span class="tag">4K</span><span class="tag">DJI</span><span class="tag">Inmobiliarias</span></div></div>
-      <div class="service-card reveal"><div class="service-icon">📈</div><div class="service-name">Marketing Digital</div><div class="service-desc">Estrategias completas de publicidad digital para maximizar ROI y crecimiento.</div><div class="service-tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Email</span><span class="tag">RRSS</span></div></div>
-      <div class="service-card reveal"><div class="service-icon">🎨</div><div class="service-name">Branding & Diseño</div><div class="service-desc">Identidad visual completa que diferencia tu marca y genera conexión.</div><div class="service-tags"><span class="tag">Logos</span><span class="tag">Freepik AI</span><span class="tag">Identidad</span><span class="tag">RRSS</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🔍</div><div class="service-name" data-i18n="svc.s1.name">SEO & Posicionamiento</div><div class="service-desc" data-i18n="svc.s1.desc">Posicionamos tu negocio en Google para atraer clientes calificados.</div><div class="service-tags"><span class="tag">Google</span><span class="tag">Auditorías</span><span class="tag">Keywords</span><span class="tag">Link Building</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">💻</div><div class="service-name" data-i18n="svc.s2.name">Desarrollo Web</div><div class="service-desc" data-i18n="svc.s2.desc">Sitios modernos, rápidos y responsivos que convierten visitantes en clientes.</div><div class="service-tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">WordPress</span><span class="tag">Shopify</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🤖</div><div class="service-name" data-i18n="svc.s3.name">IA & Automatizaciones</div><div class="service-desc" data-i18n="svc.s3.desc">Integra inteligencia artificial para automatizar procesos y aumentar productividad.</div><div class="service-tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">n8n</span><span class="tag">WhatsApp</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🎬</div><div class="service-name" data-i18n="svc.s4.name">Drones & Video Aéreo</div><div class="service-desc" data-i18n="svc.s4.desc">Contenido aéreo profesional certificado DGAC con drones 4K.</div><div class="service-tags"><span class="tag">DGAC</span><span class="tag">4K</span><span class="tag">DJI</span><span class="tag">Inmobiliarias</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">📈</div><div class="service-name" data-i18n="svc.s5.name">Marketing Digital</div><div class="service-desc" data-i18n="svc.s5.desc">Estrategias completas de publicidad digital para maximizar ROI y crecimiento.</div><div class="service-tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Email</span><span class="tag">RRSS</span></div></div>
+      <div class="service-card reveal"><div class="service-icon">🎨</div><div class="service-name" data-i18n="svc.s6.name">Branding & Diseño</div><div class="service-desc" data-i18n="svc.s6.desc">Identidad visual completa que diferencia tu marca y genera conexión.</div><div class="service-tags"><span class="tag">Logos</span><span class="tag">Freepik AI</span><span class="tag">Identidad</span><span class="tag">RRSS</span></div></div>
     </div>
   </section>
 
   <section id="ia-generativa">
-    <div class="section-tag reveal">// Inteligencia Artificial</div>
-    <h2 class="section-title reveal">IA Generativa para tu Negocio</h2>
-    <p class="section-sub reveal">Usamos las herramientas de IA más avanzadas del mundo para automatizar, crear y escalar.</p>
+    <div class="section-tag reveal" data-i18n="ia.tag">// Inteligencia Artificial</div>
+    <h2 class="section-title reveal" data-i18n="ia.title">IA Generativa para tu Negocio</h2>
+    <p class="section-sub reveal" data-i18n="ia.sub">Usamos las herramientas de IA más avanzadas del mundo para automatizar, crear y escalar.</p>
     <div class="ia-grid">
-      <div class="ia-card reveal"><div class="ia-provider">Claude AI</div><div class="ia-title">by Anthropic</div><ul class="ia-features"><li>Agentes IA autónomos</li><li>Chatbots inteligentes</li><li>Análisis de documentos</li><li>Procesamiento de datos</li></ul><div class="ia-footer">Usado en: Bots WhatsApp, Automatizaciones, Análisis</div></div>
-      <div class="ia-card reveal"><div class="ia-provider">ChatGPT</div><div class="ia-title">by OpenAI</div><ul class="ia-features"><li>Generación de contenido</li><li>Estrategia de marketing</li><li>Copywriting</li><li>Investigación y análisis</li></ul><div class="ia-footer">Usado en: Contenido, Estrategia, RRSS</div></div>
-      <div class="ia-card reveal"><div class="ia-provider">Manus AI</div><div class="ia-title">Agente Autónomo</div><ul class="ia-features"><li>Automatización web</li><li>Investigación autónoma</li><li>Procesamiento complejo</li><li>RPA (Automatización)</li></ul><div class="ia-footer">Usado en: Investigación, Automatización, Scraping</div></div>
-      <div class="ia-card reveal"><div class="ia-provider">Freepik AI</div><div class="ia-title">IA Generativa Visual</div><ul class="ia-features"><li>Generación de imágenes</li><li>Diseño automático</li><li>Contenido visual</li><li>Edición con IA</li></ul><div class="ia-footer">Usado en: Diseño, Contenido Visual, RRSS</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">Claude AI</div><div class="ia-title" data-i18n="ia.c1.title">by Anthropic</div><ul class="ia-features"><li data-i18n="ia.c1.f1">Agentes IA autónomos</li><li data-i18n="ia.c1.f2">Chatbots inteligentes</li><li data-i18n="ia.c1.f3">Análisis de documentos</li><li data-i18n="ia.c1.f4">Procesamiento de datos</li></ul><div class="ia-footer" data-i18n="ia.c1.footer">Usado en: Bots WhatsApp, Automatizaciones, Análisis</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">ChatGPT</div><div class="ia-title" data-i18n="ia.c2.title">by OpenAI</div><ul class="ia-features"><li data-i18n="ia.c2.f1">Generación de contenido</li><li data-i18n="ia.c2.f2">Estrategia de marketing</li><li data-i18n="ia.c2.f3">Copywriting</li><li data-i18n="ia.c2.f4">Investigación y análisis</li></ul><div class="ia-footer" data-i18n="ia.c2.footer">Usado en: Contenido, Estrategia, RRSS</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">Manus AI</div><div class="ia-title" data-i18n="ia.c3.title">Agente Autónomo</div><ul class="ia-features"><li data-i18n="ia.c3.f1">Automatización web</li><li data-i18n="ia.c3.f2">Investigación autónoma</li><li data-i18n="ia.c3.f3">Procesamiento complejo</li><li data-i18n="ia.c3.f4">RPA (Automatización)</li></ul><div class="ia-footer" data-i18n="ia.c3.footer">Usado en: Investigación, Automatización, Scraping</div></div>
+      <div class="ia-card reveal"><div class="ia-provider">Freepik AI</div><div class="ia-title" data-i18n="ia.c4.title">IA Generativa Visual</div><ul class="ia-features"><li data-i18n="ia.c4.f1">Generación de imágenes</li><li data-i18n="ia.c4.f2">Diseño automático</li><li data-i18n="ia.c4.f3">Contenido visual</li><li data-i18n="ia.c4.f4">Edición con IA</li></ul><div class="ia-footer" data-i18n="ia.c4.footer">Usado en: Diseño, Contenido Visual, RRSS</div></div>
     </div>
   </section>
 
@@ -1552,9 +1611,9 @@
   </section>
 
   <section id="proyectos">
-    <div class="section-tag reveal">// Portfolio</div>
-    <h2 class="section-title reveal">Proyectos Destacados</h2>
-    <p class="section-sub reveal">Cada proyecto cuenta una historia. Explora nuestro trabajo.</p>
+    <div class="section-tag reveal" data-i18n="portfolio.tag">// Portfolio</div>
+    <h2 class="section-title reveal" data-i18n="portfolio.title">Proyectos Destacados</h2>
+    <p class="section-sub reveal" data-i18n="portfolio.sub">Cada proyecto cuenta una historia. Explora nuestro trabajo.</p>
     <div class="proyectos-grid">
       <div class="project-card reveal"><img src="https://img.youtube.com/vi/484seZN8MyI/maxresdefault.jpg" alt="Camperizate" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>E-Commerce</span><span>Next.js</span><span>AI Chatbot</span></div><div class="project-name">Camperizate</div><div class="project-desc">E-commerce con 150+ productos outdoor. AI chatbot integrado, SEO #1 en Google.</div></div><a href="https://www.camperizate.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
       <div class="project-card reveal"><img src="https://img.youtube.com/vi/h9pRSErvdNg/maxresdefault.jpg" alt="Lilafken" class="project-image" loading="lazy" referrerpolicy="no-referrer"><div class="project-overlay"><div class="project-tags"><span>Real Estate</span><span>Turismo</span><span>4K Drone</span></div><div class="project-name">Lilafken Apart & Real Estate</div><div class="project-desc">Plataforma completa de arriendo, venta de propiedades y tour operator. 14 unidades.</div></div><a href="https://www.lilafken.cl" target="_blank" class="project-cta">Ver Proyecto →</a></div>
@@ -1566,105 +1625,100 @@
   </section>
 
   <section id="drones">
-    <div class="section-tag reveal">// Servicios Aéreos</div>
-    <h2 class="section-title reveal">Drones Certificados DGAC</h2>
-    <p class="section-sub reveal">Piloto certificado. Tomas aéreas 4K para inmobiliarias, turismo, eventos y más.</p>
+    <div class="section-tag reveal" data-i18n="drone.tag">// Servicios Aéreos</div>
+    <h2 class="section-title reveal" data-i18n="drone.title">Drones Certificados DGAC</h2>
+    <p class="section-sub reveal" data-i18n="drone.sub">Piloto certificado. Tomas aéreas 4K para inmobiliarias, turismo, eventos y más.</p>
     <div class="drones-videos">
       <div class="yt-facade reveal" data-yt="Ziqrnw0S41Q" role="button" tabindex="0" aria-label="Reproducir video aéreo 4K — Pichilemu">
         <img src="https://i.ytimg.com/vi/Ziqrnw0S41Q/hqdefault.jpg" alt="Video aéreo 4K — Pichilemu" loading="lazy" width="480" height="270">
         <div class="yt-facade-play" aria-hidden="true"></div>
         <div class="yt-facade-label">Pichilemu 4K · Costa + Surf</div>
       </div>
-      <div class="yt-facade reveal" data-yt="b5g7jlP_PsA" role="button" tabindex="0" aria-label="Reproducir MatiWlog — Drone 4K">
-        <img src="https://i.ytimg.com/vi/b5g7jlP_PsA/hqdefault.jpg" alt="MatiWlog — video con drone" loading="lazy" width="480" height="270">
+      <div class="yt-facade reveal" data-yt="3vJ-abzVDUA" role="button" tabindex="0" aria-label="Reproducir Drone 4K — Kreathur">
+        <img src="https://i.ytimg.com/vi/3vJ-abzVDUA/hqdefault.jpg" alt="Video aéreo 4K — Kreathur Drones" loading="lazy" width="480" height="270">
         <div class="yt-facade-play" aria-hidden="true"></div>
-        <div class="yt-facade-label">MatiWlog · Aventura drone</div>
-      </div>
-      <div class="yt-facade reveal" data-yt="484seZN8MyI" role="button" tabindex="0" aria-label="Reproducir Camperizate — 4K">
-        <img src="https://i.ytimg.com/vi/484seZN8MyI/hqdefault.jpg" alt="Camperizate 4K" loading="lazy" width="480" height="270">
-        <div class="yt-facade-play" aria-hidden="true"></div>
-        <div class="yt-facade-label">Camperizate · Outdoor</div>
+        <div class="yt-facade-label">Kreathur · Drone 4K</div>
       </div>
     </div>
-    <h3 style="text-align: center; font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 3rem 0 2rem; color: var(--white);">Servicios de Drones</h3>
+    <h3 style="text-align: center; font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 3rem 0 2rem; color: var(--white);" data-i18n="drone.svctitle">Servicios de Drones</h3>
     <div class="drones-services">
-      <div class="drone-service reveal"><div class="drone-icon">🏠</div><div class="drone-name">Inmobiliarias</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Tours aéreos 4K de propiedades, terrenos y desarrollos.</p></div>
-      <div class="drone-service reveal"><div class="drone-icon">✈️</div><div class="drone-name">Turismo</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Videos promocionales aéreos de destinos y hoteles.</p></div>
-      <div class="drone-service reveal"><div class="drone-icon">🎉</div><div class="drone-name">Eventos</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Cobertura aérea de matrimonios, festivales y corporativos.</p></div>
-      <div class="drone-service reveal"><div class="drone-icon">🗺️</div><div class="drone-name">Topografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Levantamientos topográficos, mapeo 3D e inspección.</p></div>
-      <div class="drone-service reveal"><div class="drone-icon">🌾</div><div class="drone-name">Agricultura</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Monitoreo de cultivos, análisis NDVI y fumigación.</p></div>
-      <div class="drone-service reveal"><div class="drone-icon">📸</div><div class="drone-name">Fotografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;">Sesiones fotográficas aéreas para publicidad y catálogo.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🏠</div><div class="drone-name" data-i18n="drone.d1.name">Inmobiliarias</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d1.desc">Tours aéreos 4K de propiedades, terrenos y desarrollos.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">✈️</div><div class="drone-name" data-i18n="drone.d2.name">Turismo</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d2.desc">Videos promocionales aéreos de destinos y hoteles.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🎉</div><div class="drone-name" data-i18n="drone.d3.name">Eventos</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d3.desc">Cobertura aérea de matrimonios, festivales y corporativos.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🗺️</div><div class="drone-name" data-i18n="drone.d4.name">Topografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d4.desc">Levantamientos topográficos, mapeo 3D e inspección.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">🌾</div><div class="drone-name" data-i18n="drone.d5.name">Agricultura</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d5.desc">Monitoreo de cultivos, análisis NDVI y fumigación.</p></div>
+      <div class="drone-service reveal"><div class="drone-icon">📸</div><div class="drone-name" data-i18n="drone.d6.name">Fotografía</div><p style="font-size:0.8rem;color:rgba(224,224,224,0.6);margin-top:0.5rem;line-height:1.5;" data-i18n="drone.d6.desc">Sesiones fotográficas aéreas para publicidad y catálogo.</p></div>
     </div>
   </section>
 
   <!-- ===== SECTION: PROCESO ===== -->
   <section id="proceso">
-    <div class="section-tag reveal">// Cómo trabajamos</div>
-    <h2 class="section-title reveal">Del brief al resultado en 30 días</h2>
-    <p class="section-sub reveal">Cero sorpresas. Cero letra chica. Cuatro pasos claros y fechas concretas para cada uno.</p>
+    <div class="section-tag reveal" data-i18n="proc.tag">// Cómo trabajamos</div>
+    <h2 class="section-title reveal" data-i18n="proc.title">Del brief al resultado en 30 días</h2>
+    <p class="section-sub reveal" data-i18n="proc.sub">Cero sorpresas. Cero letra chica. Cuatro pasos claros y fechas concretas para cada uno.</p>
     <div class="proceso-grid">
       <div class="proceso-step reveal">
         <div class="proceso-number">01</div>
-        <div class="proceso-day">Día 0</div>
-        <h3 class="proceso-title">Llamada de descubrimiento</h3>
-        <p class="proceso-desc">30 minutos gratis. Entendemos tu negocio, tu operación actual y qué resultados buscas. Si no hay encaje, te lo decimos al tiraje — sin perder tu tiempo.</p>
+        <div class="proceso-day" data-i18n="proc.s1.day">Día 0</div>
+        <h3 class="proceso-title" data-i18n="proc.s1.title">Llamada de descubrimiento</h3>
+        <p class="proceso-desc" data-i18n="proc.s1.desc">30 minutos gratis. Entendemos tu negocio, tu operación actual y qué resultados buscas. Si no hay encaje, te lo decimos al tiraje — sin perder tu tiempo.</p>
       </div>
       <div class="proceso-step reveal">
         <div class="proceso-number">02</div>
-        <div class="proceso-day">Días 1–7</div>
-        <h3 class="proceso-title">Implementación</h3>
-        <p class="proceso-desc">Armamos tu bot, tu web, tu automatización. Trabajamos con Claude, ChatGPT, Manus y n8n. Te mostramos avances diarios — tú validas cada paso.</p>
+        <div class="proceso-day" data-i18n="proc.s2.day">Días 1–7</div>
+        <h3 class="proceso-title" data-i18n="proc.s2.title">Implementación</h3>
+        <p class="proceso-desc" data-i18n="proc.s2.desc">Armamos tu bot, tu web, tu automatización. Trabajamos con Claude, ChatGPT, Manus y n8n. Te mostramos avances diarios — tú validas cada paso.</p>
       </div>
       <div class="proceso-step reveal">
         <div class="proceso-number">03</div>
-        <div class="proceso-day">Días 8–30</div>
-        <h3 class="proceso-title">Prueba real en tu negocio</h3>
-        <p class="proceso-desc">22 días para usarlo con clientes reales. Medimos conversiones, tiempos de respuesta y errores. Tú decides si está generando el resultado acordado.</p>
+        <div class="proceso-day" data-i18n="proc.s3.day">Días 8–30</div>
+        <h3 class="proceso-title" data-i18n="proc.s3.title">Prueba real en tu negocio</h3>
+        <p class="proceso-desc" data-i18n="proc.s3.desc">22 días para usarlo con clientes reales. Medimos conversiones, tiempos de respuesta y errores. Tú decides si está generando el resultado acordado.</p>
       </div>
       <div class="proceso-step reveal">
         <div class="proceso-number">04</div>
-        <div class="proceso-day">Día 30</div>
-        <h3 class="proceso-title">Decides tú</h3>
-        <p class="proceso-desc">Si funcionó: seguimos juntos con la suscripción mensual y mejoramos continuamente. Si no: devolución del 100% del setup. Sin preguntas.</p>
+        <div class="proceso-day" data-i18n="proc.s4.day">Día 30</div>
+        <h3 class="proceso-title" data-i18n="proc.s4.title">Decides tú</h3>
+        <p class="proceso-desc" data-i18n="proc.s4.desc">Si funcionó: seguimos juntos con la suscripción mensual y mejoramos continuamente. Si no: devolución del 100% del setup. Sin preguntas.</p>
       </div>
     </div>
   </section>
 
   <section id="precios">
-    <div class="section-tag reveal">// Precios & Garantía</div>
-    <h2 class="section-title reveal">Oferta Irresistible</h2>
-    <p class="section-sub reveal"><strong>Implementación</strong> (pago único) + <strong>suscripción mensual</strong>. Pruebas la solución 30 días en tu negocio real. Si no funciona, no pagas.</p>
+    <div class="section-tag reveal" data-i18n="price.tag">// Precios & Garantía</div>
+    <h2 class="section-title reveal" data-i18n="price.title">Oferta Irresistible</h2>
+    <p class="section-sub reveal" data-i18n-html="price.sub"><strong>Implementación</strong> (pago único) + <strong>suscripción mensual</strong>. Pruebas la solución 30 días en tu negocio real. Si no funciona, no pagas.</p>
 
     <!-- ===== GUARANTEE BLOCK ===== -->
     <div class="guarantee-block reveal">
       <div class="guarantee-seal" aria-hidden="true">
         <div class="seal-inner">
           <div class="seal-100">100%</div>
-          <div class="seal-label">SATISFACCIÓN<br>GARANTIZADA</div>
+          <div class="seal-label" data-i18n-html="price.seal">SATISFACCIÓN<br>GARANTIZADA</div>
         </div>
       </div>
       <div class="guarantee-content">
-        <div class="guarantee-badge">⚡ KREATHUR ASUME TODO EL RIESGO</div>
-        <h3 class="guarantee-title">30 días de prueba · <span class="accent">Si no te funciona, no pagas</span></h3>
-        <p class="guarantee-desc">Sin contratos amarrados. Sin letra chica. Implementamos tu solución y la pruebas 30 días en tu negocio real. Si al día 30 <strong>no ves resultados concretos acordados</strong>, te devolvemos el <strong>100% de tu inversión</strong> sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.</p>
+        <div class="guarantee-badge" data-i18n="price.gBadge">⚡ KREATHUR ASUME TODO EL RIESGO</div>
+        <h3 class="guarantee-title" data-i18n-html="price.gTitle">30 días de prueba · <span class="accent">Si no te funciona, no pagas</span></h3>
+        <p class="guarantee-desc" data-i18n-html="price.gDesc">Sin contratos amarrados. Sin letra chica. Implementamos tu solución y la pruebas 30 días en tu negocio real. Si al día 30 <strong>no ves resultados concretos acordados</strong>, te devolvemos el <strong>100% de tu inversión</strong> sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.</p>
         <div class="guarantee-steps">
-          <div class="g-step"><span class="g-num">1</span><div><strong>Agendamos</strong><br>llamada gratuita</div></div>
-          <div class="g-step"><span class="g-num">2</span><div><strong>Implementamos</strong><br>en 7 días hábiles</div></div>
-          <div class="g-step"><span class="g-num">3</span><div><strong>Pruebas</strong><br>30 días en tu negocio</div></div>
-          <div class="g-step"><span class="g-num">4</span><div><strong>Decides</strong><br>— o cero pago</div></div>
+          <div class="g-step"><span class="g-num">1</span><div data-i18n-html="price.gs1"><strong>Agendamos</strong><br>llamada gratuita</div></div>
+          <div class="g-step"><span class="g-num">2</span><div data-i18n-html="price.gs2"><strong>Implementamos</strong><br>en 7 días hábiles</div></div>
+          <div class="g-step"><span class="g-num">3</span><div data-i18n-html="price.gs3"><strong>Pruebas</strong><br>30 días en tu negocio</div></div>
+          <div class="g-step"><span class="g-num">4</span><div data-i18n-html="price.gs4"><strong>Decides</strong><br>— o cero pago</div></div>
         </div>
       </div>
     </div>
 
     <div class="social-promo reveal">
       <div class="social-promo-left">
-        <div class="social-promo-badge">🎁 PROMO ACTIVA</div>
-        <h3 class="social-promo-title">10% OFF por seguirnos en redes</h3>
-        <p class="social-promo-desc">Síguenos en nuestras redes sociales y comenta que quieres que te ayudemos a <strong>automatizar</strong> tu negocio. Al confirmar tu comentario aplicamos <strong>10% de descuento</strong> en cualquier plan.</p>
+        <div class="social-promo-badge" data-i18n="price.promoBadge">🎁 PROMO ACTIVA</div>
+        <h3 class="social-promo-title" data-i18n="price.promoTitle">10% OFF por seguirnos en redes</h3>
+        <p class="social-promo-desc" data-i18n-html="price.promoDesc">Síguenos en nuestras redes sociales y comenta que quieres que te ayudemos a <strong>automatizar</strong> tu negocio. Al confirmar tu comentario aplicamos <strong>10% de descuento</strong> en cualquier plan.</p>
         <div class="social-promo-socials">
           <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="social-chip"><span>📸</span> Instagram</a>
           <a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener" class="social-chip"><span>▶️</span> YouTube</a>
-          <a href="https://wa.me/56977877602?text=Los%20sigo%20en%20redes%20y%20quiero%20automatizar%20mi%20negocio%20con%20Kreathur" target="_blank" rel="noopener" class="social-chip social-chip-primary"><span>💬</span> Reclamar 10% OFF</a>
+          <a href="https://wa.me/56977877602?text=Los%20sigo%20en%20redes%20y%20quiero%20automatizar%20mi%20negocio%20con%20Kreathur" target="_blank" rel="noopener" class="social-chip social-chip-primary"><span>💬</span> <span data-i18n="price.promoClaim">Reclamar 10% OFF</span></a>
         </div>
       </div>
       <div class="social-promo-right" aria-hidden="true">
@@ -1675,125 +1729,125 @@
     <div class="price-cards">
       <!-- TIER 1: ACTIVAR -->
       <div class="price-card reveal">
-        <div class="price-plan">ACTIVAR</div>
-        <div class="price-tagline">Para negocios que quieren su primer bot de WhatsApp funcionando esta semana</div>
+        <div class="price-plan" data-i18n="price.p1.name">ACTIVAR</div>
+        <div class="price-tagline" data-i18n="price.p1.tagline">Para negocios que quieren su primer bot de WhatsApp funcionando esta semana</div>
         <div class="price-block">
           <div class="price-impl">
-            <div class="price-impl-label">IMPLEMENTACIÓN · PAGO ÚNICO</div>
+            <div class="price-impl-label" data-i18n="price.implLabel">IMPLEMENTACIÓN · PAGO ÚNICO</div>
             <div class="price-impl-amount">$590.000<span class="currency">CLP</span></div>
           </div>
           <div class="price-divider">+</div>
           <div class="price-monthly">
-            <div class="price-monthly-label">SUSCRIPCIÓN MENSUAL</div>
+            <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
             <div class="price-monthly-amount">$199.000<span class="slash">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
-          <li>Bot WhatsApp con respuestas automáticas</li>
-          <li>Hasta 3 flujos de conversación</li>
-          <li>Agenda de reuniones integrada</li>
-          <li>1 Landing Page optimizada SEO</li>
-          <li>Google My Business configurado</li>
-          <li>Reporte mensual de conversaciones</li>
-          <li>Soporte WhatsApp en horario laboral</li>
+          <li data-i18n="price.p1.f1">Bot WhatsApp con respuestas automáticas</li>
+          <li data-i18n="price.p1.f2">Hasta 3 flujos de conversación</li>
+          <li data-i18n="price.p1.f3">Agenda de reuniones integrada</li>
+          <li data-i18n="price.p1.f4">1 Landing Page optimizada SEO</li>
+          <li data-i18n="price.p1.f5">Google My Business configurado</li>
+          <li data-i18n="price.p1.f6">Reporte mensual de conversaciones</li>
+          <li data-i18n="price.p1.f7">Soporte WhatsApp en horario laboral</li>
         </ul>
-        <button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20empezar%20la%20prueba%20de%2030%20d%C3%ADas%20del%20plan%20ACTIVAR', '_blank')">Empezar prueba 30 días</button>
-        <div class="price-guarantee-mini">🛡️ Si no funciona en 30 días, no pagas</div>
+        <button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20empezar%20la%20prueba%20de%2030%20d%C3%ADas%20del%20plan%20ACTIVAR', '_blank')" data-i18n="price.p1.cta">Empezar prueba 30 días</button>
+        <div class="price-guarantee-mini" data-i18n="price.p1.guarantee">🛡️ Si no funciona en 30 días, no pagas</div>
       </div>
 
       <!-- TIER 2: ESCALAR (FEATURED) -->
       <div class="price-card featured reveal">
-        <div class="price-badge">★ MÁS ELEGIDO</div>
-        <div class="price-plan">ESCALAR</div>
-        <div class="price-tagline">Para PYMEs que ya venden y quieren automatizar toda su operación comercial</div>
+        <div class="price-badge" data-i18n="price.p2.badge">★ MÁS ELEGIDO</div>
+        <div class="price-plan" data-i18n="price.p2.name">ESCALAR</div>
+        <div class="price-tagline" data-i18n="price.p2.tagline">Para PYMEs que ya venden y quieren automatizar toda su operación comercial</div>
         <div class="price-block">
           <div class="price-impl">
-            <div class="price-impl-label">IMPLEMENTACIÓN · PAGO ÚNICO</div>
+            <div class="price-impl-label" data-i18n="price.implLabel">IMPLEMENTACIÓN · PAGO ÚNICO</div>
             <div class="price-impl-amount">$1.290.000<span class="currency">CLP</span></div>
           </div>
           <div class="price-divider">+</div>
           <div class="price-monthly">
-            <div class="price-monthly-label">SUSCRIPCIÓN MENSUAL</div>
+            <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
             <div class="price-monthly-amount">$390.000<span class="slash">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
-          <li>Todo lo del plan ACTIVAR</li>
-          <li>Bot IA conversacional (respuestas dinámicas)</li>
-          <li>Flujos de seguimiento post-venta</li>
-          <li>Integración CRM (HubSpot / Notion / otro)</li>
-          <li>Sitio web completo optimizado conversión</li>
-          <li>Google Ads + Social media (2 redes)</li>
-          <li>Drone session/trimestre · Dashboard analytics</li>
-          <li>Soporte prioritario (respuesta &lt; 4h hábiles)</li>
+          <li data-i18n="price.p2.f1">Todo lo del plan ACTIVAR</li>
+          <li data-i18n="price.p2.f2">Bot IA conversacional (respuestas dinámicas)</li>
+          <li data-i18n="price.p2.f3">Flujos de seguimiento post-venta</li>
+          <li data-i18n="price.p2.f4">Integración CRM (HubSpot / Notion / otro)</li>
+          <li data-i18n="price.p2.f5">Sitio web completo optimizado conversión</li>
+          <li data-i18n="price.p2.f6">Google Ads + Social media (2 redes)</li>
+          <li data-i18n="price.p2.f7">Drone session/trimestre · Dashboard analytics</li>
+          <li data-i18n="price.p2.f8">Soporte prioritario (respuesta &lt; 4h hábiles)</li>
         </ul>
-        <button class="btn btn-solid price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20agendar%20llamada%20estrat%C3%A9gica%20para%20el%20plan%20ESCALAR', '_blank')">Agendar llamada estratégica</button>
-        <div class="price-guarantee-mini">🛡️ ROI promedio recuperado en ~60 días</div>
+        <button class="btn btn-solid price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20agendar%20llamada%20estrat%C3%A9gica%20para%20el%20plan%20ESCALAR', '_blank')" data-i18n="price.p2.cta">Agendar llamada estratégica</button>
+        <div class="price-guarantee-mini" data-i18n="price.p2.guarantee">🛡️ ROI promedio recuperado en ~60 días</div>
       </div>
 
       <!-- TIER 3: DOMINAR -->
       <div class="price-card reveal">
-        <div class="price-plan">DOMINAR</div>
-        <div class="price-tagline">Automatización total + presencia digital premium para empresas medianas</div>
+        <div class="price-plan" data-i18n="price.p3.name">DOMINAR</div>
+        <div class="price-tagline" data-i18n="price.p3.tagline">Automatización total + presencia digital premium para empresas medianas</div>
         <div class="price-block">
           <div class="price-impl">
-            <div class="price-impl-label">IMPLEMENTACIÓN · PAGO ÚNICO</div>
+            <div class="price-impl-label" data-i18n="price.implLabel">IMPLEMENTACIÓN · PAGO ÚNICO</div>
             <div class="price-impl-amount">$2.490.000<span class="currency">CLP</span></div>
           </div>
           <div class="price-divider">+</div>
           <div class="price-monthly">
-            <div class="price-monthly-label">SUSCRIPCIÓN MENSUAL</div>
+            <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
             <div class="price-monthly-amount">$790.000<span class="slash">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
-          <li>Todo lo del plan ESCALAR</li>
-          <li>Automatización multi-canal (WhatsApp + Email + IG)</li>
-          <li>SEO activo con contenido mensual</li>
-          <li>Producción drone 4K (1/trimestre)</li>
-          <li>Branding + identidad visual completa</li>
-          <li>Integración sistemas internos (facturación, stock)</li>
-          <li>Account manager dedicado</li>
-          <li>Reunión estratégica mensual</li>
+          <li data-i18n="price.p3.f1">Todo lo del plan ESCALAR</li>
+          <li data-i18n="price.p3.f2">Automatización multi-canal (WhatsApp + Email + IG)</li>
+          <li data-i18n="price.p3.f3">SEO activo con contenido mensual</li>
+          <li data-i18n="price.p3.f4">Producción drone 4K (1/trimestre)</li>
+          <li data-i18n="price.p3.f5">Branding + identidad visual completa</li>
+          <li data-i18n="price.p3.f6">Integración sistemas internos (facturación, stock)</li>
+          <li data-i18n="price.p3.f7">Account manager dedicado</li>
+          <li data-i18n="price.p3.f8">Reunión estratégica mensual</li>
         </ul>
-        <button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20una%20propuesta%20personalizada%20del%20plan%20DOMINAR', '_blank')">Solicitar propuesta</button>
-        <div class="price-guarantee-mini">🛡️ Sistema integral que escala solo</div>
+        <button class="btn btn-outline price-cta" onclick="window.open('https://wa.me/56977877602?text=Quiero%20una%20propuesta%20personalizada%20del%20plan%20DOMINAR', '_blank')" data-i18n="price.p3.cta">Solicitar propuesta</button>
+        <div class="price-guarantee-mini" data-i18n="price.p3.guarantee">🛡️ Sistema integral que escala solo</div>
       </div>
     </div>
-    <p class="reveal" style="font-family:'Space Mono',monospace;font-size:0.78rem;color:rgba(224,224,224,0.55);text-align:center;margin-top:2.5rem;letter-spacing:0.04em;line-height:1.7;max-width:760px;margin-left:auto;margin-right:auto;">
+    <p class="reveal" style="font-family:'Space Mono',monospace;font-size:0.78rem;color:rgba(224,224,224,0.55);text-align:center;margin-top:2.5rem;letter-spacing:0.04em;line-height:1.7;max-width:760px;margin-left:auto;margin-right:auto;" data-i18n-html="price.disclaimer">
       Todos los precios en CLP · IVA no incluido · <strong style="color:var(--accent);">Implementación</strong> es pago único y cubre auditoría, estrategia, setup y entrega · <strong style="color:var(--accent);">Suscripción mensual</strong> cubre mantención, mejoras continuas y soporte · <strong style="color:var(--accent);">Garantía 30 días:</strong> si no ves resultados acordados, 100% devolución del setup.
     </p>
   </section>
 
   <!-- ===== SECTION: TRANSFORMACIÓN / LIFE CHANGE ===== -->
   <section id="transformacion">
-    <div class="section-tag reveal">// Transformación</div>
-    <h2 class="section-title reveal">Así cambia tu vida con automatización</h2>
-    <p class="section-sub reveal">No es hype. Es lo que pasa cuando dejas de responder WhatsApp a las 11pm.</p>
+    <div class="section-tag reveal" data-i18n="life.tag">// Transformación</div>
+    <h2 class="section-title reveal" data-i18n="life.title">Así cambia tu vida con automatización</h2>
+    <p class="section-sub reveal" data-i18n="life.sub">No es hype. Es lo que pasa cuando dejas de responder WhatsApp a las 11pm.</p>
     <div class="life-change-grid">
       <div class="life-change-card reveal">
         <div class="life-change-icon">🌙</div>
-        <div class="life-change-before">Antes: respondías WhatsApp a las 11pm mientras cenabas</div>
-        <div class="life-change-after">Tu bot IA cierra ventas mientras compartes con tu familia</div>
+        <div class="life-change-before" data-i18n="life.c1.before">Antes: respondías WhatsApp a las 11pm mientras cenabas</div>
+        <div class="life-change-after" data-i18n="life.c1.after">Tu bot IA cierra ventas mientras compartes con tu familia</div>
       </div>
       <div class="life-change-card reveal">
         <div class="life-change-icon">✈️</div>
-        <div class="life-change-before">Antes: no podías irte de vacaciones sin que el negocio se frenara</div>
-        <div class="life-change-after">Tu negocio factura aunque tú estés desconectado</div>
+        <div class="life-change-before" data-i18n="life.c2.before">Antes: no podías irte de vacaciones sin que el negocio se frenara</div>
+        <div class="life-change-after" data-i18n="life.c2.after">Tu negocio factura aunque tú estés desconectado</div>
       </div>
       <div class="life-change-card reveal">
         <div class="life-change-icon">⚡</div>
-        <div class="life-change-before">Antes: tu equipo respondía lo mismo 40 veces al día</div>
-        <div class="life-change-after">Ahora hacen el trabajo que realmente importa</div>
+        <div class="life-change-before" data-i18n="life.c3.before">Antes: tu equipo respondía lo mismo 40 veces al día</div>
+        <div class="life-change-after" data-i18n="life.c3.after">Ahora hacen el trabajo que realmente importa</div>
       </div>
     </div>
   </section>
 
   <!-- ===== SECTION: TESTIMONIOS ===== -->
   <section id="testimonios">
-    <div class="section-tag reveal">// Clientes reales</div>
-    <h2 class="section-title reveal">Negocios que ya trabajan con Kreathur</h2>
-    <p class="section-sub reveal">5 proyectos reales. 5 negocios funcionando con nuestra tecnología. Puedes visitarlos y verlos en vivo.</p>
+    <div class="section-tag reveal" data-i18n="test.tag">// Clientes reales</div>
+    <h2 class="section-title reveal" data-i18n="test.title">Negocios que ya trabajan con Kreathur</h2>
+    <p class="section-sub reveal" data-i18n="test.sub">5 proyectos reales. 5 negocios funcionando con nuestra tecnología. Puedes visitarlos y verlos en vivo.</p>
     <div class="testimonials-grid">
 
       <!-- 1. Claudio · Importadora Maully -->
@@ -1872,62 +1926,62 @@
 
   <!-- ===== SECTION: FAQ ===== -->
   <section id="faq">
-    <div class="section-tag reveal">// Preguntas Frecuentes</div>
-    <h2 class="section-title reveal">Lo que todos preguntan antes de empezar</h2>
-    <p class="section-sub reveal">Respuestas directas. Sin vueltas, sin vendedores de humo.</p>
+    <div class="section-tag reveal" data-i18n="faq.tag">// Preguntas Frecuentes</div>
+    <h2 class="section-title reveal" data-i18n="faq.title">Lo que todos preguntan antes de empezar</h2>
+    <p class="section-sub reveal" data-i18n="faq.sub">Respuestas directas. Sin vueltas, sin vendedores de humo.</p>
     <div class="faq-wrap">
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Qué pasa si a los 30 días no me funciona?</summary>
-        <div class="faq-a">Te devolvemos el <strong>100% de la implementación</strong>. Sin letra chica, sin preguntas incómodas, sin abogados. Tú decides si funcionó según los KPIs que acordamos juntos en el Día 0. Nosotros asumimos todo el riesgo.</div>
+        <summary class="faq-q" data-i18n="faq.q1">¿Qué pasa si a los 30 días no me funciona?</summary>
+        <div class="faq-a" data-i18n-html="faq.a1">Te devolvemos el <strong>100% de la implementación</strong>. Sin letra chica, sin preguntas incómodas, sin abogados. Tú decides si funcionó según los KPIs que acordamos juntos en el Día 0. Nosotros asumimos todo el riesgo.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Cuánto demora la implementación?</summary>
-        <div class="faq-a"><strong>7 días hábiles</strong> desde la firma del brief para los planes ACTIVAR y ESCALAR. Para DOMINAR puede extenderse a 14 días por la complejidad. Siempre te avisamos antes y verás avances diarios.</div>
+        <summary class="faq-q" data-i18n="faq.q2">¿Cuánto demora la implementación?</summary>
+        <div class="faq-a" data-i18n-html="faq.a2"><strong>7 días hábiles</strong> desde la firma del brief para los planes ACTIVAR y ESCALAR. Para DOMINAR puede extenderse a 14 días por la complejidad. Siempre te avisamos antes y verás avances diarios.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Por qué hay un pago único y además una suscripción mensual?</summary>
-        <div class="faq-a">El <strong>pago único</strong> cubre auditoría, estrategia, diseño, desarrollo y entrega. La <strong>suscripción mensual</strong> cubre mantención, mejoras continuas, actualizaciones de IA, soporte y evolución. Sin mensualidad tu sistema se quedaría obsoleto en meses — con ella, cada mes mejora.</div>
+        <summary class="faq-q" data-i18n="faq.q3">¿Por qué hay un pago único y además una suscripción mensual?</summary>
+        <div class="faq-a" data-i18n-html="faq.a3">El <strong>pago único</strong> cubre auditoría, estrategia, diseño, desarrollo y entrega. La <strong>suscripción mensual</strong> cubre mantención, mejoras continuas, actualizaciones de IA, soporte y evolución. Sin mensualidad tu sistema se quedaría obsoleto en meses — con ella, cada mes mejora.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Necesito tener web o WhatsApp Business ya armado?</summary>
-        <div class="faq-a"><strong>No.</strong> Si no tienes nada, te armamos todo desde cero (está incluido). Si ya tienes web, CRM o flujos, los integramos sin romper lo que ya funciona.</div>
+        <summary class="faq-q" data-i18n="faq.q4">¿Necesito tener web o WhatsApp Business ya armado?</summary>
+        <div class="faq-a" data-i18n-html="faq.a4"><strong>No.</strong> Si no tienes nada, te armamos todo desde cero (está incluido). Si ya tienes web, CRM o flujos, los integramos sin romper lo que ya funciona.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Atienden fuera de Chile?</summary>
-        <div class="faq-a">Sí. Operamos desde <strong>Pichilemu 🇨🇱</strong> y <strong>Kiel 🇩🇪</strong>. Trabajamos con clientes en todo LATAM, Europa y Estados Unidos. Las reuniones son por videollamada y los flujos se configuran en el idioma de tu operación.</div>
+        <summary class="faq-q" data-i18n="faq.q5">¿Atienden fuera de Chile?</summary>
+        <div class="faq-a" data-i18n-html="faq.a5">Sí. Operamos desde <strong>Pichilemu 🇨🇱</strong> y <strong>Kiel 🇩🇪</strong>. Trabajamos con clientes en todo LATAM, Europa y Estados Unidos. Las reuniones son por videollamada y los flujos se configuran en el idioma de tu operación.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Usan "ChatGPT pegado" o algo más serio?</summary>
-        <div class="faq-a">Más serio. Usamos <strong>Claude (Anthropic)</strong> para los agentes principales, <strong>ChatGPT</strong> para copy y estrategia, <strong>Manus</strong> para automatización web y <strong>n8n</strong> como pegamento. Cada flujo está versionado, monitoreado y con fallback humano.</div>
+        <summary class="faq-q" data-i18n="faq.q6">¿Usan "ChatGPT pegado" o algo más serio?</summary>
+        <div class="faq-a" data-i18n-html="faq.a6">Más serio. Usamos <strong>Claude (Anthropic)</strong> para los agentes principales, <strong>ChatGPT</strong> para copy y estrategia, <strong>Manus</strong> para automatización web y <strong>n8n</strong> como pegamento. Cada flujo está versionado, monitoreado y con fallback humano.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Puedo cancelar la suscripción cuando quiera?</summary>
-        <div class="faq-a">Sí, cuando quieras. No hay permanencia, no hay cláusulas de salida. Si un mes decides cancelar, tu sistema sigue funcionando — solo pierdes las mejoras, monitoreo y soporte nuevos.</div>
+        <summary class="faq-q" data-i18n="faq.q7">¿Puedo cancelar la suscripción cuando quiera?</summary>
+        <div class="faq-a" data-i18n-html="faq.a7">Sí, cuando quieras. No hay permanencia, no hay cláusulas de salida. Si un mes decides cancelar, tu sistema sigue funcionando — solo pierdes las mejoras, monitoreo y soporte nuevos.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">¿Cómo sé si mi negocio es candidato?</summary>
-        <div class="faq-a">Agenda la llamada de 30 minutos (gratis). Si al terminar vemos que no somos el mejor encaje, te lo decimos y te recomendamos alternativas. No forzamos ventas que no deben cerrar.</div>
+        <summary class="faq-q" data-i18n="faq.q8">¿Cómo sé si mi negocio es candidato?</summary>
+        <div class="faq-a" data-i18n="faq.a8">Agenda la llamada de 30 minutos (gratis). Si al terminar vemos que no somos el mejor encaje, te lo decimos y te recomendamos alternativas. No forzamos ventas que no deben cerrar.</div>
       </details>
       <div class="faq-cta reveal">
-        <p>¿Tu pregunta no está acá? Escríbenos y respondemos en horario laboral.</p>
-        <a href="https://wa.me/56977877602?text=Hola%20Kreathur!%20Tengo%20una%20pregunta%20antes%20de%20empezar" target="_blank" rel="noopener">Hazla por WhatsApp →</a>
+        <p data-i18n="faq.ctaText">¿Tu pregunta no está acá? Escríbenos y respondemos en horario laboral.</p>
+        <a href="https://wa.me/56977877602?text=Hola%20Kreathur!%20Tengo%20una%20pregunta%20antes%20de%20empezar" target="_blank" rel="noopener" data-i18n="faq.ctaLink">Hazla por WhatsApp →</a>
       </div>
     </div>
   </section>
 
   <section id="fundador">
-    <div class="section-tag reveal">// Fundador</div>
-    <h2 class="section-title reveal">Quién está detrás</h2>
+    <div class="section-tag reveal" data-i18n="founder.tag">// Fundador</div>
+    <h2 class="section-title reveal" data-i18n="founder.title">Quién está detrás</h2>
     <div class="founder-grid">
       <div class="founder-avatar reveal"><img src="https://yt3.googleusercontent.com/8JvseZdoNwVb1BWYfgibU-698zzldd3YDHsK7xE7jFCL62eSWYCcLG6zgJ9o7TsfhsrmPCnoZA=s800-c-k-c0x00ffffff-no-rj" alt="Matías Aguilera — CEO Kreathur Agency" loading="lazy" referrerpolicy="no-referrer"></div>
-      <div class="founder-content reveal"><h3>Matías Aguilera</h3><div class="founder-title">CEO · SEO Strategist · Piloto DGAC</div><div class="founder-bio">Soy piloto de drones certificado <strong>DGAC</strong>, especialista en SEO y estrategia digital. Desde Pichilemu he transformado más de 50 negocios usando tecnología, inteligencia artificial y creatividad. Mi misión es simple: que tu negocio deje de depender de ti para funcionar, y que las automatizaciones te devuelvan el tiempo que te están robando.</div><div class="founder-links"><a href="https://www.matiwlog.com" target="_blank" rel="noopener">MatiWlog Blog →</a><a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener">YouTube @MatiWlog →</a><a href="https://instagram.com/matiwlog" target="_blank" rel="noopener">Instagram →</a></div></div>
+      <div class="founder-content reveal"><h3>Matías Aguilera</h3><div class="founder-title" data-i18n="founder.role">CEO · SEO Strategist · Piloto DGAC</div><div class="founder-bio" data-i18n-html="founder.bio">Soy piloto de drones certificado <strong>DGAC</strong>, especialista en SEO y estrategia digital. Desde Pichilemu he transformado más de 50 negocios usando tecnología, inteligencia artificial y creatividad. Mi misión es simple: que tu negocio deje de depender de ti para funcionar, y que las automatizaciones te devuelvan el tiempo que te están robando.</div><div class="founder-links"><a href="https://www.matiwlog.com" target="_blank" rel="noopener">MatiWlog Blog →</a><a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener">YouTube @MatiWlog →</a><a href="https://instagram.com/matiwlog" target="_blank" rel="noopener">Instagram →</a></div></div>
     </div>
   </section>
 
   <section id="contacto">
-    <div class="section-tag reveal">// Conectar</div>
-    <h2 class="section-title reveal">Hagamos algo grande juntos</h2>
-    <p class="section-sub reveal">Operamos desde <strong>Pichilemu, Chile 🇨🇱</strong> y <strong>Kiel, Alemania 🇩🇪</strong>. No importa dónde estés — creamos desde cualquier rincón.</p>
+    <div class="section-tag reveal" data-i18n="contact.tag">// Conectar</div>
+    <h2 class="section-title reveal" data-i18n="contact.title">Hagamos algo grande juntos</h2>
+    <p class="section-sub reveal" data-i18n-html="contact.sub">Operamos desde <strong>Pichilemu, Chile 🇨🇱</strong> y <strong>Kiel, Alemania 🇩🇪</strong>. No importa dónde estés — creamos desde cualquier rincón.</p>
     <div class="contact-grid">
       <a href="mailto:hola@kreathur.agency" class="contact-card reveal"><div class="contact-icon">📧</div><div class="contact-label">Email</div><div class="contact-info">hola@kreathur.agency</div></a>
       <a href="https://wa.me/56977877602?text=Hola%20Kreathur!%20Vengo%20de%20la%20web" target="_blank" class="contact-card reveal"><div class="contact-icon">💬</div><div class="contact-label">Línea Directa Kreathur</div><div class="contact-info">+56 9 7787 7602</div></a>
@@ -2164,7 +2218,68 @@
         'how.s3.title':'Lanzamiento + 30 días de garantía','how.s3.desc':'Activamos el bot en tu WhatsApp Business. Te enseñamos el dashboard, tú lo usas con clientes reales. Si en 30 días no funciona como prometido, te devolvemos todo.','how.s3.dur':'Día 14 · GO LIVE',
         'welcome.title':'Trabajamos en <span class="grad">Deutsch, English &amp; Español</span> sin barreras',
         'welcome.desc':'Somos un <strong>estudio de IA internacional</strong> con oficinas en <strong>Kiel, Alemania</strong> y <strong>Pichilemu, Chile</strong>. Diseñamos WhatsApp bots, webs y automatizaciones para negocios de todo el mundo — en tu idioma, tu zona horaria, tu mercado.',
-        'welcome.cta':'Comenzar el tour'
+        'welcome.cta':'Comenzar el tour',
+        'svc.tag':'// Lo que hacemos','svc.title':'Servicios & Soluciones','svc.sub':'Todo lo que tu negocio necesita para dominar el mundo digital.',
+        'svc.s1.name':'SEO & Posicionamiento','svc.s1.desc':'Posicionamos tu negocio en Google para atraer clientes calificados.',
+        'svc.s2.name':'Desarrollo Web','svc.s2.desc':'Sitios modernos, rápidos y responsivos que convierten visitantes en clientes.',
+        'svc.s3.name':'IA & Automatizaciones','svc.s3.desc':'Integra inteligencia artificial para automatizar procesos y aumentar productividad.',
+        'svc.s4.name':'Drones & Video Aéreo','svc.s4.desc':'Contenido aéreo profesional certificado DGAC con drones 4K.',
+        'svc.s5.name':'Marketing Digital','svc.s5.desc':'Estrategias completas de publicidad digital para maximizar ROI y crecimiento.',
+        'svc.s6.name':'Branding & Diseño','svc.s6.desc':'Identidad visual completa que diferencia tu marca y genera conexión.',
+        'ia.tag':'// Inteligencia Artificial','ia.title':'IA Generativa para tu Negocio','ia.sub':'Usamos las herramientas de IA más avanzadas del mundo para automatizar, crear y escalar.',
+        'ia.c1.title':'by Anthropic','ia.c1.f1':'Agentes IA autónomos','ia.c1.f2':'Chatbots inteligentes','ia.c1.f3':'Análisis de documentos','ia.c1.f4':'Procesamiento de datos','ia.c1.footer':'Usado en: Bots WhatsApp, Automatizaciones, Análisis',
+        'ia.c2.title':'by OpenAI','ia.c2.f1':'Generación de contenido','ia.c2.f2':'Estrategia de marketing','ia.c2.f3':'Copywriting','ia.c2.f4':'Investigación y análisis','ia.c2.footer':'Usado en: Contenido, Estrategia, RRSS',
+        'ia.c3.title':'Agente Autónomo','ia.c3.f1':'Automatización web','ia.c3.f2':'Investigación autónoma','ia.c3.f3':'Procesamiento complejo','ia.c3.f4':'RPA (Automatización)','ia.c3.footer':'Usado en: Investigación, Automatización, Scraping',
+        'ia.c4.title':'IA Generativa Visual','ia.c4.f1':'Generación de imágenes','ia.c4.f2':'Diseño automático','ia.c4.f3':'Contenido visual','ia.c4.f4':'Edición con IA','ia.c4.footer':'Usado en: Diseño, Contenido Visual, RRSS',
+        'portfolio.tag':'// Portfolio','portfolio.title':'Proyectos Destacados','portfolio.sub':'Cada proyecto cuenta una historia. Explora nuestro trabajo.',
+        'drone.tag':'// Servicios Aéreos','drone.title':'Drones Certificados DGAC','drone.sub':'Piloto certificado. Tomas aéreas 4K para inmobiliarias, turismo, eventos y más.','drone.svctitle':'Servicios de Drones',
+        'drone.d1.name':'Inmobiliarias','drone.d1.desc':'Tours aéreos 4K de propiedades, terrenos y desarrollos.',
+        'drone.d2.name':'Turismo','drone.d2.desc':'Videos promocionales aéreos de destinos y hoteles.',
+        'drone.d3.name':'Eventos','drone.d3.desc':'Cobertura aérea de matrimonios, festivales y corporativos.',
+        'drone.d4.name':'Topografía','drone.d4.desc':'Levantamientos topográficos, mapeo 3D e inspección.',
+        'drone.d5.name':'Agricultura','drone.d5.desc':'Monitoreo de cultivos, análisis NDVI y fumigación.',
+        'drone.d6.name':'Fotografía','drone.d6.desc':'Sesiones fotográficas aéreas para publicidad y catálogo.',
+        'proc.tag':'// Cómo trabajamos','proc.title':'Del brief al resultado en 30 días','proc.sub':'Cero sorpresas. Cero letra chica. Cuatro pasos claros y fechas concretas para cada uno.',
+        'proc.s1.day':'Día 0','proc.s1.title':'Llamada de descubrimiento','proc.s1.desc':'30 minutos gratis. Entendemos tu negocio, tu operación actual y qué resultados buscas. Si no hay encaje, te lo decimos al tiraje — sin perder tu tiempo.',
+        'proc.s2.day':'Días 1–7','proc.s2.title':'Implementación','proc.s2.desc':'Armamos tu bot, tu web, tu automatización. Trabajamos con Claude, ChatGPT, Manus y n8n. Te mostramos avances diarios — tú validas cada paso.',
+        'proc.s3.day':'Días 8–30','proc.s3.title':'Prueba real en tu negocio','proc.s3.desc':'22 días para usarlo con clientes reales. Medimos conversiones, tiempos de respuesta y errores. Tú decides si está generando el resultado acordado.',
+        'proc.s4.day':'Día 30','proc.s4.title':'Decides tú','proc.s4.desc':'Si funcionó: seguimos juntos con la suscripción mensual y mejoramos continuamente. Si no: devolución del 100% del setup. Sin preguntas.',
+        'price.tag':'// Precios & Garantía','price.title':'Oferta Irresistible','price.sub':'<strong>Implementación</strong> (pago único) + <strong>suscripción mensual</strong>. Pruebas la solución 30 días en tu negocio real. Si no funciona, no pagas.',
+        'price.seal':'SATISFACCIÓN<br>GARANTIZADA','price.gBadge':'⚡ KREATHUR ASUME TODO EL RIESGO',
+        'price.gTitle':'30 días de prueba · <span class="accent">Si no te funciona, no pagas</span>',
+        'price.gDesc':'Sin contratos amarrados. Sin letra chica. Implementamos tu solución y la pruebas 30 días en tu negocio real. Si al día 30 <strong>no ves resultados concretos acordados</strong>, te devolvemos el <strong>100% de tu inversión</strong> sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.',
+        'price.gs1':'<strong>Agendamos</strong><br>llamada gratuita','price.gs2':'<strong>Implementamos</strong><br>en 7 días hábiles','price.gs3':'<strong>Pruebas</strong><br>30 días en tu negocio','price.gs4':'<strong>Decides</strong><br>— o cero pago',
+        'price.promoBadge':'🎁 PROMO ACTIVA','price.promoTitle':'10% OFF por seguirnos en redes',
+        'price.promoDesc':'Síguenos en nuestras redes sociales y comenta que quieres que te ayudemos a <strong>automatizar</strong> tu negocio. Al confirmar tu comentario aplicamos <strong>10% de descuento</strong> en cualquier plan.',
+        'price.promoClaim':'Reclamar 10% OFF','price.implLabel':'IMPLEMENTACIÓN · PAGO ÚNICO','price.moLabel':'SUSCRIPCIÓN MENSUAL',
+        'price.p1.name':'ACTIVAR','price.p1.tagline':'Para negocios que quieren su primer bot de WhatsApp funcionando esta semana',
+        'price.p1.f1':'Bot WhatsApp con respuestas automáticas','price.p1.f2':'Hasta 3 flujos de conversación','price.p1.f3':'Agenda de reuniones integrada','price.p1.f4':'1 Landing Page optimizada SEO','price.p1.f5':'Google My Business configurado','price.p1.f6':'Reporte mensual de conversaciones','price.p1.f7':'Soporte WhatsApp en horario laboral',
+        'price.p1.cta':'Empezar prueba 30 días','price.p1.guarantee':'🛡️ Si no funciona en 30 días, no pagas',
+        'price.p2.badge':'★ MÁS ELEGIDO','price.p2.name':'ESCALAR','price.p2.tagline':'Para PYMEs que ya venden y quieren automatizar toda su operación comercial',
+        'price.p2.f1':'Todo lo del plan ACTIVAR','price.p2.f2':'Bot IA conversacional (respuestas dinámicas)','price.p2.f3':'Flujos de seguimiento post-venta','price.p2.f4':'Integración CRM (HubSpot / Notion / otro)','price.p2.f5':'Sitio web completo optimizado conversión','price.p2.f6':'Google Ads + Social media (2 redes)','price.p2.f7':'Drone session/trimestre · Dashboard analytics','price.p2.f8':'Soporte prioritario (respuesta < 4h hábiles)',
+        'price.p2.cta':'Agendar llamada estratégica','price.p2.guarantee':'🛡️ ROI promedio recuperado en ~60 días',
+        'price.p3.name':'DOMINAR','price.p3.tagline':'Automatización total + presencia digital premium para empresas medianas',
+        'price.p3.f1':'Todo lo del plan ESCALAR','price.p3.f2':'Automatización multi-canal (WhatsApp + Email + IG)','price.p3.f3':'SEO activo con contenido mensual','price.p3.f4':'Producción drone 4K (1/trimestre)','price.p3.f5':'Branding + identidad visual completa','price.p3.f6':'Integración sistemas internos (facturación, stock)','price.p3.f7':'Account manager dedicado','price.p3.f8':'Reunión estratégica mensual',
+        'price.p3.cta':'Solicitar propuesta','price.p3.guarantee':'🛡️ Sistema integral que escala solo',
+        'price.disclaimer':'Todos los precios en CLP · IVA no incluido · <strong style="color:var(--accent);">Implementación</strong> es pago único y cubre auditoría, estrategia, setup y entrega · <strong style="color:var(--accent);">Suscripción mensual</strong> cubre mantención, mejoras continuas y soporte · <strong style="color:var(--accent);">Garantía 30 días:</strong> si no ves resultados acordados, 100% devolución del setup.',
+        'life.tag':'// Transformación','life.title':'Así cambia tu vida con automatización','life.sub':'No es hype. Es lo que pasa cuando dejas de responder WhatsApp a las 11pm.',
+        'life.c1.before':'Antes: respondías WhatsApp a las 11pm mientras cenabas','life.c1.after':'Tu bot IA cierra ventas mientras compartes con tu familia',
+        'life.c2.before':'Antes: no podías irte de vacaciones sin que el negocio se frenara','life.c2.after':'Tu negocio factura aunque tú estés desconectado',
+        'life.c3.before':'Antes: tu equipo respondía lo mismo 40 veces al día','life.c3.after':'Ahora hacen el trabajo que realmente importa',
+        'test.tag':'// Clientes reales','test.title':'Negocios que ya trabajan con Kreathur','test.sub':'5 proyectos reales. 5 negocios funcionando con nuestra tecnología. Puedes visitarlos y verlos en vivo.',
+        'faq.tag':'// Preguntas Frecuentes','faq.title':'Lo que todos preguntan antes de empezar','faq.sub':'Respuestas directas. Sin vueltas, sin vendedores de humo.',
+        'faq.q1':'¿Qué pasa si a los 30 días no me funciona?','faq.a1':'Te devolvemos el <strong>100% de la implementación</strong>. Sin letra chica, sin preguntas incómodas, sin abogados. Tú decides si funcionó según los KPIs que acordamos juntos en el Día 0. Nosotros asumimos todo el riesgo.',
+        'faq.q2':'¿Cuánto demora la implementación?','faq.a2':'<strong>7 días hábiles</strong> desde la firma del brief para los planes ACTIVAR y ESCALAR. Para DOMINAR puede extenderse a 14 días por la complejidad. Siempre te avisamos antes y verás avances diarios.',
+        'faq.q3':'¿Por qué hay un pago único y además una suscripción mensual?','faq.a3':'El <strong>pago único</strong> cubre auditoría, estrategia, diseño, desarrollo y entrega. La <strong>suscripción mensual</strong> cubre mantención, mejoras continuas, actualizaciones de IA, soporte y evolución. Sin mensualidad tu sistema se quedaría obsoleto en meses — con ella, cada mes mejora.',
+        'faq.q4':'¿Necesito tener web o WhatsApp Business ya armado?','faq.a4':'<strong>No.</strong> Si no tienes nada, te armamos todo desde cero (está incluido). Si ya tienes web, CRM o flujos, los integramos sin romper lo que ya funciona.',
+        'faq.q5':'¿Atienden fuera de Chile?','faq.a5':'Sí. Operamos desde <strong>Pichilemu 🇨🇱</strong> y <strong>Kiel 🇩🇪</strong>. Trabajamos con clientes en todo LATAM, Europa y Estados Unidos. Las reuniones son por videollamada y los flujos se configuran en el idioma de tu operación.',
+        'faq.q6':'¿Usan "ChatGPT pegado" o algo más serio?','faq.a6':'Más serio. Usamos <strong>Claude (Anthropic)</strong> para los agentes principales, <strong>ChatGPT</strong> para copy y estrategia, <strong>Manus</strong> para automatización web y <strong>n8n</strong> como pegamento. Cada flujo está versionado, monitoreado y con fallback humano.',
+        'faq.q7':'¿Puedo cancelar la suscripción cuando quiera?','faq.a7':'Sí, cuando quieras. No hay permanencia, no hay cláusulas de salida. Si un mes decides cancelar, tu sistema sigue funcionando — solo pierdes las mejoras, monitoreo y soporte nuevos.',
+        'faq.q8':'¿Cómo sé si mi negocio es candidato?','faq.a8':'Agenda la llamada de 30 minutos (gratis). Si al terminar vemos que no somos el mejor encaje, te lo decimos y te recomendamos alternativas. No forzamos ventas que no deben cerrar.',
+        'faq.ctaText':'¿Tu pregunta no está acá? Escríbenos y respondemos en horario laboral.','faq.ctaLink':'Hazla por WhatsApp →',
+        'founder.tag':'// Fundador','founder.title':'Quién está detrás','founder.role':'CEO · SEO Strategist · Piloto DGAC',
+        'founder.bio':'Soy piloto de drones certificado <strong>DGAC</strong>, especialista en SEO y estrategia digital. Desde Pichilemu he transformado más de 50 negocios usando tecnología, inteligencia artificial y creatividad. Mi misión es simple: que tu negocio deje de depender de ti para funcionar, y que las automatizaciones te devuelvan el tiempo que te están robando.',
+        'contact.tag':'// Conectar','contact.title':'Hagamos algo grande juntos','contact.sub':'Operamos desde <strong>Pichilemu, Chile 🇨🇱</strong> y <strong>Kiel, Alemania 🇩🇪</strong>. No importa dónde estés — creamos desde cualquier rincón.'
       },
       en: {
         'nav.services':'Services','nav.demos':'Demos','nav.reach':'Global','nav.compare':'Compare','nav.ia':'AI','nav.process':'Process','nav.guarantee':'Guarantee','nav.clients':'Clients','nav.faq':'FAQ','nav.contact':'Contact',
@@ -2209,7 +2324,68 @@
         'how.s3.title':'Launch + 30-day guarantee','how.s3.desc':'We activate the bot on your WhatsApp Business. We show you the dashboard, you use it with real customers. If it doesn\'t work as promised in 30 days, we refund everything.','how.s3.dur':'Day 14 · GO LIVE',
         'welcome.title':'We work in <span class="grad">Deutsch, English &amp; Español</span> — no barriers',
         'welcome.desc':'We\'re an <strong>international AI studio</strong> with offices in <strong>Kiel, Germany</strong> and <strong>Pichilemu, Chile</strong>. We design WhatsApp bots, websites and automations for businesses worldwide — in your language, your timezone, your market.',
-        'welcome.cta':'Start the tour'
+        'welcome.cta':'Start the tour',
+        'svc.tag':'// What we do','svc.title':'Services & Solutions','svc.sub':'Everything your business needs to dominate the digital landscape.',
+        'svc.s1.name':'SEO & Positioning','svc.s1.desc':'We position your business on Google to attract qualified leads.',
+        'svc.s2.name':'Web Development','svc.s2.desc':'Modern, fast and responsive sites that turn visitors into customers.',
+        'svc.s3.name':'AI & Automation','svc.s3.desc':'Integrate artificial intelligence to automate processes and boost productivity.',
+        'svc.s4.name':'Drones & Aerial Video','svc.s4.desc':'Professional DGAC-certified aerial content with 4K drones.',
+        'svc.s5.name':'Digital Marketing','svc.s5.desc':'Full-stack advertising strategies to maximize ROI and growth.',
+        'svc.s6.name':'Branding & Design','svc.s6.desc':'Complete visual identity that sets your brand apart and builds connection.',
+        'ia.tag':'// Artificial Intelligence','ia.title':'Generative AI for Your Business','ia.sub':'We use the world\'s most advanced AI tools to automate, create and scale.',
+        'ia.c1.title':'by Anthropic','ia.c1.f1':'Autonomous AI agents','ia.c1.f2':'Intelligent chatbots','ia.c1.f3':'Document analysis','ia.c1.f4':'Data processing','ia.c1.footer':'Used in: WhatsApp bots, Automation, Analysis',
+        'ia.c2.title':'by OpenAI','ia.c2.f1':'Content generation','ia.c2.f2':'Marketing strategy','ia.c2.f3':'Copywriting','ia.c2.f4':'Research & analysis','ia.c2.footer':'Used in: Content, Strategy, Social media',
+        'ia.c3.title':'Autonomous Agent','ia.c3.f1':'Web automation','ia.c3.f2':'Autonomous research','ia.c3.f3':'Complex processing','ia.c3.f4':'RPA (Automation)','ia.c3.footer':'Used in: Research, Automation, Scraping',
+        'ia.c4.title':'Visual Generative AI','ia.c4.f1':'Image generation','ia.c4.f2':'Automated design','ia.c4.f3':'Visual content','ia.c4.f4':'AI-powered editing','ia.c4.footer':'Used in: Design, Visual Content, Social media',
+        'portfolio.tag':'// Portfolio','portfolio.title':'Featured Projects','portfolio.sub':'Every project tells a story. Explore our work.',
+        'drone.tag':'// Aerial Services','drone.title':'DGAC-Certified Drones','drone.sub':'Certified pilot. 4K aerial footage for real estate, tourism, events and more.','drone.svctitle':'Drone Services',
+        'drone.d1.name':'Real Estate','drone.d1.desc':'4K aerial tours of properties, land and developments.',
+        'drone.d2.name':'Tourism','drone.d2.desc':'Aerial promotional videos for destinations and hotels.',
+        'drone.d3.name':'Events','drone.d3.desc':'Aerial coverage of weddings, festivals and corporate events.',
+        'drone.d4.name':'Surveying','drone.d4.desc':'Topographic surveys, 3D mapping and inspection.',
+        'drone.d5.name':'Agriculture','drone.d5.desc':'Crop monitoring, NDVI analysis and spraying.',
+        'drone.d6.name':'Photography','drone.d6.desc':'Aerial photo sessions for advertising and catalogs.',
+        'proc.tag':'// How we work','proc.title':'From brief to results in 30 days','proc.sub':'Zero surprises. Zero fine print. Four clear steps with concrete dates for each one.',
+        'proc.s1.day':'Day 0','proc.s1.title':'Discovery call','proc.s1.desc':'30 free minutes. We understand your business, your current operations and the results you\'re after. If it\'s not a fit, we\'ll tell you straight away — no wasted time.',
+        'proc.s2.day':'Days 1–7','proc.s2.title':'Implementation','proc.s2.desc':'We build your bot, website or automation. We work with Claude, ChatGPT, Manus and n8n. We show you daily progress — you validate every step.',
+        'proc.s3.day':'Days 8–30','proc.s3.title':'Real-world testing','proc.s3.desc':'22 days to use it with real customers. We measure conversions, response times and errors. You decide if it\'s delivering the agreed results.',
+        'proc.s4.day':'Day 30','proc.s4.title':'You decide','proc.s4.desc':'If it worked: we continue together with the monthly subscription and keep improving. If not: 100% setup refund. No questions asked.',
+        'price.tag':'// Pricing & Guarantee','price.title':'Irresistible Offer','price.sub':'<strong>Implementation</strong> (one-time payment) + <strong>monthly subscription</strong>. Test the solution 30 days in your real business. If it doesn\'t work, you don\'t pay.',
+        'price.seal':'SATISFACTION<br>GUARANTEED','price.gBadge':'⚡ KREATHUR TAKES ALL THE RISK',
+        'price.gTitle':'30-day trial · <span class="accent">If it doesn\'t work, you don\'t pay</span>',
+        'price.gDesc':'No binding contracts. No fine print. We implement your solution and you test it 30 days in your real business. If on day 30 you <strong>don\'t see the agreed concrete results</strong>, we refund <strong>100% of your investment</strong> — no awkward questions. You decide if it works — we take the risk.',
+        'price.gs1':'<strong>We schedule</strong><br>a free call','price.gs2':'<strong>We implement</strong><br>in 7 business days','price.gs3':'<strong>You test</strong><br>30 days in your business','price.gs4':'<strong>You decide</strong><br>— or zero payment',
+        'price.promoBadge':'🎁 ACTIVE PROMO','price.promoTitle':'10% OFF for following us on social media',
+        'price.promoDesc':'Follow us on social media and comment that you want us to help you <strong>automate</strong> your business. Once we confirm your comment, we apply a <strong>10% discount</strong> on any plan.',
+        'price.promoClaim':'Claim 10% OFF','price.implLabel':'IMPLEMENTATION · ONE-TIME','price.moLabel':'MONTHLY SUBSCRIPTION',
+        'price.p1.name':'ACTIVATE','price.p1.tagline':'For businesses that want their first WhatsApp bot running this week',
+        'price.p1.f1':'WhatsApp bot with auto-replies','price.p1.f2':'Up to 3 conversation flows','price.p1.f3':'Integrated meeting scheduler','price.p1.f4':'1 SEO-optimized Landing Page','price.p1.f5':'Google My Business set up','price.p1.f6':'Monthly conversation report','price.p1.f7':'WhatsApp support during business hours',
+        'price.p1.cta':'Start 30-day trial','price.p1.guarantee':'🛡️ If it doesn\'t work in 30 days, you don\'t pay',
+        'price.p2.badge':'★ MOST POPULAR','price.p2.name':'SCALE','price.p2.tagline':'For SMBs already selling that want to automate their entire commercial operation',
+        'price.p2.f1':'Everything in the ACTIVATE plan','price.p2.f2':'Conversational AI bot (dynamic replies)','price.p2.f3':'Post-sale follow-up flows','price.p2.f4':'CRM integration (HubSpot / Notion / other)','price.p2.f5':'Full conversion-optimized website','price.p2.f6':'Google Ads + Social media (2 channels)','price.p2.f7':'Drone session/quarter · Analytics dashboard','price.p2.f8':'Priority support (response < 4 business hrs)',
+        'price.p2.cta':'Schedule strategic call','price.p2.guarantee':'🛡️ Average ROI recovered in ~60 days',
+        'price.p3.name':'DOMINATE','price.p3.tagline':'Total automation + premium digital presence for mid-size companies',
+        'price.p3.f1':'Everything in the SCALE plan','price.p3.f2':'Multi-channel automation (WhatsApp + Email + IG)','price.p3.f3':'Active SEO with monthly content','price.p3.f4':'4K drone production (1/quarter)','price.p3.f5':'Branding + full visual identity','price.p3.f6':'Internal systems integration (billing, inventory)','price.p3.f7':'Dedicated account manager','price.p3.f8':'Monthly strategy meeting',
+        'price.p3.cta':'Request proposal','price.p3.guarantee':'🛡️ End-to-end system that scales itself',
+        'price.disclaimer':'All prices in CLP · VAT not included · <strong style="color:var(--accent);">Implementation</strong> is a one-time payment covering audit, strategy, setup and delivery · <strong style="color:var(--accent);">Monthly subscription</strong> covers maintenance, ongoing improvements and support · <strong style="color:var(--accent);">30-day guarantee:</strong> if you don\'t see agreed results, 100% setup refund.',
+        'life.tag':'// Transformation','life.title':'How automation changes your life','life.sub':'Not hype. This is what happens when you stop answering WhatsApp at 11pm.',
+        'life.c1.before':'Before: you answered WhatsApp at 11pm while having dinner','life.c1.after':'Your AI bot closes sales while you spend time with family',
+        'life.c2.before':'Before: you couldn\'t go on vacation without the business stalling','life.c2.after':'Your business keeps billing even when you\'re offline',
+        'life.c3.before':'Before: your team answered the same thing 40 times a day','life.c3.after':'Now they do the work that actually matters',
+        'test.tag':'// Real clients','test.title':'Businesses already working with Kreathur','test.sub':'5 real projects. 5 businesses running on our technology. You can visit them and see them live.',
+        'faq.tag':'// Frequently Asked Questions','faq.title':'What everyone asks before getting started','faq.sub':'Straight answers. No runaround, no smoke and mirrors.',
+        'faq.q1':'What happens if it doesn\'t work after 30 days?','faq.a1':'We refund <strong>100% of the implementation</strong>. No fine print, no awkward questions, no lawyers. You decide if it worked based on the KPIs we agreed on Day 0. We take all the risk.',
+        'faq.q2':'How long does implementation take?','faq.a2':'<strong>7 business days</strong> from brief sign-off for ACTIVATE and SCALE plans. DOMINATE may extend to 14 days due to complexity. We always give you a heads-up and you\'ll see daily progress.',
+        'faq.q3':'Why is there a one-time fee plus a monthly subscription?','faq.a3':'The <strong>one-time fee</strong> covers audit, strategy, design, development and delivery. The <strong>monthly subscription</strong> covers maintenance, continuous improvements, AI updates, support and evolution. Without it your system would become obsolete in months — with it, it improves every month.',
+        'faq.q4':'Do I need a website or WhatsApp Business already set up?','faq.a4':'<strong>No.</strong> If you have nothing, we build everything from scratch (it\'s included). If you already have a website, CRM or flows, we integrate them without breaking what already works.',
+        'faq.q5':'Do you work outside Chile?','faq.a5':'Yes. We operate from <strong>Pichilemu 🇨🇱</strong> and <strong>Kiel 🇩🇪</strong>. We work with clients across LATAM, Europe and the United States. Meetings are via video call and flows are configured in your language of operation.',
+        'faq.q6':'Do you use "ChatGPT glued on" or something more serious?','faq.a6':'Much more serious. We use <strong>Claude (Anthropic)</strong> for the main agents, <strong>ChatGPT</strong> for copy and strategy, <strong>Manus</strong> for web automation, and <strong>n8n</strong> as the glue. Every flow is versioned, monitored and has a human fallback.',
+        'faq.q7':'Can I cancel the subscription any time?','faq.a7':'Yes, any time. No lock-in, no exit clauses. If you cancel one month, your system keeps running — you just lose ongoing improvements, monitoring and new support.',
+        'faq.q8':'How do I know if my business is a good fit?','faq.a8':'Book the free 30-minute call. If at the end we see we\'re not the best match, we\'ll tell you and recommend alternatives. We never force sales that shouldn\'t close.',
+        'faq.ctaText':'Your question not listed here? Write us and we\'ll answer during business hours.','faq.ctaLink':'Ask on WhatsApp →',
+        'founder.tag':'// Founder','founder.title':'Who\'s behind it','founder.role':'CEO · SEO Strategist · DGAC Pilot',
+        'founder.bio':'I\'m a <strong>DGAC</strong>-certified drone pilot, SEO and digital strategy specialist. From Pichilemu I\'ve transformed over 50 businesses using technology, artificial intelligence and creativity. My mission is simple: free your business from depending on you to run, and let automation give you back the time it\'s stealing.',
+        'contact.tag':'// Connect','contact.title':'Let\'s build something great together','contact.sub':'We operate from <strong>Pichilemu, Chile 🇨🇱</strong> and <strong>Kiel, Germany 🇩🇪</strong>. No matter where you are — we create from anywhere.'
       },
       de: {
         'nav.services':'Services','nav.demos':'Demos','nav.reach':'Global','nav.compare':'Vergleich','nav.ia':'KI','nav.process':'Prozess','nav.guarantee':'Garantie','nav.clients':'Kunden','nav.faq':'FAQ','nav.contact':'Kontakt',
@@ -2254,7 +2430,68 @@
         'how.s3.title':'Start + 30 Tage Garantie','how.s3.desc':'Wir aktivieren den Bot auf deinem WhatsApp Business. Wir zeigen dir das Dashboard, du nutzt es mit echten Kunden. Wenn es nicht wie versprochen läuft, gibt\'s alles zurück.','how.s3.dur':'Tag 14 · GO LIVE',
         'welcome.title':'Wir arbeiten in <span class="grad">Deutsch, English &amp; Español</span> — ohne Barrieren',
         'welcome.desc':'Wir sind ein <strong>internationales KI-Studio</strong> mit Büros in <strong>Kiel, Deutschland</strong> und <strong>Pichilemu, Chile</strong>. Wir entwickeln WhatsApp Bots, Websites und Automatisierungen für Unternehmen weltweit — in deiner Sprache, deiner Zeitzone, deinem Markt.',
-        'welcome.cta':'Tour starten'
+        'welcome.cta':'Tour starten',
+        'svc.tag':'// Was wir tun','svc.title':'Services & Lösungen','svc.sub':'Alles, was dein Unternehmen braucht, um die digitale Landschaft zu dominieren.',
+        'svc.s1.name':'SEO & Positionierung','svc.s1.desc':'Wir positionieren dein Unternehmen bei Google, um qualifizierte Leads zu gewinnen.',
+        'svc.s2.name':'Webentwicklung','svc.s2.desc':'Moderne, schnelle und responsive Websites, die Besucher in Kunden verwandeln.',
+        'svc.s3.name':'KI & Automatisierung','svc.s3.desc':'Integriere künstliche Intelligenz zur Prozessautomatisierung und Produktivitätssteigerung.',
+        'svc.s4.name':'Drohnen & Luftaufnahmen','svc.s4.desc':'Professionelle DGAC-zertifizierte Luftaufnahmen mit 4K-Drohnen.',
+        'svc.s5.name':'Digitales Marketing','svc.s5.desc':'Umfassende Werbestrategien zur Maximierung von ROI und Wachstum.',
+        'svc.s6.name':'Branding & Design','svc.s6.desc':'Vollständige visuelle Identität, die deine Marke abhebt und Verbindung schafft.',
+        'ia.tag':'// Künstliche Intelligenz','ia.title':'Generative KI für dein Unternehmen','ia.sub':'Wir nutzen die fortschrittlichsten KI-Tools der Welt zum Automatisieren, Erstellen und Skalieren.',
+        'ia.c1.title':'by Anthropic','ia.c1.f1':'Autonome KI-Agenten','ia.c1.f2':'Intelligente Chatbots','ia.c1.f3':'Dokumentenanalyse','ia.c1.f4':'Datenverarbeitung','ia.c1.footer':'Eingesetzt für: WhatsApp Bots, Automatisierung, Analyse',
+        'ia.c2.title':'by OpenAI','ia.c2.f1':'Content-Erstellung','ia.c2.f2':'Marketingstrategie','ia.c2.f3':'Copywriting','ia.c2.f4':'Recherche & Analyse','ia.c2.footer':'Eingesetzt für: Content, Strategie, Social Media',
+        'ia.c3.title':'Autonomer Agent','ia.c3.f1':'Web-Automatisierung','ia.c3.f2':'Autonome Recherche','ia.c3.f3':'Komplexe Verarbeitung','ia.c3.f4':'RPA (Automatisierung)','ia.c3.footer':'Eingesetzt für: Recherche, Automatisierung, Scraping',
+        'ia.c4.title':'Visuelle Generative KI','ia.c4.f1':'Bilderzeugung','ia.c4.f2':'Automatisiertes Design','ia.c4.f3':'Visueller Content','ia.c4.f4':'KI-gestützte Bearbeitung','ia.c4.footer':'Eingesetzt für: Design, Visueller Content, Social Media',
+        'portfolio.tag':'// Portfolio','portfolio.title':'Ausgewählte Projekte','portfolio.sub':'Jedes Projekt erzählt eine Geschichte. Entdecke unsere Arbeit.',
+        'drone.tag':'// Luftaufnahmen','drone.title':'DGAC-zertifizierte Drohnen','drone.sub':'Zertifizierter Pilot. 4K-Luftaufnahmen für Immobilien, Tourismus, Events und mehr.','drone.svctitle':'Drohnen-Services',
+        'drone.d1.name':'Immobilien','drone.d1.desc':'4K-Luftaufnahmen von Immobilien, Grundstücken und Projekten.',
+        'drone.d2.name':'Tourismus','drone.d2.desc':'Promotion-Videos aus der Luft für Reiseziele und Hotels.',
+        'drone.d3.name':'Events','drone.d3.desc':'Luftaufnahmen von Hochzeiten, Festivals und Firmenveranstaltungen.',
+        'drone.d4.name':'Vermessung','drone.d4.desc':'Topografische Vermessungen, 3D-Kartierung und Inspektion.',
+        'drone.d5.name':'Landwirtschaft','drone.d5.desc':'Ernteüberwachung, NDVI-Analyse und Sprüharbeiten.',
+        'drone.d6.name':'Fotografie','drone.d6.desc':'Luftbildsessions für Werbung und Kataloge.',
+        'proc.tag':'// So arbeiten wir','proc.title':'Vom Brief zum Ergebnis in 30 Tagen','proc.sub':'Null Überraschungen. Null Kleingedrucktes. Vier klare Schritte mit konkreten Terminen.',
+        'proc.s1.day':'Tag 0','proc.s1.title':'Discovery Call','proc.s1.desc':'30 kostenlose Minuten. Wir verstehen dein Geschäft, deinen aktuellen Betrieb und die gewünschten Ergebnisse. Passt es nicht, sagen wir es sofort — ohne Zeitverschwendung.',
+        'proc.s2.day':'Tage 1–7','proc.s2.title':'Umsetzung','proc.s2.desc':'Wir bauen deinen Bot, deine Website oder Automatisierung. Wir arbeiten mit Claude, ChatGPT, Manus und n8n. Tägliche Fortschritte — du gibst jeden Schritt frei.',
+        'proc.s3.day':'Tage 8–30','proc.s3.title':'Praxistest','proc.s3.desc':'22 Tage Einsatz mit echten Kunden. Wir messen Conversions, Reaktionszeiten und Fehler. Du entscheidest, ob die vereinbarten Ergebnisse geliefert werden.',
+        'proc.s4.day':'Tag 30','proc.s4.title':'Du entscheidest','proc.s4.desc':'Funktioniert es: Wir machen weiter mit dem Monatsabo und verbessern kontinuierlich. Wenn nicht: 100% Setup-Rückerstattung. Ohne Fragen.',
+        'price.tag':'// Preise & Garantie','price.title':'Unwiderstehliches Angebot','price.sub':'<strong>Implementierung</strong> (einmalige Zahlung) + <strong>monatliches Abo</strong>. Teste die Lösung 30 Tage in deinem echten Geschäft. Funktioniert es nicht, zahlst du nicht.',
+        'price.seal':'ZUFRIEDENHEIT<br>GARANTIERT','price.gBadge':'⚡ KREATHUR TRÄGT DAS GESAMTE RISIKO',
+        'price.gTitle':'30 Tage Test · <span class="accent">Funktioniert es nicht, zahlst du nichts</span>',
+        'price.gDesc':'Keine bindenden Verträge. Kein Kleingedrucktes. Wir implementieren deine Lösung und du testest sie 30 Tage in deinem echten Geschäft. Siehst du am Tag 30 <strong>keine vereinbarten konkreten Ergebnisse</strong>, erstatten wir <strong>100% deiner Investition</strong> — ohne unangenehme Fragen. Du entscheidest — wir tragen das Risiko.',
+        'price.gs1':'<strong>Wir planen</strong><br>ein kostenloses Gespräch','price.gs2':'<strong>Wir setzen um</strong><br>in 7 Werktagen','price.gs3':'<strong>Du testest</strong><br>30 Tage in deinem Geschäft','price.gs4':'<strong>Du entscheidest</strong><br>— oder null Zahlung',
+        'price.promoBadge':'🎁 AKTIVE AKTION','price.promoTitle':'10% RABATT für Follower in sozialen Medien',
+        'price.promoDesc':'Folge uns in sozialen Medien und kommentiere, dass du dein Geschäft <strong>automatisieren</strong> willst. Nach Bestätigung deines Kommentars gewähren wir <strong>10% Rabatt</strong> auf jeden Plan.',
+        'price.promoClaim':'10% RABATT sichern','price.implLabel':'IMPLEMENTIERUNG · EINMALIG','price.moLabel':'MONATLICHES ABO',
+        'price.p1.name':'AKTIVIEREN','price.p1.tagline':'Für Unternehmen, die ihren ersten WhatsApp Bot diese Woche laufen haben wollen',
+        'price.p1.f1':'WhatsApp Bot mit automatischen Antworten','price.p1.f2':'Bis zu 3 Gesprächsabläufe','price.p1.f3':'Integrierte Terminplanung','price.p1.f4':'1 SEO-optimierte Landing Page','price.p1.f5':'Google My Business eingerichtet','price.p1.f6':'Monatlicher Gesprächsbericht','price.p1.f7':'WhatsApp-Support während der Geschäftszeiten',
+        'price.p1.cta':'30-Tage-Test starten','price.p1.guarantee':'🛡️ Funktioniert es nicht in 30 Tagen, zahlst du nichts',
+        'price.p2.badge':'★ AM BELIEBTESTEN','price.p2.name':'SKALIEREN','price.p2.tagline':'Für KMU, die bereits verkaufen und ihren gesamten Vertrieb automatisieren wollen',
+        'price.p2.f1':'Alles aus dem AKTIVIEREN-Plan','price.p2.f2':'Konversations-KI-Bot (dynamische Antworten)','price.p2.f3':'Follow-up-Abläufe nach dem Verkauf','price.p2.f4':'CRM-Integration (HubSpot / Notion / andere)','price.p2.f5':'Komplette conversion-optimierte Website','price.p2.f6':'Google Ads + Social Media (2 Kanäle)','price.p2.f7':'Drohnensession/Quartal · Analytics Dashboard','price.p2.f8':'Prioritäts-Support (Antwort < 4 Geschäftsstunden)',
+        'price.p2.cta':'Strategiegespräch buchen','price.p2.guarantee':'🛡️ Durchschnittlicher ROI in ~60 Tagen amortisiert',
+        'price.p3.name':'DOMINIEREN','price.p3.tagline':'Totale Automatisierung + Premium-Digitalpräsenz für mittelständische Unternehmen',
+        'price.p3.f1':'Alles aus dem SKALIEREN-Plan','price.p3.f2':'Multi-Channel-Automatisierung (WhatsApp + E-Mail + IG)','price.p3.f3':'Aktives SEO mit monatlichem Content','price.p3.f4':'4K-Drohnenproduktion (1/Quartal)','price.p3.f5':'Branding + komplette visuelle Identität','price.p3.f6':'Interne Systemintegration (Fakturierung, Lager)','price.p3.f7':'Dedizierter Account Manager','price.p3.f8':'Monatliches Strategiegespräch',
+        'price.p3.cta':'Angebot anfordern','price.p3.guarantee':'🛡️ Ganzheitliches System, das von selbst skaliert',
+        'price.disclaimer':'Alle Preise in CLP · MwSt. nicht inbegriffen · <strong style="color:var(--accent);">Implementierung</strong> ist eine einmalige Zahlung für Audit, Strategie, Setup und Lieferung · <strong style="color:var(--accent);">Monatliches Abo</strong> deckt Wartung, kontinuierliche Verbesserungen und Support · <strong style="color:var(--accent);">30-Tage-Garantie:</strong> keine vereinbarten Ergebnisse = 100% Setup-Rückerstattung.',
+        'life.tag':'// Transformation','life.title':'So verändert Automatisierung dein Leben','life.sub':'Kein Hype. Das passiert, wenn du aufhörst, um 23 Uhr WhatsApp zu beantworten.',
+        'life.c1.before':'Vorher: Du hast um 23 Uhr beim Abendessen WhatsApp beantwortet','life.c1.after':'Dein KI-Bot schließt Verkäufe, während du Zeit mit der Familie verbringst',
+        'life.c2.before':'Vorher: Du konntest nicht in den Urlaub, ohne dass das Geschäft stillstand','life.c2.after':'Dein Geschäft fakturiert weiter, auch wenn du offline bist',
+        'life.c3.before':'Vorher: Dein Team hat 40 Mal am Tag dasselbe beantwortet','life.c3.after':'Jetzt machen sie die Arbeit, die wirklich zählt',
+        'test.tag':'// Echte Kunden','test.title':'Unternehmen, die bereits mit Kreathur arbeiten','test.sub':'5 echte Projekte. 5 Unternehmen mit unserer Technologie. Du kannst sie besuchen und live erleben.',
+        'faq.tag':'// Häufig gestellte Fragen','faq.title':'Was alle fragen, bevor sie starten','faq.sub':'Direkte Antworten. Kein Drumherum, kein Blabla.',
+        'faq.q1':'Was passiert, wenn es nach 30 Tagen nicht funktioniert?','faq.a1':'Wir erstatten <strong>100% der Implementierung</strong>. Kein Kleingedrucktes, keine unangenehmen Fragen, keine Anwälte. Du entscheidest anhand der am Tag 0 vereinbarten KPIs. Wir tragen das gesamte Risiko.',
+        'faq.q2':'Wie lange dauert die Implementierung?','faq.a2':'<strong>7 Werktage</strong> ab Brief-Freigabe für AKTIVIEREN und SKALIEREN. DOMINIEREN kann auf 14 Tage verlängert werden. Wir informieren dich vorab und du siehst tägliche Fortschritte.',
+        'faq.q3':'Warum gibt es eine Einmalzahlung und ein Monatsabo?','faq.a3':'Die <strong>Einmalzahlung</strong> deckt Audit, Strategie, Design, Entwicklung und Lieferung. Das <strong>Monatsabo</strong> deckt Wartung, kontinuierliche Verbesserungen, KI-Updates, Support und Weiterentwicklung. Ohne Abo wäre dein System in Monaten veraltet — mit ihm verbessert es sich jeden Monat.',
+        'faq.q4':'Brauche ich schon eine Website oder WhatsApp Business?','faq.a4':'<strong>Nein.</strong> Wenn du nichts hast, bauen wir alles von Grund auf (inklusive). Wenn du bereits Website, CRM oder Flows hast, integrieren wir sie, ohne Bestehendes zu zerstören.',
+        'faq.q5':'Betreut ihr auch außerhalb Chiles?','faq.a5':'Ja. Wir arbeiten aus <strong>Pichilemu 🇨🇱</strong> und <strong>Kiel 🇩🇪</strong>. Wir betreuen Kunden in ganz LATAM, Europa und den USA. Meetings per Videocall, Flows in deiner Betriebssprache.',
+        'faq.q6':'Nutzt ihr "aufgeklebtes ChatGPT" oder etwas Ernstes?','faq.a6':'Deutlich ernster. Wir nutzen <strong>Claude (Anthropic)</strong> für die Hauptagenten, <strong>ChatGPT</strong> für Copy und Strategie, <strong>Manus</strong> für Web-Automatisierung und <strong>n8n</strong> als Bindeglied. Jeder Flow ist versioniert, überwacht und hat einen menschlichen Fallback.',
+        'faq.q7':'Kann ich das Abo jederzeit kündigen?','faq.a7':'Ja, jederzeit. Keine Bindung, keine Ausstiegsklauseln. Kündigst du einen Monat, läuft dein System weiter — du verlierst nur laufende Verbesserungen, Überwachung und neuen Support.',
+        'faq.q8':'Wie weiß ich, ob mein Unternehmen passt?','faq.a8':'Buche das kostenlose 30-Minuten-Gespräch. Wenn wir sehen, dass wir nicht der beste Match sind, sagen wir es dir und empfehlen Alternativen. Wir erzwingen keine Verkäufe, die nicht sein sollten.',
+        'faq.ctaText':'Deine Frage ist nicht dabei? Schreib uns und wir antworten während der Geschäftszeiten.','faq.ctaLink':'Auf WhatsApp fragen →',
+        'founder.tag':'// Gründer','founder.title':'Wer dahinter steht','founder.role':'CEO · SEO-Stratege · DGAC-Pilot',
+        'founder.bio':'Ich bin <strong>DGAC</strong>-zertifizierter Drohnenpilot, SEO- und Digital-Strategie-Spezialist. Von Pichilemu aus habe ich über 50 Unternehmen mit Technologie, künstlicher Intelligenz und Kreativität transformiert. Meine Mission: Dein Geschäft von dir unabhängig machen und dir durch Automatisierung die geraubte Zeit zurückgeben.',
+        'contact.tag':'// Verbinden','contact.title':'Lass uns zusammen Großes schaffen','contact.sub':'Wir arbeiten aus <strong>Pichilemu, Chile 🇨🇱</strong> und <strong>Kiel, Deutschland 🇩🇪</strong>. Egal wo du bist — wir erschaffen von überall.'
       },
       pt: {
         'nav.services':'Serviços','nav.demos':'Demos','nav.reach':'Global','nav.compare':'Comparar','nav.ia':'IA','nav.process':'Processo','nav.guarantee':'Garantia','nav.clients':'Clientes','nav.faq':'FAQ','nav.contact':'Contato',
@@ -2299,7 +2536,68 @@
         'how.s3.title':'Lançamento + 30 dias de garantia','how.s3.desc':'Ativamos o bot no seu WhatsApp Business. Mostramos o dashboard, você usa com clientes reais. Se em 30 dias não funcionar como prometido, devolvemos tudo.','how.s3.dur':'Dia 14 · GO LIVE',
         'welcome.title':'Trabalhamos em <span class="grad">Deutsch, English &amp; Español</span> sem barreiras',
         'welcome.desc':'Somos um <strong>estúdio de IA internacional</strong> com escritórios em <strong>Kiel, Alemanha</strong> e <strong>Pichilemu, Chile</strong>. Projetamos bots WhatsApp, sites e automações para negócios em todo o mundo — no seu idioma, fuso horário, mercado.',
-        'welcome.cta':'Iniciar tour'
+        'welcome.cta':'Iniciar tour',
+        'svc.tag':'// O que fazemos','svc.title':'Serviços & Soluções','svc.sub':'Tudo que seu negócio precisa para dominar o cenário digital.',
+        'svc.s1.name':'SEO & Posicionamento','svc.s1.desc':'Posicionamos seu negócio no Google para atrair leads qualificados.',
+        'svc.s2.name':'Desenvolvimento Web','svc.s2.desc':'Sites modernos, rápidos e responsivos que convertem visitantes em clientes.',
+        'svc.s3.name':'IA & Automação','svc.s3.desc':'Integre inteligência artificial para automatizar processos e aumentar a produtividade.',
+        'svc.s4.name':'Drones & Vídeo Aéreo','svc.s4.desc':'Conteúdo aéreo profissional certificado DGAC com drones 4K.',
+        'svc.s5.name':'Marketing Digital','svc.s5.desc':'Estratégias completas de publicidade digital para maximizar ROI e crescimento.',
+        'svc.s6.name':'Branding & Design','svc.s6.desc':'Identidade visual completa que diferencia sua marca e gera conexão.',
+        'ia.tag':'// Inteligência Artificial','ia.title':'IA Generativa para seu Negócio','ia.sub':'Usamos as ferramentas de IA mais avançadas do mundo para automatizar, criar e escalar.',
+        'ia.c1.title':'by Anthropic','ia.c1.f1':'Agentes IA autônomos','ia.c1.f2':'Chatbots inteligentes','ia.c1.f3':'Análise de documentos','ia.c1.f4':'Processamento de dados','ia.c1.footer':'Usado em: Bots WhatsApp, Automação, Análise',
+        'ia.c2.title':'by OpenAI','ia.c2.f1':'Geração de conteúdo','ia.c2.f2':'Estratégia de marketing','ia.c2.f3':'Copywriting','ia.c2.f4':'Pesquisa e análise','ia.c2.footer':'Usado em: Conteúdo, Estratégia, Redes sociais',
+        'ia.c3.title':'Agente Autônomo','ia.c3.f1':'Automação web','ia.c3.f2':'Pesquisa autônoma','ia.c3.f3':'Processamento complexo','ia.c3.f4':'RPA (Automação)','ia.c3.footer':'Usado em: Pesquisa, Automação, Scraping',
+        'ia.c4.title':'IA Generativa Visual','ia.c4.f1':'Geração de imagens','ia.c4.f2':'Design automatizado','ia.c4.f3':'Conteúdo visual','ia.c4.f4':'Edição com IA','ia.c4.footer':'Usado em: Design, Conteúdo Visual, Redes sociais',
+        'portfolio.tag':'// Portfolio','portfolio.title':'Projetos Destacados','portfolio.sub':'Cada projeto conta uma história. Explore nosso trabalho.',
+        'drone.tag':'// Serviços Aéreos','drone.title':'Drones Certificados DGAC','drone.sub':'Piloto certificado. Filmagens aéreas 4K para imobiliárias, turismo, eventos e mais.','drone.svctitle':'Serviços de Drones',
+        'drone.d1.name':'Imobiliárias','drone.d1.desc':'Tours aéreos 4K de propriedades, terrenos e empreendimentos.',
+        'drone.d2.name':'Turismo','drone.d2.desc':'Vídeos promocionais aéreos de destinos e hotéis.',
+        'drone.d3.name':'Eventos','drone.d3.desc':'Cobertura aérea de casamentos, festivais e eventos corporativos.',
+        'drone.d4.name':'Topografia','drone.d4.desc':'Levantamentos topográficos, mapeamento 3D e inspeção.',
+        'drone.d5.name':'Agricultura','drone.d5.desc':'Monitoramento de culturas, análise NDVI e pulverização.',
+        'drone.d6.name':'Fotografia','drone.d6.desc':'Sessões fotográficas aéreas para publicidade e catálogos.',
+        'proc.tag':'// Como trabalhamos','proc.title':'Do briefing ao resultado em 30 dias','proc.sub':'Zero surpresas. Zero letras miúdas. Quatro passos claros com datas concretas.',
+        'proc.s1.day':'Dia 0','proc.s1.title':'Chamada de descoberta','proc.s1.desc':'30 minutos grátis. Entendemos seu negócio, sua operação atual e os resultados que busca. Se não for encaixe, dizemos na hora — sem perder seu tempo.',
+        'proc.s2.day':'Dias 1–7','proc.s2.title':'Implementação','proc.s2.desc':'Construímos seu bot, site ou automação. Trabalhamos com Claude, ChatGPT, Manus e n8n. Progresso diário — você valida cada passo.',
+        'proc.s3.day':'Dias 8–30','proc.s3.title':'Teste no mundo real','proc.s3.desc':'22 dias para usar com clientes reais. Medimos conversões, tempos de resposta e erros. Você decide se está entregando os resultados acordados.',
+        'proc.s4.day':'Dia 30','proc.s4.title':'Você decide','proc.s4.desc':'Se funcionou: continuamos juntos com a assinatura mensal e melhoramos continuamente. Se não: reembolso de 100% do setup. Sem perguntas.',
+        'price.tag':'// Preços & Garantia','price.title':'Oferta Irresistível','price.sub':'<strong>Implementação</strong> (pagamento único) + <strong>assinatura mensal</strong>. Teste a solução 30 dias no seu negócio real. Se não funcionar, você não paga.',
+        'price.seal':'SATISFAÇÃO<br>GARANTIDA','price.gBadge':'⚡ KREATHUR ASSUME TODO O RISCO',
+        'price.gTitle':'30 dias de teste · <span class="accent">Se não funcionar, você não paga</span>',
+        'price.gDesc':'Sem contratos vinculativos. Sem letras miúdas. Implementamos sua solução e você testa 30 dias no seu negócio real. Se no dia 30 você <strong>não ver os resultados concretos acordados</strong>, devolvemos <strong>100% do seu investimento</strong> — sem perguntas constrangedoras. Você decide se funciona — nós assumimos o risco.',
+        'price.gs1':'<strong>Agendamos</strong><br>uma chamada grátis','price.gs2':'<strong>Implementamos</strong><br>em 7 dias úteis','price.gs3':'<strong>Você testa</strong><br>30 dias no seu negócio','price.gs4':'<strong>Você decide</strong><br>— ou zero pagamento',
+        'price.promoBadge':'🎁 PROMO ATIVA','price.promoTitle':'10% OFF por nos seguir nas redes',
+        'price.promoDesc':'Siga-nos nas redes sociais e comente que deseja que ajudemos a <strong>automatizar</strong> seu negócio. Ao confirmar seu comentário, aplicamos <strong>10% de desconto</strong> em qualquer plano.',
+        'price.promoClaim':'Resgatar 10% OFF','price.implLabel':'IMPLEMENTAÇÃO · PAGAMENTO ÚNICO','price.moLabel':'ASSINATURA MENSAL',
+        'price.p1.name':'ATIVAR','price.p1.tagline':'Para negócios que querem seu primeiro bot WhatsApp funcionando esta semana',
+        'price.p1.f1':'Bot WhatsApp com respostas automáticas','price.p1.f2':'Até 3 fluxos de conversa','price.p1.f3':'Agendamento de reuniões integrado','price.p1.f4':'1 Landing Page otimizada SEO','price.p1.f5':'Google My Business configurado','price.p1.f6':'Relatório mensal de conversas','price.p1.f7':'Suporte WhatsApp em horário comercial',
+        'price.p1.cta':'Iniciar teste de 30 dias','price.p1.guarantee':'🛡️ Se não funcionar em 30 dias, você não paga',
+        'price.p2.badge':'★ MAIS POPULAR','price.p2.name':'ESCALAR','price.p2.tagline':'Para PMEs que já vendem e querem automatizar toda a operação comercial',
+        'price.p2.f1':'Tudo do plano ATIVAR','price.p2.f2':'Bot IA conversacional (respostas dinâmicas)','price.p2.f3':'Fluxos de acompanhamento pós-venda','price.p2.f4':'Integração CRM (HubSpot / Notion / outro)','price.p2.f5':'Site completo otimizado para conversão','price.p2.f6':'Google Ads + Redes sociais (2 canais)','price.p2.f7':'Sessão drone/trimestre · Dashboard analytics','price.p2.f8':'Suporte prioritário (resposta < 4h úteis)',
+        'price.p2.cta':'Agendar chamada estratégica','price.p2.guarantee':'🛡️ ROI médio recuperado em ~60 dias',
+        'price.p3.name':'DOMINAR','price.p3.tagline':'Automação total + presença digital premium para empresas médias',
+        'price.p3.f1':'Tudo do plano ESCALAR','price.p3.f2':'Automação multicanal (WhatsApp + Email + IG)','price.p3.f3':'SEO ativo com conteúdo mensal','price.p3.f4':'Produção drone 4K (1/trimestre)','price.p3.f5':'Branding + identidade visual completa','price.p3.f6':'Integração sistemas internos (faturamento, estoque)','price.p3.f7':'Account manager dedicado','price.p3.f8':'Reunião estratégica mensal',
+        'price.p3.cta':'Solicitar proposta','price.p3.guarantee':'🛡️ Sistema integral que escala sozinho',
+        'price.disclaimer':'Todos os preços em CLP · IVA não incluído · <strong style="color:var(--accent);">Implementação</strong> é pagamento único cobrindo auditoria, estratégia, setup e entrega · <strong style="color:var(--accent);">Assinatura mensal</strong> cobre manutenção, melhorias contínuas e suporte · <strong style="color:var(--accent);">Garantia 30 dias:</strong> sem resultados acordados = 100% reembolso do setup.',
+        'life.tag':'// Transformação','life.title':'Como a automação muda sua vida','life.sub':'Não é hype. É o que acontece quando você para de responder WhatsApp às 23h.',
+        'life.c1.before':'Antes: você respondia WhatsApp às 23h durante o jantar','life.c1.after':'Seu bot IA fecha vendas enquanto você curte a família',
+        'life.c2.before':'Antes: não podia tirar férias sem o negócio parar','life.c2.after':'Seu negócio fatura mesmo quando você está offline',
+        'life.c3.before':'Antes: sua equipe respondia a mesma coisa 40 vezes por dia','life.c3.after':'Agora fazem o trabalho que realmente importa',
+        'test.tag':'// Clientes reais','test.title':'Negócios que já trabalham com Kreathur','test.sub':'5 projetos reais. 5 negócios rodando com nossa tecnologia. Você pode visitá-los e ver ao vivo.',
+        'faq.tag':'// Perguntas Frequentes','faq.title':'O que todos perguntam antes de começar','faq.sub':'Respostas diretas. Sem enrolação, sem vendedores de fumaça.',
+        'faq.q1':'O que acontece se não funcionar depois de 30 dias?','faq.a1':'Devolvemos <strong>100% da implementação</strong>. Sem letras miúdas, sem perguntas constrangedoras, sem advogados. Você decide se funcionou com base nos KPIs acordados no Dia 0. Nós assumimos todo o risco.',
+        'faq.q2':'Quanto tempo leva a implementação?','faq.a2':'<strong>7 dias úteis</strong> a partir da aprovação do brief para ATIVAR e ESCALAR. DOMINAR pode estender para 14 dias pela complexidade. Sempre avisamos antes e você verá progresso diário.',
+        'faq.q3':'Por que há pagamento único e assinatura mensal?','faq.a3':'O <strong>pagamento único</strong> cobre auditoria, estratégia, design, desenvolvimento e entrega. A <strong>assinatura mensal</strong> cobre manutenção, melhorias contínuas, atualizações de IA, suporte e evolução. Sem ela, seu sistema ficaria obsoleto em meses — com ela, melhora todo mês.',
+        'faq.q4':'Preciso já ter site ou WhatsApp Business?','faq.a4':'<strong>Não.</strong> Se não tem nada, construímos tudo do zero (incluído). Se já tem site, CRM ou fluxos, integramos sem quebrar o que já funciona.',
+        'faq.q5':'Atendem fora do Chile?','faq.a5':'Sim. Operamos de <strong>Pichilemu 🇨🇱</strong> e <strong>Kiel 🇩🇪</strong>. Trabalhamos com clientes em toda LATAM, Europa e Estados Unidos. Reuniões por videochamada e fluxos no idioma da sua operação.',
+        'faq.q6':'Vocês usam "ChatGPT colado" ou algo mais sério?','faq.a6':'Bem mais sério. Usamos <strong>Claude (Anthropic)</strong> para os agentes principais, <strong>ChatGPT</strong> para copy e estratégia, <strong>Manus</strong> para automação web e <strong>n8n</strong> como cola. Cada fluxo é versionado, monitorado e tem fallback humano.',
+        'faq.q7':'Posso cancelar a assinatura a qualquer momento?','faq.a7':'Sim, quando quiser. Sem fidelidade, sem cláusulas de saída. Se cancelar um mês, seu sistema continua funcionando — só perde melhorias contínuas, monitoramento e novo suporte.',
+        'faq.q8':'Como sei se meu negócio é candidato?','faq.a8':'Agende a chamada gratuita de 30 minutos. Se no final virmos que não somos o melhor encaixe, dizemos e recomendamos alternativas. Nunca forçamos vendas que não devem fechar.',
+        'faq.ctaText':'Sua pergunta não está aqui? Escreva-nos e respondemos em horário comercial.','faq.ctaLink':'Perguntar no WhatsApp →',
+        'founder.tag':'// Fundador','founder.title':'Quem está por trás','founder.role':'CEO · Estrategista SEO · Piloto DGAC',
+        'founder.bio':'Sou piloto de drones certificado <strong>DGAC</strong>, especialista em SEO e estratégia digital. De Pichilemu, transformei mais de 50 negócios usando tecnologia, inteligência artificial e criatividade. Minha missão é simples: libertar seu negócio de depender de você para funcionar e deixar a automação devolver o tempo que estão roubando.',
+        'contact.tag':'// Conectar','contact.title':'Vamos construir algo grande juntos','contact.sub':'Operamos de <strong>Pichilemu, Chile 🇨🇱</strong> e <strong>Kiel, Alemanha 🇩🇪</strong>. Não importa onde esteja — criamos de qualquer lugar.'
       }
     };
 
