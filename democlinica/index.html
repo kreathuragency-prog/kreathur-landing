@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <meta name="theme-color" content="#0b4f6c" />
+  <meta name="description" content="Clínica Vidamar Pichilemu · Atención médica integral frente al mar. Agenda online con FONASA, ISAPRE y pago electrónico. Medicina general, pediatría, kinesiología y urgencias." />
+  <meta name="keywords" content="Clínica Vidamar, Pichilemu, médico Pichilemu, FONASA, ISAPRE, agenda médica online, pediatra Pichilemu, urgencia Pichilemu, kinesiología" />
+  <meta name="author" content="Clínica Vidamar Pichilemu" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clínica Vidamar · Salud frente al mar en Pichilemu" />
+  <meta property="og:description" content="Agenda tu hora online en segundos. Pago con bono FONASA/ISAPRE integrado. Atención médica humana, moderna y accesible." />
+  <meta property="og:url" content="https://clinicavidamar.cl/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80" />
+  <meta property="og:locale" content="es_CL" />
+
+  <title>Clínica Vidamar · Salud que respira mar — Pichilemu</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons (emoji fallback local) -->
+  <link rel="stylesheet" href="css/icons.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Structured Data: Medical Clinic -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Clínica Vidamar",
+    "url": "https://clinicavidamar.cl/",
+    "telephone": "+56 9 0000 0000",
+    "image": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80",
+    "priceRange": "$$",
+    "currenciesAccepted": "CLP",
+    "paymentAccepted": "FONASA, ISAPRE, Efectivo, Tarjeta, Webpay, Bono Electrónico Imed",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Comercio 1990, Edificio Olas de Pichilemu",
+      "addressLocality": "Pichilemu",
+      "addressRegion": "Región de O'Higgins",
+      "postalCode": "3160000",
+      "addressCountry": "CL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -34.3879,
+      "longitude": -72.0094
+    },
+    "openingHours": ["Mo-Fr 08:00-12:30", "Mo-Fr 14:00-16:30", "Sa 08:30-12:00"],
+    "sameAs": [
+      "https://www.instagram.com/clinicavidamar/",
+      "https://www.facebook.com/profile.php?id=61571063861820"
+    ]
+  }
+  </script>
+</head>
+
+<body data-theme="light">
+
+  <!-- Announcement Bar -->
+  <div class="announce" role="region" aria-label="Anuncio">
+    <span class="announce__dot" aria-hidden="true"></span>
+    <p>
+      <strong>Ahora agenda online 24/7</strong> · Pago con bono FONASA/ISAPRE integrado ·
+      <a href="#agendar">Reservar hora →</a>
+    </p>
+  </div>
+
+  <!-- Header -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Clínica Vidamar - Inicio">
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 22 Q14 16, 20 22 T32 22" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M20 11 L20 17 M17 14 L23 14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">Clínica Vidamar</span>
+          <span class="nav__logo-tag">Pichilemu · Chile</span>
+        </div>
+      </a>
+
+      <nav class="nav__menu" aria-label="Menú principal">
+        <a href="#especialidades">Especialidades</a>
+        <a href="#equipo">Equipo Médico</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="btn-ghost theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Tema claro/oscuro">
+          <i class="icon-moon"></i>
+        </button>
+        <a href="#agendar" class="btn-primary">
+          <i class="icon-calendar-plus"></i>
+          Agendar Hora
+        </a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__wave hero__wave--1"></div>
+      <div class="hero__wave hero__wave--2"></div>
+      <div class="hero__wave hero__wave--3"></div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="chip">
+          <span class="chip__dot"></span>
+          Atención médica en Pichilemu · Abierto hoy
+        </div>
+
+        <h1 class="hero__title">
+          Salud que respira mar,<br/>
+          <em>cuidado que siente</em> casa.
+        </h1>
+
+        <p class="hero__lead">
+          En Clínica Vidamar combinamos medicina moderna con el ritmo tranquilo de Pichilemu.
+          Agenda tu hora en <strong>menos de 60 segundos</strong>, paga con bono FONASA o ISAPRE
+          y recibe atención personalizada frente al mar.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#agendar" class="btn-primary btn-lg" data-track="hero-agendar">
+            <i class="icon-calendar-check-2"></i>
+            Agendar hora online
+          </a>
+          <a href="#chatbot" class="btn-outline btn-lg" id="openChatHero">
+            <i class="icon-message-circle"></i>
+            Hablar con Mar (asistente IA)
+          </a>
+        </div>
+
+        <ul class="hero__badges" role="list">
+          <li><i class="icon-shield-check"></i> Atiende FONASA B · C · D</li>
+          <li><i class="icon-credit-card"></i> Bono Imed / Medipass</li>
+          <li><i class="icon-clock"></i> Resultados 24h</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__card hero__card--main">
+          <svg class="hero__illustration" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="herogr" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#145d82"/>
+                <stop offset="50%" stop-color="#20a4bf"/>
+                <stop offset="100%" stop-color="#a9e5e8"/>
+              </linearGradient>
+              <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff7a59"/>
+                <stop offset="100%" stop-color="#ff5a5f"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#herogr)"/>
+            <circle cx="300" cy="140" r="60" fill="url(#sunset)" opacity="0.9"/>
+            <circle cx="300" cy="140" r="80" fill="url(#sunset)" opacity="0.25"/>
+            <path d="M0,320 Q100,280 200,310 T400,290 L400,500 L0,500 Z" fill="#f4ede1" opacity="0.95"/>
+            <path d="M0,340 Q100,310 200,330 T400,315" stroke="#fff" stroke-width="2" fill="none" opacity="0.6"/>
+            <path d="M0,280 Q100,240 200,270 T400,255" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.45"/>
+            <path d="M0,240 Q100,210 200,230 T400,220" stroke="#fff" stroke-width="1" fill="none" opacity="0.35"/>
+            <g opacity="0.92">
+              <circle cx="200" cy="200" r="55" fill="#f4ede1"/>
+              <path d="M155 235 Q200 290 245 235 L245 380 L155 380 Z" fill="#fff"/>
+              <circle cx="200" cy="200" r="50" fill="#f5d9bc"/>
+              <path d="M175 195 Q200 210 225 195" stroke="#5a3825" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="185" cy="190" r="2.5" fill="#5a3825"/>
+              <circle cx="215" cy="190" r="2.5" fill="#5a3825"/>
+              <path d="M180 165 Q200 150 220 165 L225 180 L175 180 Z" fill="#3a2817"/>
+              <circle cx="200" cy="295" r="20" fill="none" stroke="#20a4bf" stroke-width="3"/>
+              <line x1="200" y1="275" x2="200" y2="265" stroke="#20a4bf" stroke-width="3"/>
+              <line x1="200" y1="265" x2="190" y2="255" stroke="#20a4bf" stroke-width="3"/>
+              <line x1="200" y1="265" x2="210" y2="255" stroke="#20a4bf" stroke-width="3"/>
+            </g>
+          </svg>
+          <div class="hero__card-tag">
+            <div class="avatar"><i class="icon-stethoscope"></i></div>
+            <div>
+              <strong>Dra. equipo Vidamar</strong>
+              <span>Medicina general · ahora</span>
+            </div>
+            <span class="pulse"></span>
+          </div>
+        </div>
+
+        <div class="hero__card hero__card--mini">
+          <div class="mini-stat">
+            <strong>+4.800</strong>
+            <span>pacientes atendidos</span>
+          </div>
+          <div class="mini-stat">
+            <strong>4.9★</strong>
+            <span>satisfacción pacientes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Bar -->
+  <section class="quickbar">
+    <div class="container quickbar__grid">
+      <a href="#agendar" class="quickbar__item">
+        <i class="icon-calendar-plus"></i>
+        <div>
+          <strong>Agendar hora</strong>
+          <span>Online 24/7</span>
+        </div>
+      </a>
+      <a href="#especialidades" class="quickbar__item">
+        <i class="icon-heart-pulse"></i>
+        <div>
+          <strong>Especialidades</strong>
+          <span>10+ áreas médicas</span>
+        </div>
+      </a>
+      <a href="#resultados" class="quickbar__item">
+        <i class="icon-file-text"></i>
+        <div>
+          <strong>Mis resultados</strong>
+          <span>Exámenes online</span>
+        </div>
+      </a>
+      <a href="tel:+56900000000" class="quickbar__item">
+        <i class="icon-phone-call"></i>
+        <div>
+          <strong>Urgencia</strong>
+          <span>Llamar ahora</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Especialidades -->
+  <section class="section" id="especialidades">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Especialidades</span>
+        <h2>Atención médica integral, <em>con enfoque humano</em>.</h2>
+        <p>Nuestro equipo multidisciplinario cubre las necesidades de salud de toda la familia, desde controles pediátricos hasta rehabilitación kinésica post-accidente de surf.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--blue"><i class="icon-baby"></i></div>
+          <h3>Pediatría</h3>
+          <p>Control sano, enfermedades agudas y vacunas para niños de 0 a 15 años. Atención cálida y paciente con los más pequeños.</p>
+          <ul>
+            <li>Control niño sano</li>
+            <li>Vacunatorio</li>
+            <li>Enfermedades respiratorias</li>
+          </ul>
+          <a href="#agendar" class="card__cta">Agendar con pediatra <i class="icon-arrow-right"></i></a>
+        </article>
+
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--teal"><i class="icon-stethoscope"></i></div>
+          <h3>Medicina General Adultos</h3>
+          <p>Diagnóstico, tratamiento y seguimiento de patologías comunes. Controles preventivos y licencias médicas electrónicas.</p>
+          <ul>
+            <li>Consulta médica general</li>
+            <li>Licencia médica electrónica</li>
+            <li>Chequeo preventivo</li>
+          </ul>
+          <a href="#agendar" class="card__cta">Agendar consulta <i class="icon-arrow-right"></i></a>
+        </article>
+
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--orange"><i class="icon-activity"></i></div>
+          <h3>Kinesiología & Rehabilitación</h3>
+          <p>Planes personalizados para deportistas, surfistas y pacientes post-cirugía. Terapia manual, electroterapia y ejercicio terapéutico.</p>
+          <ul>
+            <li>Rehabilitación deportiva</li>
+            <li>Tratamiento de lesiones surf</li>
+            <li>Dolor crónico</li>
+          </ul>
+          <a href="#agendar" class="card__cta">Reservar sesión <i class="icon-arrow-right"></i></a>
+        </article>
+
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--pink"><i class="icon-heart"></i></div>
+          <h3>Ginecología & Matrona</h3>
+          <p>Control ginecológico, PAP, anticoncepción y control prenatal. Espacio seguro y respetuoso en cada etapa de la vida.</p>
+          <ul>
+            <li>Control ginecológico</li>
+            <li>PAP y ecografías</li>
+            <li>Control prenatal</li>
+          </ul>
+          <a href="#agendar" class="card__cta">Agendar control <i class="icon-arrow-right"></i></a>
+        </article>
+
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--red"><i class="icon-alert-triangle"></i></div>
+          <h3>Urgencias & Primeros Auxilios</h3>
+          <p>Atención médica rápida para accidentes, cortes, fracturas menores, picaduras marinas y malestares agudos.</p>
+          <ul>
+            <li>Sutura de heridas</li>
+            <li>Lesiones deportivas</li>
+            <li>Atención sin cita</li>
+          </ul>
+          <a href="tel:+56900000000" class="card__cta">Llamar ahora <i class="icon-phone"></i></a>
+        </article>
+
+        <article class="card card--specialty">
+          <div class="card__icon card__icon--green"><i class="icon-flask-conical"></i></div>
+          <h3>Exámenes & Laboratorio</h3>
+          <p>Toma de muestras, exámenes preventivos y resultados online. Convenio con los principales laboratorios de la Región de O'Higgins.</p>
+          <ul>
+            <li>Toma de sangre</li>
+            <li>Perfiles preventivos</li>
+            <li>Resultados digitales</li>
+          </ul>
+          <a href="#agendar" class="card__cta">Reservar examen <i class="icon-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="section__foot">
+        <p>¿No encuentras lo que buscas? <a href="#chatbot" id="openChatAsk">Pregúntale a <strong>Mar</strong></a>, nuestra asistente IA 24/7.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking / Agendar -->
+  <section class="section section--booking" id="agendar">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <span class="eyebrow">Agenda en 3 pasos</span>
+        <h2>Reserva tu hora médica <em>en menos de 60 segundos</em>.</h2>
+        <p>Elige especialista, paga con tu bono FONASA/ISAPRE y recibe la confirmación por WhatsApp y correo.</p>
+      </header>
+
+      <div class="booking">
+        <!-- Progress -->
+        <ol class="booking__steps" id="bookingSteps">
+          <li class="is-active" data-step="1"><span>1</span> Especialidad</li>
+          <li data-step="2"><span>2</span> Doctor/a & horario</li>
+          <li data-step="3"><span>3</span> Pago & confirmación</li>
+        </ol>
+
+        <!-- Step 1 -->
+        <div class="booking__panel is-active" data-panel="1">
+          <h3>¿Qué necesitas hoy?</h3>
+          <div class="pill-grid">
+            <label class="pill"><input type="radio" name="specialty" value="Medicina General Adultos" /> <span>Medicina General Adultos</span></label>
+            <label class="pill"><input type="radio" name="specialty" value="Pediatría" /> <span>Pediatría</span></label>
+            <label class="pill"><input type="radio" name="specialty" value="Kinesiología" /> <span>Kinesiología</span></label>
+            <label class="pill"><input type="radio" name="specialty" value="Ginecología" /> <span>Ginecología</span></label>
+            <label class="pill"><input type="radio" name="specialty" value="Nutrición" /> <span>Nutrición</span></label>
+            <label class="pill"><input type="radio" name="specialty" value="Psicología" /> <span>Psicología</span></label>
+          </div>
+          <div class="booking__nav">
+            <button class="btn-primary" data-next="2">Continuar <i class="icon-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="booking__panel" data-panel="2">
+          <h3>Elige doctor/a y horario</h3>
+          <div class="doctors" id="doctorsList"></div>
+
+          <div class="booking__row">
+            <div>
+              <label for="bookDate">Fecha</label>
+              <input type="date" id="bookDate" />
+            </div>
+            <div>
+              <label for="bookTime">Horario</label>
+              <select id="bookTime">
+                <option value="">Selecciona un horario…</option>
+                <option>08:30</option>
+                <option>09:00</option>
+                <option>09:30</option>
+                <option>10:00</option>
+                <option>11:00</option>
+                <option>12:00</option>
+                <option>14:30</option>
+                <option>15:00</option>
+                <option>15:30</option>
+                <option>16:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="booking__nav">
+            <button class="btn-ghost" data-prev="1"><i class="icon-arrow-left"></i> Volver</button>
+            <button class="btn-primary" data-next="3">Continuar <i class="icon-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="booking__panel" data-panel="3">
+          <h3>Datos y forma de pago</h3>
+
+          <div class="booking__row">
+            <div>
+              <label for="bookName">Nombre completo</label>
+              <input type="text" id="bookName" placeholder="Ej: María González Soto" />
+            </div>
+            <div>
+              <label for="bookRut">RUT</label>
+              <input type="text" id="bookRut" placeholder="12.345.678-9" />
+            </div>
+          </div>
+
+          <div class="booking__row">
+            <div>
+              <label for="bookPhone">Celular</label>
+              <input type="tel" id="bookPhone" placeholder="+56 9 ..." />
+            </div>
+            <div>
+              <label for="bookEmail">Correo</label>
+              <input type="email" id="bookEmail" placeholder="tu@correo.cl" />
+            </div>
+          </div>
+
+          <fieldset class="payment">
+            <legend>Previsión & pago</legend>
+            <label class="payment__option">
+              <input type="radio" name="payment" value="FONASA" checked />
+              <div class="payment__card">
+                <strong>FONASA</strong>
+                <span>Bono electrónico Imed / Modalidad Libre Elección</span>
+              </div>
+            </label>
+            <label class="payment__option">
+              <input type="radio" name="payment" value="ISAPRE" />
+              <div class="payment__card">
+                <strong>ISAPRE</strong>
+                <span>Banmédica · Colmena · Cruz Blanca · Vida Tres · Consalud</span>
+              </div>
+            </label>
+            <label class="payment__option">
+              <input type="radio" name="payment" value="Particular" />
+              <div class="payment__card">
+                <strong>Particular</strong>
+                <span>Webpay / Tarjeta / Transferencia</span>
+              </div>
+            </label>
+          </fieldset>
+
+          <div class="booking__summary" id="bookingSummary">
+            <h4>Resumen</h4>
+            <ul></ul>
+            <div class="booking__total">
+              <span>Total estimado</span>
+              <strong id="bookingTotal">—</strong>
+            </div>
+          </div>
+
+          <div class="booking__nav">
+            <button class="btn-ghost" data-prev="2"><i class="icon-arrow-left"></i> Volver</button>
+            <button class="btn-primary" id="confirmBooking">
+              <i class="icon-check-circle"></i>
+              Confirmar hora & pagar
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="booking__panel booking__panel--done" data-panel="done">
+          <div class="confirm">
+            <div class="confirm__check"><i class="icon-check-circle-2"></i></div>
+            <h3>¡Tu hora está confirmada!</h3>
+            <p id="confirmText">Te enviaremos los detalles por WhatsApp y correo en los próximos minutos.</p>
+            <button class="btn-outline" id="newBooking"><i class="icon-rotate-ccw"></i> Agendar otra hora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo -->
+  <section class="section section--team" id="equipo">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Equipo Médico</span>
+        <h2>Profesionales que <em>realmente</em> te escuchan.</h2>
+        <p>Un equipo con años de experiencia en hospitales y clínicas del país, hoy en Pichilemu para ti.</p>
+      </header>
+
+      <div class="team" id="teamGrid"></div>
+    </div>
+  </section>
+
+  <!-- Nosotros / Historia -->
+  <section class="section section--about" id="nosotros">
+    <div class="container about">
+      <div class="about__media">
+        <svg class="about__illustration" viewBox="0 0 600 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ff7a59"/>
+              <stop offset="40%" stop-color="#ff5a5f"/>
+              <stop offset="75%" stop-color="#145d82"/>
+              <stop offset="100%" stop-color="#0b4f6c"/>
+            </linearGradient>
+            <linearGradient id="sea2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#20a4bf"/>
+              <stop offset="100%" stop-color="#0b4f6c"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="750" fill="url(#sky)"/>
+          <circle cx="420" cy="260" r="60" fill="#ffeba5" opacity="0.95"/>
+          <circle cx="420" cy="260" r="90" fill="#ffeba5" opacity="0.3"/>
+          <circle cx="420" cy="260" r="130" fill="#ffeba5" opacity="0.12"/>
+          <rect x="0" y="420" width="600" height="330" fill="url(#sea2)"/>
+          <path d="M0,430 Q150,410 300,425 T600,420" stroke="#fff" stroke-width="2" fill="none" opacity="0.5"/>
+          <path d="M0,470 Q150,450 300,465 T600,460" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.35"/>
+          <path d="M0,520 Q150,500 300,515 T600,510" stroke="#fff" stroke-width="1" fill="none" opacity="0.25"/>
+          <ellipse cx="420" cy="420" rx="120" ry="4" fill="#ffeba5" opacity="0.6"/>
+        </svg>
+        <div class="about__badge">
+          <i class="icon-map-pin"></i>
+          <div>
+            <strong>Pichilemu</strong>
+            <span>Región de O'Higgins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <span class="eyebrow">Nosotros</span>
+        <h2>Una clínica nacida <em>para Pichilemu y sus visitantes</em>.</h2>
+        <p>
+          Clínica Vidamar nace con el propósito de entregar atención médica de calidad en un entorno
+          moderno y acogedor, en una de las zonas más hermosas de Chile. Atendemos tanto a la comunidad
+          local como a surfistas y turistas que llegan desde todo el mundo.
+        </p>
+        <p>
+          Combinamos tecnología, medicina basada en evidencia y un trato humano que marca la diferencia.
+          Creemos que la salud también se construye desde la tranquilidad del mar.
+        </p>
+
+        <div class="about__stats">
+          <div><strong>8+</strong><span>especialidades</span></div>
+          <div><strong>12</strong><span>profesionales</span></div>
+          <div><strong>4.9★</strong><span>en Google</span></div>
+          <div><strong>24/7</strong><span>agenda online</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section section--testimonials">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <span class="eyebrow">Pacientes</span>
+        <h2>Lo que dicen de <em>Vidamar</em></h2>
+      </header>
+
+      <div class="testimonials">
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Veníamos de vacaciones y mi hijo amaneció con fiebre. Agendé en minutos, nos atendieron súper rápido y el pediatra fue maravilloso. Súper recomendados."</p>
+          <footer>
+            <strong>Camila R.</strong><span>Santiago · Pediatría</span>
+          </footer>
+        </article>
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Me lesioné el hombro surfeando y los kinesiólogos de Vidamar me recuperaron en 3 semanas. Profesionales de primer nivel, instalaciones impecables."</p>
+          <footer>
+            <strong>Tomás A.</strong><span>Surfista · Rehabilitación</span>
+          </footer>
+        </article>
+
+        <article class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Por fin una clínica moderna en Pichilemu. Pagué con bono FONASA online, llegué y me atendieron puntual. Gran cambio para nuestra comuna."</p>
+          <footer>
+            <strong>Patricia M.</strong><span>Pichilemu · Medicina general</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación -->
+  <section class="section section--location" id="ubicacion">
+    <div class="container location">
+      <div class="location__content">
+        <span class="eyebrow">Cómo llegar</span>
+        <h2>Frente al mar, a pasos de <em>Playa Hermosa</em>.</h2>
+        <p>Av. Comercio 1990, Edificio Olas de Pichilemu, Playa Hermosa, Pichilemu, Región de O'Higgins.</p>
+
+        <ul class="location__list">
+          <li><i class="icon-clock"></i> Lunes a Viernes · 08:00–12:30 / 14:00–16:30</li>
+          <li><i class="icon-clock"></i> Sábados · 08:30–12:00</li>
+          <li><i class="icon-phone"></i> +56 9 0000 0000</li>
+          <li><i class="icon-mail"></i> contacto@clinicavidamar.cl</li>
+          <li><i class="icon-car"></i> Estacionamiento gratuito para pacientes</li>
+        </ul>
+
+        <div class="location__ctas">
+          <a href="https://maps.google.com/?q=Av+Comercio+1990+Pichilemu" target="_blank" rel="noopener" class="btn-primary">
+            <i class="icon-map"></i> Ver en Google Maps
+          </a>
+          <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="btn-outline">
+            <i class="icon-message-square"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="location__map">
+        <a href="https://maps.google.com/?q=Av+Comercio+1990+Pichilemu" target="_blank" rel="noopener" class="map-placeholder map-placeholder--fallback">
+          <svg class="map-placeholder__svg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a9e5e8"/>
+                <stop offset="100%" stop-color="#20a4bf"/>
+              </linearGradient>
+              <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f4ede1"/>
+                <stop offset="100%" stop-color="#e6d7b7"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="480" fill="url(#sea)"/>
+            <path d="M0,260 Q200,200 400,240 T800,220 L800,480 L0,480 Z" fill="url(#sand)" opacity="0.95"/>
+            <path d="M0,240 Q200,180 400,220 T800,200" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+            <path d="M0,120 Q200,80 400,110 T800,90" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+            <path d="M0,60 Q200,30 400,50 T800,40" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
+            <g opacity="0.4">
+              <line x1="0" y1="320" x2="800" y2="310" stroke="#fff" stroke-width="1" stroke-dasharray="6 4"/>
+              <line x1="0" y1="380" x2="800" y2="370" stroke="#fff" stroke-width="1" stroke-dasharray="6 4"/>
+              <line x1="0" y1="440" x2="800" y2="430" stroke="#fff" stroke-width="1" stroke-dasharray="6 4"/>
+              <line x1="200" y1="260" x2="210" y2="480" stroke="#fff" stroke-width="1" stroke-dasharray="4 3"/>
+              <line x1="520" y1="240" x2="540" y2="480" stroke="#fff" stroke-width="1" stroke-dasharray="4 3"/>
+            </g>
+            <g transform="translate(400,300)">
+              <circle r="38" fill="#ff5a5f" opacity="0.2"/>
+              <circle r="22" fill="#ff5a5f" opacity="0.35"/>
+              <circle r="12" fill="#ff5a5f"/>
+              <circle r="5" fill="#fff"/>
+            </g>
+          </svg>
+          <div class="map-placeholder__pin">
+            <span class="map-placeholder__icon"><i class="icon-map-pin"></i></span>
+            <strong>Av. Comercio 1990</strong>
+            <span>Pichilemu · Región de O'Higgins</span>
+            <em>Toca para abrir en Google Maps →</em>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-final">
+    <div class="container cta-final__inner">
+      <div>
+        <h2>Tu salud no puede esperar. <em>Agéndala ahora.</em></h2>
+        <p>60 segundos es lo único que necesitas para reservar tu hora con un especialista.</p>
+      </div>
+      <a href="#agendar" class="btn-primary btn-lg">
+        <i class="icon-calendar-plus"></i>
+        Agendar mi hora
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contacto">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 22 Q14 16, 20 22 T32 22" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <path d="M20 11 L20 17 M17 14 L23 14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <div class="nav__logo-text">
+            <span class="nav__logo-name">Clínica Vidamar</span>
+            <span class="nav__logo-tag">Pichilemu · Chile</span>
+          </div>
+        </div>
+        <p>Atención médica integral frente al mar. Salud humana, moderna y accesible para toda la familia.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/clinicavidamar/" target="_blank" rel="noopener" aria-label="Instagram"><i class="icon-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61571063861820" target="_blank" rel="noopener" aria-label="Facebook"><i class="icon-facebook"></i></a>
+          <a href="https://wa.me/56900000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="icon-message-square"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Atención</h4>
+        <ul>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#agendar">Agendar hora</a></li>
+          <li><a href="#equipo">Equipo médico</a></li>
+          <li><a href="#resultados">Resultados exámenes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Convenios</h4>
+        <ul>
+          <li>FONASA (B · C · D)</li>
+          <li>Banmédica</li>
+          <li>Colmena</li>
+          <li>Cruz Blanca</li>
+          <li>Vida Tres · Consalud</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="icon-map-pin"></i> Av. Comercio 1990, Pichilemu</li>
+          <li><i class="icon-phone"></i> +56 9 0000 0000</li>
+          <li><i class="icon-mail"></i> contacto@clinicavidamar.cl</li>
+          <li><i class="icon-clock"></i> L-V 08:00-16:30 · Sáb 08:30-12:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© 2026 Clínica Vidamar SPA · RUT 77.999.468-6 · Todos los derechos reservados.</p>
+      <p>Sitio propuesto por <a href="https://kreathur.agency" target="_blank" rel="noopener"><strong>Kreathur Agency</strong></a></p>
+    </div>
+  </footer>
+
+  <!-- Chatbot flotante -->
+  <button class="chatbot-fab" id="chatbotFab" aria-label="Abrir chat con Mar">
+    <i class="icon-message-circle"></i>
+    <span class="chatbot-fab__pulse"></span>
+    <span class="chatbot-fab__label">Habla con Mar</span>
+  </button>
+
+  <div class="chatbot" id="chatbot" role="dialog" aria-label="Chat con Mar, asistente IA de Clínica Vidamar">
+    <header class="chatbot__head">
+      <div class="chatbot__avatar">
+        <i class="icon-bot"></i>
+        <span class="pulse"></span>
+      </div>
+      <div>
+        <strong>Mar</strong>
+        <span>Asistente IA · en línea</span>
+      </div>
+      <button class="chatbot__close" id="chatbotClose" aria-label="Cerrar chat"><i class="icon-x"></i></button>
+    </header>
+
+    <div class="chatbot__body" id="chatBody" aria-live="polite"></div>
+
+    <div class="chatbot__quick" id="chatQuick"></div>
+
+    <form class="chatbot__form" id="chatForm" autocomplete="off">
+      <input type="text" id="chatInput" placeholder="Escríbele a Mar…" aria-label="Mensaje" />
+      <button type="submit" aria-label="Enviar"><i class="icon-send"></i></button>
+    </form>
+
+    <footer class="chatbot__foot">
+      <i class="icon-lock"></i> Tu conversación está protegida. Mar nunca reemplaza a un médico real.
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

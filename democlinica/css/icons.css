@@ -1,0 +1,45 @@
+/* Icons · Emoji fallback para entorno local */
+[class^="icon-"], [class*=" icon-"] {
+  font-style: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Symbol", sans-serif;
+}
+.icon-moon::before              { content: "\1F319"; }
+.icon-sun::before               { content: "\2600"; }
+.icon-calendar-plus::before     { content: "\1F4C5"; }
+.icon-calendar-check-2::before  { content: "\1F4C5"; }
+.icon-message-circle::before    { content: "\1F4AC"; }
+.icon-message-square::before    { content: "\1F4AC"; }
+.icon-heart-pulse::before       { content: "\1F497"; }
+.icon-file-text::before         { content: "\1F4C4"; }
+.icon-phone-call::before        { content: "\1F4DE"; }
+.icon-phone::before             { content: "\1F4DE"; }
+.icon-arrow-right::before       { content: "\2192"; }
+.icon-arrow-left::before        { content: "\2190"; }
+.icon-shield-check::before      { content: "\1F6E1"; }
+.icon-credit-card::before       { content: "\1F4B3"; }
+.icon-clock::before             { content: "\1F550"; }
+.icon-stethoscope::before       { content: "\1FA7A"; }
+.icon-baby::before              { content: "\1F476"; }
+.icon-activity::before          { content: "\1F4AA"; }
+.icon-heart::before             { content: "\1F497"; }
+.icon-alert-triangle::before    { content: "\26A0"; }
+.icon-flask-conical::before     { content: "\1F9EA"; }
+.icon-check-circle::before      { content: "\2705"; }
+.icon-check-circle-2::before    { content: "\2705"; }
+.icon-rotate-ccw::before        { content: "\21BA"; }
+.icon-map::before               { content: "\1F5FA"; }
+.icon-map-pin::before           { content: "\1F4CD"; }
+.icon-car::before               { content: "\1F697"; }
+.icon-mail::before              { content: "\2709"; }
+.icon-bot::before               { content: "\1F916"; }
+.icon-x::before                 { content: "\2715"; }
+.icon-send::before              { content: "\27A4"; }
+.icon-lock::before              { content: "\1F512"; }
+.icon-instagram::before         { content: "\25C9"; }
+.icon-facebook::before          { content: "\24BB"; }
+.icon-loader-2::before          { content: "\231B"; }
