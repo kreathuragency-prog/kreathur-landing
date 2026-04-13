@@ -128,7 +128,7 @@
     .loader-content { text-align: center; }
     .loader-text { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; }
     .loader-bar-container { width: 200px; height: 3px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; }
-    .loader-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0; animation: loaderFill 1.8s ease-in-out forwards; }
+    .loader-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0; animation: loaderFill 0.6s ease-in-out forwards; }
     @keyframes loaderFill { 0% { width: 0; } 100% { width: 100%; } }
 
     .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-4px, -4px); }
@@ -2050,7 +2050,7 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ===== Loader =====
-    window.addEventListener('load', () => { setTimeout(() => { document.querySelector('.loader').classList.add('hidden'); document.body.classList.add('loaded'); }, prefersReducedMotion ? 300 : 2000); });
+    window.addEventListener('load', () => { setTimeout(() => { document.querySelector('.loader').classList.add('hidden'); document.body.classList.add('loaded'); }, prefersReducedMotion ? 200 : 700); });
 
     // ===== Mobile detection =====
     const isMobileDevice = () => { return (typeof window !== "undefined" && window.matchMedia("(pointer:coarse)").matches) || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); };
