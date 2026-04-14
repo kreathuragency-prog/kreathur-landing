@@ -16,3 +16,4 @@ deployment:
     - /bin/cp og-card.html $DEPLOYPATH/
     - /bin/cp og-image.svg $DEPLOYPATH/
     - /bin/cp .htaccess $DEPLOYPATH/.htaccess
+    - /bin/cp kreathur-brochure.pdf $DEPLOYPATH/kreathur-brochure.pdf
