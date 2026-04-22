@@ -151,7 +151,7 @@
     .hero-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: 1; }
     .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
     .hero-badge { display: inline-block; padding: 0.5rem 1.2rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent); border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.2s backwards; }
-    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.3s backwards; }
+    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 10vw, 6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.3s backwards; word-break: keep-all; overflow-wrap: normal; }
     .hero-title .solid { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; }
     .hero-title .outline { -webkit-text-fill-color: transparent; -webkit-text-stroke: 2px var(--accent); display: block; }
     .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.3rem); line-height: 1.6; color: var(--text); margin: 2rem 0 3rem; opacity: 0.9; animation: fadeInUp 0.8s ease 0.4s backwards; }
@@ -284,6 +284,9 @@
     .price-card.featured:hover { transform: scale(1.04) translateY(-6px); box-shadow: 0 30px 80px rgba(168,85,247,0.35); }
     .price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), var(--accent2)); color: var(--black); padding: 0.45rem 1.2rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; font-family: 'Syne', sans-serif; white-space: nowrap; box-shadow: 0 6px 20px rgba(168,85,247,0.4); }
     .price-plan { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--white); letter-spacing: 0.06em; }
+    .price-badge-entry { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; padding: 0.4rem 1.1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Syne', sans-serif; white-space: nowrap; box-shadow: 0 6px 18px rgba(34,197,94,0.4); }
+    .price-market-compare { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.25); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.2rem; font-size: 0.82rem; color: rgba(224,224,224,0.85); line-height: 1.5; }
+    .price-market-compare strong { color: #22c55e; font-weight: 700; }
     .price-tagline { font-size: 0.82rem; color: rgba(224,224,224,0.65); margin-bottom: 1.4rem; line-height: 1.45; min-height: 3em; }
     .price-block { background: rgba(10,10,10,0.65); border: 1px solid rgba(0,229,255,0.22); border-radius: 12px; padding: 1.1rem 1rem; margin-bottom: 1.4rem; }
     .price-impl, .price-monthly { text-align: center; }
@@ -421,12 +424,17 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
+      nav { position: sticky; top: 0; padding: 0.7rem 1rem; gap: 0.5rem; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,229,255,0.08); }
+      .logo { font-size: 1.1rem; white-space: nowrap; }
       .nav-links { display: none; }
-      .hamburger { display: flex; }
+      .hamburger { display: flex; flex-shrink: 0; }
       .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
       .hamburger.active span:nth-child(2) { opacity: 0; }
       .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+      .lang-current { padding: 0.38rem 0.55rem; font-size: 0.7rem; gap: 0.3rem; }
+      .lang-flag { width: 18px; height: 12px; }
+      .lang-caret { font-size: 0.6rem; }
+      #hero { margin-top: 0; padding-top: 2rem; }
       .mobile-nav { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.95); z-index: 99; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
       .mobile-nav.active { opacity: 1; pointer-events: all; }
       .mobile-nav a { font-size: 1.5rem; color: var(--text); text-decoration: none; }
@@ -464,10 +472,14 @@
       .hero-ctas { gap: 0.8rem; margin-bottom: 2rem; }
       .btn { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
       .hero-trust { gap: 0.7rem; font-size: 0.75rem; }
-      .wa-hero-highlight { font-size: 0.78rem; padding: 0.5rem 0.9rem; }
+      .wa-hero-highlight { font-size: 0.75rem; padding: 0.55rem 1rem; border-radius: 16px; gap: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; }
+      .hero-title { font-size: clamp(1.9rem, 10vw, 2.9rem); letter-spacing: -0.04em; line-height: 1.05; }
+      .hero-title .solid, .hero-title .outline { display: block; white-space: nowrap; }
       .guarantee-block { padding: 1.5rem 1rem; gap: 1.2rem; }
-      .guarantee-seal { width: 130px; height: 130px; }
-      .seal-100 { font-size: 2.2rem; }
+      .guarantee-seal { width: 160px; height: 160px; }
+      .seal-inner { padding: 0.6rem; }
+      .seal-100 { font-size: 2.4rem; }
+      .seal-label { font-size: 0.56rem; letter-spacing: 0.08em; margin-top: 0.3rem; line-height: 1.25; word-break: keep-all; }
       .guarantee-title { font-size: 1.4rem; }
       .guarantee-desc { font-size: 0.9rem; }
       .guarantee-steps { grid-template-columns: 1fr; gap: 0.6rem; }
@@ -643,9 +655,20 @@
     .welcome-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; padding: 0.35rem 0.85rem; background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.35); border-radius: 50px; margin-bottom: 1.2rem; }
     .welcome-title { font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; color: var(--white); letter-spacing: -0.01em; }
     .welcome-title .grad { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .welcome-langs { display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap; }
-    .welcome-lang { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.9rem 1.1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(0,229,255,0.25); border-radius: 12px; min-width: 95px; transition: all 0.3s ease; cursor: pointer; }
-    .welcome-lang:hover { background: rgba(0,229,255,0.08); border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,229,255,0.15); }
+    .welcome-langs { display: flex; justify-content: center; gap: 0.75rem; margin: 1.5rem 0; flex-wrap: wrap; }
+    .welcome-lang { font-family: 'Inter', sans-serif; color: var(--white); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.9rem 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(0,229,255,0.25); border-radius: 12px; min-width: 92px; transition: all 0.3s ease; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    .welcome-lang:hover, .welcome-lang:focus-visible { background: rgba(0,229,255,0.08); border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,229,255,0.15); outline: none; }
+    .welcome-lang:active { transform: translateY(-1px) scale(0.98); }
+    @media (max-width: 520px) {
+      .welcome-modal { padding: 0.75rem; }
+      .welcome-card { padding: 2rem 1.1rem 1.3rem; border-radius: 16px; }
+      .welcome-langs { gap: 0.5rem; margin: 1.1rem 0; }
+      .welcome-lang { min-width: 0; flex: 1 1 calc(50% - 0.5rem); padding: 0.75rem 0.5rem; }
+      .welcome-lang .wl-name { font-size: 0.78rem; }
+      .welcome-desc { font-size: 0.86rem; }
+      .welcome-offices { flex-wrap: wrap; gap: 0.7rem; font-size: 0.72rem; }
+      .welcome-cta { width: 100%; padding: 0.95rem 1.2rem; }
+    }
     .welcome-lang .wl-flag { width: 40px; height: 28px; border-radius: 3px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); line-height: 0; }
     .welcome-lang .wl-flag svg { width: 100%; height: 100%; display: block; }
     .welcome-lang .wl-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.82rem; color: var(--white); letter-spacing: 0.02em; }
@@ -734,7 +757,8 @@
     }
 
     /* ===== WHATSAPP HERO HIGHLIGHT ===== */
-    .wa-hero-highlight { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.65rem 1.2rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.4); border-radius: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.85rem; color: #22c55e; margin-top: 1rem; margin-bottom: 0.5rem; animation: fadeInUp 0.8s ease 0.45s backwards; }
+    .wa-hero-highlight { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.65rem 1.2rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.4); border-radius: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.85rem; color: #22c55e; margin-top: 1rem; margin-bottom: 0.5rem; animation: fadeInUp 0.8s ease 0.45s backwards; max-width: 100%; text-align: center; line-height: 1.35; word-break: normal; overflow-wrap: break-word; }
+    .wa-hero-highlight strong { white-space: nowrap; }
     .wa-hero-highlight .pulse-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 0 rgba(34,197,94,0.8); animation: intlPulse 2s ease-out infinite; }
 
     /* ===== GLOBAL REACH SECTION ===== */
@@ -858,19 +882,23 @@
       <div class="welcome-content">
         <div class="welcome-tag">WELCOME · BIENVENIDO · WILLKOMMEN</div>
         <h2 class="welcome-title" id="welcomeTitle">Trabajamos en <span class="grad">Deutsch, English &amp; Español</span> sin barreras</h2>
-        <div class="welcome-langs" aria-hidden="true">
-          <div class="welcome-lang">
-            <span class="wl-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="13.33" fill="#000"/><rect width="60" height="13.33" y="13.33" fill="#DD0000"/><rect width="60" height="13.34" y="26.66" fill="#FFCE00"/></svg></span>
+        <div class="welcome-langs" role="group" aria-label="Elegir idioma">
+          <button type="button" class="welcome-lang" data-lang="de" aria-label="Deutsch">
+            <span class="wl-flag" aria-hidden="true"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="13.33" fill="#000"/><rect width="60" height="13.33" y="13.33" fill="#DD0000"/><rect width="60" height="13.34" y="26.66" fill="#FFCE00"/></svg></span>
             <span class="wl-name">Deutsch</span>
-          </div>
-          <div class="welcome-lang">
-            <span class="wl-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="6"/></svg></span>
+          </button>
+          <button type="button" class="welcome-lang" data-lang="en" aria-label="English">
+            <span class="wl-flag" aria-hidden="true"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="6"/></svg></span>
             <span class="wl-name">English</span>
-          </div>
-          <div class="welcome-lang">
-            <span class="wl-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#d52b1e"/><rect width="20" height="20" fill="#0039a6"/><polygon points="10,4 11.5,8 15.5,8 12.3,10.5 13.5,14.5 10,12 6.5,14.5 7.7,10.5 4.5,8 8.5,8" fill="#fff"/></svg></span>
+          </button>
+          <button type="button" class="welcome-lang" data-lang="es" aria-label="Español">
+            <span class="wl-flag" aria-hidden="true"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#d52b1e"/><rect width="20" height="20" fill="#0039a6"/><polygon points="10,4 11.5,8 15.5,8 12.3,10.5 13.5,14.5 10,12 6.5,14.5 7.7,10.5 4.5,8 8.5,8" fill="#fff"/></svg></span>
             <span class="wl-name">Español</span>
-          </div>
+          </button>
+          <button type="button" class="welcome-lang" data-lang="pt" aria-label="Português">
+            <span class="wl-flag" aria-hidden="true"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#009C3B"/><polygon points="30,5 55,20 30,35 5,20" fill="#FFDF00"/><circle cx="30" cy="20" r="7" fill="#002776"/></svg></span>
+            <span class="wl-name">Português</span>
+          </button>
         </div>
         <p class="welcome-desc">Somos un <strong>estudio de IA internacional</strong> con oficinas en <strong>Kiel, Alemania</strong> y <strong>Pichilemu, Chile</strong>. Diseñamos WhatsApp bots, webs y automatizaciones para negocios de todo el mundo — en tu idioma, tu zona horaria, tu mercado.</p>
         <button class="welcome-cta" id="welcomeCtaStart">Comenzar el tour</button>
@@ -1470,6 +1498,92 @@
     </div>
 
     <div class="price-cards">
+      <!-- TIER 0: EMPEZAR (OFERTA ABRIL) -->
+      <div class="price-card reveal price-card-april">
+        <div class="price-badge-april" data-i18n="price.p0.badge">🔥 OFERTA ABRIL 2026 · SOLO ESTE MES</div>
+        <div class="price-plan" data-i18n="price.p0.name">EMPEZAR</div>
+        <div class="price-tagline" data-i18n="price.p0.tagline">Tu primer bot de WhatsApp vivo en 3 días. Para emprendedores y negocios chicos que pierden clientes por no contestar a tiempo.</div>
+        <div class="price-block">
+          <div class="price-impl">
+            <div class="price-impl-label" data-i18n="price.implLabel">IMPLEMENTACIÓN · PAGO ÚNICO</div>
+            <div class="price-impl-amount">$150.000<span class="currency">CLP</span></div>
+          </div>
+          <div class="price-divider">+</div>
+          <div class="price-monthly">
+            <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
+            <div class="price-monthly-amount">$39.000<span class="slash" data-i18n="price.perMonth">/mes CLP</span></div>
+          </div>
+        </div>
+        <div class="price-market-compare" data-i18n-html="price.p0.compare">El mercado cobra <strong>$300.000–$500.000</strong> de setup y <strong>$60.000–$100.000/mes</strong> por un bot similar. Aprovecha abril antes que suba.</div>
+
+        <!-- EXPLICACIÓN SIMPLE: QUE INCLUYE REALMENTE -->
+        <div class="price-explain">
+          <div class="price-explain-title" data-i18n="price.p0.explainTitle">📦 ¿Qué recibes exactamente?</div>
+
+          <div class="pe-item">
+            <div class="pe-icon">🤖</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e1h">Un robot que contesta solo en tu WhatsApp</div>
+              <p class="pe-p" data-i18n="price.p0.e1p">Conectamos tu WhatsApp Business a un asistente de inteligencia artificial. Cuando alguien te escribe (de día, de noche, el domingo), el robot responde al instante con la información de tu negocio: horarios, direcciones, precios, productos, lo que tú quieras.</p>
+            </div>
+          </div>
+
+          <div class="pe-item">
+            <div class="pe-icon">💬</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e2h">Una conversación guiada para captar clientes</div>
+              <p class="pe-p" data-i18n="price.p0.e2p">Diseñamos UN camino de preguntas y respuestas que lleva al cliente desde "hola" hasta dejar sus datos o agendar contigo. Ejemplo: "¿En qué te puedo ayudar? → ¿Producto A o B? → ¿Cuándo lo necesitas? → Déjame tu nombre y correo". Ideal para negocios de 1–3 servicios.</p>
+            </div>
+          </div>
+
+          <div class="pe-item">
+            <div class="pe-icon">❓</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e3h">Respuestas automáticas a las 10 preguntas que más te hacen</div>
+              <p class="pe-p" data-i18n="price.p0.e3p">Nos dices cuáles son las 10 preguntas que tus clientes repiten todo el día ("¿cuánto cuesta?", "¿hacen envíos?", "¿qué horario?"). Las cargamos al bot y deja de repetirlas tú. El cliente recibe la respuesta en 2 segundos.</p>
+            </div>
+          </div>
+
+          <div class="pe-item">
+            <div class="pe-icon">⚡</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e4h">Setup completo en 3 días hábiles</div>
+              <p class="pe-p" data-i18n="price.p0.e4p">Lunes empezamos, jueves está funcionando. Tú no haces nada técnico: nosotros conectamos WhatsApp con Meta, programamos las respuestas, probamos con mensajes reales y te entregamos funcionando.</p>
+            </div>
+          </div>
+
+          <div class="pe-item">
+            <div class="pe-icon">🛟</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e5h">Soporte real por WhatsApp (no un ticket inútil)</div>
+              <p class="pe-p" data-i18n="price.p0.e5p">Si algo falla o quieres cambiar una respuesta, nos escribes por WhatsApp en horario hábil (Lun–Vie 9–18h Chile) y te contestamos el mismo día. Sin formularios raros ni tickets con códigos.</p>
+            </div>
+          </div>
+
+          <div class="pe-item">
+            <div class="pe-icon">🛡️</div>
+            <div class="pe-body">
+              <div class="pe-h" data-i18n="price.p0.e6h">30 días gratis — y si no sirve, no pagas nada</div>
+              <p class="pe-p" data-i18n="price.p0.e6p">Pagas los $150.000 de setup al contratar. Los primeros 30 días usas el bot en tu negocio real. Si al día 30 sientes que no vale la pena, te devolvemos los $150.000 y adiós, sin peleas. Solo desde el mes 2 pagas los $39.000 mensuales.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUE NO INCLUYE (para evitar malentendidos) -->
+        <div class="price-not-included">
+          <div class="pni-title" data-i18n="price.p0.niTitle">ℹ️ Qué NO incluye este plan (claro desde el inicio)</div>
+          <ul class="pni-list">
+            <li data-i18n="price.p0.ni1">Manejo de redes sociales (Instagram/TikTok/Facebook) — disponible aparte desde $150.000/mes con IA</li>
+            <li data-i18n="price.p0.ni2">Producción de video o fotos en terreno — solo si contratas ese servicio, se cotiza según locación</li>
+            <li data-i18n="price.p0.ni3">Sitio web nuevo — desde el plan ACTIVAR en adelante</li>
+            <li data-i18n="price.p0.ni4">Integración con CRM externo — desde el plan ESCALAR</li>
+          </ul>
+        </div>
+
+        <button class="btn btn-solid price-cta" onclick="window.open('https://wa.me/56977877602?text=Hola!%20Quiero%20la%20oferta%20ABRIL%202026%20del%20plan%20EMPEZAR%20(%24150K%20setup%20%2B%20%2439K%2Fmes)', '_blank')" data-i18n="price.p0.cta">Quiero esta oferta de abril</button>
+        <div class="price-guarantee-mini" data-i18n="price.p0.guarantee">🛡️ Primer mes gratis · Válido hasta 30 abril 2026</div>
+      </div>
+
       <!-- TIER 1: ACTIVAR -->
       <div class="price-card reveal">
         <div class="price-plan" data-i18n="price.p1.name">ACTIVAR</div>
@@ -1482,7 +1596,7 @@
           <div class="price-divider">+</div>
           <div class="price-monthly">
             <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
-            <div class="price-monthly-amount">$199.000<span class="slash">/mes CLP</span></div>
+            <div class="price-monthly-amount">$199.000<span class="slash" data-i18n="price.perMonth">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
@@ -1511,7 +1625,7 @@
           <div class="price-divider">+</div>
           <div class="price-monthly">
             <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
-            <div class="price-monthly-amount">$390.000<span class="slash">/mes CLP</span></div>
+            <div class="price-monthly-amount">$390.000<span class="slash" data-i18n="price.perMonth">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
@@ -1540,7 +1654,7 @@
           <div class="price-divider">+</div>
           <div class="price-monthly">
             <div class="price-monthly-label" data-i18n="price.moLabel">SUSCRIPCIÓN MENSUAL</div>
-            <div class="price-monthly-amount">$790.000<span class="slash">/mes CLP</span></div>
+            <div class="price-monthly-amount">$790.000<span class="slash" data-i18n="price.perMonth">/mes CLP</span></div>
           </div>
         </div>
         <ul class="price-features">
@@ -1900,7 +2014,11 @@
         'price.gs1':'<strong>Agendamos</strong><br>llamada gratuita','price.gs2':'<strong>Implementamos</strong><br>en 7 días hábiles','price.gs3':'<strong>Pruebas</strong><br>30 días en tu negocio','price.gs4':'<strong>Decides</strong><br>— o cero pago',
         'price.promoBadge':'🎁 PROMO ACTIVA','price.promoTitle':'10% OFF por seguirnos en redes',
         'price.promoDesc':'Síguenos en nuestras redes sociales y comenta que quieres que te ayudemos a <strong>automatizar</strong> tu negocio. Al confirmar tu comentario aplicamos <strong>10% de descuento</strong> en cualquier plan.',
-        'price.promoClaim':'Reclamar 10% OFF','price.implLabel':'IMPLEMENTACIÓN · PAGO ÚNICO','price.moLabel':'SUSCRIPCIÓN MENSUAL',
+        'price.promoClaim':'Reclamar 10% OFF','price.implLabel':'IMPLEMENTACIÓN · PAGO ÚNICO','price.moLabel':'SUSCRIPCIÓN MENSUAL','price.perMonth':'/mes CLP',
+        'price.p0.badge':'⚡ MÁS ACCESIBLE','price.p0.name':'EMPEZAR','price.p0.tagline':'Tu primer bot de WhatsApp vivo en 3 días. Ideal para emprendedores y negocios chicos que quieren dejar de perder clientes por no contestar.',
+        'price.p0.compare':'El mercado cobra <strong>$300.000–$500.000</strong> de setup y <strong>$60.000–$100.000/mes</strong> por un bot similar. Nosotros lo hacemos rápido y directo.',
+        'price.p0.f1':'Bot WhatsApp con respuestas automáticas','price.p0.f2':'1 flujo conversacional simple','price.p0.f3':'FAQ automático (hasta 10 preguntas)','price.p0.f4':'Setup en 3 días hábiles','price.p0.f5':'Soporte WhatsApp horario hábil','price.p0.f6':'30 días gratis — si no sirve, no pagas',
+        'price.p0.cta':'Quiero empezar','price.p0.guarantee':'🛡️ Primer mes gratis',
         'price.p1.name':'ACTIVAR','price.p1.tagline':'Para negocios que quieren su primer bot de WhatsApp funcionando esta semana',
         'price.p1.f1':'Bot WhatsApp con respuestas automáticas','price.p1.f2':'Hasta 3 flujos de conversación','price.p1.f3':'Agenda de reuniones integrada','price.p1.f4':'1 Landing Page optimizada SEO','price.p1.f5':'Google My Business configurado','price.p1.f6':'Reporte mensual de conversaciones','price.p1.f7':'Soporte WhatsApp en horario laboral',
         'price.p1.cta':'Empezar prueba 30 días','price.p1.guarantee':'🛡️ Si no funciona en 30 días, no pagas',
@@ -2349,6 +2467,16 @@
       ctaBtn.addEventListener('click', close);
       modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('show')) close(); });
+      // Flag buttons inside welcome modal → pick language + close modal
+      modal.querySelectorAll('.welcome-lang[data-lang]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = btn.dataset.lang;
+          if (lang && typeof applyTranslations === 'function') applyTranslations(lang);
+          close();
+        });
+      });
     })();
   </script>
 </body>
