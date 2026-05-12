@@ -1,19 +1,20 @@
 ---
+# cPanel deployment for Next.js static export of kreathur.agency
 deployment:
   tasks:
     - export DEPLOYPATH=/home/kreathur/public_html
-    - /bin/cp kreathur-all-in-one.html $DEPLOYPATH/index.html
-    - /bin/mkdir -p $DEPLOYPATH/demos
-    - /bin/cp demos/restaurant.html $DEPLOYPATH/demos/
-    - /bin/cp demos/hotel.html $DEPLOYPATH/demos/
-    - /bin/cp demos/clinic.html $DEPLOYPATH/demos/
-    - /bin/cp demos/ecommerce.html $DEPLOYPATH/demos/
-    - /bin/cp demos/realestate.html $DEPLOYPATH/demos/
-    - /bin/cp demos/services.html $DEPLOYPATH/demos/
-    - /bin/cp demos/_demo-styles.css $DEPLOYPATH/demos/
-    - /bin/cp robots.txt $DEPLOYPATH/
-    - /bin/cp sitemap.xml $DEPLOYPATH/
-    - /bin/cp og-card.html $DEPLOYPATH/
-    - /bin/cp og-image.svg $DEPLOYPATH/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/rm -rf $DEPLOYPATH/_next $DEPLOYPATH/inicio $DEPLOYPATH/blog $DEPLOYPATH/404
+    - /bin/rm -f $DEPLOYPATH/index.html $DEPLOYPATH/404.html $DEPLOYPATH/index.txt $DEPLOYPATH/manifest.json $DEPLOYPATH/sw.js
+    - /bin/rm -f $DEPLOYPATH/icon-192.png $DEPLOYPATH/icon-192.svg $DEPLOYPATH/icon-512.png
+    - /bin/cp -R _next $DEPLOYPATH/
+    - /bin/cp -R inicio $DEPLOYPATH/
+    - /bin/cp -R blog $DEPLOYPATH/
+    - /bin/cp -R 404 $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp index.html $DEPLOYPATH/
+    - /bin/cp 404.html $DEPLOYPATH/
+    - /bin/cp index.txt $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp manifest.json $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp sw.js $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp icon-192.png icon-192.svg icon-512.png $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp .htaccess $DEPLOYPATH/.htaccess
-    - /bin/cp kreathur-brochure.pdf $DEPLOYPATH/kreathur-brochure.pdf

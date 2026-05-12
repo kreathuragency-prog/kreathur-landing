@@ -1,63 +1,55 @@
-DirectoryIndex index.html index.php
+# kreathur.agency · Apache shared hosting config (Next.js static export)
 
-# ===== KREATHUR AGENCY — PERFORMANCE =====
+Options -Indexes
+DirectoryIndex index.html
 
-# --- GZIP Compression ---
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
-  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
-  AddOutputFilterByType DEFLATE application/json application/xml application/xhtml+xml
-  AddOutputFilterByType DEFLATE image/svg+xml font/woff2 font/woff font/ttf
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [L,R=301]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*?)/?$ /$1.html [L]
+
+  RewriteRule ^demos/(restaurant|hotel|clinic|ecommerce|realestate|services)\.html$ /inicio/#rubros [L,R=301]
+  RewriteRule ^kreathur-brochure\.pdf$ https://wa.me/56977877602?text=Quiero%20el%20brochure%20Kreathur [L,R=302]
 </IfModule>
 
-# --- Browser Caching ---
+ErrorDocument 404 /404.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresDefault "access plus 1 month"
-  ExpiresByType text/html "access plus 1 hour"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType text/javascript "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType font/woff2 "access plus 1 year"
-  ExpiresByType font/woff "access plus 1 year"
-</IfModule>
-
-# --- Cache-Control & Security Headers ---
-<IfModule mod_headers.c>
-  <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|woff2|woff|ico)$">
+  <FilesMatch "\.(js|css|woff2|woff|ttf|eot|otf)$">
+    ExpiresDefault "access plus 1 year"
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  <FilesMatch "\.(png|jpg|jpeg|gif|webp|avif|svg|ico)$">
+    ExpiresDefault "access plus 30 days"
+    Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
+  <FilesMatch "\.(html|json|xml|txt)$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Connection keep-alive
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
-FileETag MTime Size
-Options -Indexes
-
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-# END WordPress
-
-# php -- BEGIN cPanel-generated handler, do not edit
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
+<FilesMatch "^(wp-config\.php|\.env|\.git|\.htaccess|xmlrpc\.php)$">
+  Require all denied
+</FilesMatch>
