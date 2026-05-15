@@ -1,14 +1,21 @@
 ---
 # cPanel deployment for Next.js static export of kreathur.agency
+# Auto-runs on git push to main when the repo is configured in cPanel
+# → Git™ Version Control → "Deploy HEAD Commit"
+# (Or triggered automatically by GitHub Actions — see .github/workflows/deploy.yml)
 deployment:
   tasks:
     - export DEPLOYPATH=/home/kreathur/public_html
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/rm -rf $DEPLOYPATH/_next $DEPLOYPATH/inicio $DEPLOYPATH/blog $DEPLOYPATH/404
+    # Wipe previous deploy (preserve dotfiles like .well-known if any)
+    - /bin/rm -rf $DEPLOYPATH/_next $DEPLOYPATH/inicio $DEPLOYPATH/servicios $DEPLOYPATH/quienes-somos $DEPLOYPATH/blog $DEPLOYPATH/404
     - /bin/rm -f $DEPLOYPATH/index.html $DEPLOYPATH/404.html $DEPLOYPATH/index.txt $DEPLOYPATH/manifest.json $DEPLOYPATH/sw.js
-    - /bin/rm -f $DEPLOYPATH/icon-192.png $DEPLOYPATH/icon-192.svg $DEPLOYPATH/icon-512.png
+    - /bin/rm -f $DEPLOYPATH/icon-192.png $DEPLOYPATH/icon-192.svg $DEPLOYPATH/icon-512.png $DEPLOYPATH/brochure-kreathur-2026.pdf
+    # Copy the static export tree
     - /bin/cp -R _next $DEPLOYPATH/
     - /bin/cp -R inicio $DEPLOYPATH/
+    - /bin/cp -R servicios $DEPLOYPATH/
+    - /bin/cp -R quienes-somos $DEPLOYPATH/
     - /bin/cp -R blog $DEPLOYPATH/
     - /bin/cp -R 404 $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp index.html $DEPLOYPATH/
@@ -17,4 +24,5 @@ deployment:
     - /bin/cp manifest.json $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp sw.js $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp icon-192.png icon-192.svg icon-512.png $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp brochure-kreathur-2026.pdf $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp .htaccess $DEPLOYPATH/.htaccess

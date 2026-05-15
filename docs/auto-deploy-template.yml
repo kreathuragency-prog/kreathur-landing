@@ -1,0 +1,85 @@
+name: Deploy to cPanel
+
+# Auto-triggers a cPanel Git Version Control deploy on every push to main.
+# After this workflow runs successfully, the cPanel server has pulled the
+# latest commit and executed .cpanel.yml — kreathur.agency is live.
+#
+# REQUIRED ONE-TIME SETUP (do this once, then forget about it):
+#   1. In cPanel → Manage API Tokens → Create
+#      - Name: "github-deploy"
+#      - Permissions: VersionControlDeployment + VersionControl
+#      - Copy the token (you only see it once!)
+#   2. In this GitHub repo → Settings → Secrets and variables → Actions
+#      - New repository secret: CPANEL_USERNAME = your cPanel login (e.g. kreathur)
+#      - New repository secret: CPANEL_API_TOKEN = the token from step 1
+#      - New repository secret: CPANEL_HOST = your cPanel host
+#        (usually srv###.main-hosting.eu or similar — see cPanel "Server Info")
+#      - New repository secret: CPANEL_REPO_PATH = absolute path to repo
+#        on the server (usually /home/USERNAME/repositories/kreathur-landing)
+#
+# After that, every git push to main triggers a deploy automatically.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Trigger cPanel deploy via JSON API
+        env:
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_REPO_PATH: ${{ secrets.CPANEL_REPO_PATH }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${CPANEL_USERNAME:-}" ] || [ -z "${CPANEL_API_TOKEN:-}" ] || [ -z "${CPANEL_HOST:-}" ]; then
+            echo "::warning::cPanel secrets not set yet — skipping auto-deploy."
+            echo "::warning::Setup instructions are in .github/workflows/deploy.yml comments."
+            exit 0
+          fi
+
+          REPO_PATH="${CPANEL_REPO_PATH:-/home/${CPANEL_USERNAME}/repositories/kreathur-landing}"
+          API_URL="https://${CPANEL_HOST}:2083/execute/VersionControlDeployment/create"
+
+          echo "Triggering deploy for repo at: ${REPO_PATH}"
+
+          HTTP_CODE=$(curl -sS -o /tmp/deploy-response.json -w "%{http_code}" \
+            -H "Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}" \
+            --data-urlencode "repository_root=${REPO_PATH}" \
+            "${API_URL}")
+
+          echo "HTTP ${HTTP_CODE}"
+          cat /tmp/deploy-response.json
+          echo
+
+          if [ "${HTTP_CODE}" != "200" ]; then
+            echo "::error::Deploy API call failed (HTTP ${HTTP_CODE})"
+            exit 1
+          fi
+
+          if grep -q '"status":0' /tmp/deploy-response.json; then
+            echo "::error::cPanel reported deploy failure — see response above"
+            exit 1
+          fi
+
+          echo "✓ Deploy queued successfully on cPanel"
+          echo "✓ kreathur.agency will reflect changes within ~30 seconds"
+
+      - name: Smoke-test live URLs
+        if: success()
+        run: |
+          sleep 45
+          for path in / /inicio /quienes-somos /servicios /blog; do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://www.kreathur.agency${path}")
+            echo "  https://www.kreathur.agency${path} → ${CODE}"
+            if [ "${CODE}" != "200" ]; then
+              echo "::warning::${path} returned ${CODE} — check after another minute"
+            fi
+          done
