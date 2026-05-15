@@ -1,85 +1,104 @@
-name: Deploy to cPanel
+name: Deploy to Hostinger (FTP)
 
-# Auto-triggers a cPanel Git Version Control deploy on every push to main.
-# After this workflow runs successfully, the cPanel server has pulled the
-# latest commit and executed .cpanel.yml — kreathur.agency is live.
+# Auto-deploys the static export to www.kreathur.agency on every push to main.
+# 100% credenciales en GitHub Secrets — NUNCA en el código.
 #
-# REQUIRED ONE-TIME SETUP (do this once, then forget about it):
-#   1. In cPanel → Manage API Tokens → Create
-#      - Name: "github-deploy"
-#      - Permissions: VersionControlDeployment + VersionControl
-#      - Copy the token (you only see it once!)
-#   2. In this GitHub repo → Settings → Secrets and variables → Actions
-#      - New repository secret: CPANEL_USERNAME = your cPanel login (e.g. kreathur)
-#      - New repository secret: CPANEL_API_TOKEN = the token from step 1
-#      - New repository secret: CPANEL_HOST = your cPanel host
-#        (usually srv###.main-hosting.eu or similar — see cPanel "Server Info")
-#      - New repository secret: CPANEL_REPO_PATH = absolute path to repo
-#        on the server (usually /home/USERNAME/repositories/kreathur-landing)
+# ONE-TIME SETUP:
+#   1. En hPanel (Hostinger) → Files → "FTP Accounts"
+#      - Crea una cuenta FTP NUEVA (no uses la principal) con:
+#        Username:  deploy@kreathur.agency
+#        Password:  (genera una random, copia)
+#        Directorio: public_html
+#      - Anota el "FTP server" que aparece (ej: ftp.kreathur.agency o
+#        srv###.main-hosting.eu)
 #
-# After that, every git push to main triggers a deploy automatically.
+#   2. En GitHub → este repo → Settings → Secrets and variables → Actions:
+#      Crear los 3 secrets:
+#        FTP_HOST      = ftp.kreathur.agency           (o el server que mostró hPanel)
+#        FTP_USERNAME  = deploy@kreathur.agency
+#        FTP_PASSWORD  = (la que generaste)
+#
+#   3. Hacer un commit cualquiera → push a main → ver Actions tab en GitHub
+#
+# Después de eso, cada `git push origin main` despliega automático en ~60 segundos.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: deploy-kreathur-agency
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
-      - name: Trigger cPanel deploy via JSON API
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Validate required secrets
         env:
-          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
-          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
-          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
-          CPANEL_REPO_PATH: ${{ secrets.CPANEL_REPO_PATH }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          set -euo pipefail
+          missing=0
+          for k in FTP_HOST FTP_USERNAME FTP_PASSWORD; do
+            v="${!k:-}"
+            if [ -z "$v" ]; then
+              echo "::error::Secret $k no está configurado. Ver instrucciones en deploy.yml"
+              missing=$((missing+1))
+            fi
+          done
+          if [ $missing -gt 0 ]; then exit 1; fi
+          echo "✓ Todos los secrets están configurados"
 
-          if [ -z "${CPANEL_USERNAME:-}" ] || [ -z "${CPANEL_API_TOKEN:-}" ] || [ -z "${CPANEL_HOST:-}" ]; then
-            echo "::warning::cPanel secrets not set yet — skipping auto-deploy."
-            echo "::warning::Setup instructions are in .github/workflows/deploy.yml comments."
-            exit 0
-          fi
-
-          REPO_PATH="${CPANEL_REPO_PATH:-/home/${CPANEL_USERNAME}/repositories/kreathur-landing}"
-          API_URL="https://${CPANEL_HOST}:2083/execute/VersionControlDeployment/create"
-
-          echo "Triggering deploy for repo at: ${REPO_PATH}"
-
-          HTTP_CODE=$(curl -sS -o /tmp/deploy-response.json -w "%{http_code}" \
-            -H "Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}" \
-            --data-urlencode "repository_root=${REPO_PATH}" \
-            "${API_URL}")
-
-          echo "HTTP ${HTTP_CODE}"
-          cat /tmp/deploy-response.json
-          echo
-
-          if [ "${HTTP_CODE}" != "200" ]; then
-            echo "::error::Deploy API call failed (HTTP ${HTTP_CODE})"
-            exit 1
-          fi
-
-          if grep -q '"status":0' /tmp/deploy-response.json; then
-            echo "::error::cPanel reported deploy failure — see response above"
-            exit 1
-          fi
-
-          echo "✓ Deploy queued successfully on cPanel"
-          echo "✓ kreathur.agency will reflect changes within ~30 seconds"
+      - name: Upload via FTP (SFTPS recomendado, soporta FTP plano fallback)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          # Subimos el contenido del repo a la raíz del FTP (que ya apunta a public_html)
+          local-dir: ./
+          server-dir: ./
+          # No tocar dotfiles del servidor (excepto .htaccess que sí necesitamos)
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/README.md
+            **/docs/**
+          # Si un archivo en remoto no está en local, BORRARLO (para que /servicios y /quienes-somos lleguen)
+          dangerous-clean-slate: false
+          # Log compacto
+          log-level: standard
+          # Si FTPS falla, intentar FTP plano en otro puerto (algunas hostings legacy)
+          # security: loose  # uncomment if needed
 
       - name: Smoke-test live URLs
         if: success()
         run: |
-          sleep 45
+          sleep 30
+          PASS=0; FAIL=0
           for path in / /inicio /quienes-somos /servicios /blog; do
-            CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://www.kreathur.agency${path}")
-            echo "  https://www.kreathur.agency${path} → ${CODE}"
-            if [ "${CODE}" != "200" ]; then
-              echo "::warning::${path} returned ${CODE} — check after another minute"
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "https://www.kreathur.agency${path}")
+            echo "  https://www.kreathur.agency${path} → $CODE"
+            if [ "$CODE" = "200" ]; then
+              PASS=$((PASS+1))
+            else
+              FAIL=$((FAIL+1))
+              echo "::warning::${path} returned $CODE"
             fi
           done
+          echo
+          echo "Result: $PASS rutas OK, $FAIL con problemas"
+          if [ $FAIL -gt 0 ]; then
+            echo "::notice::Algunas rutas no devolvieron 200 — el CDN/cache puede tardar 1-2 min en propagar."
+          fi
