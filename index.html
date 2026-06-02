@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23fbbf24'/%3E%3Ctext x='50%25' y='65%25' font-size='20' font-family='Georgia,serif' font-style='italic' font-weight='600' text-anchor='middle' fill='%230a0a0a'%3EK%3C/text%3E%3C/svg%3E" />
 <meta name="theme-color" content="#0a0a0a" />
 <meta property="og:title" content="Kreathur — Tu WhatsApp atiende solo." />
-<meta property="og:description" content="Bot WhatsApp 24/7, automatización IA. Cuatro planes desde $39.900/mes, primer mes gratis." />
+<meta property="og:description" content="Bot WhatsApp 24/7, automatización IA. Tres planes desde $39.900/mes — o algo a medida. Primer mes gratis." />
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -668,6 +668,101 @@
 
   /* Focus */
   *:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 4px; }
+
+  /* ═════════════ WARMTH PATCH 2026-06-02 ═════════════ */
+  /* friendly emoji wiggle (on scroll-into-view via .reveal.in chain) */
+  @keyframes wave-hand {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30%      { transform: rotate(14deg); }
+    20%, 40%      { transform: rotate(-8deg); }
+  }
+  .wave { display: inline-block; transform-origin: 70% 70%; animation: wave-hand 2.8s ease-in-out 0.6s infinite; }
+
+  @keyframes gentle-bob {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-4px); }
+  }
+  .bob { display: inline-block; animation: gentle-bob 3.2s ease-in-out infinite; }
+  .bob-d1 { animation-delay: .4s; }
+  .bob-d2 { animation-delay: .8s; }
+  .bob-d3 { animation-delay: 1.2s; }
+
+  @keyframes heart-pulse {
+    0%,100% { transform: scale(1);   filter: drop-shadow(0 0 0 rgba(255,90,120,0)); }
+    50%     { transform: scale(1.18); filter: drop-shadow(0 0 12px rgba(255,90,120,0.55)); }
+  }
+  .heart { display: inline-block; animation: heart-pulse 1.6s ease-in-out infinite; }
+
+  /* sparkle dots that drift up behind warm CTA */
+  @keyframes sparkle-rise {
+    0%   { transform: translateY(8px) scale(0.6); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: translateY(-26px) scale(1.05); opacity: 0; }
+  }
+  .sparkle-host { position: relative; }
+  .sparkle-host::before,
+  .sparkle-host::after {
+    content: '✦'; position: absolute; pointer-events: none;
+    color: var(--neon-mint); font-size: 11px; opacity: 0;
+    text-shadow: 0 0 8px rgba(52,245,168,0.7);
+  }
+  .sparkle-host::before { left: 14%; bottom: 0; animation: sparkle-rise 2.6s ease-out 0.2s infinite; }
+  .sparkle-host::after  { right: 18%; bottom: 0; animation: sparkle-rise 2.6s ease-out 1.4s infinite; color: var(--cyan); text-shadow: 0 0 8px rgba(6,212,255,0.7); }
+
+  /* friendly card lift: replaces "transform: translateY(-3px)" with a tilt + brighter glow */
+  .price-card { will-change: transform; }
+  .price-card:hover {
+    transform: translateY(-6px) rotate(-0.4deg);
+    box-shadow: 0 18px 40px -22px rgba(52,245,168,0.35), 0 0 0 1px rgba(244,244,243,0.10);
+  }
+  .price-card.featured:hover {
+    transform: translateY(-8px) rotate(0.3deg) scale(1.015);
+    box-shadow: 0 28px 60px -22px rgba(52,245,168,0.55), 0 0 0 1px rgba(52,245,168,0.55);
+  }
+
+  /* warmer testimonial cards: subtle gradient corner + scale on hover */
+  .reviews-grid article { position: relative; overflow: hidden; }
+  .reviews-grid article::after {
+    content: '“';
+    position: absolute; top: -28px; right: -8px;
+    font-family: 'Bricolage Grotesque', serif;
+    font-size: 140px; line-height: 1; color: rgba(52,245,168,0.06);
+    pointer-events: none;
+  }
+
+  /* tiny warm chip used in eyebrows */
+  .warm-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255,180,90,0.10), rgba(255,90,160,0.10));
+    border: 1px solid rgba(255,180,120,0.30);
+    color: #ffd8a8;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+  }
+  .warm-chip .em { font-size: 16px; }
+
+  /* "made with love" footer band */
+  .love-band {
+    text-align: center;
+    padding: 22px 14px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    color: var(--fg-1);
+    background: radial-gradient(ellipse at center, rgba(255,140,170,0.06), transparent 65%);
+    border-top: 1px solid rgba(255,140,170,0.15);
+    border-bottom: 1px solid rgba(255,140,170,0.15);
+  }
+  .love-band b { color: var(--fg-0); font-weight: 600; }
+
+  /* reduce-motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .wave, .bob, .heart,
+    .sparkle-host::before, .sparkle-host::after { animation: none !important; }
+    .price-card:hover, .price-card.featured:hover { transform: none !important; }
+  }
 </style>
 </head>
 
@@ -748,9 +843,12 @@
   <div class="absolute inset-0 -z-10 opacity-40" style="background-image: linear-gradient(rgba(244,244,243,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(244,244,243,0.02) 1px, transparent 1px); background-size: 32px 32px;"></div>
 
   <div class="mx-auto max-w-7xl px-5 md:px-8">
-    <!-- Eyebrow agency tagline -->
-    <div class="reveal mb-3">
-      <span class="section-tag" data-i18n="hero.eyebrow">Software · Automatizaciones · Presencia Digital</span>
+    <!-- Eyebrow agency tagline (warm) -->
+    <div class="reveal mb-3 flex items-center gap-2">
+      <span class="warm-chip">
+        <span class="em wave">👋</span>
+        <span data-i18n="hero.eyebrow">Hola, soy Matías — bienvenido a Kreathur</span>
+      </span>
     </div>
 
     <!-- Sticker chips row -->
@@ -785,10 +883,16 @@
         </h1>
 
         <p class="mt-7 max-w-xl text-[15px] md:text-lg text-fg-1/85 leading-relaxed reveal d2">
-          <span data-i18n="hero.body1">Responde clientes, agenda reservas, cobra y avisa al equipo —</span>
-          <span class="text-neon font-medium" data-i18n="hero.body2"> por 39/mes</span><span data-i18n="hero.body3">, 24/7, en tu propio WhatsApp y en </span>
-          <span class="text-fg-0 font-semibold" data-i18n="hero.body4">4 idiomas</span><span data-i18n="hero.body5">. Hecho en Pichilemu y Kiel para PYMES de Chile y Europa.</span>
+          <span data-i18n="hero.body1">Diseñamos la solución <strong class="text-fg-0">a la medida de tu negocio</strong> — no una plantilla. Tu bot responde, agenda, cobra y te avisa solo cuando hace falta —</span>
+          <span class="text-neon font-medium" data-i18n="hero.body2"> desde $39.900/mes</span><span data-i18n="hero.body3">, 24/7, en tu propio número y en </span>
+          <span class="text-fg-0 font-semibold" data-i18n="hero.body4">4 idiomas</span><span data-i18n="hero.body5">. Hecho con cariño 💛 desde Pichilemu y Kiel para PYMES de Chile y Europa.</span>
         </p>
+
+        <!-- Custom-by-default chip -->
+        <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-400/30 bg-purple-400/[0.06] reveal d2">
+          <span class="text-base">🎨</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-purple-200" data-i18n="hero.custom">100% a medida · plantillas sólo si las pides</span>
+        </div>
 
         <div class="mt-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.05] reveal d2">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34f5a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -797,7 +901,7 @@
         </div>
 
         <div class="mt-8 flex flex-wrap items-center gap-3 reveal d3">
-          <a href="https://wa.me/56977877602?text=Hola%20Matías,%20vengo%20de%20kreathur.agency%20y%20quiero%20una%20demo%20de%2015%20min." target="_blank" rel="noopener" class="btn-grad">
+          <a href="https://wa.me/56977877602?text=Hola%20Matías,%20vengo%20de%20kreathur.agency%20y%20quiero%20una%20demo%20de%2015%20min." target="_blank" rel="noopener" class="btn-grad sparkle-host">
             <span data-i18n="hero.cta1">Agendar demo gratis · 15 min</span>
             <span class="arrow">→</span>
           </a>
@@ -1026,10 +1130,10 @@
 <section class="py-16 md:py-20 relative">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <div class="text-center mb-10 reveal">
-      <span class="section-tag" data-i18n="trust.tag">Por qué confiar</span>
+      <span class="section-tag" data-i18n="trust.tag">💚 Por qué nos eligen</span>
       <h2 class="font-display mt-3" style="font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.0;">
         <span data-i18n="trust.title1">8 razones por las que</span>
-        <span class="text-grad" data-i18n="trust.title2">Kreathur es distinto.</span>
+        <span class="text-grad" data-i18n="trust.title2">Kreathur se siente distinto.</span>
       </h2>
     </div>
     <div id="trust-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
@@ -1041,11 +1145,14 @@
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <header class="grid md:grid-cols-12 gap-6 mb-14">
       <div class="md:col-span-8 reveal">
-        <div class="section-tag" data-i18n="serv.tag">Qué hacemos por ti</div>
+        <div class="section-tag" data-i18n="serv.tag">🛠️ Lo que hacemos por ti · siempre a medida</div>
         <h2 class="font-display mt-3" style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.98;">
           <span data-i18n="serv.title1">Cuatro líneas.</span>
-          <span class="text-grad" data-i18n="serv.title2">Un solo founder responde.</span>
+          <span class="text-grad" data-i18n="serv.title2">Cero plantillas.</span>
         </h2>
+        <p class="mt-5 max-w-2xl text-fg-1/75 text-base leading-relaxed" data-i18n="serv.intro">
+          No vendemos software de caja. Cada bot, cada sitio, cada flujo se diseña en torno a <strong class="text-fg-0">tu rubro, tu equipo y tus clientes</strong> — no al revés. ¿Querés un plan listo para arrancar? Lo tenemos. ¿Necesitás algo único? <strong class="text-neon">Eso es lo que hacemos mejor.</strong>
+        </p>
       </div>
     </header>
 
@@ -1059,10 +1166,10 @@
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <header class="grid md:grid-cols-12 gap-6 mb-10">
       <div class="md:col-span-8 reveal">
-        <div class="section-tag" data-i18n="demos.tag">Demos en vivo · 6 industrias</div>
+        <div class="section-tag" data-i18n="demos.tag">⚡ Mira el bot trabajando · 6 rubros reales</div>
         <h2 class="font-display mt-3" style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.98;">
-          <span data-i18n="demos.title1">Mira el bot</span>
-          <span class="text-neon" data-i18n="demos.title2">vendiendo</span><span data-i18n="demos.title3">.</span>
+          <span data-i18n="demos.title1">Conoce a tu nuevo</span>
+          <span class="text-neon" data-i18n="demos.title2">vendedor estrella</span><span data-i18n="demos.title3">. 🌟</span>
         </h2>
       </div>
     </header>
@@ -1279,20 +1386,49 @@
 </section>
 
 
+<!-- ═════════════ MANIFIESTO A MEDIDA ═════════════ -->
+<section class="py-14 md:py-20 relative">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(168,85,247,0.10), transparent 65%);"></div>
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <div class="rounded-3xl border border-purple-400/25 bg-purple-400/[0.04] p-7 md:p-10 reveal">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div class="shrink-0">
+          <div class="h-16 w-16 md:h-20 md:w-20 rounded-2xl bg-gradient-to-br from-purple-500/30 to-fuchsia-500/20 border border-purple-400/40 flex items-center justify-center text-3xl md:text-4xl bob">✂️</div>
+        </div>
+        <div class="flex-1">
+          <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-purple-300 mb-2" data-i18n="manif.tag">Cómo trabajamos</div>
+          <h3 class="font-display text-2xl md:text-3xl text-fg-0 leading-tight" data-i18n="manif.title">
+            No vendemos un sistema genérico.<br/>
+            <span class="text-grad">Diseñamos el tuyo desde cero.</span>
+          </h3>
+          <p class="mt-4 text-fg-1/85 text-[15px] md:text-base leading-relaxed" data-i18n="manif.body">
+            Cada empresa tiene su forma de atender, su rubro, su voz. Nuestro trabajo es <strong class="text-fg-0">entender la tuya</strong> y construir el bot, el sitio o la automatización <strong class="text-neon">exactamente como tu negocio funciona</strong>. Si lo único que necesitás es un plan estándar para arrancar — perfecto, tenemos cuatro listos abajo. Pero si tu caso es único — ahí nos encontrás.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="warm-chip"><span class="em">🎨</span><span data-i18n="manif.chip1">A medida por defecto</span></span>
+            <span class="warm-chip" style="background: linear-gradient(135deg, rgba(52,245,168,0.10), rgba(6,212,255,0.08)); border-color: rgba(52,245,168,0.30); color: #b8f7d8;"><span class="em">🧩</span><span data-i18n="manif.chip2">Integramos con lo que ya usás</span></span>
+            <span class="warm-chip" style="background: linear-gradient(135deg, rgba(6,212,255,0.08), rgba(168,85,247,0.08)); border-color: rgba(6,212,255,0.30); color: #b6ecff;"><span class="em">💬</span><span data-i18n="manif.chip3">Hablamos 15 min antes de cotizar</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════════ PRICING ═════════════ -->
 <section id="pricing" class="py-24 md:py-32 relative">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <header class="text-center max-w-3xl mx-auto mb-10 reveal">
-      <div class="section-tag" data-i18n="price.tag">Pricing transparente · CLP</div>
+      <div class="section-tag" data-i18n="price.tag">💰 Precios honestos · sin letra chica</div>
       <h2 class="font-display mt-3" style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.98;">
-        <span data-i18n="price.title1">Setup $0.</span>
+        <span data-i18n="price.title1">Setup $0. 🎁</span>
         <span class="text-neon" data-i18n="price.title2">Primer mes gratis.</span>
         <span data-i18n="price.title3"> Sin contratos.</span>
       </h2>
-      <p class="mt-5 text-fg-1/75 text-base" data-i18n="price.body">Cuatro planes claros, desde $39.900/mes. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.</p>
+      <p class="mt-5 text-fg-1/75 text-base" data-i18n="price.body">Tres planes para arrancar rápido, desde $39.900/mes. ¿Tu caso es único? <strong class="text-fg-0">Lo armamos a medida</strong> — cotización por WhatsApp. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.</p>
     </header>
 
-    <div id="pricing-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"></div>
+    <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
 
     <p class="mt-8 text-center text-xs text-fg-2/70 font-mono uppercase tracking-widest" data-i18n="price.footer">
       Todos los planes: setup $0 · primer mes gratis · sin contrato · cancelas cuando quieras
@@ -1307,12 +1443,12 @@
 
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <div class="text-center max-w-2xl mx-auto mb-4 reveal">
-      <span class="section-tag" data-i18n="guar.tag">Kreathur asume todo el riesgo</span>
+      <span class="section-tag" data-i18n="guar.tag">🛡️ Pruébalo sin riesgo · Kreathur lo asume</span>
     </div>
 
     <h2 class="font-display text-center reveal d1" style="font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 0.96;">
-      <span data-i18n="guar.title1">30 días de prueba ·</span>
-      <span class="text-grad" data-i18n="guar.title2">Si no te funciona, no pagas</span>
+      <span data-i18n="guar.title1">30 días para probarlo ·</span>
+      <span class="text-grad" data-i18n="guar.title2">si no te enamora, no pagas 💛</span>
     </h2>
 
     <div class="mt-12 grid lg:grid-cols-12 gap-10 items-center">
@@ -1341,7 +1477,7 @@
   <div class="mx-auto max-w-7xl px-5 md:px-8">
     <div class="grid lg:grid-cols-12 gap-10 items-start">
       <div class="lg:col-span-7 reveal">
-        <span class="section-tag" data-i18n="qs.tag">Quiénes somos</span>
+        <span class="section-tag" data-i18n="qs.tag">👋 Quiénes somos</span>
         <h2 class="font-display mt-3" style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 0.98;">
           <span class="text-fg-0" data-i18n="qs.title1">Una agencia de</span>
           <span class="text-grad" data-i18n="qs.title2">desarrollo de software,</span>
@@ -1386,22 +1522,22 @@
       <div class="lg:col-span-5 reveal d1">
         <div class="grid grid-cols-2 gap-3">
           <div class="rounded-2xl border border-hair bg-bg-1 p-4">
-            <div class="text-2xl mb-1">💻</div>
+            <div class="text-2xl mb-1 bob">💻</div>
             <div class="font-display text-base text-fg-0" data-i18n="qs.pillar1_t">Software a medida</div>
             <div class="font-mono text-[10px] uppercase tracking-widest text-fg-2/60 mt-1" data-i18n="qs.pillar1_s">Apps · APIs · LEMU · CRM</div>
           </div>
           <div class="rounded-2xl border border-hair bg-bg-1 p-4">
-            <div class="text-2xl mb-1">🤖</div>
+            <div class="text-2xl mb-1 bob bob-d1">🤖</div>
             <div class="font-display text-base text-fg-0" data-i18n="qs.pillar2_t">Automatizaciones IA</div>
             <div class="font-mono text-[10px] uppercase tracking-widest text-fg-2/60 mt-1" data-i18n="qs.pillar2_s">Bots · n8n · GPT · Claude</div>
           </div>
           <div class="rounded-2xl border border-hair bg-bg-1 p-4">
-            <div class="text-2xl mb-1">🌐</div>
+            <div class="text-2xl mb-1 bob bob-d2">🌐</div>
             <div class="font-display text-base text-fg-0" data-i18n="qs.pillar3_t">Presencia digital</div>
             <div class="font-mono text-[10px] uppercase tracking-widest text-fg-2/60 mt-1" data-i18n="qs.pillar3_s">Sitios · SEO · Ads · Redes</div>
           </div>
           <div class="rounded-2xl border border-hair bg-bg-1 p-4">
-            <div class="text-2xl mb-1">🚁</div>
+            <div class="text-2xl mb-1 bob bob-d3">🚁</div>
             <div class="font-display text-base text-fg-0" data-i18n="qs.pillar4_t">Producción audiovisual</div>
             <div class="font-mono text-[10px] uppercase tracking-widest text-fg-2/60 mt-1" data-i18n="qs.pillar4_s">Drone DGAC · Foto · Video</div>
           </div>
@@ -1431,10 +1567,10 @@
         </div>
       </div>
       <div class="lg:col-span-8 reveal d1">
-        <div class="section-tag" data-i18n="founder.tag">Founder · Pichilemu + Kiel</div>
+        <div class="section-tag" data-i18n="founder.tag">🙋‍♂️ El humano detrás · Pichilemu + Kiel</div>
         <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1;">
           <span data-i18n="founder.title1">Soy hotelero. Aprendí a programar</span>
-          <span class="text-neon" data-i18n="founder.title2">porque odiaba contestar a las 11 PM.</span>
+          <span class="text-neon" data-i18n="founder.title2">porque odiaba contestar a las 11 PM. 🌙</span>
         </h2>
         <p class="mt-5 text-fg-1/80 text-base leading-relaxed" data-i18n="founder.body">
           Vivo en Pichilemu, opero Lilafken Apart, dirijo Kreathur. Mi trabajo es uno solo: <strong class="text-fg-0">que tu negocio deje de depender de ti</strong>. Si agendamos los 15 minutos no te vendo humo. Si no calza con tu rubro, te lo digo honesto.
@@ -1456,11 +1592,11 @@
 
   <div class="mx-auto max-w-5xl px-5 md:px-8 text-center">
     <div class="reveal">
-      <span class="section-tag" data-i18n="ctc.tag">15 minutos · sin compromiso</span>
+      <span class="section-tag" data-i18n="ctc.tag">☕ Conversemos 15 min · sin compromiso</span>
     </div>
     <h2 class="font-display mt-3 reveal d1" style="font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 0.95;">
-      <span data-i18n="ctc.title1">Si calza, lo construimos.</span><br/>
-      <span class="text-grad" data-i18n="ctc.title2">Si no, seguimos amigos.</span>
+      <span data-i18n="ctc.title1">Si calza, lo construimos. ✨</span><br/>
+      <span class="text-grad" data-i18n="ctc.title2">Si no, seguimos amigos. 🤝</span>
     </h2>
     <p class="mt-6 max-w-2xl mx-auto text-base text-fg-1/75 reveal d2" data-i18n="ctc.body">
       Te muestro el bot funcionando, hablamos de tu rubro, te paso un plan en menos de 24 horas. Sin formularios, sin demos pre-grabados.
@@ -1592,6 +1728,11 @@
 </section>
 
 
+<!-- ═════════════ HECHO CON CARIÑO ═════════════ -->
+<div class="love-band">
+  <span>Hecho con <span class="heart">❤️</span> en Pichilemu 🌊 y Kiel ⚓ — para PYMES de Chile y Europa</span>
+</div>
+
 <!-- ═════════════ FOOTER ═════════════ -->
 <footer class="bg-bg-0 border-t border-hair">
   <div class="mx-auto max-w-7xl px-5 md:px-8 py-12">
@@ -1681,7 +1822,7 @@
 const T = {
   es: {
     'nav.servicios': 'Servicios', 'nav.demos': 'Demos', 'nav.lemu': 'LEMU', 'nav.proyectos': 'Proyectos', 'nav.drones': 'Drones', 'nav.garantia': 'Garantía', 'nav.quienes': 'Quiénes somos', 'nav.contacto': 'Contacto',
-    'qs.tag': 'Quiénes somos',
+    'qs.tag': '👋 Quiénes somos',
     'qs.title1': 'Una agencia de', 'qs.title2': 'desarrollo de software,', 'qs.title3': 'automatizaciones', 'qs.title4': 'y presencia digital.',
     'qs.p1': 'No somos una agencia más. Somos un equipo pequeño de operadores que construye lo que vende. Cada bot, cada sitio, cada automatización que armamos para un cliente — la usamos primero en nuestros propios negocios.',
     'qs.p2': 'Vivimos en <strong class="text-fg-0">Pichilemu</strong> y <strong class="text-fg-0">Kiel, Alemania</strong>. Desde la costa chilena al norte europeo, hacemos software a medida, automatizaciones con IA y presencia digital que funciona — no que se ve linda y queda olvidada.',
@@ -1707,13 +1848,13 @@ const T = {
     'lemu.modal_cta': 'Solicitar acceso real por WhatsApp',
     'hero.chip1': 'Lanzamiento 2026', 'hero.chip2_a': 'Pichilemu', 'hero.chip2_b': 'Kiel', 'hero.chip4': 'Primer mes gratis · solo mensualidad',
     'hero.l1a': 'Un bot de', 'hero.l1b': 'WhatsApp', 'hero.l1c': 'que vende', 'hero.l2': 'mientras tú vives.',
-    'hero.body1': 'Responde clientes, agenda reservas, cobra y avisa al equipo —',
-    'hero.body2': ' por 39/mes', 'hero.body3': ', 24/7, en tu propio WhatsApp y en ',
-    'hero.body4': '4 idiomas', 'hero.body5': '. Hecho en Pichilemu y Kiel para PYMES de Chile y Europa.',
+    'hero.body1': 'Diseñamos la solución a la medida de tu negocio — no una plantilla. Tu bot responde, agenda, cobra y te avisa solo cuando hace falta —',
+    'hero.body2': ' desde $39.900/mes', 'hero.body3': ', 24/7, en tu propio número y en ',
+    'hero.body4': '4 idiomas', 'hero.body5': '. Hecho con cariño 💛 desde Pichilemu y Kiel para PYMES de Chile y Europa.',
     'hero.no_setup': 'Sin set up · sin instalación', 'hero.no_setup_sub': '— solo pagas el mes que usas',
     'hero.cta1': 'Agendar demo gratis · 15 min', 'hero.cta2': 'Ver cómo funciona',
     'hero.stat1b': 'Responde el bot', 'hero.stat2b': 'Sin descanso', 'hero.stat3b': 'Primer mes',
-    'hero.eyebrow': 'Software · Automatizaciones · Presencia Digital',
+    'hero.eyebrow': 'Hola, soy Matías — bienvenido a Kreathur',
     'hero.tag': 'Automatizamos tu WhatsApp',
     'hero.phone_badge2': 'Ticket auto a cocina',
     'agendar.sticker': '15 minutos · sin compromiso · Lila te recibe',
@@ -1733,8 +1874,8 @@ const T = {
     'hero.step3_t': 'Tú vives', 'hero.step3_b': 'Sales, duermes, surfeas. El bot trabaja por ti. Recibes resumen diario por WhatsApp.',
     'hero.step4_t': 'Resultado', 'hero.step4_b': 'Cero clientes perdidos. +30% conversión promedio. 3 a 5 horas/día recuperadas.',
     'hero.stat1': 'negocios live ahora', 'hero.stat2': 'reseñas verificables', 'hero.stat3': 'idiomas nativos', 'hero.stat4': 'bot respondiendo',
-    'trust.tag': 'Por qué confiar',
-    'trust.title1': '8 razones por las que', 'trust.title2': 'Kreathur es distinto.',
+    'trust.tag': '💚 Por qué nos eligen',
+    'trust.title1': '8 razones por las que', 'trust.title2': 'Kreathur se siente distinto.',
     'rev.tag': 'Reseñas auditables · Booking · Airbnb · Google · IG',
     'rev.title1': 'Negocios reales.', 'rev.title2': 'Palabras reales.',
     'hero.body1': 'Mientras tú duermes, comes, sales con tu familia o trabajas en lo importante, tu bot responde clientes en WhatsApp 24/7.',
@@ -1743,10 +1884,16 @@ const T = {
     'hero.mt_tag': 'Mientras tanto, tú:',
     'hero.mt_title': 'Recuperas 3 a 5 horas al día para vivir.',
     'hero.mt1': 'Hacer un asado el sábado', 'hero.mt2': 'Tiempo con tus hijos', 'hero.mt3': 'Salir a pasear tranquilo', 'hero.mt4': 'Juntarte con amigos', 'hero.mt5': 'Surfear cuando hay olas', 'hero.mt6': 'Tomar café sin culpa',
-    'serv.tag': 'Qué hacemos por ti',
-    'serv.title1': 'Cuatro líneas.', 'serv.title2': 'Un solo founder responde.',
-    'demos.tag': 'Demos en vivo · 6 industrias',
-    'demos.title1': 'Mira el bot', 'demos.title2': 'vendiendo', 'demos.title3': '.',
+    'serv.tag': '🛠️ Lo que hacemos por ti · siempre a medida',
+    'serv.title1': 'Cuatro líneas.', 'serv.title2': 'Cero plantillas.',
+    'serv.intro': 'No vendemos software de caja. Cada bot, cada sitio, cada flujo se diseña en torno a tu rubro, tu equipo y tus clientes — no al revés. ¿Querés un plan listo para arrancar? Lo tenemos. ¿Necesitás algo único? Eso es lo que hacemos mejor.',
+    'hero.custom': '100% a medida · plantillas sólo si las pides',
+    'manif.tag': 'Cómo trabajamos',
+    'manif.title': 'No vendemos un sistema genérico. Diseñamos el tuyo desde cero.',
+    'manif.body': 'Cada empresa tiene su forma de atender, su rubro, su voz. Nuestro trabajo es entender la tuya y construir el bot, el sitio o la automatización exactamente como tu negocio funciona. Si lo único que necesitás es un plan estándar para arrancar — perfecto, tenemos cuatro listos abajo. Pero si tu caso es único — ahí nos encontrás.',
+    'manif.chip1': 'A medida por defecto', 'manif.chip2': 'Integramos con lo que ya usás', 'manif.chip3': 'Hablamos 15 min antes de cotizar',
+    'demos.tag': '⚡ Mira el bot trabajando · 6 rubros reales',
+    'demos.title1': 'Conoce a tu nuevo', 'demos.title2': 'vendedor estrella', 'demos.title3': '. 🌟',
     'proj.tag': 'Proyectos reales · sitios live',
     'proj.title1': 'Cinco negocios.', 'proj.title2': 'Funcionando ahora.',
     'drone.tag': 'Piloto DGAC certificado · 4K',
@@ -1758,22 +1905,22 @@ const T = {
     'drone.c2_tag': 'Drone fuera de propiedad', 'drone.c2_title': 'Servicio aparte',
     'drone.c2_body': 'Producciones en otros locations, eventos externos o material publicitario. DJI Spark, permisos DGAC, ediciones a medida.',
     'drone.c2_short': 'Corto', 'drone.c2_full': 'Producción completa', 'drone.c2_cta': 'Cotizar por WhatsApp →',
-    'price.tag': 'Pricing transparente · CLP',
-    'price.title1': 'Setup $0.', 'price.title2': 'Primer mes gratis.', 'price.title3': ' Sin contratos.',
-    'price.body': 'Cuatro planes claros, desde $39.900/mes. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.',
+    'price.tag': '💰 Precios honestos · sin letra chica',
+    'price.title1': 'Setup $0. 🎁', 'price.title2': 'Primer mes gratis.', 'price.title3': ' Sin contratos.',
+    'price.body': 'Tres planes para arrancar rápido, desde $39.900/mes. ¿Tu caso es único? Lo armamos a medida — cotización por WhatsApp. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.',
     'price.early_tag': '10 cupos · Early Adopter',
     'price.early_body': '<strong>Precio de fundadores</strong> en Plan Pro: $49.500/mes los primeros 3 meses (mes 1 gratis, mes 2-3 mitad de precio, mes 4 precio full).',
     'price.early_cta': 'Solicitar cupo →',
     'price.footer': 'Todos los planes: setup $0 · primer mes gratis · sin contrato · cancelas cuando quieras',
-    'guar.tag': 'Kreathur asume todo el riesgo',
-    'guar.title1': '30 días de prueba ·', 'guar.title2': 'Si no te funciona, no pagas',
+    'guar.tag': '🛡️ Pruébalo sin riesgo · Kreathur lo asume',
+    'guar.title1': '30 días para probarlo ·', 'guar.title2': 'si no te enamora, no pagas 💛',
     'guar.circle': 'satisfacción garantizada',
     'guar.body': 'Sin contratos amarrados. Sin letra chica. Implementamos tu solución y la pruebas <strong class="text-fg-0">30 días en tu negocio real</strong>. Si al día 30 <span class="text-grad font-semibold">no ves resultados concretos acordados</span>, te devolvemos el <span class="text-neon font-semibold">100% de tu inversión</span> sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.',
-    'founder.tag': 'Founder · Pichilemu + Kiel',
-    'founder.title1': 'Soy hotelero. Aprendí a programar', 'founder.title2': 'porque odiaba contestar a las 11 PM.',
+    'founder.tag': '🙋‍♂️ El humano detrás · Pichilemu + Kiel',
+    'founder.title1': 'Soy hotelero. Aprendí a programar', 'founder.title2': 'porque odiaba contestar a las 11 PM. 🌙',
     'founder.body': 'Vivo en Pichilemu, opero Lilafken Apart, dirijo Kreathur. Mi trabajo es uno solo: <strong class="text-fg-0">que tu negocio deje de depender de ti</strong>. Si agendamos los 15 minutos no te vendo humo. Si no calza con tu rubro, te lo digo honesto.',
-    'ctc.tag': '15 minutos · sin compromiso',
-    'ctc.title1': 'Si calza, lo construimos.', 'ctc.title2': 'Si no, seguimos amigos.',
+    'ctc.tag': '☕ Conversemos 15 min · sin compromiso',
+    'ctc.title1': 'Si calza, lo construimos. ✨', 'ctc.title2': 'Si no, seguimos amigos. 🤝',
     'ctc.body': 'Te muestro el bot funcionando, hablamos de tu rubro, te paso un plan en menos de 24 horas. Sin formularios, sin demos pre-grabados.',
     'ctc.cta1': 'Agendar 15 min',
     'footer.tag': 'El sistema operativo de la costa chilena. Hecho en Pichilemu y Kiel, escalado al mundo.',
@@ -1818,7 +1965,7 @@ const T = {
     'hero.no_setup': 'No setup · no installation', 'hero.no_setup_sub': '— only pay the month you use it',
     'hero.cta1': 'Book free demo · 15 min', 'hero.cta2': 'See how it works',
     'hero.stat1b': 'Bot reply time', 'hero.stat2b': 'No rest', 'hero.stat3b': 'First month',
-    'hero.eyebrow': 'Software · Automatizaciones · Presencia Digital',
+    'hero.eyebrow': 'Hi, I\'m Matías — welcome to Kreathur',
     'hero.tag': 'We automate your WhatsApp',
     'hero.phone_badge2': 'Auto ticket to kitchen',
     'agendar.sticker': '15 minutes · no commitment · Lila greets you',
@@ -1865,7 +2012,7 @@ const T = {
     'drone.c2_short': 'Short', 'drone.c2_full': 'Full production', 'drone.c2_cta': 'Quote via WhatsApp →',
     'price.tag': 'Transparent pricing · CLP',
     'price.title1': '$0 setup.', 'price.title2': 'First month free.', 'price.title3': ' No contracts.',
-    'price.body': 'Four clear plans, from $39,900/mo. Cancel anytime. If month 1 doesn\'t work, no charge.',
+    'price.body': 'Three clear plans, from $39,900/mo — or custom-built. Cancel anytime. If month 1 doesn\'t work, no charge.',
     'price.early_tag': '10 spots · Early Adopter',
     'price.early_body': '<strong>Founders\' price</strong> on Pro plan: $49,500/mo first 3 months (month 1 free, months 2-3 half price, month 4 full price).',
     'price.early_cta': 'Request a spot →',
@@ -1914,7 +2061,7 @@ const T = {
     'drone.c2_short': 'Kurz', 'drone.c2_full': 'Komplette Produktion', 'drone.c2_cta': 'Angebot via WhatsApp →',
     'price.tag': 'Transparente Preise · CLP',
     'price.title1': '0 € Setup.', 'price.title2': 'Erster Monat gratis.', 'price.title3': ' Keine Verträge.',
-    'price.body': 'Vier klare Pläne ab $39.900/Monat. Jederzeit kündbar. Wenn Monat 1 nicht funktioniert, keine Zahlung.',
+    'price.body': 'Drei klare Pläne ab $39.900/Monat — oder massgeschneidert. Jederzeit kündbar. Wenn Monat 1 nicht funktioniert, keine Zahlung.',
     'price.early_tag': '10 Plätze · Early Adopter',
     'price.early_body': '<strong>Gründerpreis</strong> auf Pro: $49.500/Monat erste 3 Monate.',
     'price.early_cta': 'Platz anfragen →',
@@ -1965,7 +2112,7 @@ const T = {
     'drone.c2_short': 'Curto', 'drone.c2_full': 'Produção completa', 'drone.c2_cta': 'Cotar via WhatsApp →',
     'price.tag': 'Preços transparentes · CLP',
     'price.title1': 'Setup $0.', 'price.title2': 'Primeiro mês grátis.', 'price.title3': ' Sem contratos.',
-    'price.body': 'Quatro planos claros, a partir de $39.900/mês. Cancele quando quiser.',
+    'price.body': 'Três planos claros a partir de $39.900/mês — ou sob medida. Cancele quando quiser.',
     'price.early_tag': '10 vagas · Early Adopter',
     'price.early_body': '<strong>Preço de fundadores</strong> no Plano Pro: $49.500/mês primeiros 3 meses.',
     'price.early_cta': 'Solicitar vaga →',
@@ -2210,22 +2357,13 @@ const PRICING = [
     },
     wa: 'Hola Matías, quiero el Plan STARTER ($39.900) — solo bot WhatsApp.',
   },
-  { id: 'inicio', label: 'INICIO', subtitle: { es: 'Para empezar', en: 'To start', de: 'Zum Start', pt: 'Pra começar' }, price: '$69.000', currency: 'CLP/mes', featured: false,
-    includes: {
-      es: ['Todo lo del Plan STARTER', 'Integración Google Calendar', 'Sitio web simple incluido', 'Soporte por WhatsApp del founder', '1 idioma'],
-      en: ['Everything in STARTER', 'Google Calendar integration', 'Simple website included', 'Founder WhatsApp support', '1 language'],
-      de: ['Alles aus STARTER', 'Google Calendar', 'Einfache Website', 'Gründer-Support', '1 Sprache'],
-      pt: ['Tudo do plano STARTER', 'Integração Google Calendar', 'Site simples incluído', 'Suporte do founder', '1 idioma'],
-    },
-    wa: 'Hola Matías, quiero el Plan INICIO ($69K).',
-  },
   { id: 'pro', label: 'PRO', subtitle: { es: 'Para crecer', en: 'To grow', de: 'Zum Wachsen', pt: 'Pra crescer' }, price: '$99.000', currency: 'CLP/mes', featured: true,
     badge: { es: 'Más popular', en: 'Most popular', de: 'Beliebtester', pt: 'Mais popular' },
     includes: {
-      es: ['Todo lo del Plan INICIO', 'Channel Manager (Booking, Airbnb, Despegar)', 'Bot reservas con check-in digital', 'E-commerce con MercadoPago', '4 idiomas nativos (ES/EN/DE/PT)', 'CRM unificado'],
-      en: ['Everything in START', 'Channel Manager (Booking, Airbnb, Despegar)', 'Booking bot + digital check-in', 'E-commerce with MercadoPago', '4 native languages', 'Unified CRM'],
-      de: ['Alles aus INICIO', 'Channel Manager', 'Buchungsbot + Check-in', 'E-Commerce mit MercadoPago', '4 native Sprachen', 'CRM'],
-      pt: ['Tudo do plano INICIO', 'Channel Manager', 'Bot reservas + check-in', 'E-commerce com MercadoPago', '4 idiomas nativos', 'CRM unificado'],
+      es: ['Todo lo del Plan STARTER', 'Sitio web a medida + Google Calendar', 'Channel Manager (Booking, Airbnb, Despegar)', 'Bot de reservas con check-in digital', 'E-commerce con MercadoPago', '4 idiomas nativos (ES/EN/DE/PT)', 'CRM unificado · soporte WhatsApp del founder'],
+      en: ['Everything in STARTER', 'Custom website + Google Calendar', 'Channel Manager (Booking, Airbnb, Despegar)', 'Booking bot + digital check-in', 'E-commerce with MercadoPago', '4 native languages (ES/EN/DE/PT)', 'Unified CRM · founder WhatsApp support'],
+      de: ['Alles aus STARTER', 'Massgeschneiderte Website + Google Calendar', 'Channel Manager (Booking, Airbnb, Despegar)', 'Buchungsbot + Digital-Check-in', 'E-Commerce mit MercadoPago', '4 native Sprachen', 'CRM · Gründer-Support'],
+      pt: ['Tudo do plano STARTER', 'Site sob medida + Google Calendar', 'Channel Manager (Booking, Airbnb, Despegar)', 'Bot de reservas + check-in digital', 'E-commerce com MercadoPago', '4 idiomas nativos', 'CRM unificado · suporte do founder'],
     },
     wa: 'Hola Matías, quiero el Plan PRO ($99K).',
   },
@@ -2537,7 +2675,8 @@ document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('cli
 
 /* ───── MatiBot ───── */
 const FAQ = [
-  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Cuatro planes:\n\n🚀 **STARTER** $39.900/mes — Bot WhatsApp 24/7 con respuestas automáticas + derivación a humano (sin sitio web)\n💎 **INICIO** $69K/mes — Todo lo de STARTER + Google Calendar + sitio web simple\n🔥 **PRO** $99K/mes — Todo + Channel Manager + Booking + Airbnb + ecommerce + CRM\n👑 **FULL** $199K/mes — Todo + redes sociales + drone 4K mensual\n\nTodos: setup $0, 1er mes gratis, sin contrato.' },
+  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Tenemos tres **planes listos para arrancar** + **todo lo demás a medida**:\n\n🚀 **STARTER** $39.900/mes — Bot WhatsApp 24/7 con respuestas automáticas + derivación a humano (sin sitio web)\n🔥 **PRO** $99.000/mes — Todo lo de STARTER + sitio web a medida + Google Calendar + Channel Manager (Booking/Airbnb/Despegar) + bot reservas con check-in + ecommerce MercadoPago + CRM + 4 idiomas\n👑 **FULL** $199.000/mes — Todo lo del PRO + redes sociales + drone 4K mensual + reportes + llamada estratégica mensual\n\nTodos: setup $0, 1er mes gratis, sin contrato.\n\n🎨 **¿Tu caso es único?** No vendemos plantillas — diseñamos tu sistema a medida. Hablemos 15 min y te paso una cotización.' },
+  { lang: 'es', q: ['a medida','personalizado','custom','único','unico','generico','genérico','plantilla','tailored','bespoke'], a: 'Sí — eso es lo que mejor hacemos. **No vendemos un sistema genérico**. Cada bot, sitio, automatización o integración la diseñamos desde cero según tu rubro, tu equipo y tu manera de atender. Los planes mensuales son sólo para los que quieren arrancar rápido con algo estándar. Si tu caso es único — 15 min por WhatsApp y te paso una cotización honesta.' },
   { lang: 'es', q: ['starter','bot solo','solo bot','plan barato','más barato','mas barato','económico','economico'], a: '**STARTER** a $39.900/mes es el plan más liviano: bot WhatsApp 24/7 con respuestas rápidas entrenadas en tus FAQ y derivación a un humano cuando el cliente lo pide. Sin sitio web ni integraciones. Primer mes gratis, sin contrato. Ideal si lo único que necesitas es que tu WhatsApp deje de quedar sin responder.' },
   { lang: 'es', q: ['derivar','supervisor','humano','agente real','handoff','escalar'], a: 'Sí. En todos los planes el bot deriva a un humano cuando el cliente lo pide explícitamente (escribe "humano", "agente", "persona" o similar) o cuando detecta una intención que no está entrenada. En STARTER esa derivación va a tu WhatsApp directo; en PRO/FULL entra al CRM con asignación por roles.' },
   { lang: 'es', q: ['early adopter','cupos','fundadores','descuento'], a: 'La promo de fundadores ya cerró. Hoy el plan más económico es **STARTER** a $39.900/mes — bot WhatsApp 24/7 con respuestas automáticas y derivación a humano. Primer mes gratis, sin contrato. ¿Te paso detalles?' },
@@ -2549,17 +2688,17 @@ const FAQ = [
   { lang: 'es', q: ['hotelería','hotel','airbnb','booking','channel'], a: 'Para hoteles boutique tenemos el Plan PRO con Channel Manager (sincroniza Booking + Airbnb + Despegar), bot de reservas con check-in digital, booking engine + Webpay. Caso real: Lilafken Apart, +27% ocupación.' },
   { lang: 'es', q: ['contacto','contactar','whatsapp','agendar','demo'], a: 'WhatsApp: +56 9 7787 7602 (responde el founder, <24h). Email: hola@kreathur.agency. Para una demo de 15 min, mejor por WhatsApp.' },
   { lang: 'es', q: ['casos','clientes','proyectos','portafolio'], a: '5 negocios live ahora: Lilafken Apart, Puntoski, Pichilemu Wear, Importadora Maully, MatiWlog. 800+ reseñas verificables en Booking/Airbnb/Google.' },
-  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Four plans:\n\n🚀 **STARTER** $39,900/mo — 24/7 WhatsApp bot with quick replies + human handoff (no website)\n💎 **START** $69K/mo — Everything in STARTER + Calendar + simple site\n🔥 **PRO** $99K/mo — All + Channel Manager + Booking + Airbnb + ecommerce + CRM\n👑 **FULL** $199K/mo — All + social + monthly 4K drone\n\nAll: $0 setup, 1st month free, no contract.' },
+  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Three plans + custom-built for everything else:\n\n🚀 **STARTER** $39,900 CLP/mo — 24/7 WhatsApp bot with quick replies + human handoff (no website)\n🔥 **PRO** $99,000 CLP/mo — Everything in STARTER + custom website + Calendar + Channel Manager (Booking/Airbnb/Despegar) + booking bot + e-commerce + CRM + 4 languages\n👑 **FULL** $199,000 CLP/mo — Everything in PRO + social media + monthly 4K drone + monthly strategy call\n\nAll: $0 setup, 1st month free, no contract.\n\n🎨 If your case is unique we design from scratch — quote by WhatsApp.' },
   { lang: 'en', q: ['starter','bot only','cheapest','entry'], a: '**STARTER** at $39,900 CLP/mo is the lightest plan: 24/7 WhatsApp bot with trained quick replies and handoff to a human when the customer asks. No website, no integrations. First month free, no contract. Perfect if all you need is to stop missing WhatsApp messages.' },
   { lang: 'en', q: ['handoff','human','agent','supervisor','escalate'], a: 'Yes — every plan hands off to a human when the customer explicitly asks ("human", "agent", "person") or when the bot detects an intent it hasn\'t been trained on. On STARTER the handoff goes to your own WhatsApp; on PRO/FULL it lands inside the CRM with role-based assignment.' },
   { lang: 'en', q: ['early adopter','spots','founders'], a: 'The founders\' promo is closed. Today the entry plan is **STARTER** at $39,900 CLP/mo — 24/7 WhatsApp bot with quick replies and human handoff. First month free, no contract.' },
   { lang: 'en', q: ['guarantee','warranty','30 days','refund'], a: '30-day trial in your real business. If by day 30 you don\'t see agreed concrete results, we refund 100%, no awkward questions. We take the risk.' },
   { lang: 'en', q: ['drone','aerial','dgac'], a: 'Matías is a DGAC-certified pilot with DJI Spark. On-site → included in Full Plan (1 monthly session). Off-site → separate service: $80K short (2-3h) up to $450K full production.' },
   { lang: 'en', q: ['contact','whatsapp','demo'], a: 'WhatsApp: +56 9 7787 7602. Email: hola@kreathur.agency. Book 15 min for a live demo.' },
-  { lang: 'de', q: ['preis','kosten'], a: 'Vier Pläne: STARTER $39.900 (nur WhatsApp-Bot mit Übergabe an Menschen), START $69K (+ Kalender + Website), PRO $99K (+ Channel Manager + E-Commerce + CRM), FULL $199K (+ Social + Drohne). Alle: $0 Setup, 1. Monat gratis.' },
+  { lang: 'de', q: ['preis','kosten'], a: 'Drei Pläne + alles andere massgeschneidert: STARTER $39.900 (nur WhatsApp-Bot), PRO $99.000 (+ Website + Channel Manager + Buchungsbot + E-Commerce + CRM + 4 Sprachen), FULL $199.000 (+ Social + monatliche Drohne + Strategie-Call). Alle: $0 Setup, 1. Monat gratis.' },
   { lang: 'de', q: ['starter','nur bot','günstigster'], a: '**STARTER** für $39.900 CLP/Monat: 24/7 WhatsApp-Bot mit Quick-Replies und Übergabe an einen Menschen auf Anfrage. Keine Website, keine Integrationen. Erster Monat gratis.' },
   { lang: 'de', q: ['garantie'], a: '30 Tage Probe im echten Geschäft. Wenn keine Ergebnisse, 100% Rückerstattung.' },
-  { lang: 'pt', q: ['quanto custa','preço'], a: 'Quatro planos: STARTER $39.900 (só bot WhatsApp com transferência a humano), INICIO $69K (+ Calendar + site), PRO $99K (+ Channel Manager + ecommerce + CRM), FULL $199K (+ redes + drone). Todos: setup $0, 1º mês grátis.' },
+  { lang: 'pt', q: ['quanto custa','preço'], a: 'Três planos + tudo o resto sob medida: STARTER $39.900 (só bot WhatsApp), PRO $99.000 (+ site + Channel Manager + bot reservas + ecommerce + CRM + 4 idiomas), FULL $199.000 (+ redes + drone mensal + call estratégica). Todos: setup $0, 1º mês grátis.' },
   { lang: 'pt', q: ['starter','só bot','mais barato'], a: '**STARTER** a $39.900 CLP/mês: bot WhatsApp 24/7 com respostas rápidas e transferência a um humano quando o cliente pedir. Sem site nem integrações. Primeiro mês grátis.' },
   { lang: 'pt', q: ['garantia'], a: '30 dias de teste no seu negócio real. Se não ver resultados, devolvemos 100%.' },
 ];
