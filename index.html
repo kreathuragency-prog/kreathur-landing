@@ -763,6 +763,88 @@
     .sparkle-host::before, .sparkle-host::after { animation: none !important; }
     .price-card:hover, .price-card.featured:hover { transform: none !important; }
   }
+
+  /* ═════════════ HERO VIDEO FRAME (reel 2026) ═════════════ */
+  .video-frame {
+    position: relative;
+    width: 100%;
+    min-width: 320px;
+    max-width: 500px;
+    flex-basis: 460px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(244,244,243,0.12);
+    box-shadow:
+      0 30px 80px -30px rgba(52,245,168,0.45),
+      0 0 60px -20px rgba(6,212,255,0.35),
+      inset 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  @media (max-width: 640px) {
+    .video-frame { min-width: 0; max-width: 100%; flex-basis: auto; }
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  /* small "tap to enable sound" pill, bottom-right */
+  .audio-toggle {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.62);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s, transform .2s, border-color .2s;
+  }
+  .audio-toggle:hover { background: rgba(0,0,0,0.82); transform: scale(1.05); border-color: rgba(255,255,255,0.4); }
+  .audio-toggle .icon { font-size: 13px; }
+
+  /* tiny "REEL 2026" badge over the video, top-left */
+  .video-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(52,245,168,0.45);
+    color: var(--neon-mint);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  .video-tag .red-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #ff3b3b;
+    box-shadow: 0 0 8px rgba(255,59,59,0.9);
+    animation: phone-pulse 1.6s ease-in-out infinite;
+  }
 </style>
 </head>
 
@@ -927,9 +1009,9 @@
         </div>
       </div>
 
-      <!-- RIGHT — Phone Piccola Roma — INMERSIVO -->
-      <div class="lg:col-span-5 flex justify-center lg:justify-end reveal d2">
-        <div class="phone-stage" id="phone-stage">
+      <!-- RIGHT — Hero video reel (YouTube autoplay/muted/loop) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end reveal d2" style="min-width:0;">
+        <div class="phone-stage" id="phone-stage" style="width:100%; max-width:500px;">
           <!-- Background grid pulse -->
           <div class="phone-bg-grid"></div>
 
@@ -973,55 +1055,24 @@
             🤖
           </div>
 
-          <div class="phone phone-float" style="max-width: 340px;">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <!-- Top status bar (real animated) -->
-              <div class="flex items-center justify-between text-[10px] text-white/80 px-1 mb-2 font-mono relative z-10">
-                <span class="font-semibold">12:34</span>
-                <span class="flex items-center gap-1.5 text-white/75">
-                  <span>5G</span>
-                  <span class="phone-signal text-white/85"><span></span><span></span><span></span><span></span></span>
-                  <span class="phone-battery"><span class="phone-battery-fill"></span></span>
-                </span>
-              </div>
-              <!-- WhatsApp header -->
-              <div class="flex items-center gap-3 pb-3 border-b border-fg-3/30 relative z-10">
-                <div class="relative h-10 w-10 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-base">
-                  🍕
-                  <span class="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-bg-0" style="background: var(--neon-mint); box-shadow: 0 0 8px rgba(52,245,168,0.8);"></span>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="text-sm font-semibold text-white">La Piccola Roma</div>
-                  <div class="text-[10px] flex items-center gap-1.5 text-white/65">
-                    <span class="pulse-dot" style="width:5px;height:5px"></span>
-                    bot · pizzas + reservas
-                  </div>
-                </div>
-                <div class="flex items-center gap-2 text-white/60">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7v10l-7-5z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span>⋮</span>
-                </div>
-              </div>
-              <!-- "hoy" divider -->
-              <div class="text-center my-3 relative z-10">
-                <span class="px-2 py-0.5 rounded-full bg-white/10 text-[9px] text-white/65 font-mono uppercase tracking-widest">hoy</span>
-              </div>
-              <!-- Messages with stagger animation -->
-              <div class="space-y-1.5 text-[12.5px] relative z-10">
-                <div class="flex justify-start" style="animation-delay: 0.2s;"><div class="bubble-in px-3 py-2 max-w-[82%]">Hola, ¿pueden mandar 2 pizzas a Constitución 412?<div class="text-[9px] mt-1 opacity-50 text-right">20:14</div></div></div>
-                <div class="flex justify-end" style="animation-delay: 0.6s;"><div class="bubble-out px-3 py-2 max-w-[82%]">Joaquín 👋 ¿qué sabores?<br/>🍕 <strong>Margarita</strong> · $12.900<br/>🍕 <strong>Pepperoni</strong> · $13.900<div class="text-[9px] mt-1 opacity-70 text-right">20:14 ✓✓</div></div></div>
-                <div class="flex justify-start" style="animation-delay: 1s;"><div class="bubble-in px-3 py-2 max-w-[82%]">Margarita y pepperoni<div class="text-[9px] mt-1 opacity-50 text-right">20:15</div></div></div>
-                <div class="flex justify-end" style="animation-delay: 1.4s;"><div class="bubble-out px-3 py-2 max-w-[82%]"><strong>Total: $26.800</strong> · delivery 25-35 min.<br/>¿Pagas online?<div class="text-[9px] mt-1 opacity-70 text-right">20:15 ✓✓</div></div></div>
-                <div class="flex justify-start" style="animation-delay: 1.8s;"><div class="bubble-in px-3 py-2 max-w-[82%]">Sí<div class="text-[9px] mt-1 opacity-50 text-right">20:15</div></div></div>
-                <div class="flex justify-end" style="animation-delay: 2.2s;"><div class="bubble-out px-3 py-2 max-w-[82%]"><span class="underline decoration-emerald-200">pago.piccolaroma.cl/J812</span><div class="text-[9px] mt-1 opacity-70 text-right">20:15 ✓✓</div></div></div>
-                <!-- Typing indicator at bottom -->
-                <div class="flex justify-start pt-1" style="animation: bubble-in 0.5s ease-out 2.6s backwards;">
-                  <div class="typing-dots"><span></span><span></span><span></span></div>
-                </div>
-              </div>
-            </div>
+          <!-- YouTube reel embed (autoplay muted + loop, audio toggle, JS API enabled) -->
+          <div class="video-frame phone-float" id="hero-video-frame">
+            <iframe
+              id="hero-yt"
+              src="https://www.youtube.com/embed/iZLh2BLDZH4?autoplay=1&mute=1&loop=1&playlist=iZLh2BLDZH4&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1&iv_load_policy=3&enablejsapi=1"
+              title="Kreathur Agency — Un ecosistema digital completo | Reel 2026"
+              allow="autoplay; encrypted-media; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="eager"
+            ></iframe>
+            <span class="video-tag" aria-hidden="true">
+              <span class="red-dot"></span>
+              <span>Reel · 2026</span>
+            </span>
+            <button type="button" class="audio-toggle" id="audio-toggle" data-muted="true" aria-label="Activar audio">
+              <span class="icon">🔊</span><span data-i18n="hero.audio_on">Audio</span>
+            </button>
           </div>
         </div>
       </div>
@@ -3176,6 +3227,34 @@ function initPhoneTilt() {
 }
 
 /* ───── Boot ───── */
+/* ───── Hero video audio toggle (YouTube postMessage) ───── */
+function initHeroVideoAudio() {
+  const btn = document.getElementById('audio-toggle');
+  const iframe = document.getElementById('hero-yt');
+  if (!btn || !iframe) return;
+  btn.addEventListener('click', () => {
+    const muted = btn.dataset.muted !== 'false';
+    const cmd = muted ? 'unMute' : 'mute';
+    try {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: cmd, args: '' }),
+        '*'
+      );
+    } catch (_) { /* ignore */ }
+    if (muted) {
+      btn.dataset.muted = 'false';
+      btn.querySelector('.icon').textContent = '🔇';
+      btn.lastElementChild.textContent = btn.lastElementChild.dataset?.i18nMute || 'Silenciar';
+      btn.setAttribute('aria-label', 'Silenciar');
+    } else {
+      btn.dataset.muted = 'true';
+      btn.querySelector('.icon').textContent = '🔊';
+      btn.lastElementChild.textContent = btn.lastElementChild.dataset?.i18nUnmute || 'Audio';
+      btn.setAttribute('aria-label', 'Activar audio');
+    }
+  });
+}
+
 function boot() {
   applyLang();
   renderServices();
@@ -3187,6 +3266,7 @@ function boot() {
   renderReviews();
   renderLemu();
   initPhoneTilt();
+  initHeroVideoAudio();
   bot.greet();
   activateReveal();
   updateProgress();
