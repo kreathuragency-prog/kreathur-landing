@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23fbbf24'/%3E%3Ctext x='50%25' y='65%25' font-size='20' font-family='Georgia,serif' font-style='italic' font-weight='600' text-anchor='middle' fill='%230a0a0a'%3EK%3C/text%3E%3C/svg%3E" />
 <meta name="theme-color" content="#0a0a0a" />
 <meta property="og:title" content="Kreathur — Tu WhatsApp atiende solo." />
-<meta property="og:description" content="Bot que vende 24/7, sitio app-like, automatización IA. Tres planes claros, primer mes gratis." />
+<meta property="og:description" content="Bot WhatsApp 24/7, automatización IA. Cuatro planes desde $39.900/mes, primer mes gratis." />
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -1289,10 +1289,10 @@
         <span class="text-neon" data-i18n="price.title2">Primer mes gratis.</span>
         <span data-i18n="price.title3"> Sin contratos.</span>
       </h2>
-      <p class="mt-5 text-fg-1/75 text-base" data-i18n="price.body">Tres planes claros. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.</p>
+      <p class="mt-5 text-fg-1/75 text-base" data-i18n="price.body">Cuatro planes claros, desde $39.900/mes. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.</p>
     </header>
 
-    <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    <div id="pricing-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"></div>
 
     <p class="mt-8 text-center text-xs text-fg-2/70 font-mono uppercase tracking-widest" data-i18n="price.footer">
       Todos los planes: setup $0 · primer mes gratis · sin contrato · cancelas cuando quieras
@@ -1760,7 +1760,7 @@ const T = {
     'drone.c2_short': 'Corto', 'drone.c2_full': 'Producción completa', 'drone.c2_cta': 'Cotizar por WhatsApp →',
     'price.tag': 'Pricing transparente · CLP',
     'price.title1': 'Setup $0.', 'price.title2': 'Primer mes gratis.', 'price.title3': ' Sin contratos.',
-    'price.body': 'Tres planes claros. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.',
+    'price.body': 'Cuatro planes claros, desde $39.900/mes. Cancelas cuando quieras. Si al mes 1 no funciona, no pagas.',
     'price.early_tag': '10 cupos · Early Adopter',
     'price.early_body': '<strong>Precio de fundadores</strong> en Plan Pro: $49.500/mes los primeros 3 meses (mes 1 gratis, mes 2-3 mitad de precio, mes 4 precio full).',
     'price.early_cta': 'Solicitar cupo →',
@@ -1865,7 +1865,7 @@ const T = {
     'drone.c2_short': 'Short', 'drone.c2_full': 'Full production', 'drone.c2_cta': 'Quote via WhatsApp →',
     'price.tag': 'Transparent pricing · CLP',
     'price.title1': '$0 setup.', 'price.title2': 'First month free.', 'price.title3': ' No contracts.',
-    'price.body': 'Three clear plans. Cancel anytime. If month 1 doesn\'t work, no charge.',
+    'price.body': 'Four clear plans, from $39,900/mo. Cancel anytime. If month 1 doesn\'t work, no charge.',
     'price.early_tag': '10 spots · Early Adopter',
     'price.early_body': '<strong>Founders\' price</strong> on Pro plan: $49,500/mo first 3 months (month 1 free, months 2-3 half price, month 4 full price).',
     'price.early_cta': 'Request a spot →',
@@ -1914,7 +1914,7 @@ const T = {
     'drone.c2_short': 'Kurz', 'drone.c2_full': 'Komplette Produktion', 'drone.c2_cta': 'Angebot via WhatsApp →',
     'price.tag': 'Transparente Preise · CLP',
     'price.title1': '0 € Setup.', 'price.title2': 'Erster Monat gratis.', 'price.title3': ' Keine Verträge.',
-    'price.body': 'Drei klare Pläne. Jederzeit kündbar. Wenn Monat 1 nicht funktioniert, keine Zahlung.',
+    'price.body': 'Vier klare Pläne ab $39.900/Monat. Jederzeit kündbar. Wenn Monat 1 nicht funktioniert, keine Zahlung.',
     'price.early_tag': '10 Plätze · Early Adopter',
     'price.early_body': '<strong>Gründerpreis</strong> auf Pro: $49.500/Monat erste 3 Monate.',
     'price.early_cta': 'Platz anfragen →',
@@ -1965,7 +1965,7 @@ const T = {
     'drone.c2_short': 'Curto', 'drone.c2_full': 'Produção completa', 'drone.c2_cta': 'Cotar via WhatsApp →',
     'price.tag': 'Preços transparentes · CLP',
     'price.title1': 'Setup $0.', 'price.title2': 'Primeiro mês grátis.', 'price.title3': ' Sem contratos.',
-    'price.body': 'Três planos claros. Cancele quando quiser.',
+    'price.body': 'Quatro planos claros, a partir de $39.900/mês. Cancele quando quiser.',
     'price.early_tag': '10 vagas · Early Adopter',
     'price.early_body': '<strong>Preço de fundadores</strong> no Plano Pro: $49.500/mês primeiros 3 meses.',
     'price.early_cta': 'Solicitar vaga →',
@@ -2201,12 +2201,21 @@ const SITES = [
 ];
 
 const PRICING = [
+  { id: 'starter', label: 'STARTER', subtitle: { es: 'Solo bot WhatsApp', en: 'WhatsApp bot only', de: 'Nur WhatsApp-Bot', pt: 'Só bot WhatsApp' }, price: '$39.900', currency: 'CLP/mes', featured: false,
+    includes: {
+      es: ['Bot WhatsApp 24/7 con respuestas rápidas', 'Derivación a supervisor humano cuando el cliente lo pida', 'Entrenamiento inicial con tus FAQ', 'Sin sitio web ni integraciones', '1 idioma', 'Soporte por WhatsApp del founder'],
+      en: ['24/7 WhatsApp bot with quick replies', 'Handoff to human supervisor on demand', 'Initial training with your FAQs', 'No website or integrations', '1 language', 'Founder WhatsApp support'],
+      de: ['24/7 WhatsApp-Bot mit Quick-Replies', 'Übergabe an menschlichen Supervisor auf Anfrage', 'Initial-Training mit deinen FAQs', 'Keine Website, keine Integrationen', '1 Sprache', 'Gründer-Support'],
+      pt: ['Bot WhatsApp 24/7 com respostas rápidas', 'Transferência a supervisor humano quando o cliente pedir', 'Treinamento inicial com suas FAQs', 'Sem site nem integrações', '1 idioma', 'Suporte do founder'],
+    },
+    wa: 'Hola Matías, quiero el Plan STARTER ($39.900) — solo bot WhatsApp.',
+  },
   { id: 'inicio', label: 'INICIO', subtitle: { es: 'Para empezar', en: 'To start', de: 'Zum Start', pt: 'Pra começar' }, price: '$69.000', currency: 'CLP/mes', featured: false,
     includes: {
-      es: ['Bot WhatsApp 24/7 entrenado', 'Integración Google Calendar', 'Sitio web simple incluido', 'Soporte por WhatsApp del founder', '1 idioma'],
-      en: ['24/7 trained WhatsApp bot', 'Google Calendar integration', 'Simple website included', 'Founder WhatsApp support', '1 language'],
-      de: ['24/7 WhatsApp-Bot', 'Google Calendar', 'Einfache Website', 'Gründer-Support', '1 Sprache'],
-      pt: ['Bot WhatsApp 24/7', 'Integração Google Calendar', 'Site simples incluído', 'Suporte do founder', '1 idioma'],
+      es: ['Todo lo del Plan STARTER', 'Integración Google Calendar', 'Sitio web simple incluido', 'Soporte por WhatsApp del founder', '1 idioma'],
+      en: ['Everything in STARTER', 'Google Calendar integration', 'Simple website included', 'Founder WhatsApp support', '1 language'],
+      de: ['Alles aus STARTER', 'Google Calendar', 'Einfache Website', 'Gründer-Support', '1 Sprache'],
+      pt: ['Tudo do plano STARTER', 'Integração Google Calendar', 'Site simples incluído', 'Suporte do founder', '1 idioma'],
     },
     wa: 'Hola Matías, quiero el Plan INICIO ($69K).',
   },
@@ -2218,7 +2227,7 @@ const PRICING = [
       de: ['Alles aus INICIO', 'Channel Manager', 'Buchungsbot + Check-in', 'E-Commerce mit MercadoPago', '4 native Sprachen', 'CRM'],
       pt: ['Tudo do plano INICIO', 'Channel Manager', 'Bot reservas + check-in', 'E-commerce com MercadoPago', '4 idiomas nativos', 'CRM unificado'],
     },
-    wa: 'Hola Matías, quiero el Plan PRO ($99K) — Early Adopter.',
+    wa: 'Hola Matías, quiero el Plan PRO ($99K).',
   },
   { id: 'full', label: 'FULL', subtitle: { es: 'Para dominar', en: 'To dominate', de: 'Zum Dominieren', pt: 'Pra dominar' }, price: '$199.000', currency: 'CLP/mes', featured: false,
     includes: {
@@ -2528,8 +2537,10 @@ document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('cli
 
 /* ───── MatiBot ───── */
 const FAQ = [
-  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Tres planes:\n\n💎 **INICIO** $69K/mes — Bot WA + Google Calendar + sitio simple\n🔥 **PRO** $99K/mes — Todo + Channel Manager + Booking + Airbnb + ecommerce (HOY: Early Adopter $49.500 los primeros 3 meses)\n👑 **FULL** $199K/mes — Todo + redes + drone 4K mensual\n\nTodos: setup $0, 1er mes gratis, sin contrato.' },
-  { lang: 'es', q: ['early adopter','cupos','fundadores','descuento'], a: 'Hay **10 cupos Early Adopter** del Plan Pro a precio de fundadores: $49.500/mes los primeros 3 meses (mes 1 gratis, mes 2-3 mitad de precio, mes 4 precio full). Si quieres uno, escríbele a Matías ya.' },
+  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Cuatro planes:\n\n🚀 **STARTER** $39.900/mes — Bot WhatsApp 24/7 con respuestas automáticas + derivación a humano (sin sitio web)\n💎 **INICIO** $69K/mes — Todo lo de STARTER + Google Calendar + sitio web simple\n🔥 **PRO** $99K/mes — Todo + Channel Manager + Booking + Airbnb + ecommerce + CRM\n👑 **FULL** $199K/mes — Todo + redes sociales + drone 4K mensual\n\nTodos: setup $0, 1er mes gratis, sin contrato.' },
+  { lang: 'es', q: ['starter','bot solo','solo bot','plan barato','más barato','mas barato','económico','economico'], a: '**STARTER** a $39.900/mes es el plan más liviano: bot WhatsApp 24/7 con respuestas rápidas entrenadas en tus FAQ y derivación a un humano cuando el cliente lo pide. Sin sitio web ni integraciones. Primer mes gratis, sin contrato. Ideal si lo único que necesitas es que tu WhatsApp deje de quedar sin responder.' },
+  { lang: 'es', q: ['derivar','supervisor','humano','agente real','handoff','escalar'], a: 'Sí. En todos los planes el bot deriva a un humano cuando el cliente lo pide explícitamente (escribe "humano", "agente", "persona" o similar) o cuando detecta una intención que no está entrenada. En STARTER esa derivación va a tu WhatsApp directo; en PRO/FULL entra al CRM con asignación por roles.' },
+  { lang: 'es', q: ['early adopter','cupos','fundadores','descuento'], a: 'La promo de fundadores ya cerró. Hoy el plan más económico es **STARTER** a $39.900/mes — bot WhatsApp 24/7 con respuestas automáticas y derivación a humano. Primer mes gratis, sin contrato. ¿Te paso detalles?' },
   { lang: 'es', q: ['drone','drones','aéreo','dgac','dron'], a: 'Matías es piloto DGAC certificado con DJI Spark. Dentro de tu propiedad → incluido en Plan Full (1 sesión mensual). Fuera de propiedad → servicio aparte: $80K corto (2-3h) hasta $450K producción completa.' },
   { lang: 'es', q: ['garantía','garantia','30 días','devolución','si no funciona'], a: '30 días de prueba en tu negocio real. Si al día 30 no ves los resultados concretos acordados, te devolvemos el 100% sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.' },
   { lang: 'es', q: ['cómo funciona','como funciona','proceso','pasos'], a: '4 pasos:\n1️⃣ Agendamos llamada gratuita (15 min)\n2️⃣ Implementamos en 7 días hábiles\n3️⃣ Pruebas 30 días en tu negocio\n4️⃣ Decides — o cero pago' },
@@ -2538,14 +2549,18 @@ const FAQ = [
   { lang: 'es', q: ['hotelería','hotel','airbnb','booking','channel'], a: 'Para hoteles boutique tenemos el Plan PRO con Channel Manager (sincroniza Booking + Airbnb + Despegar), bot de reservas con check-in digital, booking engine + Webpay. Caso real: Lilafken Apart, +27% ocupación.' },
   { lang: 'es', q: ['contacto','contactar','whatsapp','agendar','demo'], a: 'WhatsApp: +56 9 7787 7602 (responde el founder, <24h). Email: hola@kreathur.agency. Para una demo de 15 min, mejor por WhatsApp.' },
   { lang: 'es', q: ['casos','clientes','proyectos','portafolio'], a: '5 negocios live ahora: Lilafken Apart, Puntoski, Pichilemu Wear, Importadora Maully, MatiWlog. 800+ reseñas verificables en Booking/Airbnb/Google.' },
-  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Three plans:\n\n💎 **START** $69K/mo — WA bot + Calendar + simple site\n🔥 **PRO** $99K/mo — All + Channel Manager + Booking + Airbnb + ecommerce (Early Adopter $49,500 first 3 months)\n👑 **FULL** $199K/mo — All + social + monthly 4K drone\n\nAll: $0 setup, 1st month free, no contract.' },
-  { lang: 'en', q: ['early adopter','spots','founders'], a: '10 Early Adopter spots on Pro plan at founders\' price: $49,500/mo first 3 months. Hit up Matías now.' },
+  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Four plans:\n\n🚀 **STARTER** $39,900/mo — 24/7 WhatsApp bot with quick replies + human handoff (no website)\n💎 **START** $69K/mo — Everything in STARTER + Calendar + simple site\n🔥 **PRO** $99K/mo — All + Channel Manager + Booking + Airbnb + ecommerce + CRM\n👑 **FULL** $199K/mo — All + social + monthly 4K drone\n\nAll: $0 setup, 1st month free, no contract.' },
+  { lang: 'en', q: ['starter','bot only','cheapest','entry'], a: '**STARTER** at $39,900 CLP/mo is the lightest plan: 24/7 WhatsApp bot with trained quick replies and handoff to a human when the customer asks. No website, no integrations. First month free, no contract. Perfect if all you need is to stop missing WhatsApp messages.' },
+  { lang: 'en', q: ['handoff','human','agent','supervisor','escalate'], a: 'Yes — every plan hands off to a human when the customer explicitly asks ("human", "agent", "person") or when the bot detects an intent it hasn\'t been trained on. On STARTER the handoff goes to your own WhatsApp; on PRO/FULL it lands inside the CRM with role-based assignment.' },
+  { lang: 'en', q: ['early adopter','spots','founders'], a: 'The founders\' promo is closed. Today the entry plan is **STARTER** at $39,900 CLP/mo — 24/7 WhatsApp bot with quick replies and human handoff. First month free, no contract.' },
   { lang: 'en', q: ['guarantee','warranty','30 days','refund'], a: '30-day trial in your real business. If by day 30 you don\'t see agreed concrete results, we refund 100%, no awkward questions. We take the risk.' },
   { lang: 'en', q: ['drone','aerial','dgac'], a: 'Matías is a DGAC-certified pilot with DJI Spark. On-site → included in Full Plan (1 monthly session). Off-site → separate service: $80K short (2-3h) up to $450K full production.' },
   { lang: 'en', q: ['contact','whatsapp','demo'], a: 'WhatsApp: +56 9 7787 7602. Email: hola@kreathur.agency. Book 15 min for a live demo.' },
-  { lang: 'de', q: ['preis','kosten'], a: 'Drei Pläne: START $69K, PRO $99K (Early Adopter $49.500 erste 3 Monate), FULL $199K. Alle: $0 Setup, 1. Monat gratis.' },
+  { lang: 'de', q: ['preis','kosten'], a: 'Vier Pläne: STARTER $39.900 (nur WhatsApp-Bot mit Übergabe an Menschen), START $69K (+ Kalender + Website), PRO $99K (+ Channel Manager + E-Commerce + CRM), FULL $199K (+ Social + Drohne). Alle: $0 Setup, 1. Monat gratis.' },
+  { lang: 'de', q: ['starter','nur bot','günstigster'], a: '**STARTER** für $39.900 CLP/Monat: 24/7 WhatsApp-Bot mit Quick-Replies und Übergabe an einen Menschen auf Anfrage. Keine Website, keine Integrationen. Erster Monat gratis.' },
   { lang: 'de', q: ['garantie'], a: '30 Tage Probe im echten Geschäft. Wenn keine Ergebnisse, 100% Rückerstattung.' },
-  { lang: 'pt', q: ['quanto custa','preço'], a: 'Três planos: INICIO $69K, PRO $99K (Early Adopter $49.500 primeiros 3 meses), FULL $199K. Todos: setup $0, 1º mês grátis.' },
+  { lang: 'pt', q: ['quanto custa','preço'], a: 'Quatro planos: STARTER $39.900 (só bot WhatsApp com transferência a humano), INICIO $69K (+ Calendar + site), PRO $99K (+ Channel Manager + ecommerce + CRM), FULL $199K (+ redes + drone). Todos: setup $0, 1º mês grátis.' },
+  { lang: 'pt', q: ['starter','só bot','mais barato'], a: '**STARTER** a $39.900 CLP/mês: bot WhatsApp 24/7 com respostas rápidas e transferência a um humano quando o cliente pedir. Sem site nem integrações. Primeiro mês grátis.' },
   { lang: 'pt', q: ['garantia'], a: '30 dias de teste no seu negócio real. Se não ver resultados, devolvemos 100%.' },
 ];
 
