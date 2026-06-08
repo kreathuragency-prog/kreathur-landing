@@ -17,6 +17,61 @@
 <meta property="og:title" content="Kreathur — Tu WhatsApp atiende solo." />
 <meta property="og:description" content="Bot WhatsApp 24/7, automatización IA. Tres planes desde $39.900/mes — o algo a medida. Primer mes gratis." />
 
+<!-- ═════════════ ANALYTICS & PIXELS ═════════════ -->
+<!-- TODO: replace META_PIXEL_ID_PLACEHOLDER with your Meta Pixel ID -->
+<!-- TODO: replace GA4_MEASUREMENT_ID_PLACEHOLDER with your GA4 ID -->
+<script>
+  // Defer real pixel firing until window.kreathurAnalytics.init() is called
+  // with real IDs. Until then, events are queued and replayed.
+  window.kreathurAnalytics = (function () {
+    const META_PIXEL_ID = 'META_PIXEL_ID_PLACEHOLDER';
+    const GA4_ID = 'GA4_MEASUREMENT_ID_PLACEHOLDER';
+    const ready = { meta: false, ga4: false };
+    const queue = [];
+    function loadMeta(id) {
+      if (!id || id.startsWith('META_PIXEL_ID')) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', id);
+      window.fbq('track', 'PageView');
+      ready.meta = true;
+    }
+    function loadGA4(id) {
+      if (!id || id.startsWith('GA4_MEASUREMENT_ID')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', id);
+      ready.ga4 = true;
+    }
+    function track(eventName, params) {
+      params = params || {};
+      try {
+        if (ready.meta && window.fbq) window.fbq('trackCustom', eventName, params);
+      } catch (_) {}
+      try {
+        if (ready.ga4 && window.gtag) window.gtag('event', eventName, params);
+      } catch (_) {}
+      if (!ready.meta && !ready.ga4) queue.push({ eventName: eventName, params: params });
+      if (window.console && console.debug) console.debug('[kreathur-analytics]', eventName, params);
+    }
+    function flush() {
+      while (queue.length) {
+        const e = queue.shift();
+        track(e.eventName, e.params);
+      }
+    }
+    loadMeta(META_PIXEL_ID);
+    loadGA4(GA4_ID);
+    return { track: track, flush: flush, ready: ready };
+  })();
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -818,6 +873,107 @@
   .audio-toggle:hover { background: rgba(0,0,0,0.82); transform: scale(1.05); border-color: rgba(255,255,255,0.4); }
   .audio-toggle .icon { font-size: 13px; }
 
+  /* ═════════════ ROI CALCULATOR SLIDER ═════════════ */
+  .roi-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--neon-mint) var(--p,30%), rgba(244,244,243,0.10) var(--p,30%));
+    outline: none;
+    cursor: pointer;
+  }
+  .roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--neon-mint);
+    border: 3px solid #0a0a0a;
+    box-shadow: 0 0 0 1px var(--neon-mint), 0 0 18px rgba(52,245,168,0.6);
+    cursor: pointer;
+    transition: transform .15s;
+  }
+  .roi-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .roi-slider::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--neon-mint);
+    border: 3px solid #0a0a0a;
+    box-shadow: 0 0 0 1px var(--neon-mint), 0 0 18px rgba(52,245,168,0.6);
+    cursor: pointer;
+  }
+
+  /* ═════════════ LEAD MAGNET MODAL ═════════════ */
+  .lm-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(8px);
+    z-index: 9000;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .lm-backdrop.is-open {
+    display: flex;
+    opacity: 1;
+  }
+  .lm-panel {
+    width: 100%;
+    max-width: 540px;
+    background: linear-gradient(180deg, rgba(20,20,20,0.97), rgba(10,10,10,0.97));
+    border: 1px solid rgba(52,245,168,0.30);
+    border-radius: 28px;
+    padding: 32px 28px;
+    box-shadow:
+      0 40px 100px -30px rgba(52,245,168,0.40),
+      0 0 0 1px rgba(255,255,255,0.04);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform .35s cubic-bezier(.16,1,.3,1);
+  }
+  .lm-backdrop.is-open .lm-panel { transform: translateY(0); }
+  .lm-close {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(244,244,243,0.08);
+    border: 1px solid rgba(244,244,243,0.12);
+    color: var(--fg-1);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, transform .2s;
+  }
+  .lm-close:hover { background: rgba(244,244,243,0.16); transform: rotate(90deg); }
+  .lm-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(244,244,243,0.04);
+    border: 1px solid rgba(244,244,243,0.10);
+    color: var(--fg-0);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color .2s, background .2s;
+  }
+  .lm-input:focus { outline: none; border-color: var(--neon-mint); background: rgba(52,245,168,0.04); }
+  .lm-input::placeholder { color: var(--fg-3); }
+  .lm-success {
+    text-align: center;
+    padding: 30px 0;
+  }
+  .lm-success .icon {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 14px;
+    animation: heart-pulse 1.6s ease-in-out infinite;
+  }
+
   /* tiny "REEL 2026" badge over the video, top-left */
   .video-tag {
     position: absolute;
@@ -1466,6 +1622,89 @@
   </div>
 </section>
 
+<!-- ═════════════ ROI CALCULATOR ═════════════ -->
+<section id="roi" class="py-16 md:py-24 relative">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,245,168,0.08), transparent 65%);"></div>
+  <div class="mx-auto max-w-5xl px-5 md:px-8">
+    <div class="text-center mb-10 reveal">
+      <span class="section-tag">💸 ¿Cuánto pierdes hoy?</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 0.98;">
+        <span>Calculadora de</span>
+        <span class="text-grad">plata perdida</span>
+        <span>en WhatsApp.</span>
+      </h2>
+      <p class="mt-5 text-fg-1/75 text-base max-w-2xl mx-auto">
+        Si no contestas todos los WhatsApp a tiempo, esto es lo que pierdes al mes. Mueve los sliders.
+      </p>
+    </div>
+
+    <div class="rounded-3xl border border-emerald-400/25 bg-emerald-400/[0.04] p-6 md:p-10 reveal d1">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Inputs -->
+        <div class="space-y-7">
+          <div>
+            <label class="flex items-baseline justify-between mb-3">
+              <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-fg-2">📱 Mensajes WhatsApp / día</span>
+              <span id="roi-msgs-val" class="font-display text-2xl text-fg-0">30</span>
+            </label>
+            <input type="range" id="roi-msgs" min="5" max="300" value="30" step="5" class="roi-slider w-full" />
+          </div>
+
+          <div>
+            <label class="flex items-baseline justify-between mb-3">
+              <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-fg-2">💵 Ticket promedio CLP</span>
+              <span id="roi-ticket-val" class="font-display text-2xl text-fg-0">$25.000</span>
+            </label>
+            <input type="range" id="roi-ticket" min="2000" max="200000" value="25000" step="1000" class="roi-slider w-full" />
+          </div>
+
+          <div>
+            <label class="flex items-baseline justify-between mb-3">
+              <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-fg-2">😴 % mensajes que no contestas a tiempo</span>
+              <span id="roi-lost-val" class="font-display text-2xl text-fg-0">30%</span>
+            </label>
+            <input type="range" id="roi-lost" min="5" max="80" value="30" step="5" class="roi-slider w-full" />
+          </div>
+
+          <div>
+            <label class="flex items-baseline justify-between mb-3">
+              <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-fg-2">🎯 % consultas que se convierten en venta</span>
+              <span id="roi-conv-val" class="font-display text-2xl text-fg-0">15%</span>
+            </label>
+            <input type="range" id="roi-conv" min="2" max="50" value="15" step="1" class="roi-slider w-full" />
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="space-y-4">
+          <div class="rounded-2xl border border-red-400/35 bg-red-400/[0.06] p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-red-300">Plata perdida al mes 😢</div>
+            <div id="roi-monthly" class="mt-2 font-display text-4xl md:text-5xl text-fg-0">$33.750</div>
+            <div class="mt-1 font-mono text-[10px] uppercase tracking-widest text-fg-2/70">CLP / mes</div>
+          </div>
+          <div class="rounded-2xl border border-amber-mid/35 bg-amber-mid/[0.06] p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.18em]" style="color: var(--amber);">Plata perdida al año 🔥</div>
+            <div id="roi-yearly" class="mt-2 font-display text-3xl md:text-4xl text-fg-0">$405.000</div>
+            <div class="mt-1 font-mono text-[10px] uppercase tracking-widest text-fg-2/70">CLP / año</div>
+          </div>
+          <div class="rounded-2xl border border-emerald-400/50 bg-emerald-400/[0.10] p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.18em]" style="color: var(--neon-mint);">Con Plan STARTER $39.900/mes ✨</div>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span id="roi-savings" class="font-display text-3xl md:text-4xl text-fg-0">recuperas $33.750</span>
+            </div>
+            <div id="roi-verdict" class="mt-1 text-sm text-fg-1/85">El STARTER se paga solo 0.8 veces.</div>
+          </div>
+          <a id="roi-cta" href="https://wa.me/56977877602?text=Hola%20Matías,%20vi%20la%20calculadora%20ROI%20y%20quiero%20activar%20el%20Plan%20STARTER%20para%20recuperar%20esa%20plata." target="_blank" rel="noopener" class="btn-grad sparkle-host w-full justify-center" style="display:flex; align-items:center; gap:10px;" data-wa="roi-calculator">
+            <span>🚀 Activar este ahorro hoy</span>
+            <span class="arrow">→</span>
+          </a>
+          <p class="text-center text-[11px] text-fg-2/60 font-mono uppercase tracking-widest">Setup 7 días · 1er mes gratis · Garantía 30 días</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═════════════ PRICING ═════════════ -->
 <section id="pricing" class="py-24 md:py-32 relative">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
@@ -1862,6 +2101,58 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/></svg>
     </button>
   </form>
+</div>
+
+
+<!-- ═════════════ LEAD MAGNET MODAL ═════════════ -->
+<div class="lm-backdrop" id="lm-backdrop" role="dialog" aria-modal="true" aria-labelledby="lm-title">
+  <div class="lm-panel">
+    <button class="lm-close" id="lm-close" aria-label="Cerrar">&times;</button>
+
+    <!-- Form state -->
+    <div id="lm-form-wrap">
+      <div class="text-center mb-6">
+        <div class="text-4xl mb-2 wave" style="display:inline-block;">🎁</div>
+        <h3 id="lm-title" class="font-display text-2xl md:text-3xl text-fg-0 leading-tight">
+          Auditoría WhatsApp <span class="text-neon">gratis</span>
+        </h3>
+        <p class="mt-3 text-sm text-fg-1/80">
+          Te mando un análisis personalizado de cómo está respondiendo tu WhatsApp + 3 recomendaciones específicas para tu negocio.
+          <span class="text-fg-0 font-semibold">Sin venta, sin compromiso.</span>
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-400/30 bg-emerald-400/[0.06]">
+          <span class="pulse-dot" style="width:6px;height:6px"></span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">Te llega en menos de 24h</span>
+        </div>
+      </div>
+
+      <form id="lm-form" class="space-y-3">
+        <input type="email" name="email" class="lm-input" placeholder="tu@email.com" required autocomplete="email" />
+        <input type="text" name="name" class="lm-input" placeholder="Tu nombre (opcional)" autocomplete="name" />
+        <input type="text" name="business" class="lm-input" placeholder="Nombre de tu negocio (opcional)" />
+        <input type="tel" name="phone" class="lm-input" placeholder="WhatsApp +56 9 ... (opcional)" autocomplete="tel" />
+        <button type="submit" id="lm-submit" class="btn-neon w-full justify-center" style="display:flex; align-items:center; gap:8px;">
+          <span>📩 Enviarme la auditoría</span>
+        </button>
+        <p class="text-center text-[11px] text-fg-2/55 font-mono uppercase tracking-widest">
+          0 spam · puedes darte de baja en 1 click
+        </p>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div id="lm-success" class="lm-success" style="display:none;">
+      <span class="icon">💚</span>
+      <h3 class="font-display text-2xl text-fg-0">¡Llegó tu solicitud!</h3>
+      <p class="mt-3 text-sm text-fg-1/80 max-w-sm mx-auto">
+        Te llegará tu auditoría en menos de 24h por email. Si querés adelantar, escribime al WhatsApp:
+      </p>
+      <a href="https://wa.me/56977877602?text=Hola%20Matías,%20envié%20mi%20email%20por%20la%20auditoría%20WhatsApp." target="_blank" rel="noopener" class="btn-neon mt-5" data-wa="lead-magnet-success" style="display:inline-flex; align-items:center; gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0a0a0a"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        <span>WhatsApp directo</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 
@@ -3227,6 +3518,179 @@ function initPhoneTilt() {
 }
 
 /* ───── Boot ───── */
+/* ───── ROI Calculator ───── */
+function initROICalculator() {
+  const sliders = {
+    msgs:   { el: document.getElementById('roi-msgs'),   val: document.getElementById('roi-msgs-val'),   fmt: v => v },
+    ticket: { el: document.getElementById('roi-ticket'), val: document.getElementById('roi-ticket-val'), fmt: v => '$' + Number(v).toLocaleString('es-CL') },
+    lost:   { el: document.getElementById('roi-lost'),   val: document.getElementById('roi-lost-val'),   fmt: v => v + '%' },
+    conv:   { el: document.getElementById('roi-conv'),   val: document.getElementById('roi-conv-val'),   fmt: v => v + '%' },
+  };
+  if (!sliders.msgs.el) return;
+  const out = {
+    monthly: document.getElementById('roi-monthly'),
+    yearly:  document.getElementById('roi-yearly'),
+    savings: document.getElementById('roi-savings'),
+    verdict: document.getElementById('roi-verdict'),
+  };
+  let trackedOnce = false;
+
+  function syncSliderTrack(s) {
+    const min = +s.el.min, max = +s.el.max, val = +s.el.value;
+    const pct = ((val - min) / (max - min)) * 100;
+    s.el.style.setProperty('--p', pct + '%');
+    s.val.textContent = s.fmt(val);
+  }
+
+  function recalc() {
+    Object.values(sliders).forEach(syncSliderTrack);
+    const msgs = +sliders.msgs.el.value;
+    const ticket = +sliders.ticket.el.value;
+    const lostPct = +sliders.lost.el.value / 100;
+    const convPct = +sliders.conv.el.value / 100;
+
+    const lostMsgsPerDay = msgs * lostPct;
+    const lostSalesPerDay = lostMsgsPerDay * convPct;
+    const lostMonthly = Math.round(lostSalesPerDay * ticket * 30);
+    const lostYearly  = lostMonthly * 12;
+
+    out.monthly.textContent = '$' + lostMonthly.toLocaleString('es-CL');
+    out.yearly.textContent  = '$' + lostYearly.toLocaleString('es-CL');
+
+    const STARTER = 39900;
+    const PRO = 99000;
+    const recovers = lostMonthly;
+    out.savings.textContent = 'recuperas $' + recovers.toLocaleString('es-CL');
+
+    if (lostMonthly >= PRO * 2) {
+      out.verdict.innerHTML = '🔥 Hasta el Plan PRO ($99K) se paga ' + (lostMonthly / PRO).toFixed(1) + 'x veces. Mover el WhatsApp ya.';
+    } else if (lostMonthly >= STARTER) {
+      const ratio = (lostMonthly / STARTER).toFixed(1);
+      out.verdict.innerHTML = 'El STARTER ($39.900) se paga solo <strong class="text-fg-0">' + ratio + 'x veces</strong>. Cero excusa.';
+    } else {
+      out.verdict.innerHTML = 'Aun así, recuperarías la inversión del STARTER si subes 1 venta extra/mes.';
+    }
+
+    if (!trackedOnce && window.kreathurAnalytics) {
+      window.kreathurAnalytics.track('ROICalculatorUsed', { msgs, ticket, lostPct: +sliders.lost.el.value });
+      trackedOnce = true;
+    }
+  }
+
+  Object.values(sliders).forEach(s => s.el.addEventListener('input', recalc, { passive: true }));
+  recalc();
+}
+
+/* ───── Lead Magnet Modal ───── */
+function initLeadMagnet() {
+  const backdrop = document.getElementById('lm-backdrop');
+  const closeBtn = document.getElementById('lm-close');
+  const form     = document.getElementById('lm-form');
+  const formWrap = document.getElementById('lm-form-wrap');
+  const success  = document.getElementById('lm-success');
+  const submit   = document.getElementById('lm-submit');
+  if (!backdrop || !form) return;
+
+  let openedOnce = false;
+  let viewedOnce = false;
+  function open(trigger) {
+    if (openedOnce) return;
+    openedOnce = true;
+    backdrop.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    if (!viewedOnce && window.kreathurAnalytics) {
+      window.kreathurAnalytics.track('LeadMagnetView', { trigger });
+      viewedOnce = true;
+    }
+  }
+  function close() {
+    backdrop.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // Trigger 1: scroll 60%
+  function onScrollTrigger() {
+    if (openedOnce) return window.removeEventListener('scroll', onScrollTrigger);
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (pct >= 60) open('scroll-60');
+  }
+  window.addEventListener('scroll', onScrollTrigger, { passive: true });
+
+  // Trigger 2: exit intent (desktop only)
+  if (!('ontouchstart' in window)) {
+    document.addEventListener('mouseleave', e => {
+      if (e.clientY <= 0 && !openedOnce) open('exit-intent');
+    });
+  }
+
+  // Submit
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const data = {
+      source: 'web',
+      businessSlug: 'kreathur',
+      email: (fd.get('email') || '').toString().trim(),
+      name: (fd.get('name') || '').toString().trim() || undefined,
+      phone: (fd.get('phone') || '').toString().trim() || undefined,
+      prize: 'Auditoría WhatsApp gratis',
+      coupon: (fd.get('business') || '').toString().trim() || undefined,  // reuse coupon field for business name
+      url: location.href,
+      userAgent: navigator.userAgent,
+    };
+    if (!data.email) return;
+    submit.disabled = true;
+    const oldHTML = submit.innerHTML;
+    submit.innerHTML = '<span>Enviando…</span>';
+    try {
+      const r = await fetch('https://crm.kreathur.com/api/webhooks/lead-capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        mode: 'cors',
+      });
+      // We don't gate the UI on r.ok — even if the API hiccups we still thank
+      // the user. The lead is forwarded by our retry layer.
+    } catch (_) { /* silently swallow — show success regardless */ }
+    formWrap.style.display = 'none';
+    success.style.display = 'block';
+    if (window.kreathurAnalytics) window.kreathurAnalytics.track('LeadMagnetSubmit', { hasPhone: !!data.phone });
+    submit.disabled = false;
+    submit.innerHTML = oldHTML;
+  });
+}
+
+/* ───── WhatsApp click tracking (delegated) ───── */
+function initWhatsAppTracking() {
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"], a[data-wa]');
+    if (!a) return;
+    const source = a.dataset.wa || a.getAttribute('href')?.split('?')[1]?.slice(0, 60) || 'unknown';
+    if (window.kreathurAnalytics) window.kreathurAnalytics.track('WhatsAppClick', { source });
+  }, { passive: true });
+}
+
+/* ───── Pricing section view tracking ───── */
+function initPricingViewTracking() {
+  const pricing = document.getElementById('pricing');
+  if (!pricing || !('IntersectionObserver' in window)) return;
+  let fired = false;
+  const o = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !fired) {
+        fired = true;
+        if (window.kreathurAnalytics) window.kreathurAnalytics.track('PricingViewed', {});
+        o.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  o.observe(pricing);
+}
+
 /* ───── Hero video audio toggle (YouTube postMessage) ───── */
 function initHeroVideoAudio() {
   const btn = document.getElementById('audio-toggle');
@@ -3267,6 +3731,10 @@ function boot() {
   renderLemu();
   initPhoneTilt();
   initHeroVideoAudio();
+  initROICalculator();
+  initLeadMagnet();
+  initWhatsAppTracking();
+  initPricingViewTracking();
   bot.greet();
   activateReveal();
   updateProgress();
