@@ -363,6 +363,7 @@
   .flag-cl { background: linear-gradient(to bottom, #fff 0 50%, #d52b1e 50% 100%); }
   .flag-cl::before { content:''; position: absolute; left:0; top:0; width: 40%; height: 50%; background: #0033a0; }
   .flag-cl::after { content: '★'; position: absolute; left: 14%; top: 8%; color: #fff; font-size: 8px; line-height: 1; }
+  .flag-es { background: linear-gradient(to bottom, #c60b1e 0 25%, #ffc400 25% 75%, #c60b1e 75% 100%); }
   .flag-us { background: repeating-linear-gradient(to bottom, #b22234 0 2px, #fff 2px 4px); }
   .flag-us::before { content:''; position: absolute; left:0; top:0; width: 45%; height: 55%; background: #3c3b6e; }
   .flag-de { background: linear-gradient(to bottom, #000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%); }
@@ -708,12 +709,12 @@
     <div class="flex items-center gap-2">
       <div class="relative">
         <button id="lang-toggle" class="lang-dd">
-          <span class="flag flag-cl" id="lang-flag"></span>
+          <span class="flag flag-es" id="lang-flag"></span>
           <span id="lang-code">ES</span>
           <span class="opacity-50">▾</span>
         </button>
         <div id="lang-menu" class="lang-menu">
-          <div class="lang-item" data-lang="es"><span class="flag flag-cl"></span><span>Español</span></div>
+          <div class="lang-item" data-lang="es"><span class="flag flag-es"></span><span>Español</span></div>
           <div class="lang-item" data-lang="en"><span class="flag flag-us"></span><span>English</span></div>
           <div class="lang-item" data-lang="de"><span class="flag flag-de"></span><span>Deutsch</span></div>
           <div class="lang-item" data-lang="pt"><span class="flag flag-br"></span><span>Português</span></div>
@@ -1724,7 +1725,7 @@
         <div>
           <div class="font-mono text-[10px] uppercase tracking-widest text-fg-3 mb-3" data-i18n="footer.col3">Idiomas</div>
           <ul class="space-y-2 text-fg-1/75 text-xs">
-            <li class="flex items-center gap-2"><span class="flag flag-cl"></span><span>Español</span></li>
+            <li class="flex items-center gap-2"><span class="flag flag-es"></span><span>Español</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-us"></span><span>English</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-de"></span><span>Deutsch</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-br"></span><span>Português</span></li>
@@ -2108,7 +2109,7 @@ function applyLang() {
   // Update flag in topbar
   const flagEl = document.getElementById('lang-flag');
   const codeEl = document.getElementById('lang-code');
-  const map = { es: ['flag-cl','ES'], en: ['flag-us','EN'], de: ['flag-de','DE'], pt: ['flag-br','PT'] };
+  const map = { es: ['flag-es','ES'], en: ['flag-us','EN'], de: ['flag-de','DE'], pt: ['flag-br','PT'] };
   if (flagEl && codeEl) {
     flagEl.className = 'flag ' + map[LANG][0];
     codeEl.textContent = map[LANG][1];
