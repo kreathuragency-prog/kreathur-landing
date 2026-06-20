@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+<title>Productos y Servicios · Kreathur Agency</title>
+<meta name="description" content="Catálogo completo de Kreathur Agency. Recepcionistas IA, Bots WhatsApp, LEMU Channel Manager hotelero, automatizaciones n8n, sitios web, drones DGAC y compliance Ley 21.719. Precios CLP visibles." />
+<meta property="og:title" content="Kreathur · Catálogo completo de productos y servicios" />
+<meta property="og:description" content="Recepcionistas IA, bots, LEMU hotelero, n8n, web, drones, compliance. Setup desde $195k CLP. Garantía 30 días." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kreathur.agency/productos.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-0: #0a0a0b;
+  --bg-1: #111114;
+  --bg-2: #16161a;
+  --fg-0: #f4f4f3;
+  --fg-1: #c8c8c5;
+  --fg-2: #8c8c88;
+  --fg-3: #565654;
+  --neon-mint: #34f5a8;
+  --neon-cyan: #06d4ff;
+  --neon-purple: #a855f7;
+  --hair: rgba(244,244,243,0.08);
+}
+* { -webkit-font-smoothing: antialiased; }
+html, body { background: var(--bg-0); color: var(--fg-0); font-family: 'Hanken Grotesk', sans-serif; }
+.font-display { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.text-grad { background: linear-gradient(135deg, var(--neon-mint) 0%, var(--neon-cyan) 50%, var(--neon-purple) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.text-neon { color: var(--neon-mint); }
+.text-fg-0 { color: var(--fg-0); }
+.text-fg-1 { color: var(--fg-1); }
+.text-fg-2 { color: var(--fg-2); }
+.text-fg-3 { color: var(--fg-3); }
+.border-hair { border-color: var(--hair); }
+.bg-bg-0 { background-color: var(--bg-0); }
+.bg-bg-1 { background-color: var(--bg-1); }
+.bg-bg-2 { background-color: var(--bg-2); }
+
+.section-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--hair); background: rgba(244,244,243,0.02); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--fg-2); }
+.glass { background: rgba(17,17,20,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+
+.product-card { border: 1px solid var(--hair); border-radius: 24px; padding: 28px; background: linear-gradient(180deg, rgba(244,244,243,0.02) 0%, transparent 100%); transition: all 0.3s; }
+.product-card:hover { border-color: rgba(52,245,168,0.25); background: linear-gradient(180deg, rgba(52,245,168,0.04) 0%, transparent 100%); transform: translateY(-3px); }
+.product-card.featured { border-color: rgba(52,245,168,0.5); background: linear-gradient(180deg, rgba(52,245,168,0.06) 0%, transparent 100%); box-shadow: 0 0 50px -10px rgba(52,245,168,0.2); }
+
+.price-row { display: flex; align-items: baseline; gap: 8px; padding: 14px 0; border-bottom: 1px dashed var(--hair); }
+.price-row:last-child { border-bottom: none; }
+.price-row .label { flex: 1; color: var(--fg-1); font-size: 14px; }
+.price-row .price { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; color: var(--fg-0); font-size: 18px; }
+.price-row .sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-3); margin-left: 4px; }
+
+.btn-neon { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; background: var(--neon-mint); color: #0a0a0a; font-weight: 700; transition: all 0.2s; }
+.btn-neon:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; border: 1px solid var(--hair); color: var(--fg-1); font-weight: 500; transition: all 0.2s; }
+.btn-outline:hover { border-color: var(--fg-2); color: var(--fg-0); }
+.btn-wa { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 999px; background: linear-gradient(135deg, #25d366, #128c3a); color: #fff; font-weight: 700; font-size: 17px; transition: all 0.2s; box-shadow: 0 10px 40px -10px rgba(37,211,102,0.5); }
+.btn-wa:hover { transform: translateY(-2px); box-shadow: 0 15px 50px -10px rgba(37,211,102,0.7); }
+
+.badge-neon { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(52,245,168,0.15); color: var(--neon-mint); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+.badge-cyan { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(6,212,255,0.15); color: var(--neon-cyan); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+.badge-purple { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(168,85,247,0.15); color: var(--neon-purple); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+.badge-amber { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(251,191,36,0.15); color: #fbbf24; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+
+.wa-fab { position: fixed; bottom: 22px; right: 22px; z-index: 50; height: 64px; width: 64px; border-radius: 50%; background: linear-gradient(135deg, #25d366, #128c3a); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px -10px rgba(37,211,102,0.6); transition: all 0.3s; }
+.wa-fab:hover { transform: scale(1.08); box-shadow: 0 15px 50px -10px rgba(37,211,102,0.8); }
+.wa-fab::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: rgba(52,245,168,0.3); animation: pulse 2s infinite; z-index: -1; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 0; } }
+</style>
+</head>
+<body class="bg-bg-0 text-fg-0">
+
+<!-- ═════════ TOPBAR ═════════ -->
+<header class="sticky top-0 z-40 glass border-b border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8 h-14 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      <span class="font-display text-xl tracking-tight"><span class="text-grad">KREATHUR</span></span>
+      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-3 hidden sm:inline">· Catálogo</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="/" class="text-fg-2 hover:text-fg-0 transition">← Volver al sitio</a>
+      <a href="https://wa.me/56977877602?text=Hola%20Mati,%20vengo%20del%20catalogo%20y%20quiero%20mas%20info." target="_blank" rel="noopener" class="btn-neon" style="padding: 8px 18px; font-size: 13px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <a href="https://wa.me/56977877602" target="_blank" rel="noopener" class="md:hidden text-neon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- ═════════ HERO ═════════ -->
+<section class="py-16 md:py-24 relative overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(52,245,168,0.10), transparent 60%);"></div>
+  <div class="mx-auto max-w-5xl px-5 md:px-8 text-center">
+    <span class="section-tag mb-5">Catálogo completo · CLP · Sin sorpresas</span>
+    <h1 class="font-display mt-3" style="font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 0.98;">
+      Todo lo que <span class="text-grad">Kreathur</span> ofrece.<br>
+      <span class="text-neon">Precios visibles.</span>
+    </h1>
+    <p class="mt-6 text-fg-1 text-base md:text-lg max-w-2xl mx-auto">
+      Sin "agenda una reunión para que te digamos el precio". Aquí está todo: planes recurrentes, productos a medida, setup fees, garantías. Si tienes dudas, escríbenos al WhatsApp y te respondemos directo.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href="#recepcionistas" class="btn-outline">Recepcionistas IA</a>
+      <a href="#lemu" class="btn-outline">LEMU Hotelero</a>
+      <a href="#n8n" class="btn-outline">n8n</a>
+      <a href="#web" class="btn-outline">Sitios web</a>
+      <a href="#drones" class="btn-outline">Drones</a>
+      <a href="#compliance" class="btn-outline">Ley 21.719</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 1. RECEPCIONISTAS IA ═════════ -->
+<section id="recepcionistas" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-neon mb-3">01 · Producto principal</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">Recepcionistas IA <span class="text-neon">en WhatsApp</span></h2>
+      <p class="mt-4 text-fg-1 text-base">Un agente IA que atiende, califica y vende 24/7 por WhatsApp Business. Hablado, no scriptado. Aprende de tu negocio. Cierra reservas, agenda, responde stock, recupera carritos.</p>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-2">INICIO</div>
+        <div class="font-display text-2xl mt-1">Para empezar</div>
+        <div class="mt-6 mb-2">
+          <span class="font-display text-5xl">$69.000</span>
+          <span class="font-mono text-[11px] text-fg-3 ml-1">CLP/mes</span>
+        </div>
+        <div class="mt-3 px-3 py-2 rounded-lg border border-hair/60 bg-bg-1/60">
+          <div class="font-mono text-[9px] uppercase tracking-[0.18em] text-fg-3">Setup única vez</div>
+          <div class="font-display text-lg mt-0.5">$195.000 <span class="text-[11px] text-fg-3 font-mono">CLP</span></div>
+          <div class="font-mono text-[9px] text-neon mt-0.5">✦ Early Adopter: $0 setup</div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span class="text-neon">✓</span> Bot WhatsApp 24/7 entrenado con tu negocio</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Integración Google Calendar</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Sitio web simple incluido</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Soporte WhatsApp del founder</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> 1 idioma · 30 días soporte post-setup</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20el%20Plan%20INICIO%20(%24195K%20setup%20%2B%20%2469K%2Fmes)." target="_blank" rel="noopener" class="mt-6 block text-center btn-outline">Elegir INICIO</a>
+      </article>
+
+      <article class="product-card featured">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-neon">PRO · MÁS POPULAR</div>
+        <div class="font-display text-2xl mt-1">Para crecer</div>
+        <div class="mt-6 mb-2">
+          <span class="font-display text-5xl">$99.000</span>
+          <span class="font-mono text-[11px] text-fg-3 ml-1">CLP/mes</span>
+        </div>
+        <div class="mt-3 px-3 py-2 rounded-lg border border-neon/30 bg-bg-1/60">
+          <div class="font-mono text-[9px] uppercase tracking-[0.18em] text-fg-3">Setup única vez</div>
+          <div class="font-display text-lg mt-0.5">$295.000 <span class="text-[11px] text-fg-3 font-mono">CLP</span></div>
+          <div class="font-mono text-[9px] text-neon mt-0.5">✦ Early Adopter: $0 setup</div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span class="text-neon">✓</span> Todo lo del Plan INICIO</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Channel Manager (Booking, Airbnb, Despegar)</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Bot reservas + check-in digital</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> E-commerce MercadoPago / Webpay</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> 4 idiomas nativos (ES/EN/DE/PT)</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> CRM unificado · 30 días soporte</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20el%20Plan%20PRO%20Early%20Adopter%20(%240%20setup%20%2B%20%2449.500%2Fmes%203%20meses)." target="_blank" rel="noopener" class="mt-6 block text-center btn-neon">Elegir PRO</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-2">FULL</div>
+        <div class="font-display text-2xl mt-1">Para dominar</div>
+        <div class="mt-6 mb-2">
+          <span class="font-display text-5xl">$199.000</span>
+          <span class="font-mono text-[11px] text-fg-3 ml-1">CLP/mes</span>
+        </div>
+        <div class="mt-3 px-3 py-2 rounded-lg border border-hair/60 bg-bg-1/60">
+          <div class="font-mono text-[9px] uppercase tracking-[0.18em] text-fg-3">Setup única vez</div>
+          <div class="font-display text-lg mt-0.5">$495.000 <span class="text-[11px] text-fg-3 font-mono">CLP</span></div>
+          <div class="font-mono text-[9px] text-neon mt-0.5">✦ Early Adopter: $0 setup</div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span class="text-neon">✓</span> Todo lo del Plan PRO</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Gestión de redes sociales</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> 1 sesión drone DGAC 4K mensual</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Producción de contenido (foto/video)</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Reportes mensuales con métricas</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Call estratégica mensual con founder</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20el%20Plan%20FULL%20(%24495K%20setup%20%2B%20%24199K%2Fmes)." target="_blank" rel="noopener" class="mt-6 block text-center btn-outline">Elegir FULL</a>
+      </article>
+
+    </div>
+
+    <div class="mt-10 max-w-3xl mx-auto p-5 rounded-2xl border border-emerald-400/30 bg-emerald-400/[0.04]">
+      <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-neon mb-2">¿Qué incluye el setup?</div>
+      <p class="text-fg-1 text-sm leading-relaxed">
+        <strong class="text-fg-0">No es plantilla</strong>. Es ingeniería real: configuración Meta Cloud API + verificación + plantillas + opt-in legal · entrenamiento del bot con tu catálogo, FAQs, tono y casos · integraciones (Calendar, MercadoPago, Webpay, ERP) · 30 días de soporte directo con Matías para ajustar hasta que vendas. Si alguien te ofrece "setup gratis", es plantilla genérica de Make/Zapier (lo armas en YouTube).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 2. LEMU CHANNEL MANAGER ═════════ -->
+<section id="lemu" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-cyan mb-3">02 · Único en Chile</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">LEMU · Channel Manager <span style="color: var(--neon-cyan);">Hotelero</span></h2>
+      <p class="mt-4 text-fg-1 text-base">Sincroniza Booking + Airbnb + Despegar vía iCal. Bot Lila en 4 idiomas (ES/EN/DE/PT). Booking engine + Webpay nativo. F29 SII listo. Panel ocupación + check-in digital. <strong class="text-neon">Caso real: Lilafken Apart +27% ocupación.</strong></p>
+    </header>
+
+    <div class="grid md:grid-cols-2 gap-5 max-w-4xl">
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-2">LEMU CORE</div>
+        <div class="font-display text-2xl mt-1">1 propiedad</div>
+        <div class="mt-6 mb-2">
+          <span class="font-display text-5xl">$149.000</span>
+          <span class="font-mono text-[11px] text-fg-3 ml-1">CLP/mes</span>
+        </div>
+        <div class="mt-3 px-3 py-2 rounded-lg border border-hair/60 bg-bg-1/60">
+          <div class="font-mono text-[9px] uppercase tracking-[0.18em] text-fg-3">Setup única vez</div>
+          <div class="font-display text-lg mt-0.5">$445.000 <span class="text-[11px] text-fg-3 font-mono">CLP</span></div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span class="text-neon">✓</span> Sincronización Booking + Airbnb + Despegar (iCal)</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Bot Lila WhatsApp 4 idiomas</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Booking engine + Webpay nativo</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> F29 SII automático</li>
+          <li class="flex gap-2"><span class="text-neon">✓</span> Panel ocupación + check-in digital</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20soy%20hotelero%20y%20quiero%20LEMU%20Core%20para%201%20propiedad." target="_blank" rel="noopener" class="mt-6 block text-center btn-outline">Elegir LEMU Core</a>
+      </article>
+
+      <article class="product-card featured" style="border-color: rgba(6,212,255,0.5); background: linear-gradient(180deg, rgba(6,212,255,0.06) 0%, transparent 100%); box-shadow: 0 0 50px -10px rgba(6,212,255,0.2);">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--neon-cyan);">LEMU MULTI · Cadenas</div>
+        <div class="font-display text-2xl mt-1">Hasta 5 propiedades</div>
+        <div class="mt-6 mb-2">
+          <span class="font-display text-5xl">$249.000</span>
+          <span class="font-mono text-[11px] text-fg-3 ml-1">CLP/mes</span>
+        </div>
+        <div class="mt-3 px-3 py-2 rounded-lg border bg-bg-1/60" style="border-color: rgba(6,212,255,0.3);">
+          <div class="font-mono text-[9px] uppercase tracking-[0.18em] text-fg-3">Setup única vez</div>
+          <div class="font-display text-lg mt-0.5">$745.000 <span class="text-[11px] text-fg-3 font-mono">CLP</span></div>
+        </div>
+        <ul class="mt-6 space-y-2 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span style="color: var(--neon-cyan);">✓</span> Todo LEMU Core × hasta 5 propiedades</li>
+          <li class="flex gap-2"><span style="color: var(--neon-cyan);">✓</span> Panel consolidado multi-propiedad</li>
+          <li class="flex gap-2"><span style="color: var(--neon-cyan);">✓</span> Bots Lila individuales por propiedad</li>
+          <li class="flex gap-2"><span style="color: var(--neon-cyan);">✓</span> Reportes consolidados mensuales</li>
+          <li class="flex gap-2"><span style="color: var(--neon-cyan);">✓</span> Soporte priorizado founder</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20tengo%20m%C3%A1s%20de%201%20propiedad%20y%20quiero%20LEMU%20Multi." target="_blank" rel="noopener" class="mt-6 block text-center" style="display: flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 999px; background: var(--neon-cyan); color: #0a0a0a; font-weight: 700;">Elegir LEMU Multi</a>
+      </article>
+
+    </div>
+
+    <div class="mt-10 max-w-3xl mx-auto p-5 rounded-2xl border border-cyan-400/30 bg-cyan-400/[0.04]">
+      <div class="font-mono text-[10px] uppercase tracking-[0.18em]" style="color: var(--neon-cyan);">Probá el bot Lila AHORA</div>
+      <p class="text-fg-1 text-sm mt-2 mb-3">Atendiendo Lilafken Apart en Pichilemu desde hace 8 meses. Escríbele en español, inglés, alemán o portugués — te contesta perfecto en segundos.</p>
+      <a href="https://wa.me/56978162707?text=Hola%20👋%20quiero%20info%20del%20apart%20hotel" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition" style="color: var(--neon-cyan);">
+        📱 wa.me/56978162707 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 3. AUTOMATIZACIONES N8N ═════════ -->
+<section id="n8n" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-purple mb-3">03 · A medida</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">Automatizaciones <span style="color: var(--neon-purple);">n8n</span></h2>
+      <p class="mt-4 text-fg-1 text-base">Conectamos tus sistemas y procesos repetitivos. Lead scraping → CRM → WhatsApp. Cobranzas automáticas. Sincronización Sheets + Drive + Notion. Webhooks a la medida. Self-hosted, sin lock-in.</p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl">
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--neon-purple);">DIAGNÓSTICO</div>
+        <div class="font-display text-xl mt-1">Roadmap inicial</div>
+        <div class="mt-5">
+          <div class="font-display text-3xl">$190.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP · 3 horas + documento</div>
+        </div>
+        <p class="mt-4 text-[12px] text-fg-2">Auditamos tus procesos. Te entregamos roadmap priorizado. Descontable si contratas.</p>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20el%20diagn%C3%B3stico%20n8n%20%24190K." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Pedir diagnóstico</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--neon-purple);">WORKFLOW</div>
+        <div class="font-display text-xl mt-1">Por unidad</div>
+        <div class="mt-5">
+          <div class="font-display text-3xl">$225K–$445K</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP · según complejidad</div>
+        </div>
+        <p class="mt-4 text-[12px] text-fg-2">Un workflow puntual (ej: scrape leads → CRM → mensaje WA). Entrega 2-3 semanas.</p>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20cotizar%20un%20workflow%20n8n." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Cotizar workflow</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--neon-purple);">PAQUETE 3</div>
+        <div class="font-display text-xl mt-1">Bundle ahorro</div>
+        <div class="mt-5">
+          <div class="font-display text-3xl">$745.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP · 3 workflows · ahorro 25%</div>
+        </div>
+        <p class="mt-4 text-[12px] text-fg-2">Tres workflows acordados en kickoff. Entrega 4-5 semanas. Ideal para automatizar de golpe.</p>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20el%20paquete%20de%203%20workflows%20n8n%20(%24745K)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Elegir paquete</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--neon-purple);">RETAINER</div>
+        <div class="font-display text-xl mt-1">Mensual continuo</div>
+        <div class="mt-5">
+          <div class="font-display text-3xl">$145.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP/mes · 5h cambios incluidas</div>
+        </div>
+        <p class="mt-4 text-[12px] text-fg-2">Mantenimiento + 5 horas mensuales de ajustes/nuevos workflows. Para clientes con sistema corriendo.</p>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20me%20interesa%20el%20retainer%20mensual%20n8n%20%24145K." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Pedir retainer</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 4. SITIOS WEB ═════════ -->
+<section id="web" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-amber mb-3">04 · Diseño + ingeniería</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">Sitios web <span style="color: #fbbf24;">app-like</span></h2>
+      <p class="mt-4 text-fg-1 text-base">No WordPress. No Wix. Código real Next.js con SEO día 1, performance 95+ Lighthouse, multilingüe nativo y bot integrado. Diseño único, no plantillas.</p>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: #fbbf24;">LANDING</div>
+        <div class="font-display text-xl mt-1">1 página PYME local</div>
+        <div class="mt-5">
+          <div class="font-display text-4xl">$295.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP setup · única vez</div>
+        </div>
+        <div class="mt-3 text-[12px] text-fg-2">+ $35.000 CLP/mes (hosting + mantención + cambios menores)</div>
+        <ul class="mt-5 space-y-1.5 text-[12px] text-fg-1">
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Diseño único + dominio</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> SEO + Google Maps</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Click-to-WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20una%20landing%20PYME%20(%24295K)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Cotizar landing</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: #fbbf24;">APP-LIKE</div>
+        <div class="font-display text-xl mt-1">Multi-sección · profesional</div>
+        <div class="mt-5">
+          <div class="font-display text-4xl">$600.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP setup · única vez</div>
+        </div>
+        <div class="mt-3 text-[12px] text-fg-2">+ $79.000 CLP/mes (mantención + cambios + reportes)</div>
+        <ul class="mt-5 space-y-1.5 text-[12px] text-fg-1">
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Hasta 8 secciones / sub-páginas</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Animaciones premium · 95+ Lighthouse</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Bot integrado · multilingüe</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> CMS para que edites tú</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20un%20sitio%20app-like%20(%24600K)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Cotizar app-like</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: #fbbf24;">E-COMMERCE</div>
+        <div class="font-display text-xl mt-1">Tienda + bot + MercadoPago</div>
+        <div class="mt-5">
+          <div class="font-display text-4xl">$950.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP setup · única vez</div>
+        </div>
+        <div class="mt-3 text-[12px] text-fg-2">+ $129.000 CLP/mes (operación + soporte)</div>
+        <ul class="mt-5 space-y-1.5 text-[12px] text-fg-1">
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Catálogo ilimitado</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> MercadoPago / Webpay / Flow</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Bot atiende stock + cierra ventas</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Despachos + tracking</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20un%20e-commerce%20completo%20(%24950K)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Cotizar tienda</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 5. DRONE DGAC ═════════ -->
+<section id="drones" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-cyan mb-3">05 · Producción audiovisual</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">Drone DGAC <span style="color: var(--neon-cyan);">4K</span> + audiovisual</h2>
+      <p class="mt-4 text-fg-1 text-base">Permisos DGAC en regla. Drone DJI Spark 4K. Para hoteles, restaurantes, eventos, retail y proyectos inmobiliarios. Edición incluida en producciones medias y completas.</p>
+    </header>
+
+    <div class="rounded-2xl border border-hair overflow-hidden max-w-4xl">
+      <div class="price-row p-5 bg-bg-1/40">
+        <div class="label"><strong class="text-fg-0">Sesión corta</strong> · 2-3 horas en propiedad</div>
+        <div class="price">$80.000<span class="sub">CLP</span></div>
+      </div>
+      <div class="price-row p-5">
+        <div class="label"><strong class="text-fg-0">Sesión media</strong> · 4-6 horas + edición básica</div>
+        <div class="price">$180.000<span class="sub">CLP</span></div>
+      </div>
+      <div class="price-row p-5 bg-bg-1/40">
+        <div class="label"><strong class="text-fg-0">Producción completa</strong> · guión + 4K + edición final</div>
+        <div class="price">$350.000–$450.000<span class="sub">CLP</span></div>
+      </div>
+      <div class="price-row p-5">
+        <div class="label">
+          <strong class="text-fg-0">Pack anual 12 sesiones</strong> · 1 mensual incluida
+          <span class="ml-2 text-[10px] text-neon font-mono uppercase tracking-widest">Mejor valor</span>
+        </div>
+        <div class="price">$79.000<span class="sub">CLP/mes</span></div>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <a href="https://wa.me/56977877602?text=Hola%20Mati,%20necesito%20producci%C3%B3n%20drone%20DGAC." target="_blank" rel="noopener" class="btn-outline">Cotizar sesión drone</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ 6. COMPLIANCE LEY 21.719 ═════════ -->
+<section id="compliance" class="py-16 md:py-24 border-t border-hair">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <header class="mb-12 max-w-3xl">
+      <span class="badge-amber mb-3">06 · Urgente · julio 2026</span>
+      <h2 class="font-display mt-3" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1;">Compliance <span style="color: #fbbf24;">Ley 21.719</span> de datos</h2>
+      <p class="mt-4 text-fg-1 text-base">Desde julio 2026 entra en vigencia plena la Ley 21.719 (protección datos personales Chile). Multas hasta 20.000 UTM. Si tienes un bot WhatsApp, formulario web o base de leads, tienes obligaciones legales. Te las cumplimos llave en mano.</p>
+    </header>
+
+    <div class="grid md:grid-cols-2 gap-5 max-w-4xl">
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: #fbbf24;">AUDITORÍA</div>
+        <div class="font-display text-xl mt-1">Diagnóstico + informe</div>
+        <div class="mt-5">
+          <div class="font-display text-4xl">$145.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP · 3 horas + informe formal</div>
+        </div>
+        <ul class="mt-5 space-y-1.5 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Mapeo flujos de datos personales</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Gap analysis vs Ley 21.719</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Plan remediación priorizado</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Descontable de implementación</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20auditor%C3%ADa%20Ley%2021.719%20(%24145K)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Pedir auditoría</a>
+      </article>
+
+      <article class="product-card">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em]" style="color: #fbbf24;">IMPLEMENTACIÓN</div>
+        <div class="font-display text-xl mt-1">Llave en mano + DPO virtual</div>
+        <div class="mt-5">
+          <div class="font-display text-4xl">$445.000</div>
+          <div class="font-mono text-[10px] text-fg-3 mt-1">CLP setup + $59.000/mes mantención</div>
+        </div>
+        <ul class="mt-5 space-y-1.5 text-[13px] text-fg-1">
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Consentimientos + opt-out automatizado</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Política privacidad + términos legales</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> Flujo borrado/portabilidad datos</li>
+          <li class="flex gap-2"><span style="color: #fbbf24;">✓</span> DPO virtual (atención requerimientos)</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20implementaci%C3%B3n%20Ley%2021.719%20(%24445K%20%2B%20%2459K%2Fmes)." target="_blank" rel="noopener" class="mt-5 block text-center btn-outline" style="padding: 10px 18px; font-size: 12px;">Implementar</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ EARLY ADOPTER + CTA FINAL ═════════ -->
+<section class="py-20 md:py-28 border-t border-hair relative overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,245,168,0.10), transparent 70%);"></div>
+  <div class="mx-auto max-w-4xl px-5 md:px-8 text-center">
+    <span class="section-tag mb-5">10 cupos · Hasta agosto 2026</span>
+    <h2 class="font-display mt-3" style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1;">
+      Early Adopter:<br>
+      <span class="text-neon">$0 setup</span> + 50% off 3 meses
+    </h2>
+    <p class="mt-6 text-fg-1 text-base md:text-lg max-w-2xl mx-auto">
+      Te ahorrás <strong class="text-fg-0">$295.000 CLP</strong> de setup. Pagás <strong class="text-fg-0">$49.500/mes</strong> los primeros 3 meses (mes 1 gratis, mes 2-3 mitad). Mes 4 entrás al precio normal $99K. <br><br>
+      <span class="font-mono text-[11px] uppercase tracking-widest text-fg-3">A cambio: testimonio en video al mes 2 + permiso para usar tu caso en marketing.</span>
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/56977877602?text=Hola%20Mati,%20quiero%20uno%20de%20los%2010%20cupos%20Early%20Adopter%20(%240%20setup%20%2B%20%2449.500%2Fmes)." target="_blank" rel="noopener" class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Solicitar cupo Early Adopter
+      </a>
+      <a href="/presentacion.pdf" target="_blank" rel="noopener" class="btn-outline">
+        📄 Descargar presentación PDF
+      </a>
+    </div>
+
+    <p class="mt-8 text-xs text-fg-3 font-mono uppercase tracking-widest">
+      Garantía 30 días · Si no funciona, devolvemos 100% setup + mensualidad
+    </p>
+  </div>
+</section>
+
+<!-- ═════════ FOOTER ═════════ -->
+<footer class="border-t border-hair py-12">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <div class="font-display text-2xl"><span class="text-grad">KREATHUR</span></div>
+        <p class="mt-3 text-fg-2 text-sm">Recepcionistas IA, bots y automatizaciones para hoteles y negocios locales. Pichilemu, Chile + Kiel, Alemania.</p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] uppercase tracking-widest text-fg-3 mb-3">Navegación</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="text-fg-1 hover:text-fg-0">← Volver al sitio principal</a></li>
+          <li><a href="#recepcionistas" class="text-fg-1 hover:text-fg-0">Recepcionistas IA</a></li>
+          <li><a href="#lemu" class="text-fg-1 hover:text-fg-0">LEMU Hotelero</a></li>
+          <li><a href="#n8n" class="text-fg-1 hover:text-fg-0">Automatizaciones n8n</a></li>
+          <li><a href="#web" class="text-fg-1 hover:text-fg-0">Sitios web</a></li>
+          <li><a href="#drones" class="text-fg-1 hover:text-fg-0">Drone DGAC</a></li>
+          <li><a href="#compliance" class="text-fg-1 hover:text-fg-0">Ley 21.719</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] uppercase tracking-widest text-fg-3 mb-3">Contacto directo</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://wa.me/56977877602" target="_blank" rel="noopener" class="text-fg-1 hover:text-neon">📱 WhatsApp +56 9 7787 7602</a></li>
+          <li><a href="mailto:hola@kreathur.agency" class="text-fg-1 hover:text-fg-0">✉️ hola@kreathur.agency</a></li>
+          <li><a href="https://kreathur.agency" class="text-fg-1 hover:text-fg-0">🌐 kreathur.agency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-hair flex flex-wrap items-center justify-between gap-2 text-xs text-fg-3 font-mono uppercase tracking-widest">
+      <span>© 2026 Kreathur · Pichilemu 🇨🇱 + Kiel 🇩🇪</span>
+      <span>Construido con café y mar.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/56977877602?text=Hola%20Mati,%20vengo%20del%20cat%C3%A1logo%20de%20Kreathur%20y%20quiero%20m%C3%A1s%20info." target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>

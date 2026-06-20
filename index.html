@@ -367,8 +367,9 @@
   .flag-us { background: repeating-linear-gradient(to bottom, #b22234 0 2px, #fff 2px 4px); }
   .flag-us::before { content:''; position: absolute; left:0; top:0; width: 45%; height: 55%; background: #3c3b6e; }
   .flag-de { background: linear-gradient(to bottom, #000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%); }
-  .flag-br { background: linear-gradient(to right, #009b3a 0% 30%, #fedf00 30% 70%, #009b3a 70% 100%); }
-  .flag-br::after { content:''; position: absolute; left: 35%; top: 25%; width: 30%; height: 50%; background: #002776; border-radius: 50%; }
+  .flag-br { background: #009b3a; }
+  .flag-br::before { content: ''; position: absolute; inset: 1px; background: #fedf00; clip-path: polygon(50% 6%, 94% 50%, 50% 94%, 6% 50%); }
+  .flag-br::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 38%; height: 52%; background: #002776; border-radius: 50%; }
 
   /* MatiBot launcher (big green WhatsApp-style bubble bottom-right) */
   .matibot-launcher {
@@ -696,25 +697,28 @@
       <div class="font-display text-xl tracking-tight"><span class="text-grad">KREATHUR</span></div>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-6">
-      <a href="#servicios" class="nav-link" data-i18n="nav.servicios">Servicios</a>
+    <nav class="hidden lg:flex items-center gap-5">
+      <a href="/productos.html" class="nav-link font-semibold" style="color: var(--neon-mint);">📋 Productos</a>
       <a href="#bots-live" class="nav-link"><span class="text-neon">●</span> Bots LIVE</a>
       <a href="#lemu" class="nav-link" data-i18n="nav.lemu">LEMU</a>
       <a href="#proyectos" class="nav-link" data-i18n="nav.proyectos">Proyectos</a>
       <a href="#garantia" class="nav-link" data-i18n="nav.garantia">Garantía</a>
       <a href="#quienes-somos" class="nav-link" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contacto</a>
+      <a href="https://wa.me/56977877602?text=Hola%20Mati%20👋" target="_blank" rel="noopener" class="nav-link" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,#25d366,#128c3a);color:#fff;font-weight:600;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
     </nav>
 
     <div class="flex items-center gap-2">
       <div class="relative">
         <button id="lang-toggle" class="lang-dd">
-          <span class="flag flag-es" id="lang-flag"></span>
+          <span class="flag flag-cl" id="lang-flag"></span>
           <span id="lang-code">ES</span>
           <span class="opacity-50">▾</span>
         </button>
         <div id="lang-menu" class="lang-menu">
-          <div class="lang-item" data-lang="es"><span class="flag flag-es"></span><span>Español</span></div>
+          <div class="lang-item" data-lang="es"><span class="flag flag-cl"></span><span>Español</span></div>
           <div class="lang-item" data-lang="en"><span class="flag flag-us"></span><span>English</span></div>
           <div class="lang-item" data-lang="de"><span class="flag flag-de"></span><span>Deutsch</span></div>
           <div class="lang-item" data-lang="pt"><span class="flag flag-br"></span><span>Português</span></div>
@@ -729,13 +733,13 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="lg:hidden hidden border-t border-hair glass">
     <nav class="px-5 py-4 flex flex-col gap-3">
-      <a href="#servicios" class="nav-link" data-i18n="nav.servicios">Servicios</a>
+      <a href="/productos.html" class="nav-link font-semibold" style="color: var(--neon-mint);">📋 Productos y precios</a>
       <a href="#bots-live" class="nav-link"><span class="text-neon">●</span> Bots LIVE</a>
       <a href="#lemu" class="nav-link" data-i18n="nav.lemu">LEMU</a>
       <a href="#proyectos" class="nav-link" data-i18n="nav.proyectos">Proyectos</a>
       <a href="#garantia" class="nav-link" data-i18n="nav.garantia">Garantía</a>
       <a href="#quienes-somos" class="nav-link" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contacto</a>
+      <a href="https://wa.me/56977877602" target="_blank" rel="noopener" class="nav-link" style="color: var(--neon-mint);">📱 WhatsApp Kreathur</a>
     </nav>
   </div>
 </header>
@@ -791,7 +795,7 @@
 
         <div class="mt-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.05] reveal d2">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34f5a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="font-mono text-[10px] uppercase tracking-[0.18em]" style="color: var(--neon-mint);" data-i18n="hero.no_setup">Setup profesional desde $390k</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.18em]" style="color: var(--neon-mint);" data-i18n="hero.no_setup">Setup profesional desde $195k</span>
           <span class="text-fg-2/60 text-[11px]" data-i18n="hero.no_setup_sub">— garantía 30 días o devolvemos el 100%</span>
         </div>
 
@@ -1281,7 +1285,7 @@
 
     <div class="mt-12 max-w-3xl mx-auto text-center rounded-2xl border border-emerald-400/30 bg-emerald-400/[0.04] p-6 reveal">
       <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-neon mb-2">¿Te respondió bien?</div>
-      <p class="text-fg-0 text-base mb-4">Te armo uno igual para tu negocio. <strong>Setup desde $390k CLP</strong> · garantía 30 días o te devuelvo el 100%.</p>
+      <p class="text-fg-0 text-base mb-4">Te armo uno igual para tu negocio. <strong>Setup desde $195k CLP</strong> · garantía 30 días o te devuelvo el 100%.</p>
       <a href="https://wa.me/56977877602?text=Hola%20Mati,%20probé%20los%20bots%20y%20quiero%20uno%20para%20mi%20negocio." target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold transition hover:opacity-90" style="background: var(--neon-mint); color: #0a0a0a;">
         Hablar con Mati ahora →
       </a>
@@ -1395,7 +1399,7 @@
     <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
 
     <p class="mt-8 text-center text-xs text-fg-2/70 font-mono uppercase tracking-widest" data-i18n="price.footer">
-      Setup profesional desde $390k · Early Adopter: $0 setup · garantía 30 días · sin contrato
+      Setup profesional desde $195k · Early Adopter: $0 setup · garantía 30 días · sin contrato
     </p>
   </div>
 </section>
@@ -1725,7 +1729,7 @@
         <div>
           <div class="font-mono text-[10px] uppercase tracking-widest text-fg-3 mb-3" data-i18n="footer.col3">Idiomas</div>
           <ul class="space-y-2 text-fg-1/75 text-xs">
-            <li class="flex items-center gap-2"><span class="flag flag-es"></span><span>Español</span></li>
+            <li class="flex items-center gap-2"><span class="flag flag-cl"></span><span>Español</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-us"></span><span>English</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-de"></span><span>Deutsch</span></li>
             <li class="flex items-center gap-2"><span class="flag flag-br"></span><span>Português</span></li>
@@ -1816,7 +1820,7 @@ const T = {
     'hero.body1': 'Responde clientes, agenda reservas, cobra y avisa al equipo —',
     'hero.body2': ' por 39/mes', 'hero.body3': ', 24/7, en tu propio WhatsApp y en ',
     'hero.body4': '4 idiomas', 'hero.body5': '. Hecho en Pichilemu y Kiel para PYMES de Chile y Europa.',
-    'hero.no_setup': 'Setup profesional desde $390k', 'hero.no_setup_sub': '— garantía 30 días o devolvemos el 100%',
+    'hero.no_setup': 'Setup profesional desde $195k', 'hero.no_setup_sub': '— garantía 30 días o devolvemos el 100%',
     'hero.cta1': 'Agendar demo gratis · 15 min', 'hero.cta2': 'Ver cómo funciona',
     'hero.stat1b': 'Responde el bot', 'hero.stat2b': 'Sin descanso', 'hero.stat3b': 'Primer mes',
     'hero.eyebrow': 'Recepcionistas IA · Bots WhatsApp · Channel Manager Hotelero',
@@ -1870,7 +1874,7 @@ const T = {
     'price.early_tag': '10 cupos · Early Adopter',
     'price.early_body': '<strong>Precio de fundadores</strong> en Plan Pro: $49.500/mes los primeros 3 meses (mes 1 gratis, mes 2-3 mitad de precio, mes 4 precio full).',
     'price.early_cta': 'Solicitar cupo →',
-    'price.footer': 'Setup profesional desde $390k · Early Adopter: $0 setup · garantía 30 días · sin contrato',
+    'price.footer': 'Setup profesional desde $195k · Early Adopter: $0 setup · garantía 30 días · sin contrato',
     'guar.tag': 'Kreathur asume todo el riesgo',
     'guar.title1': '30 días de prueba ·', 'guar.title2': 'Si no te funciona, no pagas',
     'guar.circle': 'satisfacción garantizada',
@@ -1921,7 +1925,7 @@ const T = {
     'hero.body1': 'Answers customers, books reservations, charges and notifies your team —',
     'hero.body2': ' for $39/mo', 'hero.body3': ', 24/7, on your own WhatsApp and in ',
     'hero.body4': '4 languages', 'hero.body5': '. Made in Pichilemu and Kiel for SMBs in Chile and Europe.',
-    'hero.no_setup': 'Professional setup from $390k CLP', 'hero.no_setup_sub': '— 30-day guarantee or 100% refund',
+    'hero.no_setup': 'Professional setup from $195k CLP', 'hero.no_setup_sub': '— 30-day guarantee or 100% refund',
     'hero.cta1': 'Book free demo · 15 min', 'hero.cta2': 'See how it works',
     'hero.stat1b': 'Bot reply time', 'hero.stat2b': 'No rest', 'hero.stat3b': 'First month',
     'hero.eyebrow': 'Recepcionistas IA · Bots WhatsApp · Channel Manager Hotelero',
@@ -1975,7 +1979,7 @@ const T = {
     'price.early_tag': '10 spots · Early Adopter',
     'price.early_body': '<strong>Founders\' price</strong> on Pro plan: $49,500/mo first 3 months (month 1 free, months 2-3 half price, month 4 full price).',
     'price.early_cta': 'Request a spot →',
-    'price.footer': 'Professional setup from $390k CLP · Early Adopter: $0 setup · 30-day guarantee · no contract',
+    'price.footer': 'Professional setup from $195k CLP · Early Adopter: $0 setup · 30-day guarantee · no contract',
     'guar.tag': 'Kreathur takes all the risk',
     'guar.title1': '30-day trial ·', 'guar.title2': 'If it doesn\'t work, you don\'t pay',
     'guar.circle': 'satisfaction guaranteed',
@@ -2024,7 +2028,7 @@ const T = {
     'price.early_tag': '10 Plätze · Early Adopter',
     'price.early_body': '<strong>Gründerpreis</strong> auf Pro: $49.500/Monat erste 3 Monate.',
     'price.early_cta': 'Platz anfragen →',
-    'price.footer': 'Profi-Setup ab $390k CLP · Early Adopter: $0 Setup · 30-Tage-Garantie · kein Vertrag',
+    'price.footer': 'Profi-Setup ab $195k CLP · Early Adopter: $0 Setup · 30-Tage-Garantie · kein Vertrag',
     'guar.tag': 'Kreathur trägt das Risiko',
     'guar.title1': '30 Tage Probe ·', 'guar.title2': 'Wenn nicht funktioniert, keine Zahlung',
     'guar.circle': 'Zufriedenheit garantiert',
@@ -2075,7 +2079,7 @@ const T = {
     'price.early_tag': '10 vagas · Early Adopter',
     'price.early_body': '<strong>Preço de fundadores</strong> no Plano Pro: $49.500/mês primeiros 3 meses.',
     'price.early_cta': 'Solicitar vaga →',
-    'price.footer': 'Setup profissional a partir de $390k CLP · Early Adopter: $0 setup · garantia 30 dias · sem contrato',
+    'price.footer': 'Setup profissional a partir de $195k CLP · Early Adopter: $0 setup · garantia 30 dias · sem contrato',
     'guar.tag': 'Kreathur assume todo o risco',
     'guar.title1': '30 dias de teste ·', 'guar.title2': 'Se não funcionar, você não paga',
     'guar.circle': 'satisfação garantida',
@@ -2109,7 +2113,7 @@ function applyLang() {
   // Update flag in topbar
   const flagEl = document.getElementById('lang-flag');
   const codeEl = document.getElementById('lang-code');
-  const map = { es: ['flag-es','ES'], en: ['flag-us','EN'], de: ['flag-de','DE'], pt: ['flag-br','PT'] };
+  const map = { es: ['flag-cl','ES'], en: ['flag-us','EN'], de: ['flag-de','DE'], pt: ['flag-br','PT'] };
   if (flagEl && codeEl) {
     flagEl.className = 'flag ' + map[LANG][0];
     codeEl.textContent = map[LANG][1];
@@ -2307,16 +2311,16 @@ const SITES = [
 ];
 
 const PRICING = [
-  { id: 'inicio', label: 'INICIO', subtitle: { es: 'Para empezar', en: 'To start', de: 'Zum Start', pt: 'Pra começar' }, price: '$69.000', setup: '$390.000', currency: 'CLP/mes', featured: false,
+  { id: 'inicio', label: 'INICIO', subtitle: { es: 'Para empezar', en: 'To start', de: 'Zum Start', pt: 'Pra começar' }, price: '$69.000', setup: '$195.000', currency: 'CLP/mes', featured: false,
     includes: {
       es: ['Bot WhatsApp 24/7 entrenado con tu negocio', 'Integración Google Calendar', 'Sitio web simple incluido', 'Soporte WhatsApp del founder', '1 idioma · 30 días soporte setup'],
       en: ['24/7 WhatsApp bot trained on your business', 'Google Calendar integration', 'Simple website included', 'Founder WhatsApp support', '1 language · 30-day setup support'],
       de: ['24/7 WhatsApp-Bot, individuell trainiert', 'Google Calendar', 'Einfache Website', 'Gründer-Support', '1 Sprache · 30 Tage Setup-Support'],
       pt: ['Bot WhatsApp 24/7 treinado', 'Integração Google Calendar', 'Site simples incluído', 'Suporte do founder', '1 idioma · 30 dias suporte setup'],
     },
-    wa: 'Hola Matías, quiero el Plan INICIO ($390K setup + $69K/mes).',
+    wa: 'Hola Matías, quiero el Plan INICIO ($195K setup + $69K/mes).',
   },
-  { id: 'pro', label: 'PRO', subtitle: { es: 'Para crecer', en: 'To grow', de: 'Zum Wachsen', pt: 'Pra crescer' }, price: '$99.000', setup: '$590.000', currency: 'CLP/mes', featured: true,
+  { id: 'pro', label: 'PRO', subtitle: { es: 'Para crecer', en: 'To grow', de: 'Zum Wachsen', pt: 'Pra crescer' }, price: '$99.000', setup: '$295.000', currency: 'CLP/mes', featured: true,
     badge: { es: 'Más popular', en: 'Most popular', de: 'Beliebtester', pt: 'Mais popular' },
     includes: {
       es: ['Todo lo del Plan INICIO', 'Channel Manager (Booking, Airbnb, Despegar)', 'Bot reservas con check-in digital', 'E-commerce con MercadoPago / Webpay', '4 idiomas nativos (ES/EN/DE/PT)', 'CRM unificado · 30 días soporte'],
@@ -2324,16 +2328,16 @@ const PRICING = [
       de: ['Alles aus INICIO', 'Channel Manager', 'Buchungsbot + Check-in', 'E-Commerce', '4 native Sprachen', 'CRM · 30 Tage Support'],
       pt: ['Tudo do plano INICIO', 'Channel Manager', 'Bot reservas + check-in', 'E-commerce', '4 idiomas nativos', 'CRM unificado · 30 dias suporte'],
     },
-    wa: 'Hola Matías, quiero el Plan PRO ($590K setup + $99K/mes) — Early Adopter.',
+    wa: 'Hola Matías, quiero el Plan PRO ($295K setup + $99K/mes) — Early Adopter.',
   },
-  { id: 'full', label: 'FULL', subtitle: { es: 'Para dominar', en: 'To dominate', de: 'Zum Dominieren', pt: 'Pra dominar' }, price: '$199.000', setup: '$990.000', currency: 'CLP/mes', featured: false,
+  { id: 'full', label: 'FULL', subtitle: { es: 'Para dominar', en: 'To dominate', de: 'Zum Dominieren', pt: 'Pra dominar' }, price: '$199.000', setup: '$495.000', currency: 'CLP/mes', featured: false,
     includes: {
       es: ['Todo lo del Plan PRO', 'Gestión de redes sociales', '1 sesión mensual de drone DGAC 4K', 'Producción de contenido (foto + video)', 'Reportes mensuales con métricas', 'Llamada estratégica mensual con founder'],
       en: ['Everything in PRO', 'Social media management', '1 monthly DGAC 4K drone session', 'Content production (photo + video)', 'Monthly reports', 'Monthly strategic call with founder'],
       de: ['Alles aus PRO', 'Social Media', '1 monatliche Drohnen-Session', 'Content-Produktion', 'Monatliche Reports', 'Strategischer Call'],
       pt: ['Tudo do PRO', 'Gestão de redes', '1 sessão mensal drone DGAC', 'Produção de conteúdo', 'Reports mensais', 'Call estratégica mensal'],
     },
-    wa: 'Hola Matías, quiero el Plan FULL ($990K setup + $199K/mes).',
+    wa: 'Hola Matías, quiero el Plan FULL ($495K setup + $199K/mes).',
   },
 ];
 
@@ -2636,7 +2640,7 @@ document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('cli
 
 /* ───── MatiBot ───── */
 const FAQ = [
-  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Tres planes:\n\n💎 **INICIO** Setup $390k + $69K/mes — Bot WA + Calendar + sitio simple\n🔥 **PRO** Setup $590k + $99K/mes — Todo + Channel Manager + Booking + Airbnb + ecommerce (HOY: Early Adopter $0 setup + $49.500 los primeros 3 meses)\n👑 **FULL** Setup $990k + $199K/mes — Todo + redes + drone 4K mensual\n\nSetup incluye Meta API + entrenamiento + integración + 30 días soporte. Garantía 30 días o devolvemos 100%.' },
+  { lang: 'es', q: ['cuánto cuesta','cuanto cuesta','precio','cuanto vale','pricing'], a: 'Tres planes:\n\n💎 **INICIO** Setup $195k + $69K/mes — Bot WA + Calendar + sitio simple\n🔥 **PRO** Setup $295k + $99K/mes — Todo + Channel Manager + Booking + Airbnb + ecommerce (HOY: Early Adopter $0 setup + $49.500 los primeros 3 meses)\n👑 **FULL** Setup $495k + $199K/mes — Todo + redes + drone 4K mensual\n\nSetup incluye Meta API + entrenamiento + integración + 30 días soporte. Garantía 30 días o devolvemos 100%.' },
   { lang: 'es', q: ['early adopter','cupos','fundadores','descuento'], a: 'Hay **10 cupos Early Adopter** del Plan Pro a precio de fundadores: $49.500/mes los primeros 3 meses (mes 1 gratis, mes 2-3 mitad de precio, mes 4 precio full). Si quieres uno, escríbele a Matías ya.' },
   { lang: 'es', q: ['drone','drones','aéreo','dgac','dron'], a: 'Matías es piloto DGAC certificado con DJI Spark. Dentro de tu propiedad → incluido en Plan Full (1 sesión mensual). Fuera de propiedad → servicio aparte: $80K corto (2-3h) hasta $450K producción completa.' },
   { lang: 'es', q: ['garantía','garantia','30 días','devolución','si no funciona'], a: '30 días de prueba en tu negocio real. Si al día 30 no ves los resultados concretos acordados, te devolvemos el 100% sin preguntas incómodas. Tú decides si funciona — nosotros asumimos el riesgo.' },
@@ -2646,14 +2650,14 @@ const FAQ = [
   { lang: 'es', q: ['hotelería','hotel','airbnb','booking','channel'], a: 'Para hoteles boutique tenemos el Plan PRO con Channel Manager (sincroniza Booking + Airbnb + Despegar), bot de reservas con check-in digital, booking engine + Webpay. Caso real: Lilafken Apart, +27% ocupación.' },
   { lang: 'es', q: ['contacto','contactar','whatsapp','agendar','demo'], a: 'WhatsApp: +56 9 7787 7602 (responde el founder, <24h). Email: hola@kreathur.agency. Para una demo de 15 min, mejor por WhatsApp.' },
   { lang: 'es', q: ['casos','clientes','proyectos','portafolio'], a: '5 negocios live ahora: Lilafken Apart, Puntoski, Pichilemu Wear, Importadora Maully, MatiWlog. 800+ reseñas verificables en Booking/Airbnb/Google.' },
-  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Three plans:\n\n💎 **START** Setup $390k CLP + $69K/mo — WA bot + Calendar + simple site\n🔥 **PRO** Setup $590k + $99K/mo — All + Channel Manager + Booking + Airbnb + ecommerce (Early Adopter: $0 setup + $49.500/mo first 3 months)\n👑 **FULL** Setup $990k + $199K/mo — All + social + monthly 4K drone\n\nSetup includes Meta API + training + integrations + 30-day support. 30-day guarantee or 100% refund.' },
+  { lang: 'en', q: ['how much','price','cost','pricing'], a: 'Three plans:\n\n💎 **START** Setup $195k CLP + $69K/mo — WA bot + Calendar + simple site\n🔥 **PRO** Setup $295k + $99K/mo — All + Channel Manager + Booking + Airbnb + ecommerce (Early Adopter: $0 setup + $49.500/mo first 3 months)\n👑 **FULL** Setup $495k + $199K/mo — All + social + monthly 4K drone\n\nSetup includes Meta API + training + integrations + 30-day support. 30-day guarantee or 100% refund.' },
   { lang: 'en', q: ['early adopter','spots','founders'], a: '10 Early Adopter spots on Pro plan at founders\' price: $49,500/mo first 3 months. Hit up Matías now.' },
   { lang: 'en', q: ['guarantee','warranty','30 days','refund'], a: '30-day trial in your real business. If by day 30 you don\'t see agreed concrete results, we refund 100%, no awkward questions. We take the risk.' },
   { lang: 'en', q: ['drone','aerial','dgac'], a: 'Matías is a DGAC-certified pilot with DJI Spark. On-site → included in Full Plan (1 monthly session). Off-site → separate service: $80K short (2-3h) up to $450K full production.' },
   { lang: 'en', q: ['contact','whatsapp','demo'], a: 'WhatsApp: +56 9 7787 7602. Email: hola@kreathur.agency. Book 15 min for a live demo.' },
-  { lang: 'de', q: ['preis','kosten'], a: 'Drei Pläne: START Setup $390k + $69K/Monat, PRO Setup $590k + $99K/Monat (Early Adopter: $0 Setup + $49.500 erste 3 Monate), FULL Setup $990k + $199K/Monat. 30-Tage-Garantie.' },
+  { lang: 'de', q: ['preis','kosten'], a: 'Drei Pläne: START Setup $195k + $69K/Monat, PRO Setup $295k + $99K/Monat (Early Adopter: $0 Setup + $49.500 erste 3 Monate), FULL Setup $495k + $199K/Monat. 30-Tage-Garantie.' },
   { lang: 'de', q: ['garantie'], a: '30 Tage Probe im echten Geschäft. Wenn keine Ergebnisse, 100% Rückerstattung.' },
-  { lang: 'pt', q: ['quanto custa','preço'], a: 'Três planos: INICIO setup $390k + $69K/mês, PRO setup $590k + $99K/mês (Early Adopter: $0 setup + $49.500 primeiros 3 meses), FULL setup $990k + $199K/mês. Garantia 30 dias.' },
+  { lang: 'pt', q: ['quanto custa','preço'], a: 'Três planos: INICIO setup $195k + $69K/mês, PRO setup $295k + $99K/mês (Early Adopter: $0 setup + $49.500 primeiros 3 meses), FULL setup $495k + $199K/mês. Garantia 30 dias.' },
   { lang: 'pt', q: ['garantia'], a: '30 dias de teste no seu negócio real. Se não ver resultados, devolvemos 100%.' },
 ];
 
