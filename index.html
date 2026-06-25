@@ -346,7 +346,7 @@
   .lang-dd:hover { border-color: rgba(244,244,243,0.3); }
   .lang-menu {
     position: absolute; top: calc(100% + 8px); right: 0;
-    min-width: 180px;
+    min-width: 180px; z-index: 100;
     background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
     border: 1px solid var(--hairline);
     border-radius: 12px; padding: 4px;
@@ -359,17 +359,11 @@
   .lang-item.is-active { background: rgba(52,245,168,0.08); color: var(--neon-mint); }
 
   /* Flag boxes */
-  .flag { display: inline-block; width: 18px; height: 13px; border-radius: 2px; overflow: hidden; border: 1px solid rgba(244,244,243,0.15); position: relative; vertical-align: middle; flex-shrink: 0; }
-  .flag-cl { background: linear-gradient(to bottom, #fff 0 50%, #d52b1e 50% 100%); }
-  .flag-cl::before { content:''; position: absolute; left:0; top:0; width: 40%; height: 50%; background: #0033a0; }
-  .flag-cl::after { content: '★'; position: absolute; left: 14%; top: 8%; color: #fff; font-size: 8px; line-height: 1; }
-  .flag-es { background: linear-gradient(to bottom, #c60b1e 0 25%, #ffc400 25% 75%, #c60b1e 75% 100%); }
-  .flag-us { background: repeating-linear-gradient(to bottom, #b22234 0 2px, #fff 2px 4px); }
-  .flag-us::before { content:''; position: absolute; left:0; top:0; width: 45%; height: 55%; background: #3c3b6e; }
-  .flag-de { background: linear-gradient(to bottom, #000 0 33%, #dd0000 33% 66%, #ffce00 66% 100%); }
-  .flag-br { background: #009b3a; }
-  .flag-br::before { content: ''; position: absolute; inset: 1px; background: #fedf00; clip-path: polygon(50% 6%, 94% 50%, 50% 94%, 6% 50%); }
-  .flag-br::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 38%; height: 52%; background: #002776; border-radius: 50%; }
+  .flag { display: inline-block; width: 20px; height: 14px; border-radius: 2px; overflow: hidden; border: 1px solid rgba(244,244,243,0.18); vertical-align: middle; flex-shrink: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .flag-cl { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'><rect width='30' height='10' fill='%23ffffff'/><rect width='30' height='10' y='10' fill='%23d52b1e'/><rect width='10' height='10' fill='%230033a0'/><polygon points='5,2.6 5.85,5.2 8.6,5.2 6.37,6.8 7.22,9.4 5,7.8 2.78,9.4 3.63,6.8 1.4,5.2 4.15,5.2' fill='%23ffffff'/></svg>"); }
+  .flag-us { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 20'><rect width='38' height='20' fill='%23b22234'/><rect y='1.54' width='38' height='1.54' fill='%23ffffff'/><rect y='4.62' width='38' height='1.54' fill='%23ffffff'/><rect y='7.69' width='38' height='1.54' fill='%23ffffff'/><rect y='10.77' width='38' height='1.54' fill='%23ffffff'/><rect y='13.85' width='38' height='1.54' fill='%23ffffff'/><rect y='16.92' width='38' height='1.54' fill='%23ffffff'/><rect width='15.2' height='10.77' fill='%233c3b6e'/></svg>"); }
+  .flag-de { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18'><rect width='30' height='6' fill='%23000000'/><rect width='30' height='6' y='6' fill='%23dd0000'/><rect width='30' height='6' y='12' fill='%23ffce00'/></svg>"); }
+  .flag-br { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 20'><rect width='28' height='20' fill='%23009b3a'/><polygon points='14,2 25.5,10 14,18 2.5,10' fill='%23fedf00'/><circle cx='14' cy='10' r='4.5' fill='%23002776'/><path d='M9.8 9.6 Q14 7 18.2 9.6' stroke='%23ffffff' stroke-width='0.6' fill='none'/></svg>"); }
 
   /* MatiBot launcher (big green WhatsApp-style bubble bottom-right) */
   .matibot-launcher {
